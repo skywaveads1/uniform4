@@ -1,0 +1,96 @@
+# Images Used in the Project
+
+## Author Images
+/images/author/uniform_team.png
+
+## Culinary/Chef Images
+/images/culinary_apparel/kitchen_staff_clothing.jpeg
+/images/culinary_apparel/modern_traditional_chef_wear.jpeg
+/images/culinary_apparel/culinary_apparel_design.jpeg
+/images/culinary_apparel/culinary_uniforms_riyadh.jpeg
+/images/culinary_apparel/catering_kitchen_uniforms.jpeg
+
+/images/chef-uniforms/saudi_catering_uniform.jpeg
+/images/chef-uniforms/chef_design_2025.jpeg
+/images/chef-uniforms/chef_design_saudi.jpeg
+/images/chef-uniforms/culinary_standards.jpeg
+/images/chef-uniforms/global_chef_standards.jpeg
+/images/chef-uniforms/professional_chef_outfit.jpeg
+/images/chef-uniforms/fabric_testing_chef.jpeg
+/images/chef-uniforms/saudi_chef_modern_design.jpeg
+/images/chef-uniforms/saudi_chef_innovation.jpeg
+/images/chef-uniforms/saudi_chef_future.jpeg
+/images/chef-uniforms/sustainable_chef_uniform_2025.jpeg
+/images/chef-uniforms/chef_design_innovation_2025.jpeg
+/images/chef-uniforms/chef_uniform_market_2025.jpeg
+/images/chef-uniforms/evolution_saudi_chef_uniform.jpeg
+/images/chef-uniforms/saudi_hospitality_sectors.jpeg
+/images/chef-uniforms/future_saudi_chef_uniform.jpeg
+
+## Flight Crew Images
+/images/flight_crew/flight_crew_uniforms_riyadh.jpg
+/images/flight_crew/cabin_crew_uniforms.jpeg
+/images/flight_crew/flight_crew_uniform_design.jpeg
+/images/flight_crew/flight_crew_uniform_accessories.jpeg
+/images/flight_crew/aviation_uniform_2025.jpeg
+
+## Clinic Wear Images
+/images/clinic_wear/clinic_scrubs.jpg
+
+## Utility Services Images
+/images/utility_services/utility_uniforms.jpeg
+/images/utility_services/maintenance_technician_clothing.jpeg
+
+## Protective Services Images
+/images/protective_services/security_guard_uniforms.jpeg
+/images/protective_services/protective_services_uniforms.jpeg
+
+## Workwear Images
+/images/workwear/saudi_workwear.jpeg
+/images/workwear/uniform_sectors.jpeg
+/images/workwear/importance_uniform.jpeg
+/images/workwear/saudi_uniform_evolution.jpeg
+/images/workwear/saudi_sectors_uniform.jpeg
+/images/workwear/workwear_types.jpeg
+/images/workwear/choosing_workwear.jpeg
+/images/workwear/design_maintenance.jpeg
+/images/workwear/industrial_uniform.jpeg
+/images/workwear/hospitality_uniform.jpeg
+/images/workwear/retail_uniform.jpeg
+/images/workwear/saudi_uniform.jpeg
+/images/workwear/maintenance.jpeg
+/images/workwear/corporate_identity_uniform.jpeg
+/images/workwear/uniform_implementation.jpeg
+/images/workwear/modern_uniform_trends.jpeg
+/images/workwear/clothing_maintenance.jpeg
+/images/workwear/safety_shoes_importance.jpeg
+/images/workwear/safety_shoes_standards.jpeg
+/images/workwear/psychological_impact.jpeg
+/images/workwear/corporate_image.jpeg
+/images/workwear/corporate_uniform.jpeg
+/images/workwear/professional_appearance.jpeg
+/images/workwear/washing_techniques.jpeg
+/images/workwear/storage_systems.jpeg
+/images/workwear/brand_identity_uniform.jpeg
+/images/workwear/customer_experience_uniform.jpeg
+/images/workwear/team_uniform.jpeg
+/images/workwear/safety_shoes.jpeg
+/images/workwear/workwear_impact.jpeg
+/images/workwear/needs_assessment.jpeg
+/images/workwear/sectors_workwear.jpeg
+/images/workwear/design_process.jpeg
+/images/workwear/design_elements.jpeg
+/images/workwear/care_guidelines.jpeg
+/images/workwear/maintenance_uniform.jpeg
+/images/workwear/field_technician.jpeg
+/images/workwear/uniform_importance.jpeg
+/images/workwear/work_clothes_care.jpeg
+/images/workwear/dammam_industrial.jpeg
+
+## Testimonial Images
+/images/testimonials/person1.jpg
+/images/testimonials/person2.jpg
+/images/testimonials/person3.jpg
+
+## Academic Attire Images
+/images/academic_attire/academic_attire.jpeg 
