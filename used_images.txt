@@ -33,6 +33,64 @@
 /images/flight_crew/flight_crew_uniform_design.jpeg
 /images/flight_crew/flight_crew_uniform_accessories.jpeg
 /images/flight_crew/aviation_uniform_2025.jpeg
+/images/flight_crew/flight_crew_uniform_fabrics.jpeg
+/images/flight_crew/female_male_air_crew_wear.jpeg
+/images/flight_crew/pilot_attendant_uniforms.jpeg
+/images/flight_crew/uniforms_saudi_arabia.jpeg
+/images/flight_crew/flight_crew_scarves.jpeg
+/images/flight_crew/flight_crew_safety_requirements.jpeg
+/images/flight_crew/best_flight_crew_attire.jpeg
+/images/flight_crew/flight_crew_uniform_manufacturer.jpeg
+/images/flight_crew/flight_attendant_dress.jpeg
+/images/flight_crew/crew_uniform_visual_identity.jpeg
+/images/flight_crew/air_crew_attire.jpeg
+/images/flight_crew/corporate_flight_crew_uniforms.jpg
+/images/flight_crew/flight_crew_uniforms.jpeg
+/images/flight_crew/iconic_uniforms.jpg
+/images/flight_crew/middle_east_uniforms.jpg
+/images/flight_crew/uniform_designers.jpg
+/images/flight_crew/uniform_design_principles.jpg
+/images/flight_crew/uniform_colors_materials.jpg
+/images/flight_crew/future_aviation_uniforms.jpg
+/images/flight_crew/cabin_crew_safety_demo.jpg
+/images/flight_crew/uniform_evolution.jpg
+/images/flight_crew/early_aviation_uniforms.jpg
+/images/flight_crew/nineties_millenium_uniforms.jpg
+/images/flight_crew/saudi_airlines_uniforms_history.jpg
+/images/flight_crew/modern_saudi_aviation_uniforms.jpg
+/images/flight_crew/saudi_airways_history.jpg
+/images/flight_crew/saudi_airlines_crew.jpg
+/images/flight_crew/saudi_budget_airlines.jpg
+/images/flight_crew/future_saudi_uniforms.jpg
+/images/flight_crew/pilots_uniform_lineup.jpg
+/images/flight_crew/pilot_uniform_evolution.jpg
+/images/flight_crew/pilot_uniform_components.jpg
+/images/flight_crew/pilot_rank_insignia.jpg
+/images/flight_crew/modern_design_trends.jpg
+/images/flight_crew/smart_textiles.jpg
+/images/flight_crew/sustainable_uniforms.jpg
+/images/flight_crew/future_uniforms.jpg
+/images/flight_crew/airline_scarves_collection.jpg
+/images/flight_crew/scarf_evolution_timeline.jpg
+/images/flight_crew/scarf_types_comparison.jpg
+/images/flight_crew/cultural_diversity_uniforms.jpg
+/images/flight_crew/uniform_cultural_elements.jpg
+/images/flight_crew/cultural_modern_balance.jpg
+/images/flight_crew/east_asian_uniforms.jpg
+/images/flight_crew/uniform_design_elements.jpg
+/images/flight_crew/technical_fabrics.jpg
+/images/flight_crew/women_aviation_uniforms_evolution.jpg
+/images/flight_crew/1940s_flight_attendants.jpg
+/images/flight_crew/1960s_flight_attendants.jpg
+/images/flight_crew/1970s_flight_attendants.jpg
+/images/flight_crew/modern_female_uniforms.jpg
+/images/flight_crew/airline_identity_elements.jpg
+/images/flight_crew/fabric_types.jpg
+/images/flight_crew/smart_fabrics.jpg
+/images/flight_crew/smart_aviation_uniforms.jpg
+/images/flight_crew/sustainable_aviation_uniforms.jpg
+/images/flight_crew/ergonomic_aviation_uniforms.jpg
+/images/flight_crew/safety_aviation_uniforms.jpg
 
 ## Clinic Wear Images
 /images/clinic_wear/clinic_scrubs.jpg
@@ -44,6 +102,15 @@
 ## Protective Services Images
 /images/protective_services/security_guard_uniforms.jpeg
 /images/protective_services/protective_services_uniforms.jpeg
+
+## Security Uniforms Images
+/images/security_uniforms/psychological_impact.jpeg
+/images/security_uniforms/uniform_types.jpeg
+/images/security_uniforms/security_standards.jpeg
+/images/security_uniforms/rank_badges.jpeg
+/images/security_uniforms/security_colors.jpeg
+/images/security_uniforms/security_materials.jpeg
+/images/security_uniforms/security_importance.jpeg
 
 ## Workwear Images
 /images/workwear/saudi_workwear.jpeg
@@ -86,6 +153,13 @@
 /images/workwear/uniform_importance.jpeg
 /images/workwear/work_clothes_care.jpeg
 /images/workwear/dammam_industrial.jpeg
+/images/workwear/saudi_workwear_history.jpeg
+/images/workwear/saudi_manufacturer.jpeg
+/images/workwear/dammam_production.jpeg
+/images/workwear/dammam_choice.jpeg
+/images/workwear/workwear_importance.jpeg
+/images/workwear/selection_criteria.jpeg
+/images/workwear/utility_services_standards.jpeg
 
 ## Testimonial Images
 /images/testimonials/person1.jpg
