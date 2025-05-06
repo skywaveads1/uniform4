@@ -1,0 +1,772 @@
+{
+  "success": 26,
+  "failed": 122,
+  "details": [
+    {
+      "original": "/images/author/uniform_team.png",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\author\\uniform_team.png"
+    },
+    {
+      "original": "/images/culinary_apparel/kitchen_staff_clothing.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\kitchen_staff_clothing.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\kitchen_staff_clothing.webp",
+      "success": true
+    },
+    {
+      "original": "/images/culinary_apparel/modern_traditional_chef_wear.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\modern_traditional_chef_wear.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\modern_traditional_chef_wear.webp",
+      "success": true
+    },
+    {
+      "original": "/images/culinary_apparel/culinary_apparel_design.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\culinary_apparel_design.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\culinary_apparel_design.webp",
+      "success": true
+    },
+    {
+      "original": "/images/culinary_apparel/culinary_uniforms_riyadh.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\culinary_uniforms_riyadh.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\culinary_uniforms_riyadh.webp",
+      "success": true
+    },
+    {
+      "original": "/images/culinary_apparel/catering_kitchen_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\catering_kitchen_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\culinary_apparel\\catering_kitchen_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/chef-uniforms/saudi_catering_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\saudi_catering_uniform.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/chef_design_2025.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\chef_design_2025.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/chef_design_saudi.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\chef_design_saudi.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/culinary_standards.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\culinary_standards.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/global_chef_standards.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\global_chef_standards.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/professional_chef_outfit.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\professional_chef_outfit.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/fabric_testing_chef.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\fabric_testing_chef.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/saudi_chef_modern_design.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\saudi_chef_modern_design.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/saudi_chef_innovation.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\saudi_chef_innovation.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/saudi_chef_future.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\saudi_chef_future.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/sustainable_chef_uniform_2025.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\sustainable_chef_uniform_2025.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/chef_design_innovation_2025.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\chef_design_innovation_2025.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/chef_uniform_market_2025.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\chef_uniform_market_2025.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/evolution_saudi_chef_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\evolution_saudi_chef_uniform.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/saudi_hospitality_sectors.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\saudi_hospitality_sectors.jpeg"
+    },
+    {
+      "original": "/images/chef-uniforms/future_saudi_chef_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\chef-uniforms\\future_saudi_chef_uniform.jpeg"
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniforms_riyadh.jpg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniforms_riyadh.jpg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniforms_riyadh.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/cabin_crew_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\cabin_crew_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\cabin_crew_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniform_design.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_design.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_design.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniform_accessories.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_accessories.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_accessories.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/aviation_uniform_2025.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\aviation_uniform_2025.jpeg"
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniform_fabrics.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_fabrics.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_fabrics.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/female_male_air_crew_wear.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\female_male_air_crew_wear.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\female_male_air_crew_wear.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/pilot_attendant_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\pilot_attendant_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\pilot_attendant_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/uniforms_saudi_arabia.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\uniforms_saudi_arabia.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\uniforms_saudi_arabia.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_scarves.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_scarves.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_scarves.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_safety_requirements.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_safety_requirements.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_safety_requirements.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/best_flight_crew_attire.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\best_flight_crew_attire.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\best_flight_crew_attire.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniform_manufacturer.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_manufacturer.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniform_manufacturer.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_attendant_dress.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_attendant_dress.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_attendant_dress.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/crew_uniform_visual_identity.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\crew_uniform_visual_identity.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\crew_uniform_visual_identity.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/air_crew_attire.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\air_crew_attire.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\air_crew_attire.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/corporate_flight_crew_uniforms.jpg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\corporate_flight_crew_uniforms.jpg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\corporate_flight_crew_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/flight_crew_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\flight_crew\\flight_crew_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/flight_crew/iconic_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\iconic_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/middle_east_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\middle_east_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_designers.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_designers.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_design_principles.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_design_principles.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_colors_materials.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_colors_materials.jpg"
+    },
+    {
+      "original": "/images/flight_crew/future_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\future_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/cabin_crew_safety_demo.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\cabin_crew_safety_demo.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_evolution.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_evolution.jpg"
+    },
+    {
+      "original": "/images/flight_crew/early_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\early_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/nineties_millenium_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\nineties_millenium_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/saudi_airlines_uniforms_history.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\saudi_airlines_uniforms_history.jpg"
+    },
+    {
+      "original": "/images/flight_crew/modern_saudi_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\modern_saudi_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/saudi_airways_history.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\saudi_airways_history.jpg"
+    },
+    {
+      "original": "/images/flight_crew/saudi_airlines_crew.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\saudi_airlines_crew.jpg"
+    },
+    {
+      "original": "/images/flight_crew/saudi_budget_airlines.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\saudi_budget_airlines.jpg"
+    },
+    {
+      "original": "/images/flight_crew/future_saudi_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\future_saudi_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/pilots_uniform_lineup.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\pilots_uniform_lineup.jpg"
+    },
+    {
+      "original": "/images/flight_crew/pilot_uniform_evolution.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\pilot_uniform_evolution.jpg"
+    },
+    {
+      "original": "/images/flight_crew/pilot_uniform_components.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\pilot_uniform_components.jpg"
+    },
+    {
+      "original": "/images/flight_crew/pilot_rank_insignia.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\pilot_rank_insignia.jpg"
+    },
+    {
+      "original": "/images/flight_crew/modern_design_trends.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\modern_design_trends.jpg"
+    },
+    {
+      "original": "/images/flight_crew/smart_textiles.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\smart_textiles.jpg"
+    },
+    {
+      "original": "/images/flight_crew/sustainable_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\sustainable_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/future_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\future_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/airline_scarves_collection.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\airline_scarves_collection.jpg"
+    },
+    {
+      "original": "/images/flight_crew/scarf_evolution_timeline.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\scarf_evolution_timeline.jpg"
+    },
+    {
+      "original": "/images/flight_crew/scarf_types_comparison.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\scarf_types_comparison.jpg"
+    },
+    {
+      "original": "/images/flight_crew/cultural_diversity_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\cultural_diversity_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_cultural_elements.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_cultural_elements.jpg"
+    },
+    {
+      "original": "/images/flight_crew/cultural_modern_balance.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\cultural_modern_balance.jpg"
+    },
+    {
+      "original": "/images/flight_crew/east_asian_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\east_asian_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/uniform_design_elements.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\uniform_design_elements.jpg"
+    },
+    {
+      "original": "/images/flight_crew/technical_fabrics.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\technical_fabrics.jpg"
+    },
+    {
+      "original": "/images/flight_crew/women_aviation_uniforms_evolution.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\women_aviation_uniforms_evolution.jpg"
+    },
+    {
+      "original": "/images/flight_crew/1940s_flight_attendants.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\1940s_flight_attendants.jpg"
+    },
+    {
+      "original": "/images/flight_crew/1960s_flight_attendants.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\1960s_flight_attendants.jpg"
+    },
+    {
+      "original": "/images/flight_crew/1970s_flight_attendants.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\1970s_flight_attendants.jpg"
+    },
+    {
+      "original": "/images/flight_crew/modern_female_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\modern_female_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/airline_identity_elements.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\airline_identity_elements.jpg"
+    },
+    {
+      "original": "/images/flight_crew/fabric_types.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\fabric_types.jpg"
+    },
+    {
+      "original": "/images/flight_crew/smart_fabrics.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\smart_fabrics.jpg"
+    },
+    {
+      "original": "/images/flight_crew/smart_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\smart_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/sustainable_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\sustainable_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/ergonomic_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\ergonomic_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/flight_crew/safety_aviation_uniforms.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\flight_crew\\safety_aviation_uniforms.jpg"
+    },
+    {
+      "original": "/images/clinic_wear/clinic_scrubs.jpg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\clinic_wear\\clinic_scrubs.jpg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\clinic_wear\\clinic_scrubs.webp",
+      "success": true
+    },
+    {
+      "original": "/images/utility_services/utility_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\utility_services\\utility_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\utility_services\\utility_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/utility_services/maintenance_technician_clothing.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\utility_services\\maintenance_technician_clothing.jpeg"
+    },
+    {
+      "original": "/images/protective_services/security_guard_uniforms.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\protective_services\\security_guard_uniforms.jpeg"
+    },
+    {
+      "original": "/images/protective_services/protective_services_uniforms.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\protective_services\\protective_services_uniforms.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\protective_services\\protective_services_uniforms.webp",
+      "success": true
+    },
+    {
+      "original": "/images/security_uniforms/psychological_impact.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\psychological_impact.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/uniform_types.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\uniform_types.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/security_standards.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\security_standards.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/rank_badges.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\rank_badges.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/security_colors.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\security_colors.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/security_materials.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\security_materials.jpeg"
+    },
+    {
+      "original": "/images/security_uniforms/security_importance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\security_uniforms\\security_importance.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_workwear.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_workwear.jpeg"
+    },
+    {
+      "original": "/images/workwear/uniform_sectors.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\uniform_sectors.jpeg"
+    },
+    {
+      "original": "/images/workwear/importance_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\importance_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_uniform_evolution.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_uniform_evolution.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_sectors_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_sectors_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/workwear_types.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\workwear_types.jpeg"
+    },
+    {
+      "original": "/images/workwear/choosing_workwear.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\choosing_workwear.jpeg"
+    },
+    {
+      "original": "/images/workwear/design_maintenance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\design_maintenance.jpeg"
+    },
+    {
+      "original": "/images/workwear/industrial_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\industrial_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/hospitality_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\hospitality_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/retail_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\retail_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/maintenance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\maintenance.jpeg"
+    },
+    {
+      "original": "/images/workwear/corporate_identity_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\corporate_identity_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/uniform_implementation.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\uniform_implementation.jpeg"
+    },
+    {
+      "original": "/images/workwear/modern_uniform_trends.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\modern_uniform_trends.jpeg"
+    },
+    {
+      "original": "/images/workwear/clothing_maintenance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\clothing_maintenance.jpeg"
+    },
+    {
+      "original": "/images/workwear/safety_shoes_importance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\safety_shoes_importance.jpeg"
+    },
+    {
+      "original": "/images/workwear/safety_shoes_standards.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\safety_shoes_standards.jpeg"
+    },
+    {
+      "original": "/images/workwear/psychological_impact.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\psychological_impact.jpeg"
+    },
+    {
+      "original": "/images/workwear/corporate_image.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\corporate_image.jpeg"
+    },
+    {
+      "original": "/images/workwear/corporate_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\corporate_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/professional_appearance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\professional_appearance.jpeg"
+    },
+    {
+      "original": "/images/workwear/washing_techniques.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\washing_techniques.jpeg"
+    },
+    {
+      "original": "/images/workwear/storage_systems.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\storage_systems.jpeg"
+    },
+    {
+      "original": "/images/workwear/brand_identity_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\brand_identity_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/customer_experience_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\customer_experience_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/team_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\team_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/safety_shoes.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\safety_shoes.jpeg"
+    },
+    {
+      "original": "/images/workwear/workwear_impact.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\workwear_impact.jpeg"
+    },
+    {
+      "original": "/images/workwear/needs_assessment.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\needs_assessment.jpeg"
+    },
+    {
+      "original": "/images/workwear/sectors_workwear.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\sectors_workwear.jpeg"
+    },
+    {
+      "original": "/images/workwear/design_process.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\design_process.jpeg"
+    },
+    {
+      "original": "/images/workwear/design_elements.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\design_elements.jpeg"
+    },
+    {
+      "original": "/images/workwear/care_guidelines.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\care_guidelines.jpeg"
+    },
+    {
+      "original": "/images/workwear/maintenance_uniform.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\maintenance_uniform.jpeg"
+    },
+    {
+      "original": "/images/workwear/field_technician.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\field_technician.jpeg"
+    },
+    {
+      "original": "/images/workwear/uniform_importance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\uniform_importance.jpeg"
+    },
+    {
+      "original": "/images/workwear/work_clothes_care.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\work_clothes_care.jpeg"
+    },
+    {
+      "original": "/images/workwear/dammam_industrial.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\dammam_industrial.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_workwear_history.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_workwear_history.jpeg"
+    },
+    {
+      "original": "/images/workwear/saudi_manufacturer.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\saudi_manufacturer.jpeg"
+    },
+    {
+      "original": "/images/workwear/dammam_production.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\dammam_production.jpeg"
+    },
+    {
+      "original": "/images/workwear/dammam_choice.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\dammam_choice.jpeg"
+    },
+    {
+      "original": "/images/workwear/workwear_importance.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\workwear_importance.jpeg"
+    },
+    {
+      "original": "/images/workwear/selection_criteria.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\selection_criteria.jpeg"
+    },
+    {
+      "original": "/images/workwear/utility_services_standards.jpeg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\workwear\\utility_services_standards.jpeg"
+    },
+    {
+      "original": "/images/testimonials/person1.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\testimonials\\person1.jpg"
+    },
+    {
+      "original": "/images/testimonials/person2.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\testimonials\\person2.jpg"
+    },
+    {
+      "original": "/images/testimonials/person3.jpg",
+      "success": false,
+      "error": "Input file is missing: C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\images\\testimonials\\person3.jpg"
+    },
+    {
+      "original": "/images/academic_attire/academic_attire.jpeg",
+      "optimized": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\academic_attire\\academic_attire.jpeg",
+      "webp": "C:\\Users\\skywa\\OneDrive\\Desktop\\Uniform Blogs\\4\\public\\optimized_images\\academic_attire\\academic_attire.webp",
+      "success": true
+    }
+  ]
+}
