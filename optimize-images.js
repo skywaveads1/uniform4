@@ -2,115 +2,140 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-// Read the list of images from used_images.txt
-const imagesList = fs.readFileSync('used_images.txt', 'utf8')
+// Read the used_images.txt file
+const imagesList = fs.readFileSync('used_images.txt', 'utf8');
+
+// Extract valid image paths
+const imagePaths = imagesList
   .split('\n')
   .filter(line => line.startsWith('/images/'))
   .map(line => line.trim());
 
-console.log(`Found ${imagesList.length} images to optimize`);
+console.log(`Found ${imagePaths.length} images to optimize...`);
 
-// Create optimized images directory if it doesn't exist
-const optimizedDir = path.join(__dirname, 'public', 'optimized_images');
-if (!fs.existsSync(optimizedDir)) {
-  fs.mkdirSync(optimizedDir, { recursive: true });
-}
-
-// Function to optimize an image
+// Function to optimize a single image
 async function optimizeImage(imagePath) {
+  const fullPath = path.join('public', imagePath);
+  
   try {
-    const fullPath = path.join(__dirname, 'public', imagePath);
-    const dirName = path.dirname(imagePath.replace(/^\/images\//, '/optimized_images/'));
-    const fileName = path.basename(imagePath);
-    const outputDir = path.join(__dirname, 'public', dirName);
-    const outputPath = path.join(outputDir, fileName);
-
-    // Create directory if it doesn't exist
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    if (!fs.existsSync(fullPath)) {
+      console.log(`❌ File not found: ${fullPath}`);
+      return false;
     }
-
-    // Optimize JPEG/JPG images
-    if (fileName.toLowerCase().endsWith('.jpg') || fileName.toLowerCase().endsWith('.jpeg')) {
+    
+    // Get original file size
+    const originalStats = fs.statSync(fullPath);
+    const originalSize = originalStats.size;
+    
+    // Check if the file is JPEG or PNG
+    const ext = path.extname(imagePath).toLowerCase();
+    if (ext === '.jpg' || ext === '.jpeg') {
       await sharp(fullPath)
-        .jpeg({ quality: 75, progressive: true, mozjpeg: true })
-        .toFile(outputPath);
-      console.log(`✓ Optimized JPEG: ${imagePath}`);
-    } 
-    // Optimize PNG images
-    else if (fileName.toLowerCase().endsWith('.png')) {
+        .jpeg({ quality: 75, mozjpeg: true })
+        .toFile(fullPath + '.optimized');
+    } else if (ext === '.png') {
       await sharp(fullPath)
-        .png({ quality: 75, progressive: true, compressionLevel: 9 })
-        .toFile(outputPath);
-      console.log(`✓ Optimized PNG: ${imagePath}`);
+        .png({ compressionLevel: 9, adaptiveFiltering: true })
+        .toFile(fullPath + '.optimized');
+    } else {
+      console.log(`⚠️ Skipping file with unsupported extension: ${fullPath}`);
+      return false;
     }
-    // Optimize WebP images or convert to WebP
-    else if (fileName.toLowerCase().endsWith('.webp')) {
-      await sharp(fullPath)
-        .webp({ quality: 75 })
-        .toFile(outputPath);
-      console.log(`✓ Optimized WebP: ${imagePath}`);
+    
+    // Get optimized file size
+    const optimizedStats = fs.statSync(fullPath + '.optimized');
+    const optimizedSize = optimizedStats.size;
+    
+    // Only replace if the optimization reduced the file size
+    if (optimizedSize < originalSize) {
+      // Backup the original file
+      fs.renameSync(fullPath, fullPath + '.bak');
+      // Replace with the optimized version
+      fs.renameSync(fullPath + '.optimized', fullPath);
+      
+      const savingsPercent = ((originalSize - optimizedSize) / originalSize * 100).toFixed(2);
+      const savedKB = ((originalSize - optimizedSize) / 1024).toFixed(2);
+      console.log(`✅ Optimized: ${imagePath} (${(originalSize/1024).toFixed(2)}KB → ${(optimizedSize/1024).toFixed(2)}KB, saved ${savedKB}KB, ${savingsPercent}%)`);
+      return true;
+    } else {
+      // Remove the optimized file if it's larger than the original
+      fs.unlinkSync(fullPath + '.optimized');
+      console.log(`⚠️ Skipped: ${imagePath} (optimization did not reduce file size)`);
+      return false;
     }
-    // Also create WebP versions for all images
-    const webpOutputPath = outputPath.substring(0, outputPath.lastIndexOf('.')) + '.webp';
-    await sharp(fullPath)
-      .webp({ quality: 75 })
-      .toFile(webpOutputPath);
-    console.log(`✓ Created WebP version: ${webpOutputPath}`);
-
-    return {
-      original: imagePath,
-      optimized: outputPath,
-      webp: webpOutputPath,
-      success: true
-    };
   } catch (error) {
-    console.error(`✗ Error optimizing ${imagePath}:`, error.message);
-    return {
-      original: imagePath,
-      success: false,
-      error: error.message
-    };
+    console.error(`❌ Error optimizing ${imagePath}: ${error.message}`);
+    // Clean up any temporary files
+    if (fs.existsSync(fullPath + '.optimized')) {
+      try {
+        fs.unlinkSync(fullPath + '.optimized');
+      } catch (e) {
+        // Ignore cleanup errors
+      }
+    }
+    return false;
   }
 }
 
 // Process all images
-async function processAllImages() {
-  const results = { success: 0, failed: 0, details: [] };
+async function optimizeAllImages() {
+  let successCount = 0;
+  let errorCount = 0;
+  let skippedCount = 0;
+  let totalSavedBytes = 0;
   
-  for (const imagePath of imagesList) {
-    try {
-      const result = await optimizeImage(imagePath);
-      if (result.success) {
-        results.success++;
-      } else {
-        results.failed++;
+  // Process images in batches to avoid overwhelming the system
+  const BATCH_SIZE = 3;
+  
+  for (let i = 0; i < imagePaths.length; i += BATCH_SIZE) {
+    const batch = imagePaths.slice(i, i + BATCH_SIZE);
+    const batchNumber = Math.floor(i/BATCH_SIZE) + 1;
+    const totalBatches = Math.ceil(imagePaths.length/BATCH_SIZE);
+    console.log(`\nProcessing batch ${batchNumber} of ${totalBatches}...`);
+    
+    // Process each image in the batch sequentially to avoid memory issues
+    for (const imagePath of batch) {
+      try {
+        const fullPath = path.join('public', imagePath);
+        const originalSize = fs.existsSync(fullPath) ? fs.statSync(fullPath).size : 0;
+        
+        const result = await optimizeImage(imagePath);
+        
+        if (result === true) {
+          successCount++;
+          const newSize = fs.statSync(fullPath).size;
+          const savedBytes = originalSize - newSize;
+          totalSavedBytes += savedBytes;
+        } else if (result === false) {
+          skippedCount++;
+        } else {
+          errorCount++;
+        }
+      } catch (err) {
+        console.error(`Unexpected error processing ${imagePath}: ${err.message}`);
+        errorCount++;
       }
-      results.details.push(result);
-    } catch (error) {
-      console.error(`Error processing ${imagePath}:`, error);
-      results.failed++;
-      results.details.push({
-        original: imagePath,
-        success: false,
-        error: error.message
-      });
     }
   }
   
-  // Save optimization report
-  fs.writeFileSync(
-    'optimization-report.json', 
-    JSON.stringify(results, null, 2)
-  );
+  const totalSavedMB = (totalSavedBytes / (1024 * 1024)).toFixed(2);
   
-  console.log('\nOptimization completed!');
-  console.log(`✓ Successfully optimized: ${results.success} images`);
-  console.log(`✗ Failed: ${results.failed} images`);
-  console.log('Full report saved to: optimization-report.json');
+  console.log('\n--- OPTIMIZATION COMPLETE ---');
+  console.log(`Total images processed: ${imagePaths.length}`);
+  console.log(`Successfully optimized: ${successCount}`);
+  console.log(`Skipped: ${skippedCount}`);
+  console.log(`Errors: ${errorCount}`);
+  console.log(`Total space saved: ${totalSavedMB} MB`);
+  
+  // Provide instructions for restoring backups if needed
+  if (successCount > 0) {
+    console.log('\nBackup files (.bak) have been created for all optimized images.');
+    console.log('If you need to restore the original images, you can run:');
+    console.log('  node restore-backups.js');
+  }
 }
 
 // Run the optimization
-processAllImages().catch(err => {
-  console.error('Fatal error during optimization:', err);
+optimizeAllImages().catch(err => {
+  console.error('Error during optimization process:', err);
 }); 
