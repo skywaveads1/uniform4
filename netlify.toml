@@ -1,0 +1,41 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
+  NPM_VERSION = "9.6.7"
+  NEXT_TELEMETRY_DISABLED = "1"
+  BUILD_LOCALE = "ar"
+
+# Production context: all deploys from the Production branch set in your site's
+# deploy settings will inherit these settings.
+[context.production.environment]
+  NODE_ENV = "production"
+  NEXT_PUBLIC_SITE_URL = "https://your-domain.netlify.app"
+  NEXT_PUBLIC_SITE_NAME = "يونيفورم"
+  NEXT_PUBLIC_SITE_DESCRIPTION = "أفضل موقع متخصص في الأزياء الموحدة في المملكة العربية السعودية"
+  NEXT_PUBLIC_DEFAULT_LOCALE = "ar"
+
+# Deploy Preview context: all deploys resulting from a pull/merge request will
+# inherit these settings.
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  NEXT_PUBLIC_SITE_URL = "https://deploy-preview-branch--your-domain.netlify.app"
+
+# Branch Deploy context: all deploys that are not from a pull/merge request or
+# from the Production branch will inherit these settings.
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+  NEXT_PUBLIC_SITE_URL = "https://branch-name--your-domain.netlify.app"
+
+# Redirects and headers are GLOBAL for all builds – they do not get scoped to
+# contexts no matter where you define them in the file.
+[[redirects]]
+  from = "/*"
+  to = "/_next/static/index.html"
+  status = 200
+
+# For Next.js Image Optimization
+[[plugins]]
+  package = "@netlify/plugin-nextjs" 
