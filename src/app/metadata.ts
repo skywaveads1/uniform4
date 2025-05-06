@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' 
+    ? 'https://helden2026.github.io/Uniform-Blogs/' 
+    : 'http://localhost:3000'),
   title: 'الأزياء الموحدة المتخصصة | تصميم وتصنيع أزياء الشركات والمؤسسات',
   description: 'شركة متخصصة في تصميم وتصنيع الأزياء الموحدة للشركات في المملكة العربية السعودية. نقدم حلولاً مبتكرة لقطاعات الطيران والأمن والضيافة والرعاية الصحية.',
   keywords: 'أزياء موحدة, يونيفورم شركات, ملابس طيران, أزياء أمن, أزياء طبية, تصميم أزياء موحدة, السعودية',

@@ -9,9 +9,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import ImageWithPath, { NextImageWithPath } from './components/ImageWithPath';
 
 // استيراد بيانات المقالات ذات الصلة من ملف المدونة
-import { posts as blogPosts, fallbackImages } from '../app/blog/data';
+import { posts as blogPosts, fallbackImages } from './blog/data';
 
 // تعريف نوع المقال
 interface Post {
@@ -282,11 +283,11 @@ export default function HomePage() {
               >
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
                   <div className="relative h-52 w-full bg-gray-200">
-                    <img
+                    <ImageWithPath
                       src={post.imageUrl}
                       alt={post.title}
                       className="h-full w-full object-cover"
-                      onError={(e) => {
+                      onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                         const target = e.target as HTMLImageElement;
                         target.src = fallbackImages[post.category as keyof typeof fallbackImages] || '/images/culinary_apparel/kitchen_staff_clothing.jpeg';
                       }}
@@ -346,11 +347,11 @@ export default function HomePage() {
               >
                 <div className="bg-white rounded-lg overflow-hidden shadow transition-shadow duration-300 group-hover:shadow-lg">
                   <div className="relative h-48 w-full bg-gray-200">
-                    <img
+                    <ImageWithPath
                       src={post.imageUrl}
                       alt={post.title}
                       className="h-full w-full object-cover"
-                      onError={(e) => {
+                      onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                         const target = e.target as HTMLImageElement;
                         target.src = fallbackImages[post.category as keyof typeof fallbackImages] || '/images/culinary_apparel/kitchen_staff_clothing.jpeg';
                       }}
@@ -397,9 +398,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
-                <img 
-                  src="/images/flight_crew/flight_crew_uniforms_riyadh.jpg" 
-                  alt="أزياء الطيران" 
+                <Image
+                  src="/images/flight_crew/flight_crew_uniforms_riyadh.jpg"
+                  alt="أزياء الطيران"
+                  fill
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -415,9 +417,10 @@ export default function HomePage() {
             
             <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
-                <img 
-                  src="/images/clinic_wear/clinic_scrubs.jpg" 
-                  alt="الأزياء الطبية" 
+                <Image
+                  src="/images/clinic_wear/clinic_scrubs.jpg"
+                  alt="الأزياء الطبية"
+                  fill
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -433,9 +436,10 @@ export default function HomePage() {
             
             <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
-                <img 
-                  src="/images/culinary_apparel/kitchen_staff_clothing.jpeg" 
-                  alt="أزياء الطهاة" 
+                <Image
+                  src="/images/culinary_apparel/kitchen_staff_clothing.jpeg"
+                  alt="أزياء الطهاة"
+                  fill
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-20"></div>
