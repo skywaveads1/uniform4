@@ -1,0 +1,32 @@
+# Images Used in the Project (Existing Only)
+
+/images/culinary_apparel/kitchen_staff_clothing.jpeg
+/images/culinary_apparel/modern_traditional_chef_wear.jpeg
+/images/culinary_apparel/culinary_apparel_design.jpeg
+/images/culinary_apparel/culinary_uniforms_riyadh.jpeg
+/images/culinary_apparel/catering_kitchen_uniforms.jpeg
+/images/flight_crew/flight_crew_uniforms_riyadh.jpg
+/images/flight_crew/cabin_crew_uniforms.jpeg
+/images/flight_crew/flight_crew_uniform_design.jpeg
+/images/flight_crew/flight_crew_uniform_accessories.jpeg
+/images/flight_crew/flight_crew_uniform_fabrics.jpeg
+/images/flight_crew/female_male_air_crew_wear.jpeg
+/images/flight_crew/pilot_attendant_uniforms.jpeg
+/images/flight_crew/uniforms_saudi_arabia.jpeg
+/images/flight_crew/flight_crew_scarves.jpeg
+/images/flight_crew/flight_crew_safety_requirements.jpeg
+/images/flight_crew/best_flight_crew_attire.jpeg
+/images/flight_crew/flight_crew_uniform_manufacturer.jpeg
+/images/flight_crew/flight_attendant_dress.jpeg
+/images/flight_crew/crew_uniform_visual_identity.jpeg
+/images/flight_crew/air_crew_attire.jpeg
+/images/flight_crew/corporate_flight_crew_uniforms.jpg
+/images/flight_crew/flight_crew_uniforms.jpeg
+/images/clinic_wear/clinic_scrubs.jpg
+/images/utility_services/utility_uniforms.jpeg
+/images/protective_services/protective_services_uniforms.jpeg
+/images/academic_attire/academic_attire.jpeg
+
+# Successfully Optimized Images
+The images above have been optimized and converted to WebP format.
+They are available in both the original format and as WebP in the /public/optimized_images/ directory.
