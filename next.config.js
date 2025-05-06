@@ -1,15 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Enable static exports
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
-    unoptimized: true, // This is needed for static export
+    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/app/image-loader.js',
   },
-  // Configure asset paths for different environments
-  assetPrefix: process.env.NODE_ENV === 'production' 
-    ? process.env.NEXT_PUBLIC_SITE_URL || '' 
-    : '',
-  basePath: '',
-  trailingSlash: true, // Add trailing slashes to make paths consistent
-};
+  // Add basePath and assetPrefix for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs/' : '',
+  // Disable including extra files like favicon and manifest files
+  skipTrailingSlashRedirect: true,
+  // Needed for static export
+  output: 'export',
+}
 
-module.exports = nextConfig; 
+module.exports = nextConfig 
