@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import BlogArticle from '@/components/BlogArticle';
+import BlogArticle from '../../../../components/BlogArticle';
 import { 
   Section, 
   Paragraph, 
@@ -11,7 +11,7 @@ import {
   HighlightBox, 
   KeyPointsBox,
   ArticleImage
-} from '@/components/ArabicContentElements';
+} from '../../../../components/ArabicContentElements';
 
 export default function CulinaryApparelStandards() {
   const relatedArticles = [
