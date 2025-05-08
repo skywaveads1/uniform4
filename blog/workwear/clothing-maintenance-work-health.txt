@@ -1,0 +1,61 @@
+3:I[5613,[],""]
+6:I[1778,[],""]
+7:I[8486,["5250","static/chunks/5250-1ee364a7ad73bd14.js","4097","static/chunks/4097-2749e3476547fc41.js","3185","static/chunks/app/layout-c7572044a1d1346a.js"],""]
+8:I[840,["5250","static/chunks/5250-1ee364a7ad73bd14.js","4097","static/chunks/4097-2749e3476547fc41.js","3185","static/chunks/app/layout-c7572044a1d1346a.js"],""]
+9:I[5935,["5250","static/chunks/5250-1ee364a7ad73bd14.js","4097","static/chunks/4097-2749e3476547fc41.js","3185","static/chunks/app/layout-c7572044a1d1346a.js"],""]
+4:["category","workwear","d"]
+5:["slug","clothing-maintenance-work-health","d"]
+a:T7ed,
+            if (typeof window !== 'undefined') {
+              const fixImagePaths = () => {
+                const isProduction = window.location.hostname !== 'localhost';
+                if (!isProduction) return;
+                
+                const repoName = '/Uniform-Blogs';
+                
+                // Select all images on the page
+                const images = document.querySelectorAll('img');
+                
+                // For each image, check if it's broken and fix the path
+                images.forEach(img => {
+                  // Skip images that already have the correct path
+                  if (img.src.includes(repoName)) return;
+                  
+                  // Skip external images
+                  if (!img.src.includes(window.location.hostname)) return;
+                  
+                  // Function to fix broken images
+                  const fixBrokenImage = () => {
+                    const path = new URL(img.src).pathname;
+                    if (path.startsWith('/')) {
+                      img.src = `${repoName}${path}`;
+                    }
+                  };
+                  
+                  // Fix immediately for images that are already broken
+                  if (img.complete && img.naturalHeight === 0) {
+                    fixBrokenImage();
+                  }
+                  
+                  // Setup error handler for images that might fail to load
+                  img.addEventListener('error', () => {
+                    fixBrokenImage();
+                  });
+                });
+              };
+              
+              // Run when DOM is loaded
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixImagePaths);
+              } else {
+                fixImagePaths();
+              }
+              
+              // Also run when the page is fully loaded (including images)
+              window.addEventListener('load', fixImagePaths);
+            }
+          0:["DvemYmxY3hA_du6-23Im_",[[["",{"children":["blog",{"children":[["category","workwear","d"],{"children":[["slug","clothing-maintenance-work-health","d"],{"children":["__PAGE__?{\"category\":\"workwear\",\"slug\":\"clothing-maintenance-work-health\"}",{}]}]}]}]},"$undefined","$undefined",true],["",{"children":["blog",{"children":[["category","workwear","d"],{"children":[["slug","clothing-maintenance-work-health","d"],{"children":["__PAGE__",{},["$L1","$L2",null]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children","$5","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children","$4","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","blog","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","html",null,{"lang":"ar","dir":"rtl","className":"__className_d593bd","children":["$","body",null,{"children":[["$","$L7",null,{}],["$","main",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}],["$","$L8",null,{}],["$","$L9",null,{"id":"image-path-fixer","strategy":"afterInteractive","children":"$a"}]]}]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/Uniform-Blogs/_next/static/css/d387a411c8b1c84e.css","precedence":"next","crossOrigin":""}]],"$Lb"]]]]
+c:I[981,["1749","static/chunks/1749-0f7288bcb66862ab.js","5250","static/chunks/5250-1ee364a7ad73bd14.js","981","static/chunks/981-44b8d70b0825c19e.js","2819","static/chunks/app/blog/%5Bcategory%5D/%5Bslug%5D/page-c8fd1e8cf5f761e0.js"],""]
+2:["$","$Lc",null,{"title":"العناية بملابس العمل وأثرها على الصحة المهنية","description":"Post description goes here","category":"support-uniforms","categoryUrl":"/blog/support-uniforms","heroImage":"/images/utility_services/safety_standard_compliant_workwear.jpeg","publishDate":"2025-05-08T14:56:01.282Z","readTime":"10 دقائق للقراءة","authorName":"Author Name","authorImage":"/images/author/team.jpg","authorTitle":"خبراء تصميم الأزياء الموحدة","backUrl":"/blog","tags":["tag1","tag2"],"relatedArticles":[{"title":"مقال ذو صلة 1","description":"وصف المقال الأول ذو الصلة","image":"/images/placeholder.jpg","url":"/blog/category/article-1","date":"١٠ مايو ٢٠٢٤","category":"الفئة"},{"title":"مقال ذو صلة 2","description":"وصف المقال الثاني ذو الصلة","image":"/images/placeholder.jpg","url":"/blog/category/article-2","date":"١٢ مايو ٢٠٢٤","category":"الفئة"},{"title":"مقال ذو صلة 3","description":"وصف المقال الثالث ذو الصلة","image":"/images/placeholder.jpg","url":"/blog/category/article-3","date":"١٤ مايو ٢٠٢٤","category":"الفئة"}],"children":["$","section",null,{"className":"mb-12","children":[["$","h2",null,{"id":"content","className":"text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6 border-r-4 border-blue-600 pr-4 py-2","children":"المحتوى"}],["$","div",null,{"className":"space-y-6","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"Post content goes here..."}}]}]]}]}]
+b:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"العناية بملابس العمل وأثرها على الصحة المهنية"}],["$","meta","3",{"name":"description","content":"Post description goes here"}],["$","meta","4",{"name":"keywords","content":"أزياء موحدة, يونيفورم شركات, ملابس طيران, أزياء أمن, أزياء طبية, تصميم أزياء موحدة, السعودية"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","7",{"rel":"canonical","href":"https://yourdomain.com/blog/support-uniforms/clothing-maintenance-work-health"}],["$","meta","8",{"name":"google-site-verification","content":"your-google-verification-code"}],["$","meta","9",{"property":"og:title","content":"العناية بملابس العمل وأثرها على الصحة المهنية"}],["$","meta","10",{"property":"og:description","content":"Post description goes here"}],["$","meta","11",{"property":"og:site_name","content":"يونيفورم"}],["$","meta","12",{"property":"og:locale","content":"ar_SA"}],["$","meta","13",{"property":"og:image","content":"https://helden2026.github.io/Uniform-Blogs/images/utility_services/safety_standard_compliant_workwear.jpeg"}],["$","meta","14",{"property":"og:type","content":"article"}],["$","meta","15",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","16",{"name":"twitter:title","content":"العناية بملابس العمل وأثرها على الصحة المهنية"}],["$","meta","17",{"name":"twitter:description","content":"Post description goes here"}],["$","meta","18",{"name":"twitter:image","content":"https://helden2026.github.io/Uniform-Blogs/images/utility_services/safety_standard_compliant_workwear.jpeg"}],["$","meta","19",{"name":"next-size-adjust"}]]
+1:null
