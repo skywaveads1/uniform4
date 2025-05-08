@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
@@ -199,16 +199,33 @@ const BlogCard = ({ title, image, path, category }: { title: string, image: stri
   );
 };
 
-export default function BlogPage() {
+// Create a new SearchParamsWrapper component that uses useSearchParams
+const SearchParamsWrapper = ({ onCategoryChange }: { onCategoryChange: (category: string | null) => void }) => {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
   
-  const [activeCategory, setActiveCategory] = useState(categoryParam || 'all');
+  useEffect(() => {
+    onCategoryChange(categoryParam);
+  }, [categoryParam, onCategoryChange]);
+  
+  return null;
+};
+
+export default function BlogPage() {
+  const [categoryFromParams, setCategoryFromParams] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState('all');
   const [allFilteredArticles, setAllFilteredArticles] = useState(uniqueArticles);
   const [displayCount, setDisplayCount] = useState(18); // عدد المقالات المعروضة في البداية
   const [isLoading, setIsLoading] = useState(false); // حالة التحميل
   const loaderRef = useRef<HTMLDivElement>(null); // مرجع لعنصر التحميل
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Update the active category when we get it from search params
+  useEffect(() => {
+    if (categoryFromParams) {
+      setActiveCategory(categoryFromParams);
+    }
+  }, [categoryFromParams]);
 
   // تحديث تصفية المقالات عند تغيير الفئة النشطة
   useEffect(() => {
@@ -249,13 +266,6 @@ export default function BlogPage() {
       scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [activeCategory]);
-
-  // تحديث حالة التصفية عندما يتم تغيير معلمة URL
-  useEffect(() => {
-    if (categoryParam) {
-      setActiveCategory(categoryParam);
-    }
-  }, [categoryParam]);
 
   // إنشاء Intersection Observer لمراقبة وصول المستخدم إلى نهاية القائمة
   useEffect(() => {
@@ -305,6 +315,11 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gray-50" ref={scrollRef}>
+      {/* Wrap the component that uses useSearchParams in Suspense */}
+      <Suspense fallback={null}>
+        <SearchParamsWrapper onCategoryChange={setCategoryFromParams} />
+      </Suspense>
+      
       {/* Blog Header */}
       <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700 mb-12">
         <div className="text-center">
