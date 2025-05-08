@@ -3,12 +3,13 @@
  * This adds the repository name prefix for GitHub Pages
  */
 
-export default function customLoader({ src, width, quality }) {
-  // Handle GitHub Pages path prefix
-  if (process.env.NODE_ENV === 'production' && src.startsWith('/')) {
-    src = `/Uniform-Blogs${src}`;
+export default function myImageLoader({ src, width, quality }) {
+  // Return absolute URL for local images
+  if (src.startsWith('/')) {
+    return src;
   }
   
+  // Return the complete URL for external images
   return src;
 }
 

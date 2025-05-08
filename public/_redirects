@@ -1,0 +1,5 @@
+# Netlify redirects file
+# Handle SPA routing for Next.js
+# These rules will ensure that routes like /blog work properly
+
+/*    /index.html   200 

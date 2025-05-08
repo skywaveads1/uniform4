@@ -3,17 +3,17 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    unoptimized: true,
-    loader: 'custom',
-    loaderFile: './src/app/image-loader.js',
+    domains: ['images.ctfassets.net'],
+    unoptimized: process.env.NODE_ENV === 'production',
+    loader: 'default',
+    // Remove loaderFile to use default Next.js image loader
   },
-  // Add basePath and assetPrefix for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs/' : '',
-  // Disable including extra files like favicon and manifest files
+  // Remove basePath and assetPrefix as they cause issues on Netlify
+  // basePath: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/Uniform-Blogs/' : '',
   skipTrailingSlashRedirect: true,
-  // Needed for static export
-  output: 'export',
+  // Remove static export as Netlify plugin handles SSR
+  // output: 'export',
 }
 
 module.exports = nextConfig 
