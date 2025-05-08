@@ -3,25 +3,63 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { articles as allArticles } from './data';
 
+// تعريف الفئات المتاحة - مع إضافة فئات جديدة من ملف site_articles.txt
 const categories = [
   { key: 'all', label: 'الكل' },
-  { key: 'academic_attire', label: 'الزي الأكاديمي' },
-  { key: 'clinic_wear', label: 'أزياء طبية' },
-  { key: 'culinary_apparel', label: 'أزياء الطهاة' },
-  { key: 'flight_crew', label: 'أزياء الطيران' },
-  { key: 'protective_services', label: 'أزياء الخدمات الوقائية' },
-  { key: 'utility_services', label: 'أزياء الخدمات المساندة' },
+  { key: 'aviation-uniforms', label: 'أزياء الطيران' },
+  { key: 'medical-uniforms', label: 'أزياء طبية' },
+  { key: 'chef-uniforms', label: 'أزياء الطهاة' },
+  { key: 'academic-uniforms', label: 'الزي الأكاديمي' },
+  { key: 'protective-uniforms', label: 'أزياء الخدمات الوقائية' },
+  { key: 'support-uniforms', label: 'أزياء الخدمات المساندة' },
+  { key: 'certifications', label: 'الشهادات' },
 ];
 
-// صور احتياطية لكل قسم في حالة وجود خطأ
-const fallbackImages = {
-  academic_attire: '/images/utility_services/utility_uniforms.jpeg',
-  clinic_wear: '/images/clinic_wear/clinic_scrubs.jpg',
-  culinary_apparel: '/images/culinary_apparel/kitchen_staff_clothing.jpeg',
-  flight_crew: '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
-  protective_services: '/images/protective_services/security_guard_uniforms.jpeg',
-  utility_services: '/images/utility_services/maintenance_technician_clothing.jpeg',
+// صور احتياطية حسب الفئة
+const categoryFallbackImages: { [key: string]: string } = {
+  'aviation-uniforms': '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
+  'medical-uniforms': '/images/clinic_wear/clinic_scrubs.jpg',
+  'chef-uniforms': '/images/culinary_apparel/chef_uniforms.jpeg',
+  'academic-uniforms': '/images/academic_attire/school_uniforms.jpeg',
+  'protective-uniforms': '/images/protective_services/security_guard_uniforms.jpeg',
+  'support-uniforms': '/images/utility_services/utility_uniforms.jpeg',
+  'certifications': '/images/flight_crew/flight_crew_uniform_design.jpeg',
+};
+
+// صور احتياطية لكل قسم في المسار
+const pathFallbackImages: { [key: string]: string } = {
+  'flight-crew': '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
+  'clinic-wear': '/images/clinic_wear/clinic_scrubs.jpg',
+  'culinary-apparel': '/images/culinary_apparel/kitchen_staff_clothing.jpeg',
+  'academic-attire': '/images/academic_attire/school_uniforms.jpeg',
+  'protective-services': '/images/protective_services/security_guard_uniforms.jpeg',
+  'utility-services': '/images/utility_services/utility_uniforms.jpeg',
+  'security-uniforms': '/images/protective_services/security_guard_uniforms.jpeg',
+  'workwear': '/images/utility_services/maintenance_technician_clothing.jpeg',
+  'chef-uniforms': '/images/culinary_apparel/chef_uniforms.jpeg',
+  'aviation-uniforms': '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
+  'corporate-uniforms': '/images/utility_services/utility_uniforms.jpeg',
+  'hospitality': '/images/flight_crew/air_hospitality_uniforms.jpeg',
+  'uniform-care': '/images/utility_services/maintenance_technician_clothing.jpeg',
+};
+
+// الصورة الاحتياطية الرئيسية
+const DEFAULT_FALLBACK_IMAGE = '/images/flight_crew/flight_crew_uniforms_riyadh.jpg';
+
+// استخراج القسم من مسار المقال
+const getCategoryFromPath = (path: string): string => {
+  // تحليل مسار المقال للحصول على القسم
+  const parts = path.split('/');
+  
+  // البحث عن القسم في المسار (ثاني عنصر بعد /blog/)
+  if (parts.length >= 3 && parts[1] === 'blog') {
+    return parts[2];
+  }
+  
+  return 'all'; // القسم الافتراضي
 };
 
 // واجهة لتعريف نوع كائن sectionImages
@@ -31,7 +69,7 @@ interface SectionImagesMap {
 
 // مسارات قاعدية للصور المستخدمة في كل قسم
 const sectionImages: SectionImagesMap = {
-  academic_attire: '/images/academic_attire/academic_attire.jpeg', // استخدام صورة من خدمات المساندة كبديل
+  academic_attire: '/images/academic_attire/academic_attire.jpeg',
   corporate_attire: '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
   clinic_wear: '/images/clinic_wear/clinic_scrubs.jpg',
   culinary_apparel: '/images/culinary_apparel/kitchen_staff_clothing.jpeg',
@@ -40,176 +78,114 @@ const sectionImages: SectionImagesMap = {
   utility_services: '/images/utility_services/utility_uniforms.jpeg',
 };
 
-// الصورة الاحتياطية الرئيسية
-const DEFAULT_FALLBACK_IMAGE = '/images/culinary_apparel/kitchen_staff_clothing.jpeg';
+// تحويل المقالات من التنسيق المستخدم في data.ts إلى التنسيق المتوافق مع مكون BlogCard
+const adaptedArticles = allArticles.map(article => ({
+  title: article.title,
+  image: article.imageUrl,
+  path: article.url,
+  category: article.category
+}));
 
-// قائمة المقالات من ملف site_articles.txt
-const articlesData = [
-  {
-    title: "اعتبارات تصميم زي شركات الطيران",
-    path: "/blog/flight-crew/flight-1",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  {
-    title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
-    path: "/blog/flight-crew/flight-2",
-    image: "/images/flight_crew/flight_crew_uniform_fabrics.jpeg"
-  },
-  {
-    title: "أزياء الطيران النسائية: تطورها وخصائصها الحديثة",
-    path: "/blog/flight-crew/flight-3",
-    image: "/images/flight_crew/female_male_air_crew_wear.jpeg"
-  },
-  {
-    title: "الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز",
-    path: "/blog/flight-crew/flight-4",
-    image: "/images/flight_crew/pilot_attendant_uniforms.jpeg"
-  },
-  {
-    title: "تأثير الثقافة المحلية على تصميم أزياء شركات الطيران",
-    path: "/blog/flight-crew/flight-5",
-    image: "/images/flight_crew/uniforms_saudi_arabia.jpeg"
-  },
-  {
-    title: "دور أوشحة ولفحات الرقبة في استكمال زي مضيفات الطيران",
-    path: "/blog/flight-crew/flight-6",
-    image: "/images/flight_crew/flight_crew_scarves.jpeg"
-  },
-  {
-    title: "متطلبات السلامة والأمان في تصميم ملابس طاقم الطائرة",
-    path: "/blog/flight-crew/flight-7",
-    image: "/images/flight_crew/flight_crew_safety_requirements.jpeg"
-  },
-  {
-    title: "أفضل الممارسات للحفاظ على مظهر زي الطيران بشكل مثالي",
-    path: "/blog/flight-crew/flight-8",
-    image: "/images/flight_crew/best_flight_crew_attire.jpeg"
-  },
-  {
-    title: "موردو يونيفورم الطيران المتخصصون في الشرق الأوسط",
-    path: "/blog/flight-crew/flight-9",
-    image: "/images/flight_crew/flight_crew_uniform_manufacturer.jpeg"
-  },
-  {
-    title: "كيف يتم تصميم زي طاقم طيران يعكس الثقافة السعودية؟",
-    path: "/blog/flight-crew/flight-10",
-    image: "/images/flight_crew/uniforms_saudi_arabia.jpeg"
-  },
-  {
-    title: "مقارنة بين زي طواقم شركات الطيران المختلفة العاملة في المملكة",
-    path: "/blog/flight-crew/flight-11",
-    image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg"
-  },
-  {
-    title: "تطور أزياء مضيفات الطيران عبر العصور",
-    path: "/blog/flight-crew/flight-12",
-    image: "/images/flight_crew/flight_attendant_dress.jpeg"
-  },
-  {
-    title: "أهمية التصميم الموحد لزي طاقم الطائرة",
-    path: "/blog/flight-crew/flight-13",
-    image: "/images/flight_crew/crew_uniform_visual_identity.jpeg"
-  },
-  {
-    title: "كيفية اختيار الأحذية المناسبة لطاقم الطيران",
-    path: "/blog/flight-crew/flight-14",
-    image: "/images/flight_crew/flight_crew_uniform_accessories.jpeg"
-  },
-  {
-    title: "الإكسسوارات المكملة لزي طاقم الطيران",
-    path: "/blog/flight-crew/flight-15",
-    image: "/images/flight_crew/flight_crew_uniform_accessories.jpeg"
-  },
-  {
-    title: "تأثير ألوان زي الطيران على انطباعات المسافرين",
-    path: "/blog/flight-crew/flight-16",
-    image: "/images/flight_crew/crew_uniform_visual_identity.jpeg"
-  },
-  {
-    title: "أنواع الأقمشة المستخدمة في تصنيع أزياء الطيران",
-    path: "/blog/flight-crew/flight-17",
-    image: "/images/flight_crew/flight_crew_uniform_fabrics.jpeg"
-  },
-  {
-    title: "الفرق بين زي الطيران للرحلات الداخلية والدولية",
-    path: "/blog/flight-crew/flight-18",
-    image: "/images/flight_crew/cabin_crew_uniforms.jpeg"
-  },
-  {
-    title: "الزي الموحد لموظفي الخدمات الأرضية في المطارات",
-    path: "/blog/flight-crew/flight-19",
-    image: "/images/flight_crew/air_crew_attire.jpeg"
-  },
-  {
-    title: "تاريخ تطور زي الخطوط الجوية السعودية",
-    path: "/blog/flight-crew/flight-20",
-    image: "/images/flight_crew/uniforms_saudi_arabia.jpeg"
-  },
-  {
-    title: "الاتجاهات المستقبلية في تصميم أزياء الطيران",
-    path: "/blog/flight-crew/flight-21",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  {
-    title: "أزياء طاقم الطائرات الخاصة: الفخامة والتميز",
-    path: "/blog/flight-crew/flight-22",
-    image: "/images/flight_crew/corporate_flight_crew_uniforms.jpg"
-  },
-  {
-    title: "أزياء الطيران ودورها في بناء الهوية المؤسسية لشركات الطيران",
-    path: "/blog/flight-crew/flight-23",
-    image: "/images/flight_crew/crew_uniform_visual_identity.jpeg"
-  },
-  {
-    title: "بروتوكول ارتداء الزي الرسمي خارج ساعات العمل لطاقم الطيران",
-    path: "/blog/flight-crew/flight-24",
-    image: "/images/flight_crew/flight_crew_uniforms.jpeg"
-  },
-  {
-    title: "مستقبل تصميم زي طواقم الطيران: الابتكار والتقنية",
-    path: "/blog/flight-crew/flight-25",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  {
-    title: "اعتبارات تصميم زي شركات الطيران: توازن الأناقة والوظيفة",
-    path: "/blog/aviation-uniforms/airline-uniform-design-considerations",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  {
-    title: "تطور تصميم زي شركات الطيران عبر العصور",
-    path: "/blog/aviation-uniforms/airline-uniform-design-evolution",
-    image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg"
-  },
-  {
-    title: "معايير زي الطيران لعام 2025",
-    path: "/blog/aviation-uniforms/aviation-uniform-standards-2025",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  {
-    title: "تأثير طاقم الطيران على الزي الموحد",
-    path: "/blog/aviation-uniforms/crew-aviation-on-uniform",
-    image: "/images/flight_crew/crew_uniforms.jpeg"
-  },
-  {
-    title: "تصميم الزي الموحد في الطيران",
-    path: "/blog/aviation-uniforms/in-design-uniform-aviation",
-    image: "/images/flight_crew/flight_crew_uniform_design.jpeg"
-  },
-  // ... يمكن إضافة المزيد من المقالات هنا
-];
+// حذف التكرار في المقالات باستخدام المسار كمفتاح فريد
+const uniqueArticles = Array.from(
+  new Map(adaptedArticles.map(article => [article.path, article])).values()
+);
+
+// دالة لتوليد صور عشوائية لكل فئة
+const getCategoryRandomImage = (category: string): string => {
+  // تعريف مصفوفات الصور لكل فئة
+  const categoryImages: { [key: string]: string[] } = {
+    'aviation-uniforms': [
+      '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
+      '/images/flight_crew/cabin_crew_uniforms.jpeg',
+      '/images/flight_crew/flight_crew_uniform_design.jpeg',
+      '/images/flight_crew/air_crew_attire.jpeg',
+      '/images/flight_crew/pilot_attendant_uniforms.jpeg',
+      '/images/flight_crew/flight_attendant_dress.jpeg',
+      '/images/flight_crew/crew_uniform_visual_identity.jpeg',
+    ],
+    'medical-uniforms': [
+      '/images/clinic_wear/clinic_scrubs.jpg',
+      '/images/clinic_wear/clinic_staff_uniforms.jpg',
+      '/images/clinic_wear/clinic_uniforms.jpeg',
+    ],
+    'chef-uniforms': [
+      '/images/culinary_apparel/chef_uniforms.jpeg',
+      '/images/culinary_apparel/kitchen_staff_clothing.jpeg',
+      '/images/culinary_apparel/culinary_uniforms_riyadh.jpeg',
+      '/images/culinary_apparel/modern_traditional_chef_wear.jpeg',
+      '/images/culinary_apparel/culinary_apparel_design.jpeg',
+    ],
+    'academic-uniforms': [
+      '/images/academic_attire/school_uniforms.jpeg',
+      '/images/academic_attire/school_uniform_fabrics.jpeg',
+    ],
+    'protective-uniforms': [
+      '/images/protective_services/security_guard_uniforms.jpeg',
+      '/images/protective_services/protective_services_uniforms.jpeg',
+      '/images/protective_services/security_badges_patches.jpeg',
+    ],
+    'support-uniforms': [
+      '/images/utility_services/utility_uniforms.jpeg',
+      '/images/utility_services/maintenance_technician_clothing.jpeg',
+      '/images/utility_services/maintenance_wear.jpeg',
+    ],
+    'certifications': [
+      '/images/flight_crew/flight_crew_uniform_design.jpeg',
+    ],
+  };
+  
+  // استخدم الصور المحددة للفئة، أو الصورة الافتراضية إذا لم تكن هناك صور للفئة
+  const images = categoryImages[category] || [DEFAULT_FALLBACK_IMAGE];
+  
+  // اختر صورة عشوائية من المجموعة
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+};
 
 // مكون بطاقة المقالة
-const BlogCard = ({ title, image, path }: { title: string, image: string, path: string }) => {
+const BlogCard = ({ title, image, path, category }: { title: string, image: string, path: string, category: string }) => {
+  // استخدم الصورة المحددة مع تحميل الصورة الاحتياطية إذا فشل التحميل
+  const [imgSrc, setImgSrc] = useState<string>(image);
+  const [hasError, setHasError] = useState<boolean>(false);
+  const pathCategory = getCategoryFromPath(path);
+  
+  // معالجة خطأ تحميل الصورة
+  const handleImageError = () => {
+    if (!hasError) {
+      setHasError(true);
+      
+      // محاولة استخدام صورة احتياطية حسب الفئة
+      if (category && categoryFallbackImages[category]) {
+        setImgSrc(categoryFallbackImages[category]);
+      }
+      // أو استخدام صورة احتياطية حسب المسار
+      else if (pathCategory && pathFallbackImages[pathCategory.replace('_', '-')]) {
+        setImgSrc(pathFallbackImages[pathCategory.replace('_', '-')]);
+      }
+      // أو توليد صورة عشوائية للفئة
+      else if (category) {
+        setImgSrc(getCategoryRandomImage(category));
+      }
+      // أو استخدم الصورة الافتراضية
+      else {
+        setImgSrc(DEFAULT_FALLBACK_IMAGE);
+      }
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <Link href={path}>
-        <div className="relative h-48 w-full">
+        <div className="relative h-48 w-full bg-gray-100">
           <Image 
-            src={image} 
+            src={imgSrc} 
             alt={title}
             fill
             style={{ objectFit: 'cover' }}
             quality={90}
+            priority={false}
+            onError={handleImageError}
           />
         </div>
         <div className="p-4">
@@ -224,15 +200,115 @@ const BlogCard = ({ title, image, path }: { title: string, image: string, path: 
 };
 
 export default function BlogPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  
+  const [activeCategory, setActiveCategory] = useState(categoryParam || 'all');
+  const [allFilteredArticles, setAllFilteredArticles] = useState(uniqueArticles);
+  const [displayCount, setDisplayCount] = useState(18); // عدد المقالات المعروضة في البداية
+  const [isLoading, setIsLoading] = useState(false); // حالة التحميل
+  const loaderRef = useRef<HTMLDivElement>(null); // مرجع لعنصر التحميل
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // تحديث تصفية المقالات عند تغيير الفئة النشطة
+  useEffect(() => {
+    let filtered;
+    if (activeCategory === 'all') {
+      filtered = uniqueArticles;
+    } else {
+      filtered = uniqueArticles.filter(article => {
+        // قم بفحص القسم المخصص أو استخرجه من المسار
+        const articleCategory = article.category || getCategoryFromPath(article.path);
+        
+        // تقريب لمعالجة التطابق: بعض الأقسام قد تكون متشابهة
+        if (activeCategory === 'aviation-uniforms' && (
+          articleCategory === 'aviation-uniforms' || 
+          getCategoryFromPath(article.path).includes('flight') ||
+          getCategoryFromPath(article.path).includes('aviation')
+        )) {
+          return true;
+        }
+        
+        if (activeCategory === 'chef-uniforms' && (
+          articleCategory === 'chef-uniforms' || 
+          getCategoryFromPath(article.path).includes('culinary') ||
+          getCategoryFromPath(article.path).includes('chef')
+        )) {
+          return true;
+        }
+        
+        return articleCategory === activeCategory;
+      });
+    }
+    
+    setAllFilteredArticles(filtered);
+    setDisplayCount(18); // إعادة تعيين عدد المقالات المعروضة عند تغيير الفئة
+    
+    // التمرير إلى أعلى عند تغيير الفئة
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [activeCategory]);
+
+  // تحديث حالة التصفية عندما يتم تغيير معلمة URL
+  useEffect(() => {
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [categoryParam]);
+
+  // إنشاء Intersection Observer لمراقبة وصول المستخدم إلى نهاية القائمة
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '200px', // زيادة هامش الكشف ليبدأ التحميل قبل الوصول للعنصر
+      threshold: 0.05 // تقليل عتبة الكشف لتفعيل التحميل مبكرًا
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      // إذا كان العنصر مرئياً وهناك المزيد من المقالات للتحميل
+      if (entry.isIntersecting && !isLoading && displayCount < allFilteredArticles.length) {
+        loadMoreArticles();
+      }
+    }, options);
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+
+    return () => {
+      if (loaderRef.current) {
+        observer.unobserve(loaderRef.current);
+      }
+    };
+  }, [isLoading, displayCount, allFilteredArticles.length]);
+
+  // تحميل المزيد من المقالات
+  const loadMoreArticles = () => {
+    setIsLoading(true);
+    // تقليل وقت التأخير الاصطناعي
+    setTimeout(() => {
+      // زيادة عدد المقالات المحملة في كل مرة
+      setDisplayCount(prevCount => Math.min(prevCount + 18, allFilteredArticles.length));
+      setIsLoading(false);
+    }, 200); // تقليل وقت التأخير من 800 إلى 200 ميلي ثانية
+  };
+
+  // التعامل مع تغيير الفئة
+  const handleCategoryChange = (category: string) => {
+    setActiveCategory(category);
+  };
+
+  // الحصول على قائمة المقالات المعروضة حالياً
+  const visibleArticles = allFilteredArticles.slice(0, displayCount);
 
   return (
     <div className="min-h-screen bg-gray-50" ref={scrollRef}>
       {/* Blog Header */}
       <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700 mb-12">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">مدونة يونيفورم - نسخة محدثة</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">مدونة يونيفورم</h1>
           <p className="text-xl text-blue-100">كل ما يخص عالم الأزياء الموحدة والابتكار في القطاعات المختلفة</p>
         </div>
       </section>
@@ -243,28 +319,61 @@ export default function BlogPage() {
           {categories.map(category => (
             <button
               key={category.key}
-              onClick={() => setActiveCategory(category.key)}
+              onClick={() => handleCategoryChange(category.key)}
               className={`px-4 py-2 rounded-lg font-semibold transition-colors border ${activeCategory === category.key ? 'bg-blue-700 text-white border-blue-700' : 'bg-white text-blue-900 border-blue-200 hover:bg-blue-50'}`}
             >
               {category.label}
             </button>
           ))}
         </div>
-      </section>
 
-      {/* Blog Cards Grid */}
-      <section className="max-w-7xl mx-auto px-4 mb-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">أحدث المقالات</h2>
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {visibleArticles.length > 0 ? (
+            visibleArticles.map((article, index) => (
+              <BlogCard
+                key={`${article.path}-${index}`}
+                title={article.title}
+                image={article.image}
+                path={article.path}
+                category={article.category}
+              />
+            ))
+          ) : (
+            <div className="col-span-3 text-center py-12">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">لا توجد مقالات في هذه الفئة</h3>
+              <p className="text-gray-500">يرجى اختيار فئة أخرى أو العودة إلى الكل</p>
+            </div>
+          )}
+        </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articlesData.map((article, index) => (
-            <BlogCard 
-              key={index}
-              title={article.title}
-              image={article.image}
-              path={article.path}
-            />
-          ))}
+        {/* مؤشر التحميل */}
+        {displayCount < allFilteredArticles.length && (
+          <div 
+            ref={loaderRef} 
+            className="text-center py-8 mb-8"
+          >
+            {isLoading ? (
+              <div className="flex justify-center items-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-700"></div>
+                <span className="mr-2">جاري تحميل المزيد من المقالات...</span>
+              </div>
+            ) : (
+              <button 
+                onClick={loadMoreArticles}
+                className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
+              >
+                عرض المزيد
+              </button>
+            )}
+          </div>
+        )}
+        
+        {/* توضيح عدد المقالات المعروضة */}
+        <div className="text-center mb-8">
+          <p className="text-gray-700">
+            {visibleArticles.length} مقالة من أصل {allFilteredArticles.length} مقالة
+          </p>
         </div>
       </section>
     </div>

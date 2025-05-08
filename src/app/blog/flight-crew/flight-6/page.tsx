@@ -1,346 +1,367 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'دور أوشحة ولفحات الرقبة في استكمال زي مضيفات الطيران',
-  description: 'استكشف أهمية وتاريخ أوشحة ولفحات الرقبة في زي مضيفات الطيران، ودورها الجمالي والوظيفي، وكيف أصبحت رمزاً أساسياً للهوية المؤسسية لشركات الطيران.',
+  title: 'الإكسسوارات في أزياء الطيران: اللمسات المكملة للأناقة والوظيفة',
+  description: 'استكشف دور الإكسسوارات المختلفة في أزياء الطيران، وكيف تجمع بين الوظيفة العملية والأناقة، مع التركيز على الشارات، الأوشحة، الحقائب والإكسسوارات المميزة.',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_scarves.jpeg';
-  const title = 'دور أوشحة ولفحات الرقبة في استكمال زي مضيفات الطيران';
+  const imageSrc = '/images/flight_crew/flight_crew_uniform_accessories.jpeg';
+  const title = 'الإكسسوارات في أزياء الطيران: اللمسات المكملة للأناقة والوظيفة';
+  const readingTime = '8 دقائق';
+  const datePublished = '٥ يونيو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'badges', title: 'الشارات والرموز: لغة المكانة والانتماء' },
+    { id: 'scarves', title: 'الأوشحة والأربطة: توازن الألوان والهوية' },
+    { id: 'bags', title: 'الحقائب والأمتعة المهنية' },
+    { id: 'jewelry', title: 'المجوهرات والإكسسوارات الشخصية' },
+    { id: 'technological', title: 'الإكسسوارات التكنولوجية والوظيفية' },
+    { id: 'design-trends', title: 'اتجاهات التصميم الحديثة في إكسسوارات الطيران' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            تعد أوشحة ولفحات الرقبة من أكثر العناصر تميزاً في زي مضيفات الطيران، حيث تشكل توقيعاً بصرياً فريداً يمكن من خلاله التعرف على شركة الطيران من النظرة الأولى. وبالرغم من حجمها الصغير نسبياً مقارنة بباقي قطع الزي، إلا أن هذه الإكسسوارات الأنيقة تلعب دوراً محورياً في تحديد الهوية البصرية والأسلوب المميز لأزياء مضيفات الطيران، وتجسد في كثير من الأحيان جوهر العلامة التجارية لشركة الطيران ورسالتها.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-4" className="text-sm hover:text-blue-600 block">
+                    الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-5" className="text-sm hover:text-blue-600 block">
+                    تأثير الثقافة المحلية على تصميم أزياء شركات الطيران
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                في عالم أزياء الطيران، غالباً ما تحظى البدلات الرسمية بالاهتمام الأكبر، لكن الإكسسوارات المكملة للزي تلعب دوراً بالغ الأهمية في تشكيل الصورة النهائية والانطباع الذي يتركه طاقم الطائرة لدى المسافرين. فهذه العناصر الصغيرة ليست مجرد إضافات تجميلية، بل جزء لا يتجزأ من الهوية المؤسسية وعناصر وظيفية تسهل عمل الطاقم وتميزه.
           </p>
-          <p className="mb-4">
-            على مر تاريخ الطيران، تطورت أوشحة مضيفات الطيران من مجرد إكسسوار وظيفي بسيط إلى قطعة فنية معقدة ومدروسة بعناية، تجمع بين الأناقة والوظيفية والرمزية. وقد عكست هذه الأوشحة التغيرات في عالم الموضة والتصميم، وتطور دور المرأة في صناعة الطيران، وصعود الهوية المؤسسية كعنصر تنافسي أساسي بين شركات الطيران العالمية.
+              <p className="mb-4 leading-7 text-gray-700">
+                تقع الإكسسوارات في منطقة فريدة تجمع بين الوظيفة العملية والجمالية، فهي من جهة أدوات تساعد الطاقم على أداء مهامه بكفاءة، ومن جهة أخرى رموز تعكس هوية الشركة وتميزها في سوق تنافسية. كما أنها تتيح للمصممين مساحة أكبر للإبداع والتعبير عن الهوية الثقافية والجمالية للشركة من خلال تفاصيل دقيقة ومدروسة.
           </p>
-          <p className="mb-4">
-            في هذا المقال، نستكشف الجوانب المتعددة للأوشحة ولفحات الرقبة في زي مضيفات الطيران، بدءاً من تاريخها وتطورها، مروراً بأدوارها الوظيفية والجمالية، وصولاً إلى أهميتها في تعزيز الهوية المؤسسية وعلاقتها بالثقافة المحلية. كما نلقي الضوء على التحديات التي تواجه تصميمها والاتجاهات المستقبلية في هذا المجال الفريد الذي يجمع بين الموضة وعالم الطيران.
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستكشف عالم الإكسسوارات المتنوعة في صناعة أزياء الطيران، من الشارات والرموز التي تعبر عن الرتب والمهارات، إلى الأوشحة والأربطة التي تضيف لمسات لونية مميزة، وصولاً إلى الحقائب والأدوات التكنولوجية الحديثة التي تدعم عمل الطاقم. كما نناقش أحدث اتجاهات التصميم في هذا المجال، والتوازن الدقيق بين الالتزام بالتقاليد والاستجابة للتطورات المعاصرة.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التطور التاريخي لأوشحة مضيفات الطيران</h2>
+            <section id="badges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الشارات والرموز: لغة المكانة والانتماء</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">البدايات المتواضعة: الأربعينيات والخمسينيات</h3>
-          <p className="mb-4">
-            الأصول الوظيفية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ظهرت أوشحة الرقبة أولاً كجزء من الزي شبه العسكري لمضيفات الطيران الأوائل</li>
-            <li className="mb-2">كانت بسيطة في التصميم، غالباً بألوان محايدة (أبيض، كحلي) تعكس الطابع الرسمي للمهنة</li>
-            <li className="mb-2">وظيفتها الأساسية كانت إكمال المظهر المهني وتغطية ياقة القميص</li>
-            <li className="mb-2">غالباً ما كانت تربط بطريقة بسيطة تشبه ربطة العنق الرجالية</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">شارات الشركة والجناح</h3>
+                <p className="mb-2 font-medium text-blue-700">رموز الهوية المؤسسية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>شارة الصدر (Wing Badge): ترمز للتأهيل المهني وتعكس شعار الشركة وهويتها</li>
+                  <li>شارات الكم: توضح الرتبة والأقدمية، خاصة للطيارين والمشرفين</li>
+                  <li>شارات الياقة: تحمل رموزاً مميزة للشركة أو الطراز الذي يخدم عليه الطاقم</li>
+                  <li>دبابيس الخدمة: تشير إلى سنوات الخبرة أو الإنجازات المهنية الخاصة</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">العصر الذهبي للطيران: الستينيات والسبعينيات</h3>
-          <p className="mb-4">
-            عصر التحول والتميز:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أصبحت الأوشحة أكثر جرأة وألواناً تماشياً مع ثورة الألوان في الستينيات</li>
-            <li className="mb-2">ظهور تصاميم بطبعات هندسية جريئة وألوان زاهية تعكس ثقافة البوب</li>
-            <li className="mb-2">بدأت شركات الطيران في تكليف مصممي أزياء مشهورين لتصميم أوشحة مميزة</li>
-            <li className="mb-2">ظهور طرق ربط مبتكرة ومتنوعة كعنصر من عناصر التمايز بين الشركات</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">بطاقات التعريف والرتب</h3>
+                  <p className="mb-2 text-gray-700">وظائف أمنية وتنظيمية:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>بطاقات التعريف الشخصي المزودة بتقنيات أمنية للوصول إلى مناطق المطار المختلفة</li>
+                    <li>شارات الرتبة الرقمية أو التقليدية لتوضيح التسلسل الوظيفي للطاقم</li>
+                    <li>أنظمة ترميز لونية تساعد المسافرين على تمييز أدوار الطاقم المختلفة</li>
+                    <li>بطاقات اللغات: توضح مهارات اللغات التي يتقنها عضو الطاقم لخدمة المسافرين</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مرحلة النضج: الثمانينيات إلى الألفية الجديدة</h3>
-          <p className="mb-4">
-            الهوية المؤسسية والتميز:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطور الأوشحة لتصبح قطعاً فنية تعكس هوية العلامة التجارية لشركات الطيران</li>
-            <li className="mb-2">تصاميم متطورة وخاصة بكل شركة، غالباً ما تتضمن الشعار والألوان الرسمية</li>
-            <li className="mb-2">ظهور طبعات معقدة تتطلب تقنيات متقدمة في طباعة الحرير والأقمشة الفاخرة</li>
-            <li className="mb-2">أصبحت الأوشحة رمزاً للتمييز البصري بين شركات الطيران المتنافسة</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تصميم الشارات وتطورها</h3>
+                  <p className="mb-2 text-gray-700">التغير عبر الزمن:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>التطور من الشارات المعدنية المنقوشة يدوياً إلى التقنيات الحديثة</li>
+                    <li>تأثير التغيرات في شعارات الشركات على تصميم الشارات والرموز</li>
+                    <li>استخدام تقنيات متطورة مقاومة للتزوير والتلف في الشارات الحديثة</li>
+                    <li>الموازنة بين التصميم الكلاسيكي والاتجاهات المعاصرة في الشارات الرسمية</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">العصر الحديث: تنوع وتخصص</h3>
-          <p className="mb-4">
-            التوازن بين التقاليد والابتكار:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أوشحة مصممة بدقة لتكون جزءًا من هوية بصرية متكاملة للعلامة التجارية</li>
-            <li className="mb-2">تصاميم تعكس التراث الثقافي للبلد الأم مع لمسة عصرية</li>
-            <li className="mb-2">تنوع في المواد والأشكال (أوشحة، لفحات، ربطات) لمختلف المناسبات والمواسم</li>
-            <li className="mb-2">تقنيات متقدمة في مواد مثل الحرير الاصطناعي سهل العناية والأقمشة ذات الأداء العالي</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الأدوار المتعددة للأوشحة في زي مضيفات الطيران</h2>
+            <section id="scarves" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأوشحة والأربطة: توازن الألوان والهوية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الدور الوظيفي والعملي</h3>
-          <p className="mb-4">
-            فوائد تتجاوز الجماليات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تغطية وحماية الرقبة من تكييف الهواء وتقلبات درجات الحرارة داخل الطائرة</li>
-            <li className="mb-2">إمكانية التكيف مع مختلف الظروف المناخية من خلال تغيير طريقة الربط</li>
-            <li className="mb-2">تعزيز راحة المضيفة عند ارتداء قمصان أو ياقات قد تسبب احتكاكاً مع الجلد</li>
-            <li className="mb-2">قطعة عملية يمكن تغييرها أو تنظيفها بسهولة في حالة الاتساخ</li>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">أوشحة المضيفات: فن اللون والنقش</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">العنصر الأكثر تميزاً:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تصميمات حصرية تعكس هوية الشركة والثقافة المحلية</li>
+                    <li>استخدام الحرير عالي الجودة أو المواد المشابهة لأناقة وراحة طويلة الأمد</li>
+                    <li>أنماط مميزة وحقوق ملكية فكرية لتصاميم الأوشحة في الشركات الكبرى</li>
+                    <li>أساليب لف متنوعة تتيح تنوعاً في المظهر باستخدام نفس القطعة</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الدور الجمالي والأسلوبي</h3>
-          <p className="mb-4">
-            تأثير على المظهر العام:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">إضفاء لمسة من الألوان والحيوية على الزي الرسمي غالباً ما يكون محايداً</li>
-            <li className="mb-2">تحسين الانسيابية البصرية للزي وإضافة توازن للقصات والأشكال</li>
-            <li className="mb-2">توجيه الانتباه إلى الوجه، مما يسهل التواصل بين المضيفة والمسافرين</li>
-            <li className="mb-2">تسمح بتنويع المظهر العام دون الحاجة لتغيير كامل الزي</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">ربطات العنق وإكسسوارات الرقبة للرجال</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">أناقة وتمييز:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>ربطات العنق التقليدية مقابل ربطات النقطة الواحدة سهلة الارتداء</li>
+                      <li>دبابيس تثبيت ربطة العنق المصممة خصيصاً بشعار الشركة</li>
+                      <li>الألوان والأنماط المميزة التي تعكس الهوية البصرية للشركة</li>
+                      <li>ظهور ربطات العنق المغناطيسية لاعتبارات السلامة والراحة</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">رمز للهوية المؤسسية</h3>
-          <p className="mb-4">
-            توقيع بصري مميز:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أداة فعالة وقوية لتمييز العلامة التجارية بتكلفة نسبية منخفضة</li>
-            <li className="mb-2">فرصة لإظهار ألوان الشركة وشعارها بطريقة لافتة تقترب من وجه المضيفة</li>
-            <li className="mb-2">تصميم خاص وحصري يصعب تقليده يعزز تفرد الشركة</li>
-            <li className="mb-2">عنصر التوحيد البصري الذي يميز الطاقم عن بقية المسافرين</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">أغطية الرأس والقبعات</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">رمزية وتاريخ:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>القبعات التقليدية للمضيفات: من الإلزامية إلى الاختيارية في معظم الشركات</li>
+                      <li>قبعات الطيارين وتطورها من الطراز العسكري إلى التصاميم الحديثة</li>
+                      <li>أغطية الرأس الخاصة بالثقافات المختلفة والمعدلة لتناسب بيئة العمل</li>
+                      <li>شارات وزخارف القبعات كعناصر تمييز للرتب والشركات</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">بعد ثقافي ورمزي</h3>
-          <p className="mb-4">
-            التعبير عن القيم والتراث:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">فرصة لدمج عناصر من التراث الثقافي للبلد (نقوش، رموز، زخارف تقليدية)</li>
-            <li className="mb-2">تعكس قيم الشركة وموقعها في السوق (فخامة، اقتصاد، تقليدية، ابتكار)</li>
-            <li className="mb-2">وسيلة للتعبير عن التنوع الثقافي أو الوحدة المؤسسية</li>
-            <li className="mb-2">رمز للاحترافية والانضباط والالتزام بمعايير الشركة</li>
-          </ul>
+                  </div>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">عناصر تصميم أوشحة مضيفات الطيران</h2>
+            <section id="bags" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الحقائب والأمتعة المهنية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الألوان والنقوش</h3>
-          <p className="mb-4">
-            لغة بصرية مدروسة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام الألوان الرئيسية للشركة مع ألوان ثانوية مكملة</li>
-            <li className="mb-2">نقوش هندسية أو عضوية تعكس هوية الشركة (خطوط أفقية للاستقرار، دوائر للانسجام)</li>
-            <li className="mb-2">تدرجات لونية تضيف عمقاً وحركة للتصميم</li>
-            <li className="mb-2">اعتبارات للبقع والاتساخات عند اختيار الألوان (تجنب الألوان الفاتحة جداً في بعض المناطق)</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">حقائب الطيارين الكلاسيكية</h3>
+                <p className="mb-2 text-gray-700">من الوظيفة العملية إلى الأيقونة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>حقيبة "الطيار" التقليدية: تصميم عملي يتسع للمستندات والخرائط والأدوات</li>
+                  <li>تطور التصميم مع التحول الرقمي من الحقائب الثقيلة إلى الحقائب المدمجة</li>
+                  <li>المواد المستخدمة: من الجلد الفاخر إلى المواد المركبة خفيفة الوزن وعالية المتانة</li>
+                  <li>الحقائب الحصرية المصممة خصيصاً لشركات طيران معينة مع شعاراتها وألوانها</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد والخامات</h3>
-          <p className="mb-4">
-            اختيارات مدروسة للأداء والمظهر:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الحرير الطبيعي: فخامة ولمعان لكن صعب العناية ومكلف</li>
-            <li className="mb-2">البوليستر عالي الجودة: متانة وسهولة عناية مع محاكاة لمظهر الحرير</li>
-            <li className="mb-2">خلطات (حرير/بوليستر): توازن بين الفخامة والوظيفية</li>
-            <li className="mb-2">الشيفون: نعومة وانسيابية للأوشحة الأكبر حجماً</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">حقائب طاقم الضيافة</h3>
+                  <p className="mb-2 text-gray-700">العملية والتنظيم:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>حقائب متعددة الجيوب لتنظيم الأدوات والمستلزمات الضرورية أثناء الخدمة</li>
+                    <li>تصميمات مقاومة للسوائل وسهلة التنظيف للتعامل مع بيئة العمل</li>
+                    <li>حقائب صغيرة للإسعافات الأولية والأدوات الخاصة بإجراءات السلامة</li>
+                    <li>حلول تخزين مبتكرة تتناسب مع المساحة المحدودة في مقصورة الطائرة</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الأبعاد والشكل</h3>
-          <p className="mb-4">
-            تنوع الأشكال لتنوع الاستخدامات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الوشاح المستطيل الطويل: متعدد الاستخدامات، يمكن ربطه بطرق متنوعة</li>
-            <li className="mb-2">الوشاح المربع: تقليدي ورسمي، يمكن طيه بطرق مختلفة</li>
-            <li className="mb-2">قياسات مدروسة تناسب الطرق المختلفة للربط</li>
-            <li className="mb-2">سُمك متوازن يسمح بالانسيابية مع الاحتفاظ بالشكل</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">حقائب السفر الخاصة بالطاقم</h3>
+                  <p className="mb-2 text-gray-700">تصميم للتنقل المستمر:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>حقائب عجلات خفيفة الوزن ومتينة مصممة لتحمل السفر المتكرر</li>
+                    <li>علامات وشعارات مميزة لتسهيل التعرف على أمتعة الطاقم في المطارات</li>
+                    <li>حلول ذكية للتخزين تناسب الإقامات القصيرة والمتطلبات المهنية</li>
+                    <li>تكامل مع الزي الرسمي من حيث اللون والتصميم لصورة احترافية متكاملة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">طرق الربط والارتداء</h3>
-          <p className="mb-4">
-            فن التنويع ضمن الهوية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">طرق قياسية موحدة تحددها الشركة لضمان المظهر المتناسق</li>
-            <li className="mb-2">العقدة الفرنسية (French Knot): أنيقة ومتوازنة، تستخدم في العديد من شركات الطيران الفاخرة</li>
-            <li className="mb-2">الربطة الجانبية: غير متماثلة وعصرية، تضيف حيوية للمظهر</li>
-            <li className="mb-2">استخدام حلقات أو مشابك خاصة تحمل شعار الشركة للمساعدة في الربط وتعزيز الهوية</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">أمثلة مميزة لأوشحة مضيفات الطيران حول العالم</h2>
+            <section id="jewelry" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المجوهرات والإكسسوارات الشخصية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">طيران الإمارات: الوشاح الأيقوني</h3>
-          <p className="mb-4">
-            توقيع بصري عالمي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">وشاح أحمر زاهي مع طباعة ذهبية لتدفق الرمال الصحراوية</li>
-            <li className="mb-2">يرتدى مع القبعة البيجية المميزة ليشكل صورة لا تُنسى</li>
-            <li className="mb-2">يربط بطريقة انسيابية على الجانب بشكل مميز ومتسق</li>
-            <li className="mb-2">أصبح رمزاً مميزاً للشركة يسهل التعرف عليه في أي مطار حول العالم</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">سياسات المجوهرات والإكسسوارات الشخصية</h3>
+                <p className="mb-2 text-gray-700">التوازن بين الشخصية والاحترافية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>القواعد المنظمة لارتداء المجوهرات للطاقم: اعتبارات السلامة والمظهر المهني</li>
+                  <li>الاختلافات بين سياسات شركات الطيران فيما يخص الإكسسوارات الشخصية</li>
+                  <li>التمييز بين الإكسسوارات المسموح بها للطاقم النسائي والرجالي</li>
+                  <li>مراعاة الاعتبارات الثقافية والدينية في السماح بإكسسوارات معينة</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط الفرنسية: الأناقة الباريسية</h3>
-          <p className="mb-4">
-            لمسة من الموضة الفرنسية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم مستوحى من دور الأزياء الفرنسية، مع طبعات متغيرة حسب المجموعات الموسمية</li>
-            <li className="mb-2">ألوان أزرق وأحمر وأبيض تعكس ألوان العلم الفرنسي بأسلوب أنيق</li>
-            <li className="mb-2">تعاون مع مصممين معروفين مثل كريستيان لاكروا وكريستيان ديور</li>
-            <li className="mb-2">يربط بطريقة فاخرة تشبه "noeud lavallière" الفرنسي التقليدي</li>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">الساعات: الدقة والأناقة</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">رمز الالتزام بالوقت:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أهمية الساعات في صناعة تعتمد على الالتزام الدقيق بالمواقيت</li>
+                    <li>مواصفات الساعات المناسبة لاستخدام طاقم الطيران: مقاومة التغيرات الجوية والضغط</li>
+                    <li>ساعات خاصة للطيارين مع وظائف إضافية مثل الكرونوميتر والتوقيت العالمي</li>
+                    <li>ساعات ذات علامات تجارية محددة كجزء من الزي الرسمي في بعض شركات الطيران</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط السنغافورية: الأوركيد والباتيك</h3>
-          <p className="mb-4">
-            تراث آسيوي بلمسة عصرية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">وشاح حريري بطبعات باتيك مستوحاة من التراث الملايو</li>
-            <li className="mb-2">نقوش زهرة الأوركيد (الزهرة الوطنية لسنغافورة) بألوان الشركة</li>
-            <li className="mb-2">تصميم دقيق ومعقد يعكس الدقة والاهتمام بالتفاصيل المميزة للشركة</li>
-            <li className="mb-2">يكمل زي الساروڠ كباي التقليدي بطريقة انسيابية ومتكاملة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط الجوية القطرية: الألوان العنابية</h3>
-          <p className="mb-4">
-            بساطة أنيقة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">وشاح بلون عنابي مميز (البرجندي) يعكس اللون الوطني القطري</li>
-            <li className="mb-2">تصميم بسيط وأنيق مع تفاصيل هندسية مستوحاة من العمارة الإسلامية</li>
-            <li className="mb-2">حرير عالي الجودة يعكس الفخامة والرقي</li>
-            <li className="mb-2">يتناغم مع القبعة الرسمية للمضيفات في مظهر متكامل</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات في تصميم أوشحة مضيفات الطيران</h2>
+            <section id="technological" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الإكسسوارات التكنولوجية والوظيفية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين الجماليات والوظيفية</h3>
-          <p className="mb-4">
-            جمال يقابله أداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحقيق التوازن بين المظهر الجمالي والمتطلبات العملية اليومية</li>
-            <li className="mb-2">اختيار مواد تحافظ على الشكل الأنيق مع تحمل الاستخدام المكثف</li>
-            <li className="mb-2">تصميم أوشحة تبقى مرتبة طوال الرحلة رغم الحركة المستمرة</li>
-            <li className="mb-2">مراعاة سهولة الربط وتثبيت الوشاح خاصة خلال الظروف الطارئة</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">معدات الاتصال والأجهزة الرقمية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">تقنيات العمل الحديثة:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>أجهزة الاتصال الداخلي وسماعات الاتصال المخصصة للطيارين والطاقم</li>
+                      <li>الأجهزة اللوحية والحواسيب المحمولة التي حلت محل المستندات الورقية</li>
+                      <li>حقائب وحوامل مخصصة للأجهزة الرقمية تدمج مع الزي بشكل انسيابي</li>
+                      <li>غلافات واقية للأجهزة بتصميمات احترافية تحمل شعار الشركة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير السلامة والصحة</h3>
-          <p className="mb-4">
-            متطلبات السلامة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم أوشحة لا تعيق الحركة أثناء حالات الطوارئ</li>
-            <li className="mb-2">اختيار مواد تلبي معايير مقاومة الحريق ومتطلبات السلامة</li>
-            <li className="mb-2">تقليل احتمالية التشابك أو العلق في المعدات والأبواب</li>
-            <li className="mb-2">مراعاة الحساسية المحتملة للمواد عند الاستخدام المستمر</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">نظارات الطيارين: الوظيفة والأيقونة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">أبعد من الأناقة:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>المواصفات التقنية للنظارات الشمسية المناسبة للطيارين: حماية من الأشعة والوهج</li>
+                      <li>تطور تصميمات "الأفياتور" الكلاسيكية واستمرار شعبيتها</li>
+                      <li>النظارات الذكية والتقنيات الجديدة في مجال البصريات للطيارين</li>
+                      <li>كيف أصبحت نظارات الطيارين أيقونة ثقافية تتجاوز حدود الصناعة</li>
           </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">سهولة العناية والصيانة</h3>
-          <p className="mb-4">
-            تحديات الاستخدام اليومي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير أوشحة سهلة التنظيف وتقاوم البقع (خاصة للرحلات الطويلة)</li>
-            <li className="mb-2">اختيار مواد تحافظ على الألوان والشكل بعد غسيل متكرر</li>
-            <li className="mb-2">توفير بدائل كافية للتبديل مع ضمان التطابق التام في المظهر</li>
-            <li className="mb-2">تصميم يسهل إعادته للشكل الأصلي حتى في ظروف السفر</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">إكسسوارات السلامة والطوارئ</h3>
+                <p className="mb-2 font-medium text-blue-700">الجانب الحيوي غير المرئي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>صفارات الطوارئ والإضاءة المدمجة في زي الطاقم للاستخدام في حالات الطوارئ</li>
+                  <li>حزام المفاتيح والأدوات المتعددة المصممة لمهام محددة على متن الطائرة</li>
+                  <li>قفازات وأغطية واقية مدمجة في تصميم الزي للاستخدام السريع عند الحاجة</li>
+                  <li>إكسسوارات التنفس والحماية الشخصية المصممة لتكون في متناول الطاقم دائماً</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاختلافات الثقافية والشخصية</h3>
-          <p className="mb-4">
-            احترام التنوع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم أوشحة تناسب مضيفات من خلفيات ثقافية ودينية متنوعة</li>
-            <li className="mb-2">مراعاة اختلاف أشكال الوجه والجسم لضمان مظهر متناغم للجميع</li>
-            <li className="mb-2">توفير خيارات متوافقة مع الحجاب للمضيفات المحجبات</li>
-            <li className="mb-2">التوازن بين الموحد المؤسسي ومساحة التعبير الشخصي</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">اتجاهات مستقبلية في تصميم أوشحة مضيفات الطيران</h2>
+            <section id="design-trends" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اتجاهات التصميم الحديثة في إكسسوارات الطيران</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الاستدامة والمسؤولية البيئية</h3>
-          <p className="mb-4">
-            أوشحة خضراء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام مواد مستدامة ومعاد تدويرها في صناعة الأوشحة</li>
-            <li className="mb-2">تقنيات طباعة صديقة للبيئة وأصباغ آمنة</li>
-            <li className="mb-2">تصميم أوشحة متعددة الاستخدامات تقلل الحاجة للاستبدال المتكرر</li>
-            <li className="mb-2">أنظمة لإعادة تدوير الأوشحة المستعملة وتحويلها إلى منتجات أخرى</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التكنولوجيا والوظائف المتقدمة</h3>
-          <p className="mb-4">
-            أوشحة ذكية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">مواد حديثة تتكيف مع درجات الحرارة لتوفير الراحة في مختلف البيئات</li>
-            <li className="mb-2">أوشحة بمعالجات نانوية تقاوم البقع والروائح وتطرد السوائل</li>
-            <li className="mb-2">ميزات مضادة للميكروبات لتعزيز النظافة خاصة بعد جائحة كوفيد-19</li>
-            <li className="mb-2">تقنيات نسيج متقدمة توازن بين الخفة والمتانة وسهولة العناية</li>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاستدامة والمسؤولية البيئية</h3>
+                <p className="mb-2 text-gray-700">إكسسوارات صديقة للبيئة:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                  <li>مواد معاد تدويرها في تصنيع الإكسسوارات كالحقائب والأوشحة</li>
+                  <li>استخدام مواد طبيعية ومستدامة محل المواد الاصطناعية</li>
+                  <li>تصميمات طويلة الأمد تقاوم تقلبات الموضة وتقلل من الحاجة للاستبدال المتكرر</li>
+                  <li>التوجه نحو شركات محلية وحرفيين لتصنيع الإكسسوارات لتقليل البصمة الكربونية</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التخصيص والتنوع</h3>
-          <p className="mb-4">
-            أوشحة أكثر شمولية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">خيارات متعددة تناسب مختلف الثقافات والمعتقدات الدينية</li>
-            <li className="mb-2">أوشحة موسمية تتغير حسب المناسبات والأعياد المختلفة</li>
-            <li className="mb-2">تصاميم تراعي تنوع أشكال الجسم وأنماط البشرة</li>
-            <li className="mb-2">مساحة أكبر للتعبير الشخصي ضمن الإطار المؤسسي العام</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التخصيص والتمييز</h3>
+                  <p className="mb-2 text-gray-700">الانتقال من الموحد إلى الفريد:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>توفير خيارات متعددة ضمن قواعد موحدة للسماح بالتعبير الشخصي</li>
+                    <li>إكسسوارات خاصة تميز خطوط معينة أو رحلات خاصة (مثل رحلات الحج)</li>
+                    <li>إكسسوارات موسمية تتغير حسب المناسبات والأحداث المهمة</li>
+                    <li>تصميمات تناسب مختلف الأجسام والاحتياجات بدلاً من النموذج الواحد للجميع</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التعاون والإبداع المشترك</h3>
-          <p className="mb-4">
-            شراكات إبداعية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تعاون متزايد مع مصممين عالميين ومحليين لإنتاج أوشحة مميزة</li>
-            <li className="mb-2">شراكات مع فنانين معاصرين لتقديم أوشحة محدودة الإصدار</li>
-            <li className="mb-2">التعاون مع حرفيين تقليديين لإحياء تقنيات قديمة بأسلوب معاصر</li>
-            <li className="mb-2">مشاركة الطاقم في عملية تصميم الأوشحة لضمان ملاءمتها للاحتياجات اليومية</li>
-          </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التكامل التكنولوجي</h3>
+                  <p className="mb-2 text-gray-700">إكسسوارات ذكية:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أجهزة قابلة للارتداء مدمجة في الزي الرسمي لقياس بيئة العمل ومؤشرات الصحة</li>
+                    <li>أوشحة وربطات عنق مزودة بخاصية مضادة للبكتيريا ومقاومة للروائح</li>
+                    <li>إكسسوارات مزودة بتقنية RFID للوصول الآمن ومتابعة المعدات</li>
+                    <li>تقنيات الواقع المعزز في النظارات والإكسسوارات لدعم خدمة المسافرين</li>
+                  </ol>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            تمثل أوشحة ولفحات الرقبة لمضيفات الطيران أكثر من مجرد إكسسوار تكميلي؛ فهي عنصر محوري في تكوين الهوية البصرية المميزة لشركات الطيران، ورمز قوي للعلامة التجارية، ومؤشر على قيم الشركة وفلسفتها في الخدمة والتصميم. وعلى الرغم من صغر حجمها نسبياً، إلا أن هذه القطعة الأنيقة تضطلع بأدوار متعددة جمالية ووظيفية وثقافية ورمزية.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-lg border border-gray-200">
+                <p className="mb-4 leading-7 text-gray-700">
+                  تشكل الإكسسوارات في عالم أزياء الطيران جزءاً لا يتجزأ من المنظومة الكاملة للزي الرسمي، وهي بعيدة كل البعد عن كونها مجرد زخارف ثانوية. فهذه التفاصيل الصغيرة هي التي تكمل الصورة الاحترافية، وتضفي لمسات التميز، وتساهم في تعزيز الهوية المؤسسية، وتسهل العمل اليومي لطاقم الطائرة.
           </p>
-          <p className="mb-4">
-            وقد عكس تطور أوشحة مضيفات الطيران عبر العقود الماضية التحولات في عالم الطيران والموضة والثقافة، من البساطة الوظيفية في البدايات، إلى التعقيد الفني والرمزي في الوقت الحاضر. واليوم، أصبحت هذه الأوشحة ميداناً للإبداع والابتكار، تتنافس فيه شركات الطيران لتقديم تصاميم تجمع بين الأصالة والحداثة، وبين خصوصية الهوية المحلية وعالمية الطيران.
+                <p className="mb-4 leading-7 text-gray-700">
+                  ما يميز إكسسوارات الطيران عن نظيراتها في مجالات أخرى هو ذلك التوازن الدقيق بين العناصر الجمالية والوظيفية. فبينما تحمل بصمة جمالية مميزة تعكس هوية الشركة وثقافتها، تظل ملتزمة بمعايير صارمة للسلامة والعملية والوظيفية تفرضها طبيعة العمل في بيئة الطيران.
           </p>
-          <p className="mb-4">
-            ومع استمرار تطور صناعة الطيران وتغير توقعات المسافرين والطاقم، ستظل أوشحة مضيفات الطيران تتطور وتتكيف، مستفيدة من التقنيات الحديثة والمفاهيم المتجددة في التصميم والاستدامة. لكنها ستحتفظ دوماً بدورها الأساسي كتوقيع بصري مميز يمكن من خلاله التعرف الفوري على هوية الشركة، وكرمز للأناقة والاحترافية التي تُعد من أهم سمات صناعة الطيران منذ بداياتها وحتى المستقبل.
+                <p className="mb-0 leading-7 text-gray-700">
+                  ومع تطور صناعة الطيران، تستمر إكسسوارات الزي في التطور أيضاً، متبنية التقنيات الجديدة، ومستجيبة للاهتمامات البيئية المتزايدة، ومتكيفة مع التغيرات في أذواق المستهلكين وتوقعاتهم. لكن في قلب هذا التطور، تظل هذه العناصر الصغيرة تحمل رمزية كبيرة، وتلعب دوراً حيوياً في ترسيخ صورة صناعة أسست نفسها على الاهتمام بالتفاصيل والالتزام بأعلى المعايير.
           </p>
+              </div>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

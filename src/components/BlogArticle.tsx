@@ -54,6 +54,8 @@ export default function BlogArticle({
   const [isVisible, setIsVisible] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [tableOfContents, setTableOfContents] = useState<TOCItem[]>([]);
+  const [imageError, setImageError] = useState(false);
+  const [authorImageError, setAuthorImageError] = useState(false);
 
   useEffect(() => {
     // Extract sections for table of contents
@@ -93,6 +95,14 @@ export default function BlogArticle({
     navigator.clipboard.writeText(window.location.href);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
+  const handleAuthorImageError = () => {
+    setAuthorImageError(true);
   };
 
   return (
@@ -161,13 +171,21 @@ export default function BlogArticle({
 
       {/* Hero Section - Enhanced with gradient overlay */}
       <div className="relative h-[70vh] max-h-[600px]">
-        <Image
-          src={heroImage}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
+        {!imageError ? (
+          <Image
+            src={heroImage}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+            onError={handleImageError}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-500">صورة غير متوفرة</span>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-4">
             <div className="mb-4 flex items-center justify-center gap-2">
@@ -187,12 +205,20 @@ export default function BlogArticle({
           <div className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-gray-100 pb-8">
             <div className="flex items-center mb-4 md:mb-0">
               <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
-                <Image
-                  src={authorImage}
-                  alt={authorName}
-                  fill
-                  className="object-cover"
-                />
+                {!authorImageError ? (
+                  <Image
+                    src={authorImage}
+                    alt={authorName}
+                    fill
+                    className="object-cover"
+                    onError={handleAuthorImageError}
+                    sizes="56px"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-gray-500 text-xs">صورة غير متوفرة</span>
+                  </div>
+                )}
               </div>
               <div className="mr-4">
                 <p className="font-bold text-lg">{authorName}</p>
@@ -248,39 +274,33 @@ export default function BlogArticle({
       {/* Related Articles - Enhanced Card Design */}
       <div className="max-w-7xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-12 text-center">مقالات ذات صلة</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {relatedArticles.map((article, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-              <div className="relative h-60">
+            <Link 
+              key={index} 
+              href={article.url}
+              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
+            >
+              <div className="relative h-48">
                 <Image
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                  <div className="p-6">
-                    <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-md mb-2 inline-block">
-                      {article.category}
-                    </span>
-                    <h3 className="text-xl font-bold text-white">{article.title}</h3>
-                  </div>
-                </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-600 mb-4 line-clamp-3">{article.description}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-500 text-sm">{article.date}</span>
-                  <Link 
-                    href={article.url}
-                    className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <span className="text-sm font-medium">قراءة المقال</span>
-                    <ArrowRight className="h-4 w-4 mr-2" />
-                  </Link>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-medium text-blue-600">{article.category}</span>
+                  <span className="text-xs text-gray-500">{article.date}</span>
                 </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-gray-600 line-clamp-2">{article.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

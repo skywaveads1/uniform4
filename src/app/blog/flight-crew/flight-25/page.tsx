@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'مستقبل تصميم زي طواقم الطيران: الابتكار والتقنية',
@@ -7,12 +10,95 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_uniform_design.jpeg';
+  const imageSrc = '/images/flight_crew/flight_crew_future_design.jpeg';
   const title = 'مستقبل تصميم زي طواقم الطيران: الابتكار والتقنية';
+  const readingTime = '9 دقائق';
+  const datePublished = '٢٥ مايو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'smart-materials', title: 'المواد الذكية والأقمشة المتطورة' },
+    { id: 'wearable-tech', title: 'التكنولوجيا الملبوسة والأنظمة المدمجة' },
+    { id: 'sustainability', title: 'الاستدامة والمسؤولية البيئية' },
+    { id: 'human-centered', title: 'التصميم المتمحور حول الإنسان' },
+    { id: 'future-adaptation', title: 'التكيف مع متغيرات الطيران المستقبلية' },
+    { id: 'challenges', title: 'التحديات والفرص المستقبلية' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-14" className="text-sm hover:text-blue-600 block">
+                    زي موحد لطاقم الخدمات الأرضية في المطارات السعودية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-20" className="text-sm hover:text-blue-600 block">
+                    تصميم وتصنيع زي طاقم الطيران: من الفكرة إلى المنتج النهائي
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
         <h1 className="text-3xl font-bold mb-6">{title}</h1>
         
         {imageSrc && (
@@ -27,7 +113,7 @@ export default function ArticlePage() {
           </div>
         )}
 
-        <section>
+            <section id="intro">
           <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
           <p className="mb-4">
             يشهد عالم الطيران تطوراً مستمراً في جميع جوانبه، من تقنيات الطائرات المتقدمة إلى أنظمة الخدمة المبتكرة. وفي خضم هذا التطور، يبرز تصميم زي طواقم الطيران كمجال حيوي يجمع بين الوظيفة والهوية والابتكار. فمع دخولنا عصراً جديداً من التكنولوجيا والاستدامة، تتغير توقعات المسافرين وتتطور احتياجات الطواقم، مما يدفع المصممين والشركات إلى إعادة النظر في مفهوم الزي الموحد للطيران.
@@ -40,7 +126,7 @@ export default function ArticlePage() {
           </p>
         </section>
 
-        <section>
+            <section id="smart-materials">
           <h2 className="text-2xl font-semibold mt-8 mb-4">المواد الذكية والأقمشة المتطورة</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">تقنية النانو والأقمشة الوظيفية</h3>
@@ -77,7 +163,7 @@ export default function ArticlePage() {
           </ol>
         </section>
 
-        <section>
+            <section id="wearable-tech">
           <h2 className="text-2xl font-semibold mt-8 mb-4">التكنولوجيا الملبوسة والأنظمة المدمجة</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">وظائف الاتصال المدمجة</h3>
@@ -114,7 +200,7 @@ export default function ArticlePage() {
           </ul>
         </section>
 
-        <section>
+            <section id="sustainability">
           <h2 className="text-2xl font-semibold mt-8 mb-4">الاستدامة والمسؤولية البيئية</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">المواد المستدامة والصديقة للبيئة</h3>
@@ -151,7 +237,7 @@ export default function ArticlePage() {
           </ul>
         </section>
 
-        <section>
+            <section id="human-centered">
           <h2 className="text-2xl font-semibold mt-8 mb-4">التصميم المتمحور حول الإنسان</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">الراحة الفائقة والأرجونوميكس</h3>
@@ -188,7 +274,7 @@ export default function ArticlePage() {
           </ul>
         </section>
 
-        <section>
+            <section id="future-adaptation">
           <h2 className="text-2xl font-semibold mt-8 mb-4">التكيف مع متغيرات الطيران المستقبلية</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">الطيران التجاري عالي السرعة وطويل المدى</h3>
@@ -225,7 +311,7 @@ export default function ArticlePage() {
           </ul>
         </section>
 
-        <section>
+            <section id="challenges">
           <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات والفرص المستقبلية</h2>
           
           <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين التقليد والابتكار</h3>
@@ -250,71 +336,33 @@ export default function ArticlePage() {
             <li className="mb-2">شراكات بين شركات الطيران وشركات التكنولوجيا والأزياء لتقاسم تكاليف التطوير</li>
           </ol>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الفرص التنافسية والتمايز المؤسسي</h3>
+              <h3 className="text-xl font-medium mt-6 mb-3">القبول والتبني من قبل الطواقم</h3>
           <p className="mb-4">
-            الزي كميزة استراتيجية:
+                التوازن بين الابتكار والقبول:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام الزي المبتكر كعنصر للتمايز في سوق الطيران شديد المنافسة</li>
-            <li className="mb-2">تعزيز صورة العلامة التجارية من خلال الريادة في تبني تقنيات الزي المستقبلية</li>
-            <li className="mb-2">المواءمة بين استراتيجيات الاستدامة المؤسسية وتصميم الزي</li>
-            <li className="mb-2">استثمار بيانات تجربة المستخدم لتحسين مستمر يعزز رضا الطاقم والمسافرين</li>
+                <li className="mb-2">استراتيجيات إشراك الطواقم في عملية التصميم والتطوير لضمان التبني السلس</li>
+                <li className="mb-2">دراسة العوامل النفسية والثقافية المؤثرة في قبول الابتكارات التكنولوجية</li>
+                <li className="mb-2">برامج تدريب وتوعية حول فوائد وطرق استخدام الميزات المتقدمة</li>
+                <li className="mb-2">استراتيجيات تدريجية لإدخال التقنيات الجديدة مع مراعاة منحنى التعلم</li>
           </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">نماذج وتجارب رائدة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">مبادرات مبتكرة من شركات طيران عالمية</h3>
-          <p className="mb-4">
-            تجارب ملهمة في تطوير الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تجربة الخطوط اليابانية مع الأقمشة الذكية المستوحاة من تقنيات الفضاء</li>
-            <li className="mb-2">مبادرة الخطوط السكندنافية لتطوير زي كامل معاد تدويره من مواد مستدامة</li>
-            <li className="mb-2">تجربة الخطوط السنغافورية في دمج أدوات مراقبة صحية غير ملحوظة في الزي</li>
-            <li className="mb-2">مشروع الخطوط الإماراتية للتصميم التشاركي مع الطاقم لتطوير الزي المستقبلي</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">شراكات مبتكرة بين صناعات متعددة</h3>
-          <p className="mb-4">
-            التعاون عبر القطاعات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تحالف بين شركات طيران ومصنعي الإلكترونيات لتطوير منسوجات ذكية</li>
-            <li className="mb-2">تعاون بين مصممي الأزياء ومراكز البحث التكنولوجي لتطوير مواد مبتكرة</li>
-            <li className="mb-2">شراكات بين صناعة الطيران والجامعات البحثية لاستكشاف حلول مستقبلية</li>
-            <li className="mb-2">منصات مفتوحة للابتكار تجمع متخصصين من قطاعات متنوعة لحل تحديات الزي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">فرص للشركات السعودية والخليجية</h3>
-          <p className="mb-4">
-            ريادة محلية وإقليمية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">إمكانيات تطوير تصاميم مبتكرة تجمع بين التقنية الحديثة والهوية الثقافية المميزة</li>
-            <li className="mb-2">استثمار التوسع في قطاع الطيران السعودي وفق رؤية 2030 لتبني أحدث التقنيات</li>
-            <li className="mb-2">فرص إنشاء مراكز ابتكار متخصصة في أزياء الطيران تخدم السوق الإقليمي</li>
-            <li className="mb-2">الاستفادة من التحول نحو الاقتصاد المعرفي لتطوير حلول محلية ذات تنافسية عالمية</li>
-          </ul>
-        </section>
-
-        <section>
+            <section id="conclusion">
           <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
           <p className="mb-4">
-            يقف مستقبل تصميم زي طواقم الطيران على مفترق طرق بين الابتكار التكنولوجي والاستدامة البيئية والراحة البشرية. هذا المزيج من العوامل المتداخلة يشكل فرصة غير مسبوقة لإعادة تصور ما يمكن أن يكون عليه الزي المهني في عصر التحولات الكبرى، ليتجاوز وظيفته التقليدية ويصبح منظومة متكاملة تخدم مجموعة واسعة من الأهداف.
+                يقف مستقبل تصميم زي طواقم الطيران على مفترق طرق بين الإرث العريق لصناعة الطيران وآفاق الابتكار اللامحدودة. فالتوازن الدقيق بين الوظيفة والهوية، والتقليد والتجديد، والتكنولوجيا والإنسانية، سيشكل ملامح الجيل القادم من أزياء الطيران التي ستكون أكثر ذكاءً، وأكثر استدامة، وأكثر تكيفاً مع الاحتياجات المتنوعة.
           </p>
           <p className="mb-4">
-            إن المواد الذكية والتقنيات الملبوسة والتصاميم المتمحورة حول الإنسان ليست مجرد اتجاهات عابرة، بل هي محركات أساسية ستشكل مستقبل صناعة أزياء الطيران. وفي ظل التوجه العالمي نحو الاستدامة، سيكون لطرق الإنتاج والمواد المستخدمة دور متزايد الأهمية في تحديد مسار هذا التطور.
+                إن المواد الذكية والتكنولوجيا الملبوسة والنهج المستدام ليست مجرد اتجاهات عابرة، بل تمثل تحولاً جوهرياً في كيفية تصميم وإنتاج واستخدام أزياء الطاقم. وبينما تتطور صناعة الطيران نحو آفاق جديدة من الرحلات فائقة الطول والسياحة الفضائية، سيتطور معها زي الطاقم ليكون شريكاً في النجاح وليس مجرد عنصر مظهري.
           </p>
           <p className="mb-4">
-            في نهاية المطاف، يبقى التحدي الأكبر هو تحقيق التوازن المثالي بين الابتكار والعملية، بين الاستدامة والجمالية، وبين التكلفة والقيمة. الشركات التي ستنجح في المستقبل هي تلك التي ستتمكن من تبني نهج شامل يضع احتياجات الإنسان في قلب عملية التصميم، مع الاستفادة من أحدث التقنيات والمواد لتحقيق تميز تشغيلي وبيئي.
-          </p>
-          <p className="mb-4">
-            مع تطور قطاع الطيران العالمي ونمو دور المملكة العربية السعودية كمركز إقليمي وعالمي للنقل الجوي، تنفتح آفاق واسعة للابتكار والريادة في مجال أزياء الطيران. هذه فرصة لا تقتصر على تبني الاتجاهات العالمية فحسب، بل لتطوير هوية متميزة تجمع بين الأصالة والابتكار، وتضع معايير جديدة لمستقبل أكثر ذكاءً واستدامة لأزياء الطيران حول العالم.
+                في نهاية المطاف، يبقى الإنسان - سواء كان عضو طاقم الطيران أو المسافر - هو محور الاهتمام الرئيسي. وأفضل الابتكارات ستكون تلك التي تعزز التجربة الإنسانية، وتدعم الاحتياجات المتنوعة، وتحافظ على البيئة، وتعبر عن هوية وقيم شركات الطيران التي تمثلها. وبهذه الطريقة، سيستمر زي طاقم الطيران في كونه أحد أهم رموز هذه الصناعة العريقة، ولكن بصورة متجددة تواكب تطلعات المستقبل.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

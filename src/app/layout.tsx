@@ -3,6 +3,15 @@ import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Script from 'next/script';
+import { Noto_Kufi_Arabic } from 'next/font/google';
+
+// Initialize the Noto Kufi Arabic font
+const notoKufiArabic = Noto_Kufi_Arabic({
+  subsets: ['arabic'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-noto-kufi-arabic',
+});
 
 export { metadata };
 
@@ -12,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className={notoKufiArabic.className}>
       <body>
         <Navbar />
         <main>{children}</main>

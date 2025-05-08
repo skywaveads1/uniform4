@@ -16,4 +16,17 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  letter-spacing: 0;
+  font-feature-settings: "kern";
+  text-rendering: optimizeLegibility;
+}
+
+/* Improved typography for Arabic text */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+p, li, span {
+  line-height: 1.7;
 } 

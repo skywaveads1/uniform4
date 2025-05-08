@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز',
@@ -9,272 +12,329 @@ export const metadata = {
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/pilot_attendant_uniforms.jpeg';
   const title = 'الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز';
+  const readingTime = '8 دقائق';
+  const datePublished = '٢٨ مايو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'basic-elements', title: 'العناصر الأساسية للزي الرسمي للطيارين' },
+    { id: 'rank-badges', title: 'شارات الرتب والرموز' },
+    { id: 'historical-evolution', title: 'التطور التاريخي لزي الطيارين' },
+    { id: 'practical-symbolic', title: 'الوظائف العملية والرمزية للزي' },
+    { id: 'differences', title: 'الاختلافات بين زي الطيارين في مختلف الشركات' },
+    { id: 'future', title: 'مستقبل زي الطيارين' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            يمثل الزي الرسمي للطيارين وقائدي الطائرات أحد أكثر الأزياء المهنية هيبة واحتراماً في العالم. فهو ليس مجرد ملابس عمل، بل رمز للمكانة والمسؤولية والثقة التي يضعها المسافرون في الأشخاص المسؤولين عن سلامة رحلاتهم الجوية. ويجمع هذا الزي بين الجوانب الوظيفية العملية والرمزية المهمة التي تطورت عبر تاريخ الطيران المدني والعسكري.
-          </p>
-          <p className="mb-4">
-            تتميز أزياء الطيارين بمواصفات قياسية صارمة وعناصر محددة للغاية، سواء من حيث التصميم أو الألوان أو الشارات. وتعكس هذه المواصفات ليس فقط الجانب الجمالي، بل أيضاً الجوانب الوظيفية المرتبطة بطبيعة العمل الدقيقة والمسؤولية الثقيلة التي يحملها الطيارون على عاتقهم.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستعرض المواصفات التفصيلية للزي الرسمي للطيارين، وأهمية الرموز والشارات المختلفة التي يحملها، والتطور التاريخي لهذا الزي، والاختلافات بين الزي العسكري والمدني، ودوره في تعزيز الهوية المؤسسية لشركات الطيران وبناء الثقة مع المسافرين. كما نلقي الضوء على التحديات المعاصرة والتوجهات المستقبلية في تصميم زي الطيارين في عصر يجمع بين التقاليد العريقة والتطورات التكنولوجية المتسارعة.
-          </p>
-        </section>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">العناصر الأساسية للزي الرسمي للطيارين</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">البدلة الرسمية: تصميم كلاسيكي بمعايير عالية</h3>
-          <p className="mb-4">
-            الخصائص المميزة للزي الأساسي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">سترة (جاكيت) رسمية بلون كحلي داكن أو أسود مع أزرار معدنية</li>
-            <li className="mb-2">قميص أبيض رسمي غالباً ما يكون بياقة صلبة لإبراز ربطة العنق</li>
-            <li className="mb-2">بنطلون داكن بنفس لون السترة مع خط كوي واضح</li>
-            <li className="mb-2">ربطة عنق داكنة (سوداء أو كحلية) تعكس ألوان شركة الطيران أحياناً</li>
-          </ul>
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-1" className="text-sm hover:text-blue-600 block">
+                    اعتبارات تصميم زي شركات الطيران
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-3" className="text-sm hover:text-blue-600 block">
+                    أزياء الطيران النسائية: تطورها وخصائصها الحديثة
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">القبعة الرسمية: رمز الهيبة والسلطة</h3>
-          <p className="mb-4">
-            خصائص ومواصفات قبعة الطيار:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم شبه عسكري مستوحى من القوات البحرية</li>
-            <li className="mb-2">حافة أمامية صلبة (visor) مصنوعة من البلاستيك اللامع أو الجلد</li>
-            <li className="mb-2">شارة خاصة بشركة الطيران مثبتة في المنتصف</li>
-            <li className="mb-2">زخارف ذهبية على الحافة "scrambled eggs" للرتب العليا من القادة</li>
-          </ol>
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يمثل الزي الرسمي للطيارين وقائدي الطائرات أحد أكثر الأزياء المهنية هيبة واحتراماً في العالم. فهو ليس مجرد ملابس عمل، بل رمز للمكانة والمسؤولية والثقة التي يضعها المسافرون في الأشخاص المسؤولين عن سلامة رحلاتهم الجوية. ويجمع هذا الزي بين الجوانب الوظيفية العملية والرمزية المهمة التي تطورت عبر تاريخ الطيران المدني والعسكري.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                تتميز أزياء الطيارين بمواصفات قياسية صارمة وعناصر محددة للغاية، سواء من حيث التصميم أو الألوان أو الشارات. وتعكس هذه المواصفات ليس فقط الجانب الجمالي، بل أيضاً الجوانب الوظيفية المرتبطة بطبيعة العمل الدقيقة والمسؤولية الثقيلة التي يحملها الطيارون على عاتقهم.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض المواصفات التفصيلية للزي الرسمي للطيارين، وأهمية الرموز والشارات المختلفة التي يحملها، والتطور التاريخي لهذا الزي، والاختلافات بين الزي العسكري والمدني، ودوره في تعزيز الهوية المؤسسية لشركات الطيران وبناء الثقة مع المسافرين. كما نلقي الضوء على التحديات المعاصرة والتوجهات المستقبلية في تصميم زي الطيارين في عصر يجمع بين التقاليد العريقة والتطورات التكنولوجية المتسارعة.
+              </p>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الإكسسوارات والتجهيزات المكملة</h3>
-          <p className="mb-4">
-            عناصر تكمل المظهر الرسمي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">حقيبة الطيار التقليدية (flight bag) لحمل المستندات والأدوات</li>
-            <li className="mb-2">ساعة يد تقنية تتضمن وظائف خاصة مثل مقياس الحساب الدائري</li>
-            <li className="mb-2">نظارات شمسية بعدسات داكنة (غالباً من نوع الطيار "aviator")</li>
-            <li className="mb-2">حزام جلدي أسود بإبزيم معدني يحمل شعار شركة الطيران أحياناً</li>
-          </ul>
-        </section>
+            <section id="basic-elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الأساسية للزي الرسمي للطيارين</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">البدلة الرسمية: تصميم كلاسيكي بمعايير عالية</h3>
+                <p className="mb-2 font-medium text-blue-700">الخصائص المميزة للزي الأساسي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>سترة (جاكيت) رسمية بلون كحلي داكن أو أسود مع أزرار معدنية</li>
+                  <li>قميص أبيض رسمي غالباً ما يكون بياقة صلبة لإبراز ربطة العنق</li>
+                  <li>بنطلون داكن بنفس لون السترة مع خط كوي واضح</li>
+                  <li>ربطة عنق داكنة (سوداء أو كحلية) تعكس ألوان شركة الطيران أحياناً</li>
+                </ul>
+              </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">شارات الرتب والرموز: لغة الهرمية في الطيران</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">نظام الشرائط: رموز المسؤولية والخبرة</h3>
-          <p className="mb-4">
-            تدرج الرتب على أكمام الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قائد الطائرة (Captain): أربعة شرائط ذهبية متوازية</li>
-            <li className="mb-2">الطيار المساعد الأول (First Officer): ثلاثة شرائط ذهبية</li>
-            <li className="mb-2">الطيار المساعد الثاني (Second Officer): شريطان ذهبيان</li>
-            <li className="mb-2">طيار متدرب (Flight Cadet): شريط ذهبي واحد</li>
-          </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">القبعة الرسمية: رمز الهيبة والسلطة</h3>
+                  <p className="mb-2 text-gray-700">خصائص ومواصفات قبعة الطيار:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تصميم شبه عسكري مستوحى من القوات البحرية</li>
+                    <li>حافة أمامية صلبة (visor) مصنوعة من البلاستيك اللامع أو الجلد</li>
+                    <li>شارة خاصة بشركة الطيران مثبتة في المنتصف</li>
+                    <li>زخارف ذهبية على الحافة "scrambled eggs" للرتب العليا من القادة</li>
+                  </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الإكسسوارات والتجهيزات المكملة</h3>
+                  <p className="mb-2 text-gray-700">عناصر تكمل المظهر الرسمي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>حقيبة الطيار التقليدية (flight bag) لحمل المستندات والأدوات</li>
+                    <li>ساعة يد تقنية تتضمن وظائف خاصة مثل مقياس الحساب الدائري</li>
+                    <li>نظارات شمسية بعدسات داكنة (غالباً من نوع الطيار "aviator")</li>
+                    <li>حزام جلدي أسود بإبزيم معدني يحمل شعار شركة الطيران أحياناً</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">شارات الجناح: رمز التأهيل والانتماء</h3>
-          <p className="mb-4">
-            شارات الصدر المميزة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">شارة الجناح المعدنية (Wings Badge) المثبتة على الجانب الأيسر من الصدر</li>
-            <li className="mb-2">تصاميم متنوعة تعكس هوية شركة الطيران (تتضمن غالباً تاجاً، نسراً، أو شعاراً وطنياً)</li>
-            <li className="mb-2">اختلافات في التصميم تشير إلى نوع التأهيل (طيران مدني، عسكري، تجاري)</li>
-            <li className="mb-2">شارات إضافية للمهارات الخاصة (قائد مدرب، طيار اختبار، خبرة دولية)</li>
-          </ol>
+            <section id="rank-badges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">شارات الرتب والرموز: لغة الهرمية في الطيران</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">نظام الشرائط: رموز المسؤولية والخبرة</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">تدرج الرتب على أكمام الزي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>قائد الطائرة (Captain): أربعة شرائط ذهبية متوازية</li>
+                    <li>الطيار المساعد الأول (First Officer): ثلاثة شرائط ذهبية</li>
+                    <li>الطيار المساعد الثاني (Second Officer): شريطان ذهبيان</li>
+                    <li>طيار متدرب (Flight Cadet): شريط ذهبي واحد</li>
+                  </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">بطاقات التعريف وشارات الاسم</h3>
-          <p className="mb-4">
-            عناصر التعريف الشخصي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">بطاقة تعريف رسمية تحمل اسم الطيار ورتبته وصورته</li>
-            <li className="mb-2">شارة اسم معدنية مثبتة على الجانب الأيمن من الصدر</li>
-            <li className="mb-2">رموز إضافية للتخصصات والتأهيلات الخاصة</li>
-            <li className="mb-2">شارات خاصة للطيارين ذوي الخبرات الاستثنائية (مثل تجاوز 10,000 ساعة طيران)</li>
-          </ul>
-        </section>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">شارات الجناح: رمز التأهيل والانتماء</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">شارات الصدر المميزة:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>شارة الجناح المعدنية (Wings Badge) المثبتة على الجانب الأيسر من الصدر</li>
+                      <li>تصاميم متنوعة تعكس هوية شركة الطيران (تتضمن غالباً تاجاً، نسراً، أو شعاراً وطنياً)</li>
+                      <li>اختلافات في التصميم تشير إلى نوع التأهيل (طيران مدني، عسكري، تجاري)</li>
+                      <li>شارات إضافية للمهارات الخاصة (قائد مدرب، طيار اختبار، خبرة دولية)</li>
+                    </ol>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">بطاقات التعريف وشارات الاسم</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">عناصر التعريف الشخصي:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>بطاقة تعريف رسمية تحمل اسم الطيار ورتبته وصورته</li>
+                      <li>شارة اسم معدنية مثبتة على الجانب الأيمن من الصدر</li>
+                      <li>رموز إضافية للتخصصات والتأهيلات الخاصة</li>
+                      <li>شارات خاصة للطيارين ذوي الخبرات الاستثنائية (مثل تجاوز 10,000 ساعة طيران)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التطور التاريخي لزي الطيارين</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الجذور العسكرية: من الحروب العالمية إلى الطيران المدني</h3>
-          <p className="mb-4">
-            تأثير التاريخ العسكري:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">بدايات زي الطيار في الحرب العالمية الأولى: جاكيتات جلدية وأوشحة وخوذات</li>
-            <li className="mb-2">انتقال العناصر العسكرية (الرتب، الشارات، الهيكل الهرمي) إلى الطيران المدني</li>
-            <li className="mb-2">تأثير الزي البحري على تصميم قبعات وبدلات الطيارين المدنيين</li>
-            <li className="mb-2">استمرار التقاليد العسكرية في الاحترام واللياقة المرتبطة بارتداء الزي</li>
-          </ul>
+            <section id="historical-evolution" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التطور التاريخي لزي الطيارين</h2>
+              
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الجذور العسكرية: من الحروب العالمية إلى الطيران المدني</h3>
+                <p className="mb-2 text-gray-700">تأثير التاريخ العسكري:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>بدايات زي الطيار في الحرب العالمية الأولى: جاكيتات جلدية وأوشحة وخوذات</li>
+                  <li>انتقال العناصر العسكرية (الرتب، الشارات، الهيكل الهرمي) إلى الطيران المدني</li>
+                  <li>تأثير الزي البحري على تصميم قبعات وبدلات الطيارين المدنيين</li>
+                  <li>استمرار التقاليد العسكرية في الاحترام واللياقة المرتبطة بارتداء الزي</li>
+                </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">العصر الذهبي للطيران: الخمسينات والستينات</h3>
-          <p className="mb-4">
-            تطور الزي في فترة ازدهار الطيران:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">ترسيخ الصورة الكلاسيكية للطيار في الثقافة الشعبية</li>
-            <li className="mb-2">ظهور تصاميم مخصصة لشركات الطيران الكبرى تعكس هويتها الخاصة</li>
-            <li className="mb-2">تحسينات في القصات والمواد لتلائم الرحلات الطويلة</li>
-            <li className="mb-2">اهتمام متزايد بالتفاصيل كعنصر تنافسي بين شركات الطيران</li>
-          </ol>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">العصر الذهبي للطيران: الخمسينات والستينات</h3>
+                  <p className="mb-2 text-gray-700">تطور الزي في فترة ازدهار الطيران:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>ترسيخ الصورة الكلاسيكية للطيار في الثقافة الشعبية</li>
+                    <li>ظهور تصاميم مخصصة لشركات الطيران الكبرى تعكس هويتها الخاصة</li>
+                    <li>تحسينات في القصات والمواد لتلائم الرحلات الطويلة</li>
+                    <li>اهتمام متزايد بالتفاصيل كعنصر تنافسي بين شركات الطيران</li>
+                  </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">العصر الحديث: بين التقاليد والابتكار</h3>
+                  <p className="mb-2 text-gray-700">التطورات المعاصرة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>الحفاظ على العناصر التقليدية مع تحديثات في المواد والراحة</li>
+                    <li>إدخال تقنيات متطورة في الأقمشة (مقاومة للتجعد، سهلة العناية، خفيفة الوزن)</li>
+                    <li>تعديلات طفيفة تراعي التغيرات الثقافية مع الحفاظ على الشكل الرسمي</li>
+                    <li>تنوع أكبر في التصاميم لتناسب مختلف المناخات والثقافات</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">العصر الحديث: بين التقاليد والابتكار</h3>
-          <p className="mb-4">
-            التطورات المعاصرة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الحفاظ على العناصر التقليدية مع تحديثات في المواد والراحة</li>
-            <li className="mb-2">إدخال تقنيات متطورة في الأقمشة (مقاومة للتجعد، سهلة العناية، خفيفة الوزن)</li>
-            <li className="mb-2">تعديلات طفيفة تراعي التغيرات الثقافية مع الحفاظ على الشكل الرسمي</li>
-            <li className="mb-2">تنوع أكبر في التصاميم لتناسب مختلف المناخات والثقافات</li>
-          </ul>
-        </section>
+            <section id="practical-symbolic" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الوظائف العملية والرمزية للزي</h2>
+              
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الجوانب الوظيفية والعملية</h3>
+                    <p className="mb-2 text-gray-700">مزايا تدعم أداء المهام:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>جيوب متعددة مصممة لحمل الأدوات الضرورية (أقلام، مذكرات، حاسبات)</li>
+                      <li>أقمشة متينة تتحمل الاستخدام المتكرر والجلوس الطويل في قمرة القيادة</li>
+                      <li>خامات مريحة تسمح بالحركة ولا تسبب الإرهاق خلال الرحلات الطويلة</li>
+                      <li>عناصر قابلة للتعديل للتكيف مع تغيرات درجات الحرارة</li>
+                    </ul>
+                  </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الوظائف العملية والرمزية للزي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الجوانب الوظيفية والعملية</h3>
-          <p className="mb-4">
-            مزايا تدعم أداء المهام:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">جيوب متعددة مصممة لحمل الأدوات الضرورية (أقلام، مذكرات، حاسبات)</li>
-            <li className="mb-2">أقمشة متينة تتحمل الاستخدام المتكرر والجلوس الطويل في قمرة القيادة</li>
-            <li className="mb-2">خامات مريحة تسمح بالحركة ولا تسبب الإرهاق خلال الرحلات الطويلة</li>
-            <li className="mb-2">عناصر قابلة للتعديل للتكيف مع تغيرات درجات الحرارة (طبقات يمكن إضافتها أو إزالتها)</li>
-          </ul>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">الأبعاد الرمزية والنفسية</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">تأثير الزي على المسافرين والطاقم:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>بناء الثقة مع المسافرين من خلال مظهر يوحي بالاحتراف والكفاءة</li>
+                    <li>تعزيز سلطة الطيار ودوره القيادي في ظروف الطوارئ</li>
+                    <li>تمييز واضح بين أفراد الطاقم ومستويات المسؤولية</li>
+                    <li>تعزيز الانتماء المؤسسي والفخر المهني لدى الطيارين</li>
+                    </ol>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الدور في بناء الثقة مع المسافرين</h3>
-          <p className="mb-4">
-            التأثير النفسي للزي:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خلق انطباع بالكفاءة والاحترافية يطمئن المسافرين</li>
-            <li className="mb-2">سهولة التعرف على الطيارين في حالات الطوارئ أو المواقف غير المتوقعة</li>
-            <li className="mb-2">تعزيز احترام المسافرين للطاقم وثقتهم في قدراتهم</li>
-            <li className="mb-2">إضفاء الطابع الرسمي على تفاعلات الطيارين مع المسافرين والطاقم الأرضي</li>
-          </ol>
+            <section id="differences" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاختلافات بين زي الطيارين في مختلف الشركات</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تباينات عالمية: خصوصيات ثقافية</h3>
+                  <p className="mb-2 text-gray-700">تأثير الثقافة والجغرافيا:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تأثير الهوية الوطنية على تصميم الزي (ألوان، رموز، قصات)</li>
+                    <li>تكيفات للمناخات المختلفة (نسخ استوائية خفيفة، نسخ شتوية دافئة)</li>
+                    <li>اعتبارات ثقافية واجتماعية خاصة بالمنطقة</li>
+                    <li>خيارات مختلفة للطيارات النساء تراعي الخصوصيات الثقافية</li>
+                </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التمييز التجاري: التفرد المؤسسي</h3>
+                  <p className="mb-2 text-gray-700">عناصر تعزيز الهوية المؤسسية:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>دمج ألوان الشركة وشعارها في عناصر الزي (ربطات العنق، شارات، أزرار)</li>
+                    <li>تصميمات متخصصة بواسطة مصممين مشهورين للشركات الفاخرة</li>
+                    <li>لمسات تمييز فريدة (حقائب، إكسسوارات، تفاصيل دقيقة)</li>
+                    <li>اختلافات في جودة المواد والتقنيات تعكس موقع الشركة في السوق</li>
+                  </ol>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تعزيز الهوية المؤسسية لشركة الطيران</h3>
-          <p className="mb-4">
-            زي الطيارين كسفراء للعلامة التجارية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تجسيد قيم الشركة من خلال أناقة وجودة الزي</li>
-            <li className="mb-2">عناصر مميزة (ألوان، شعارات، تصاميم خاصة) ترتبط بهوية شركة الطيران</li>
-            <li className="mb-2">تمييز طياري الشركة في المطارات والأماكن العامة</li>
-            <li className="mb-2">تعزيز الصورة الذهنية للشركة من خلال الانطباع الذي يتركه طياروها</li>
-          </ul>
-        </section>
+            <section id="future" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مستقبل زي الطيارين</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الابتكارات التكنولوجية المرتقبة</h3>
+                <p className="mb-2 font-medium text-blue-700">التحسينات التقنية المتوقعة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>أقمشة ذكية تتكيف مع درجات الحرارة وتنظم رطوبة الجسم</li>
+                  <li>تكامل مع الأجهزة الذكية القابلة للارتداء (ساعات، نظارات متصلة)</li>
+                  <li>مواد مستدامة صديقة للبيئة تحافظ على التقاليد مع تقليل الأثر البيئي</li>
+                  <li>دمج عناصر سلامة متقدمة تستجيب للحرارة والتلوث والإشعاع</li>
+                </ul>
+              </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الاختلافات بين زي الطيارين في مختلف الشركات والثقافات</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تنوع التصاميم بين شركات الطيران العالمية</h3>
-          <p className="mb-4">
-            الخصائص المميزة لكبرى الشركات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط البريطانية: تصميم كلاسيكي محافظ مع لمسات من التراث البريطاني</li>
-            <li className="mb-2">طيران الإمارات: تصاميم أنيقة تجمع بين الرسمية الغربية واللمسات العربية</li>
-            <li className="mb-2">الخطوط السنغافورية: دقة استثنائية في التفاصيل مع تقاليد شرق آسيوية</li>
-            <li className="mb-2">لوفتهانزا: بدلات بتصميم ألماني دقيق وصارم يعكس الكفاءة والدقة</li>
-          </ul>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التوازن بين التراث والتحديث</h3>
+                <p className="mb-2 text-gray-700">التحديات المستقبلية:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                  <li>الحفاظ على القيمة الرمزية للزي التقليدي مع تلبية احتياجات الجيل الجديد</li>
+                  <li>مواءمة التراث مع متطلبات الراحة والعملية المتزايدة</li>
+                  <li>تطوير زي يعكس التغيرات في صناعة الطيران (طائرات أكثر أتمتة، رحلات فضائية تجارية)</li>
+                  <li>التكيف مع التوقعات المتطورة للمسافرين مع الحفاظ على الهيبة المهنية</li>
+                </ol>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التأثيرات الثقافية على زي الطيارين</h3>
-          <p className="mb-4">
-            تكييف الزي مع الاعتبارات المحلية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">شركات الطيران الخليجية: استخدام ألوان وزخارف مستوحاة من التراث العربي</li>
-            <li className="mb-2">شركات جنوب شرق آسيا: تعديلات تراعي المناخ الاستوائي مع الحفاظ على الرسمية</li>
-            <li className="mb-2">شركات أمريكا اللاتينية: إضافة لمسات من الألوان والتفاصيل تعكس الثقافة المحلية</li>
-            <li className="mb-2">ناقلات أفريقية: دمج عناصر من التراث المحلي في تصاميم الشارات والإكسسوارات</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مقارنة بين الزي المدني والعسكري</h3>
-          <p className="mb-4">
-            أوجه التشابه والاختلاف:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الهيكل الأساسي متشابه مع اختلافات في الدرجات اللونية (داكن أكثر للعسكريين)</li>
-            <li className="mb-2">شارات وأوسمة إضافية للطيارين العسكريين تشير للمهام والإنجازات</li>
-            <li className="mb-2">تنوع أكبر في تصاميم الشركات المدنية مقارنة بالموحد العسكري الصارم</li>
-            <li className="mb-2">معايير أكثر صرامة لارتداء الزي العسكري مقارنة بالمرونة النسبية في الطيران المدني</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات المعاصرة وتوجهات المستقبل</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">موازنة التقاليد مع متطلبات العصر الحديث</h3>
-          <p className="mb-4">
-            تحديث الكلاسيكيات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير أزياء تحافظ على الطابع التقليدي مع مواكبة التغيرات في عالم الأزياء</li>
-            <li className="mb-2">معالجة قضايا النوع الاجتماعي مع ظهور المزيد من الطيارات الإناث</li>
-            <li className="mb-2">تخفيف الطابع العسكري في بعض الشركات لتعكس ثقافة مؤسسية أكثر انفتاحاً</li>
-            <li className="mb-2">إيجاد توازن بين الرسمية والراحة لتلبية احتياجات الرحلات فائقة الطول</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الابتكارات التكنولوجية في أزياء الطيارين</h3>
-          <p className="mb-4">
-            دمج التقنيات المتقدمة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية تنظم درجة حرارة الجسم في بيئة قمرة القيادة</li>
-            <li className="mb-2">خصائص متقدمة مثل مقاومة المياه والتجعد دون المساس بالمظهر الأنيق</li>
-            <li className="mb-2">تقنيات نانو للحماية من الإشعاع فوق البنفسجي على الارتفاعات العالية</li>
-            <li className="mb-2">مواد خفيفة الوزن تجمع بين المتانة والمظهر الرسمي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">توجهات الاستدامة والمسؤولية البيئية</h3>
-          <p className="mb-4">
-            الزي الصديق للبيئة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التحول نحو مواد مستدامة ومعاد تدويرها في تصنيع الزي</li>
-            <li className="mb-2">تصميم قطع متعددة الاستخدامات لتقليل الحاجة لعدد كبير من القطع</li>
-            <li className="mb-2">ممارسات تصنيع أكثر استدامة وشفافية في سلسلة التوريد</li>
-            <li className="mb-2">برامج لإعادة تدوير الأزياء القديمة وتحويلها إلى منتجات ترويجية</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يبقى الزي الرسمي للطيارين شاهداً على تاريخ الطيران وتقاليده العريقة، ورمزاً للاحترافية والمسؤولية في هذا المجال الحيوي. ورغم التغيرات والتطورات التي شهدتها صناعة الطيران، حافظ هذا الزي على عناصره الأساسية التي أصبحت جزءاً لا يتجزأ من الصورة الذهنية للطيار في الثقافة العالمية.
-          </p>
-          <p className="mb-4">
-            ويواجه مصممو أزياء الطيارين اليوم تحدياً يتمثل في الحفاظ على هذا الإرث التاريخي مع الاستجابة لمتطلبات العصر الحديث - من الراحة والوظيفية إلى الاستدامة والشمولية. وتسعى شركات الطيران إلى إيجاد توازن دقيق بين احترام التقاليد وتبني الابتكارات التي تجعل من الزي أداة فعالة تخدم الدور المهم الذي يقوم به الطيارون.
-          </p>
-          <p className="mb-4">
-            ومع استمرار تطور تكنولوجيا النسيج وتغير القيم الاجتماعية والمؤسسية، من المتوقع أن يستمر زي الطيارين في التطور ليعكس هذه التغيرات، مع الاحتفاظ بجوهره الأساسي كرمز للثقة والكفاءة والمكانة المتميزة. ففي نهاية المطاف، يبقى هذا الزي بمثابة جسر يربط بين تاريخ الطيران العريق ومستقبله المشرق، ويجسد القيم الأساسية التي تقوم عليها هذه الصناعة العالمية الحيوية.
-          </p>
-        </section>
-      </article>
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-lg border border-gray-200">
+                <p className="mb-4 leading-7 text-gray-700">
+                  يمثل الزي الرسمي لطياري وقائدي الطائرات أكثر من مجرد ملابس مهنية، فهو يجسد تراثاً غنياً من التقاليد والرموز التي تطورت على مدى أكثر من قرن من تاريخ الطيران. ومع تطور صناعة الطيران نفسها، سيستمر هذا الزي في التطور، موازناً بين الحفاظ على العناصر التقليدية التي تمثل روح المهنة وكرامتها، وبين الابتكارات التي تلبي متطلبات العصر الحديث.
+                </p>
+                <p className="mb-4 leading-7 text-gray-700">
+                  سيظل الدور الرمزي للزي الرسمي للطيارين عنصراً أساسياً في بناء الثقة والاطمئنان لدى المسافرين، حيث يشكل المظهر المهني والموحد للطاقم جزءاً لا يتجزأ من تجربة السفر الجوي الآمنة والمهنية. وفي الوقت نفسه، ستستمر التحسينات في المواد والتصاميم لتعزيز راحة الطيارين وأدائهم خلال ساعات العمل الطويلة.
+                </p>
+                <p className="mb-0 leading-7 text-gray-700">
+                  وبينما نتطلع إلى المستقبل، سنشهد حتماً مزيداً من الابتكار في تصميم زي الطيارين، لكنه سيظل دائماً يحمل تلك اللمسة من الأناقة والهيبة التي جعلته أحد أكثر الأزياء المهنية تميزاً وإثارة للإعجاب حول العالم، مجسداً في تفاصيله قيم الاحترافية والدقة والمسؤولية التي تميز مهنة الطيران.
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
     </main>
   );
 } 

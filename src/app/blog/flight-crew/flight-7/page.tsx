@@ -1,42 +1,32 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { formatDate } from '@/lib/utils';
+import { getReadingTime } from '@/lib/utils';
+import { TableOfContents } from '@/components/TableOfContents';
+import { ShareButtons } from '@/components/ShareButtons';
+import { RelatedPosts } from '@/components/RelatedPosts';
+import { AuthorBio } from '@/components/AuthorBio';
+import { FaClock } from 'react-icons/fa';
 
 export const metadata = {
   title: 'متطلبات السلامة والأمان في تصميم ملابس طاقم الطائرة',
-  description: 'تعرف على الاشتراطات والمعايير الأمنية الضرورية في تصميم أزياء طاقم الطائرة، بما يضمن السلامة في حالات الطوارئ مع الحفاظ على الأناقة والوظيفية.',
+  description: 'دليل شامل حول معايير ومتطلبات السلامة في تصميم أزياء طاقم الطائرة، وكيفية موازنة الجوانب الجمالية مع الاعتبارات الأمنية الضرورية في بيئة الطيران.',
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_safety_requirements.jpeg';
-  const title = 'متطلبات السلامة والأمان في تصميم ملابس طاقم الطائرة';
-
-  return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-          </div>
-        )}
-
-        <section>
+export default function PostPage({ params }: { params: { category: string; slug: string } }) {
+  const post = {
+    content: `<section>
           <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
           <p className="mb-4">
-            في عالم الطيران، لا يقتصر دور أزياء طاقم الطائرة على تقديم مظهر أنيق ومهني فحسب، بل تتعدى وظيفتها إلى جوانب حيوية تتعلق بالسلامة والأمان. فهذه الأزياء التي ترمز إلى هوية شركات الطيران وتعكس صورتها أمام الملايين من المسافرين، تمثل أيضاً خط الدفاع الأول لحماية الطاقم في حالات الطوارئ، وعنصراً مساعداً في أداء واجباتهم المتعلقة بسلامة الركاب.
+            تصميم أزياء طاقم الطائرة ليس مجرد تمرين في الأناقة والهوية المؤسسية، بل هو مهمة معقدة تضع السلامة والأمان في صميم اعتباراتها. فملابس الطيارين والمضيفين ليست مجرد زي موحد يعكس صورة الشركة، بل هي في المقام الأول معدات سلامة مصممة للعمل في بيئة فريدة تنطوي على تحديات وظروف استثنائية.
           </p>
           <p className="mb-4">
-            تخضع تصاميم أزياء طاقم الطائرة لمجموعة معقدة من المعايير والاشتراطات التي تضعها هيئات الطيران المدني العالمية، والتي تهدف إلى ضمان مستوى عالٍ من السلامة دون المساس بالجوانب الوظيفية والجمالية. ويتعين على مصممي هذه الأزياء تحقيق توازن دقيق بين متطلبات متعددة ومتنافسة أحياناً: الأمان، الراحة، المتانة، والأناقة.
+            في حالات الطوارئ، يمكن أن يتحول الزي الأنيق إلى خط دفاع أول يحمي أفراد الطاقم ويساعدهم على أداء واجباتهم في إنقاذ الركاب. هذا الدور الحيوي يفرض اشتراطات ومواصفات صارمة تنظمها هيئات الطيران المدني وسلطات السلامة العالمية، وتدفع المصممين إلى تحقيق توازن دقيق بين مختلف المتطلبات المتعارضة أحياناً.
           </p>
           <p className="mb-4">
-            في هذا المقال، نتناول بالتفصيل متطلبات السلامة والأمان التي تحكم تصميم ملابس طاقم الطائرة، من المواصفات التقنية للأقمشة ومعالجتها، إلى المعايير التصميمية والعناصر الإضافية التي تعزز سلامة الطاقم والركاب. كما نستكشف التوازن الدقيق بين هذه المتطلبات والاعتبارات الأخرى، والتحديات التي تواجه المصممين والشركات المصنعة، والاتجاهات المستقبلية في هذا المجال الحيوي.
+            يستكشف هذا المقال معايير ومتطلبات السلامة الأساسية في تصميم ملابس طاقم الطائرة، بدءاً من مقاومة الحريق وحتى سهولة الحركة والتمييز البصري. كما يناقش التطورات التكنولوجية التي تعزز أداء هذه الملابس في ظروف الطوارئ، والتحديات التي تواجه المصممين في تحقيق التوازن المثالي بين السلامة والراحة والأناقة.
           </p>
         </section>
 
@@ -247,8 +237,219 @@ export default function ArticlePage() {
           <p className="mb-4">
             وفي النهاية، تبقى قيمة الحياة البشرية هي الاعتبار الأسمى في تصميم أزياء طاقم الطائرة، مما يفرض التزاماً أخلاقياً وقانونياً بعدم المساومة على متطلبات السلامة مهما كانت الضغوط الأخرى. ويمثل الالتزام بهذه المتطلبات وتطويرها باستمرار جزءاً لا يتجزأ من ثقافة السلامة الشاملة التي تعد من أهم سمات صناعة الطيران الحديثة.
           </p>
-        </section>
-      </article>
-    </main>
+        </section>`,
+    metadata: {
+      title: 'متطلبات السلامة والأمان في تصميم ملابس طاقم الطائرة',
+      description: metadata.description,
+      date: '2025-05-07T12:28:42.907Z',
+      author: 'يونيفورم',
+      category: 'flight-crew',
+      tags: ["زي موحد","يونيفورم","flight crew"],
+      image: '/images/flight_crew/flight_crew_safety_requirements.jpeg',
+      slug: 'flight-7',
+      readTime: '10 دقائق للقراءة',
+      authorImage: '/images/author/team.jpg',
+      authorTitle: 'خبراء تصميم الأزياء الموحدة'
+    }
+  };
+
+  // Calculate reading time
+  const readingTime = getReadingTime(post.content);
+
+  return (
+    <div className="min-h-screen bg-white" dir="rtl">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold text-blue-600">
+            يونيفورم
+          </Link>
+          <nav className="hidden md:flex space-x-6 space-x-reverse">
+            <Link href="/" className="text-gray-700 hover:text-blue-600">الرئيسية</Link>
+            <Link href="/about" className="text-gray-700 hover:text-blue-600">من نحن</Link>
+            <Link href="/services" className="text-gray-700 hover:text-blue-600">خدماتنا</Link>
+            <Link href="/blog" className="text-gray-700 hover:text-blue-600">المدونة</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600">اتصل بنا</Link>
+          </nav>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            اطلب عرض سعر
+          </button>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main content */}
+          <article className="lg:w-2/3">
+            {/* Hero section */}
+            <div className="mb-8">
+              <div className="relative w-full h-[400px] mb-6">
+                <Image
+                  src={post.metadata.image}
+                  alt={post.metadata.title}
+                  fill
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.metadata.title}</h1>
+              <div className="flex items-center text-gray-600 mb-6">
+                {post.metadata.author && (
+                  <span className="ml-4">بواسطة: {post.metadata.author}</span>
+                )}
+                <span className="ml-4">{formatDate(post.metadata.date)}</span>
+                <span>{readingTime} دقائق قراءة</span>
+              </div>
+            </div>
+
+            {/* Table of Contents - Sticky on desktop */}
+            <div className="hidden lg:block mb-8">
+              <TableOfContents content={post.content} />
+            </div>
+
+            {/* Article content */}
+            <div className="prose prose-lg max-w-none">
+              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            </div>
+
+            {/* Tags */}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold mb-2">الوسوم:</h3>
+              <div className="flex flex-wrap gap-2">
+                {post.metadata.tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/blog/tags/${tag}`}
+                    className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm hover:bg-gray-200"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Share buttons */}
+            <div className="mt-8">
+              <ShareButtons
+                url={`https://yourdomain.com/blog/${post.metadata.category}/${post.metadata.slug}`}
+                title={post.metadata.title}
+              />
+            </div>
+
+            {/* Author bio */}
+            {post.metadata.author && (
+              <div className="mt-8 border-t pt-8">
+                <AuthorBio 
+                  author={post.metadata.author}
+                  image={post.metadata.authorImage}
+                  title={post.metadata.authorTitle}
+                />
+              </div>
+            )}
+
+            {/* Related posts */}
+            <div className="mt-12">
+              <RelatedPosts
+                currentCategory={post.metadata.category}
+                currentSlug={post.metadata.slug}
+              />
+            </div>
+          </article>
+
+          {/* Sidebar */}
+          <aside className="lg:w-1/3">
+            {/* Table of Contents - Mobile only */}
+            <div className="lg:hidden mb-8">
+              <TableOfContents content={post.content} />
+            </div>
+
+            {/* Newsletter signup */}
+            <div className="bg-gray-50 p-6 rounded-lg mb-8">
+              <h3 className="text-xl font-semibold mb-4">اشترك في النشرة البريدية</h3>
+              <p className="text-gray-600 mb-4">احصل على آخر المقالات والأخبار مباشرة في بريدك الإلكتروني</p>
+              <form className="space-y-4">
+                <input
+                  type="email"
+                  placeholder="البريد الإلكتروني"
+                  className="w-full px-4 py-2 border rounded-md"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                >
+                  اشترك الآن
+                </button>
+              </form>
+            </div>
+
+            {/* Social media links */}
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">تابعنا</h3>
+              <div className="flex space-x-4 space-x-reverse">
+                <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <span className="sr-only">فيسبوك</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <span className="sr-only">تويتر</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <span className="sr-only">لينكد إن</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-600 hover:text-blue-600">
+                  <span className="sr-only">واتساب</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white mt-12">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">يونيفورم</h3>
+              <p className="text-gray-300">
+                نحن نقدم أفضل حلول الزي الموحد للشركات والمؤسسات في المملكة العربية السعودية.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">روابط سريعة</h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-gray-300 hover:text-white">الرئيسية</Link></li>
+                <li><Link href="/about" className="text-gray-300 hover:text-white">من نحن</Link></li>
+                <li><Link href="/services" className="text-gray-300 hover:text-white">خدماتنا</Link></li>
+                <li><Link href="/blog" className="text-gray-300 hover:text-white">المدونة</Link></li>
+                <li><Link href="/contact" className="text-gray-300 hover:text-white">اتصل بنا</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">اتصل بنا</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>البريد الإلكتروني: info@uniform.com</li>
+                <li>الهاتف: +966 12 345 6789</li>
+                <li>العنوان: الرياض، المملكة العربية السعودية</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+            <p>&copy; {new Date().getFullYear()} يونيفورم. جميع الحقوق محفوظة.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
-} 
+}
