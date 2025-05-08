@@ -12,7 +12,7 @@
 # deploy settings will inherit these settings.
 [context.production.environment]
   NODE_ENV = "production"
-  NEXT_PUBLIC_SITE_URL = "https://your-domain.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://uniform-blogs.netlify.app"
   NEXT_PUBLIC_SITE_NAME = "يونيفورم"
   NEXT_PUBLIC_SITE_DESCRIPTION = "أفضل موقع متخصص في الأزياء الموحدة في المملكة العربية السعودية"
   NEXT_PUBLIC_DEFAULT_LOCALE = "ar"
@@ -21,20 +21,13 @@
 # inherit these settings.
 [context.deploy-preview.environment]
   NODE_ENV = "development"
-  NEXT_PUBLIC_SITE_URL = "https://deploy-preview-branch--your-domain.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://deploy-preview-branch--uniform-blogs.netlify.app"
 
 # Branch Deploy context: all deploys that are not from a pull/merge request or
 # from the Production branch will inherit these settings.
 [context.branch-deploy.environment]
   NODE_ENV = "development"
-  NEXT_PUBLIC_SITE_URL = "https://branch-name--your-domain.netlify.app"
-
-# Redirects and headers are GLOBAL for all builds – they do not get scoped to
-# contexts no matter where you define them in the file.
-[[redirects]]
-  from = "/*"
-  to = "/_next/static/index.html"
-  status = 200
+  NEXT_PUBLIC_SITE_URL = "https://branch-name--uniform-blogs.netlify.app"
 
 # For Next.js Image Optimization
 [[plugins]]
