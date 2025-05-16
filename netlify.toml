@@ -1,11 +1,11 @@
 [build]
   command = "npm run netlify-deploy"
   publish = "out"
-  environment = { NODE_VERSION = "18.17.0", NPM_VERSION = "9.6.7" }
+  environment = { NODE_VERSION = "20.11.1", NPM_VERSION = "10.2.4" }
 
 [build.environment]
-  NODE_VERSION = "18.17.0"
-  NPM_VERSION = "9.6.7"
+  NODE_VERSION = "20.11.1"
+  NPM_VERSION = "10.2.4"
   NEXT_TELEMETRY_DISABLED = "1"
   BUILD_LOCALE = "ar"
   NETLIFY_NEXT_PLUGIN_SKIP = "false"
