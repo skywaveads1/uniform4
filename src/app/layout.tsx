@@ -60,6 +60,23 @@ export default function RootLayout({
           strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
+              // Check for console errors and suppress non-critical ones
+              const originalError = console.error;
+              console.error = function(msg) {
+                // Filter out non-critical errors or warnings
+                if (typeof msg === 'string' && 
+                   (msg.includes('Warning:') || 
+                    msg.includes('favicon') || 
+                    msg.includes('icon') ||
+                    msg.includes('manifest'))) {
+                  // Suppress these errors in production
+                  if (window.location.hostname !== 'localhost') {
+                    return;
+                  }
+                }
+                originalError.apply(console, arguments);
+              };
+              
               // Add your analytics code here
               console.log('Analytics loaded');
             `
