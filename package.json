@@ -17,7 +17,7 @@
     "optimize-images": "node optimize-images-advanced.js",
     "minify": "node minify-assets.js",
     "clean": "rimraf .next out",
-    "netlify-deploy": "npm run generate-sitemap && next build",
+    "netlify-deploy": "npm ci && npm run generate-sitemap && next build",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "autoprefixer": "^10.4.17",
     "critters": "^0.0.23",
     "cross-env": "^7.0.3",
+    "glob": "^11.0.2",
     "lucide-react": "^0.503.0",
     "next": "^14.1.0",
     "postcss": "^8.4.35",
@@ -45,7 +46,6 @@
     "clean-css": "^5.3.3",
     "eslint": "9.26.0",
     "eslint-config-next": "15.3.2",
-    "glob": "^11.0.2",
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "rimraf": "^5.0.10",
     "sharp": "^0.34.1",
