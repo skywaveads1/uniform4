@@ -11,7 +11,7 @@ const serviceCategories = [
     id: 'flight-crew',
     title: 'أزياء الطيران',
     description: 'نقدم تصاميم عصرية وأنيقة لأطقم الطيران بما يتوافق مع هوية شركات الطيران ومعايير الراحة والأناقة.',
-    image: '/images/flight_crew/cockpit_crew_clothing.jpeg',
+    image: '/images/flight_crew/modern_airline_uniform_design.webp',
     features: [
       'زي كامل لأطقم الطيران مصمم بأعلى معايير الجودة',
       'مواد مقاومة للتجاعيد وسهلة العناية',
@@ -23,7 +23,7 @@ const serviceCategories = [
     id: 'clinic-wear',
     title: 'الأزياء الطبية',
     description: 'تشكيلة متكاملة من الملابس الطبية المريحة والعملية للأطباء والممرضين وطاقم العمل الطبي بمختلف تخصصاتهم.',
-    image: '/images/clinic_wear/clinic_nurse_uniforms.jpeg',
+    image: '/images/clinic_wear/clinic_doctor_uniforms.webp',
     features: [
       'أزياء مصممة حسب المعايير الطبية العالمية',
       'مواد مقاومة للبكتيريا وسهلة التنظيف',
@@ -35,7 +35,7 @@ const serviceCategories = [
     id: 'culinary-apparel',
     title: 'أزياء الطهاة',
     description: 'ملابس احترافية عالية الجودة لفرق الطهي في المطاعم والفنادق وشركات التموين، مصممة لتوفير الراحة والأناقة.',
-    image: '/images/culinary_apparel/chef_coats.jpeg',
+    image: '/images/culinary_apparel/chef_aprons.webp',
     features: [
       'تشكيلة كاملة من جاكيتات وبناطيل وقبعات الطهاة',
       'مواد متينة تتحمل درجات الحرارة العالية',
@@ -47,7 +47,7 @@ const serviceCategories = [
     id: 'academic-attire',
     title: 'الزي الأكاديمي',
     description: 'الأزياء المدرسية والجامعية المصممة بأعلى معايير الجودة والراحة، مناسبة للمناخ المحلي ومتطلبات المؤسسات التعليمية.',
-    image: '/images/academic_attire/school_uniform_fabrics.jpeg',
+    image: '/images/academic_attire/school_uniform_design.jpeg',
     features: [
       'أزياء مدرسية تناسب مختلف المراحل التعليمية',
       'خامات عالية الجودة تتحمل الاستخدام اليومي',
@@ -59,7 +59,7 @@ const serviceCategories = [
     id: 'protective-services',
     title: 'أزياء الحماية والأمن',
     description: 'أزياء احترافية لفرق الأمن والحراسة، مصممة بمعايير عالية من الجودة والمتانة، مع مراعاة متطلبات العمل في الظروف المختلفة.',
-    image: '/images/protective_services/security_guard_uniforms.jpeg',
+    image: '/images/protective_services/authority_discipline_uniforms.webp',
     features: [
       'أزياء رسمية لفرق الأمن والحراسة',
       'مواد متينة مقاومة للتمزق والاهتراء',
@@ -71,7 +71,7 @@ const serviceCategories = [
     id: 'utility-services',
     title: 'ملابس الخدمات والصيانة',
     description: 'ملابس عمل متينة ومريحة لفرق الصيانة والخدمات، مصممة لتوفير الحماية والمتانة مع سهولة الحركة والراحة.',
-    image: '/images/utility_services/maintenance_technician_clothing.jpeg',
+    image: '/images/utility_services/complete_utility_workwear_sets.webp',
     features: [
       'أفرولات وملابس عمل بمعايير عالية',
       'أقمشة مقاومة للاتساخ والزيوت',

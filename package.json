@@ -17,7 +17,7 @@
     "optimize-images": "node optimize-images-advanced.js",
     "minify": "node minify-assets.js",
     "clean": "rimraf .next out",
-    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && next build && node copy-static.js",
+    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && NODE_ENV=production NEXT_PUBLIC_SITE_URL=https://esaudi.info next build && node copy-static.js && cp -r out/_next out/blog/ && cp out/404.html out/blog/404.html",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {

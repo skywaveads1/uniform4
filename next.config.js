@@ -8,7 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true, // Add trailing slashes to URLs (important for static export)
   images: {
-    domains: ['example.com', 'yourdomain.com'],
+    domains: ['example.com', 'yourdomain.com', 'esaudi.info'],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 86400, // 24 hours cache for images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

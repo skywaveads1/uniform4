@@ -13,7 +13,7 @@
 # deploy settings will inherit these settings.
 [context.production.environment]
   NODE_ENV = "production"
-  NEXT_PUBLIC_SITE_URL = "https://uniform-blogs.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://esaudi.info"
   NEXT_PUBLIC_SITE_NAME = "يونيفورم"
   NEXT_PUBLIC_SITE_DESCRIPTION = "أفضل موقع متخصص في الأزياء الموحدة في المملكة العربية السعودية"
   NEXT_PUBLIC_DEFAULT_LOCALE = "ar"
@@ -41,129 +41,67 @@
   package = "netlify-plugin-submit-sitemap"
 
 [plugins.inputs]
-  baseUrl = "https://uniform-blogs.netlify.app"
+  baseUrl = "https://esaudi.info"
   sitemapPath = "/sitemap.xml"
   providers = [
     "google",
     "bing"
   ]
 
-# Redirects for blog posts that are returning 404 errors
+# Redirecciones para URLs de blog con o sin barra final
 [[redirects]]
-  from = "/blog/flight-crew/flight-1"
-  to = "/blog/flight-crew/flight-1/"
+  from = "/blog/flight-crew/:slug"
+  to = "/blog/flight-crew/:slug/"
+  status = 301
+  force = true
+
+# Redirecciones para otras categorías de blog
+[[redirects]]
+  from = "/blog/clinic-wear/:slug"
+  to = "/blog/clinic-wear/:slug/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog/flight-crew/flight-2"
-  to = "/blog/flight-crew/flight-2/"
+  from = "/blog/culinary-apparel/:slug"
+  to = "/blog/culinary-apparel/:slug/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog/flight-crew/flight-3"
-  to = "/blog/flight-crew/flight-3/"
+  from = "/blog/academic-attire/:slug"
+  to = "/blog/academic-attire/:slug/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog/flight-crew/flight-4"
-  to = "/blog/flight-crew/flight-4/"
+  from = "/blog/protective-services/:slug"
+  to = "/blog/protective-services/:slug/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog/flight-crew/flight-5"
-  to = "/blog/flight-crew/flight-5/"
+  from = "/blog/utility-services/:slug"
+  to = "/blog/utility-services/:slug/"
   status = 301
   force = true
 
-[[redirects]]
-  from = "/blog/flight-crew/flight-6"
-  to = "/blog/flight-crew/flight-6/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-7"
-  to = "/blog/flight-crew/flight-7/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-8"
-  to = "/blog/flight-crew/flight-8/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-9"
-  to = "/blog/flight-crew/flight-9/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-10"
-  to = "/blog/flight-crew/flight-10/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-11"
-  to = "/blog/flight-crew/flight-11/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-12"
-  to = "/blog/flight-crew/flight-12/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-13"
-  to = "/blog/flight-crew/flight-13/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-14"
-  to = "/blog/flight-crew/flight-14/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-15"
-  to = "/blog/flight-crew/flight-15/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-16"
-  to = "/blog/flight-crew/flight-16/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-17"
-  to = "/blog/flight-crew/flight-17/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/flight-crew/flight-18"
-  to = "/blog/flight-crew/flight-18/"
-  status = 301
-  force = true
-
-# Redirects for other main pages
+# Redirección para URLs de categorías de blog
 [[redirects]]
   from = "/blog"
   to = "/blog/"
   status = 301
   force = true
 
+# Manejo de parámetros de consulta de categoría
+[[redirects]]
+  from = "/blog/"
+  query = {category = ":category"}
+  to = "/blog/"
+  status = 200
+  force = false
+
+# Redirecciones para páginas principales
 [[redirects]]
   from = "/about"
   to = "/about/"
@@ -200,16 +138,29 @@
   status = 301
   force = true
 
-# Catch-all redirect for blog category pages
+# Fallback para categorías de blog
 [[redirects]]
   from = "/blog/flight-crew/*"
   to = "/blog/flight-crew/index.html"
   status = 200
   force = false
 
-# Catch-all fallback
+[[redirects]]
+  from = "/blog/clinic-wear/*"
+  to = "/blog/clinic-wear/index.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/blog/culinary-apparel/*"
+  to = "/blog/culinary-apparel/index.html"
+  status = 200
+  force = false
+
+# Manejo de error 404 principal (debe ser la última regla)
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
+  force = false
 

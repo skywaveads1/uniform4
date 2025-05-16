@@ -200,124 +200,81 @@ const BlogCard = ({ title, image, path, category }: { title: string, image: stri
 };
 
 // Create a new SearchParamsWrapper component that uses useSearchParams
-const SearchParamsWrapper = ({ onCategoryChange }: { onCategoryChange: (category: string | null) => void }) => {
+const SearchParamsWrapper = ({ onCategoryChange }: { onCategoryChange: (category: string) => void }) => {
   const searchParams = useSearchParams();
-  const categoryParam = searchParams.get('category');
   
   useEffect(() => {
-    onCategoryChange(categoryParam);
-  }, [categoryParam, onCategoryChange]);
+    // Verificar si hay un parámetro de categoría en la URL
+    const category = searchParams.get('category');
+    
+    if (category) {
+      // Convertir posibles guiones bajos en guiones
+      const formattedCategory = category.replace('_', '-');
+      console.log('URL category parameter detected:', formattedCategory);
+      onCategoryChange(formattedCategory);
+    } else {
+      onCategoryChange('all');
+    }
+  }, [searchParams, onCategoryChange]);
   
   return null;
 };
 
 export default function BlogPage() {
-  const [categoryFromParams, setCategoryFromParams] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [allFilteredArticles, setAllFilteredArticles] = useState(uniqueArticles);
-  const [displayCount, setDisplayCount] = useState(18); // عدد المقالات المعروضة في البداية
-  const [isLoading, setIsLoading] = useState(false); // حالة التحميل
-  const loaderRef = useRef<HTMLDivElement>(null); // مرجع لعنصر التحميل
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [visibleArticles, setVisibleArticles] = useState<number>(12);
+  const [filteredArticles, setFilteredArticles] = useState<any[]>([]);
+  const articlesRef = useRef<HTMLDivElement>(null);
 
-  // Update the active category when we get it from search params
   useEffect(() => {
-    if (categoryFromParams) {
-      setActiveCategory(categoryFromParams);
-    }
-  }, [categoryFromParams]);
-
-  // تحديث تصفية المقالات عند تغيير الفئة النشطة
-  useEffect(() => {
-    let filtered;
-    if (activeCategory === 'all') {
-      filtered = uniqueArticles;
+    // Aplicar filtrado basado en la categoría seleccionada
+    if (selectedCategory === 'all') {
+      setFilteredArticles(uniqueArticles);
     } else {
-      filtered = uniqueArticles.filter(article => {
-        // قم بفحص القسم المخصص أو استخرجه من المسار
-        const articleCategory = article.category || getCategoryFromPath(article.path);
+      // Convertir guiones a guiones bajos para compatibilidad
+      const categoryKey = selectedCategory.replace('-', '_');
+      
+      // Filtramos por la categoría o por la ruta que contiene la categoría
+      const filtered = uniqueArticles.filter(article => {
+        const articleCategory = article.category;
+        const articlePath = article.path;
         
-        // تقريب لمعالجة التطابق: بعض الأقسام قد تكون متشابهة
-        if (activeCategory === 'aviation-uniforms' && (
-          articleCategory === 'aviation-uniforms' || 
-          getCategoryFromPath(article.path).includes('flight') ||
-          getCategoryFromPath(article.path).includes('aviation')
-        )) {
-          return true;
-        }
-        
-        if (activeCategory === 'chef-uniforms' && (
-          articleCategory === 'chef-uniforms' || 
-          getCategoryFromPath(article.path).includes('culinary') ||
-          getCategoryFromPath(article.path).includes('chef')
-        )) {
-          return true;
-        }
-        
-        return articleCategory === activeCategory;
+        return (
+          (articleCategory && articleCategory.replace('-', '_') === categoryKey) ||
+          (articlePath && articlePath.includes(`/${selectedCategory.replace('_', '-')}/`))
+        );
       });
+      
+      setFilteredArticles(filtered);
     }
-    
-    setAllFilteredArticles(filtered);
-    setDisplayCount(18); // إعادة تعيين عدد المقالات المعروضة عند تغيير الفئة
-    
-    // التمرير إلى أعلى عند تغيير الفئة
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [activeCategory]);
+  }, [selectedCategory]);
 
-  // إنشاء Intersection Observer لمراقبة وصول المستخدم إلى نهاية القائمة
+  // Asegurarse de que la cantidad de artículos visibles se restablezca al cambiar la categoría
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '200px', // زيادة هامش الكشف ليبدأ التحميل قبل الوصول للعنصر
-      threshold: 0.05 // تقليل عتبة الكشف لتفعيل التحميل مبكرًا
-    };
+    setVisibleArticles(12);
+  }, [selectedCategory]);
 
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      // إذا كان العنصر مرئياً وهناك المزيد من المقالات للتحميل
-      if (entry.isIntersecting && !isLoading && displayCount < allFilteredArticles.length) {
-        loadMoreArticles();
-      }
-    }, options);
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-  }, [isLoading, displayCount, allFilteredArticles.length]);
-
-  // تحميل المزيد من المقالات
-  const loadMoreArticles = () => {
-    setIsLoading(true);
-    // تقليل وقت التأخير الاصطناعي
-    setTimeout(() => {
-      // زيادة عدد المقالات المحملة في كل مرة
-      setDisplayCount(prevCount => Math.min(prevCount + 18, allFilteredArticles.length));
-      setIsLoading(false);
-    }, 200); // تقليل وقت التأخير من 800 إلى 200 ميلي ثانية
-  };
-
-  // التعامل مع تغيير الفئة
   const handleCategoryChange = (category: string) => {
-    setActiveCategory(category);
+    if (category) {
+      console.log('Category selected:', category);
+      setSelectedCategory(category);
+      
+      // Scroll al inicio de los artículos
+      if (articlesRef.current) {
+        articlesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   };
 
-  // الحصول على قائمة المقالات المعروضة حالياً
-  const visibleArticles = allFilteredArticles.slice(0, displayCount);
+  const loadMoreArticles = () => {
+    setVisibleArticles(prev => prev + 12);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50" ref={scrollRef}>
+    <div className="min-h-screen bg-gray-50" ref={articlesRef}>
       {/* Wrap the component that uses useSearchParams in Suspense */}
       <Suspense fallback={null}>
-        <SearchParamsWrapper onCategoryChange={setCategoryFromParams} />
+        <SearchParamsWrapper onCategoryChange={setSelectedCategory} />
       </Suspense>
       
       {/* Blog Header */}
@@ -335,7 +292,7 @@ export default function BlogPage() {
             <button
               key={category.key}
               onClick={() => handleCategoryChange(category.key)}
-              className={`px-4 py-2 rounded-lg font-semibold transition-colors border ${activeCategory === category.key ? 'bg-blue-700 text-white border-blue-700' : 'bg-white text-blue-900 border-blue-200 hover:bg-blue-50'}`}
+              className={`px-4 py-2 rounded-lg font-semibold transition-colors border ${selectedCategory === category.key ? 'bg-blue-700 text-white border-blue-700' : 'bg-white text-blue-900 border-blue-200 hover:bg-blue-50'}`}
             >
               {category.label}
             </button>
@@ -344,8 +301,8 @@ export default function BlogPage() {
 
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {visibleArticles.length > 0 ? (
-            visibleArticles.map((article, index) => (
+          {filteredArticles.length > 0 ? (
+            filteredArticles.slice(0, visibleArticles).map((article, index) => (
               <BlogCard
                 key={`${article.path}-${index}`}
                 title={article.title}
@@ -363,31 +320,23 @@ export default function BlogPage() {
         </div>
         
         {/* مؤشر التحميل */}
-        {displayCount < allFilteredArticles.length && (
+        {visibleArticles < filteredArticles.length && (
           <div 
-            ref={loaderRef} 
             className="text-center py-8 mb-8"
           >
-            {isLoading ? (
-              <div className="flex justify-center items-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-700"></div>
-                <span className="mr-2">جاري تحميل المزيد من المقالات...</span>
-              </div>
-            ) : (
-              <button 
-                onClick={loadMoreArticles}
-                className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
-              >
-                عرض المزيد
-              </button>
-            )}
+            <button 
+              onClick={loadMoreArticles}
+              className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
+            >
+              عرض المزيد
+            </button>
           </div>
         )}
         
         {/* توضيح عدد المقالات المعروضة */}
         <div className="text-center mb-8">
           <p className="text-gray-700">
-            {visibleArticles.length} مقالة من أصل {allFilteredArticles.length} مقالة
+            {visibleArticles} مقالة من أصل {filteredArticles.length} مقالة
           </p>
         </div>
       </section>

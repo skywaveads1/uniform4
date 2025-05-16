@@ -41,11 +41,17 @@ interface PostContent {
   metadata: PostMetadata;
 }
 
+// Define interface for static params
+interface BlogStaticParams {
+  category: string;
+  slug: string;
+}
+
 // Generate static params for all blog posts
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<BlogStaticParams[]> {
   // Extract all unique categories and slugs from articles
-  const uniqueParams = new Set();
-  const params = [];
+  const uniqueParams = new Set<string>();
+  const params: BlogStaticParams[] = [];
   
   // Add parameters for all articles in the data
   articles.forEach(article => {
@@ -55,7 +61,7 @@ export async function generateStaticParams() {
       const category = urlParts[2];
       const slug = urlParts[3];
       const paramKey = `${category}:${slug}`;
-      
+    
       if (!uniqueParams.has(paramKey)) {
         uniqueParams.add(paramKey);
         params.push({
@@ -67,18 +73,26 @@ export async function generateStaticParams() {
   });
   
   // Add hardcoded parameters for known blog posts that might be missing
-  const flightCrewPosts = Array.from({ length: 25 }, (_, i) => `flight-${i + 1}`);
+  // Incluimos todas las páginas mencionadas en los URLs con errores 404
+  const additionalPosts = [
+    { category: 'flight-crew', slugs: Array.from({ length: 18 }, (_, i) => `flight-${i + 1}`) },
+  ];
   
-  flightCrewPosts.forEach(post => {
-    const paramKey = `flight-crew:${post}`;
-    if (!uniqueParams.has(paramKey)) {
-      uniqueParams.add(paramKey);
-      params.push({
-        category: 'flight-crew',
-        slug: post,
-      });
-    }
+  additionalPosts.forEach(({ category, slugs }) => {
+    slugs.forEach(slug => {
+      const paramKey = `${category}:${slug}`;
+      if (!uniqueParams.has(paramKey)) {
+        uniqueParams.add(paramKey);
+        params.push({
+          category,
+          slug,
+        });
+      }
+    });
   });
+  
+  // Removimos las páginas principales de la generación de parámetros estáticos de blog
+  // ya que esas páginas existen en sus propias carpetas en la raíz
   
   console.log(`Generated ${params.length} static blog post paths`);
   return params;
@@ -137,11 +151,27 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
     });
     
     if (!article) {
-      // For known blog categories and slugs, generate fallback data
+      // Generate fallback content for different content types
+      
+      // Flight crew articles (flight-1 through flight-18)
       if (category === 'flight-crew' && slug.match(/^flight-\d+$/)) {
         const flightNumber = slug.replace('flight-', '');
+        const flightNum = parseInt(flightNumber, 10);
+        
+        // Use different image based on the article number
+        let image = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+        if (flightNum % 3 === 0) {
+          image = '/images/flight_crew/modern_airline_uniform_design.webp';
+        } else if (flightNum % 3 === 1) {
+          image = '/images/flight_crew/pilot_attendant_uniforms.webp';
+        } else {
+          image = '/images/flight_crew/modern_flight_attendant_fashion.webp';
+        }
+        
         return {
-          content: `<p>هذا محتوى توضيحي للمقالة رقم ${flightNumber} في فئة أزياء طاقم الطيران.</p>`,
+          content: `<p>هذا محتوى توضيحي للمقالة رقم ${flightNumber} في فئة أزياء طاقم الطيران.</p>
+                   <p>تتناول هذه المقالة جوانب مختلفة من تصميم وإنتاج أزياء طاقم الطيران.</p>
+                   <p>يمكنك الاطلاع على المزيد من المقالات المتعلقة بأزياء الطيران من خلال تصفح قسم أزياء الطيران في موقعنا.</p>`,
           metadata: {
             title: `مقالة أزياء الطيران رقم ${flightNumber}`,
             description: `هذا وصف توضيحي للمقالة رقم ${flightNumber} في فئة أزياء طاقم الطيران.`,
@@ -149,7 +179,7 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
             author: 'فريق يونيفورم',
             category: category,
             tags: ['طيران', 'أزياء موحدة', 'تصميم'],
-            image: '/images/flight_crew/header_flight_crew_uniform.jpeg',
+            image: image,
             slug: slug,
             readTime: '٥ دقائق للقراءة',
             authorImage: '/images/author/team.jpg',
@@ -157,22 +187,112 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
           }
         };
       }
+      
+      // Handle other category pages
+      const categoryMap: Record<string, { title: string, image: string }> = {
+        'clinic_wear': { 
+          title: 'أزياء طبية', 
+          image: '/images/clinic_wear/clinic_doctor_uniforms.webp'
+        },
+        'culinary_apparel': { 
+          title: 'أزياء الطهاة', 
+          image: '/images/culinary_apparel/chef_aprons.webp'
+        },
+        'flight_crew': { 
+          title: 'أزياء الطيران', 
+          image: '/images/flight_crew/modern_airline_uniform_design.webp'
+        }
+      };
+      
+      // Handle category pages (when requested as /blog?category=xxx)
+      if (Object.keys(categoryMap).includes(category) && !slug) {
+        const categoryInfo = categoryMap[category];
+        return {
+          content: `<p>هذه صفحة قسم ${categoryInfo.title}. يمكنك العثور على جميع المقالات المتعلقة بـ ${categoryInfo.title} هنا.</p>`,
+          metadata: {
+            title: `قسم ${categoryInfo.title} | يونيفورم`,
+            description: `تصفح جميع مقالات قسم ${categoryInfo.title} في موقع يونيفورم`,
+            date: new Date().toISOString(),
+            author: 'فريق يونيفورم',
+            category: category,
+            tags: ['أزياء موحدة', category],
+            image: categoryInfo.image,
+            slug: '',
+            readTime: '١ دقيقة للقراءة',
+            authorImage: '/images/author/team.jpg',
+            authorTitle: 'خبراء تصميم الأزياء الموحدة'
+          }
+        };
+      }
+      
+      // Handle main pages like about, contact, etc.
+      const mainPageMap: Record<string, { title: string, content: string }> = {
+        'about': {
+          title: 'عن يونيفورم',
+          content: '<p>مرحبًا بك في صفحة عن يونيفورم. نحن متخصصون في تصميم وإنتاج الأزياء الموحدة للشركات والمؤسسات.</p>'
+        },
+        'contact': {
+          title: 'اتصل بنا',
+          content: '<p>يمكنك التواصل معنا عبر النموذج أدناه أو من خلال معلومات الاتصال المتوفرة.</p>'
+        },
+        'faq': {
+          title: 'الأسئلة المتكررة',
+          content: '<p>إليك بعض الأسئلة الشائعة حول خدماتنا ومنتجاتنا.</p>'
+        },
+        'terms': {
+          title: 'الشروط والأحكام',
+          content: '<p>يرجى قراءة الشروط والأحكام الخاصة بموقعنا بعناية.</p>'
+        },
+        'privacy': {
+          title: 'سياسة الخصوصية',
+          content: '<p>نلتزم بحماية خصوصية معلوماتك الشخصية.</p>'
+        },
+        'quote': {
+          title: 'طلب عرض سعر',
+          content: '<p>يمكنك طلب عرض سعر مخصص لاحتياجات مؤسستك من الأزياء الموحدة.</p>'
+        }
+      };
+      
+      if (Object.keys(mainPageMap).includes(category) && slug === '') {
+        const pageInfo = mainPageMap[category];
+        return {
+          content: pageInfo.content,
+          metadata: {
+            title: `${pageInfo.title} | يونيفورم`,
+            description: `${pageInfo.title} - يونيفورم للأزياء الموحدة المتخصصة`,
+            date: new Date().toISOString(),
+            author: 'فريق يونيفورم',
+            category: category,
+            tags: ['يونيفورم', 'أزياء موحدة'],
+            image: '/images/flight_crew/crew_uniform_visual_identity.jpeg',
+            slug: '',
+            readTime: '١ دقيقة للقراءة',
+            authorImage: '/images/author/team.jpg',
+            authorTitle: 'خبراء تصميم الأزياء الموحدة'
+          }
+        };
+      }
+      
       return null;
     }
     
-    // This is a placeholder implementation - in a real app, you would fetch the actual content
+    // For existing articles in data, return their information
     const post = {
-      content: 'Post content goes here...',
+      content: `
+        <p>هذا المحتوى التوضيحي للمقال "${article.title}".</p>
+        <p>يهدف هذا المقال إلى تقديم معلومات قيمة حول ${article.category}.</p>
+        <p>يمكنك الاطلاع على المزيد من المقالات المشابهة في قسم ${article.category}.</p>
+      `,
       metadata: {
         title: article.title,
-        description: 'Post description goes here',
+        description: `مقال عن ${article.title} - يونيفورم للأزياء الموحدة المتخصصة`,
         date: new Date().toISOString(),
-        author: 'Author Name',
+        author: 'فريق يونيفورم',
         category: article.category,
-        tags: ['tag1', 'tag2'],
+        tags: ['أزياء موحدة', article.category, 'تصميم'],
         image: article.imageUrl,
         slug: slug,
-        readTime: '10 دقائق للقراءة',
+        readTime: '5 دقائق للقراءة',
         authorImage: '/images/author/team.jpg',
         authorTitle: 'خبراء تصميم الأزياء الموحدة'
       }
