@@ -9,7 +9,6 @@ const nextConfig = {
     domains: ['example.com', 'yourdomain.com'],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 86400, // 24 hours cache for images
-    unoptimized: true, // Set to true unconditionally because of output: 'export'
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
@@ -21,8 +20,7 @@ const nextConfig = {
     // Remove console logs in production
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  swcMinify: true, // Use SWC for minification
-  output: 'export', // Static site generation for Netlify
+  swcMinify: true,
   
   // Performance optimization
   experimental: {

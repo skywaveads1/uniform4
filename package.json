@@ -13,7 +13,7 @@
     "optimize-images": "node optimize-images-advanced.js",
     "minify": "node minify-assets.js",
     "clean": "rimraf .next out",
-    "netlify-deploy": "npm ci && npm run clean && npm run build && npm run postbuild",
+    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && next build",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
