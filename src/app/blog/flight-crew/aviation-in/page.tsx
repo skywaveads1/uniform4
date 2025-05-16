@@ -6,6 +6,9 @@ export const metadata = {
   description: 'استكشف أشهر أزياء وزي طاقم الطيران حول العالم واكتشف كيف تعكس هذه الأزياء ثقافات وهويات الدول المختلفة.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/global_airline_uniforms.jpeg';
   const title = 'أزياء الطيران حول العالم';

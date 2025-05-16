@@ -9,8 +9,11 @@ export const metadata = {
   description: 'نصائح وإرشادات للمحافظة على الزي الرسمي لطاقم الطيران في مختلف الظروف الجوية والمناخية أثناء السفر، مع حلول عملية للتحديات الشائعة',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/crew_uniform_visual_identity.jpeg';
+  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
   const title = 'أزياء الطيران ودورها في بناء الهوية المؤسسية لشركات الطيران';
   const readingTime = '9 دقائق';
   const datePublished = '٢٣ مايو ٢٠٢٣';

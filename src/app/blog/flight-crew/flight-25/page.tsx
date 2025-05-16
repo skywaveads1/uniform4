@@ -3,19 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaClock } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'مستقبل تصميم زي طواقم الطيران: الابتكار والتقنية',
-  description: 'نظرة استشرافية لمستقبل تصميم زي طواقم الطيران ودور الابتكار والتقنيات الحديثة في تطويره، مع استعراض الاتجاهات المستقبلية والمواد الذكية والاستدامة',
+  title: 'مستقبل تصميم زي طواقم الطيران: اتجاهات وابتكارات قادمة',
+  description: 'نظرة استشرافية حول مستقبل تصميم أزياء الطيران والاتجاهات والتقنيات التي ستشكل الجيل القادم من الأزياء الموحدة لطواقم الطائرات',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_future_design.jpeg';
-  const title = 'مستقبل تصميم زي طواقم الطيران: الابتكار والتقنية';
-  const readingTime = '9 دقائق';
-  const datePublished = '٢٥ مايو ٢٠٢٣';
+  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
+  const title = 'مستقبل تصميم زي طواقم الطيران: اتجاهات وابتكارات قادمة';
+  const readingTime = '12 دقيقة';
+  const datePublished = '٥ يونيو ٢٠٢٣';
 
-  // أقسام المقال للتنقل السريع
   const sections = [
     { id: 'intro', title: 'مقدمة' },
     { id: 'smart-materials', title: 'المواد الذكية والأقمشة المتطورة' },
@@ -24,11 +24,11 @@ export default function ArticlePage() {
     { id: 'human-centered', title: 'التصميم المتمحور حول الإنسان' },
     { id: 'future-adaptation', title: 'التكيف مع متغيرات الطيران المستقبلية' },
     { id: 'challenges', title: 'التحديات والفرص المستقبلية' },
+    { id: 'conclusion', title: 'خاتمة' },
   ];
 
   return (
-    <main className="bg-gray-50 rtl">
-      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+    <main className="bg-gray-50 min-h-screen" dir="rtl">
       <div className="relative w-full h-[60vh] mb-8">
         <Image
           src={imageSrc}
@@ -37,148 +37,113 @@ export default function ArticlePage() {
           priority
           style={{ objectFit: 'cover' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
-              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
-              <span>{datePublished}</span>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div className="absolute bottom-0 w-full p-8 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+          <div className="flex items-center text-sm md:text-base">
+            <span>{datePublished}</span>
+            <span className="mx-2">•</span>
+            <span>{readingTime}</span>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 pb-16">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* القائمة الجانبية */}
-          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
-              <nav>
-                <ul className="space-y-2">
-                  {sections.map(section => (
-                    <li key={section.id}>
-                      <a 
-                        href={`#${section.id}`} 
-                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
-                      >
-                        {section.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-            
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
-              <ShareButtons url="" title={title} />
-            </div>
-
-            <div className="border-t pt-4 mt-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
-                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-14" className="text-sm hover:text-blue-600 block">
-                    زي موحد لطاقم الخدمات الأرضية في المطارات السعودية
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-20" className="text-sm hover:text-blue-600 block">
-                    تصميم وتصنيع زي طاقم الطيران: من الفكرة إلى المنتج النهائي
-                  </Link>
-                </li>
+          <aside className="md:w-1/4 h-fit sticky top-8 self-start bg-white rounded-lg p-4 shadow-sm">
+            <h2 className="text-lg font-semibold mb-4 border-r-4 border-blue-600 pr-3">محتويات المقال</h2>
+            <nav>
+              <ul className="space-y-2">
+                {sections.map(section => (
+                  <li key={section.id}>
+                    <a 
+                      href={`#${section.id}`} 
+                      className="text-blue-700 hover:text-blue-900 transition-colors block py-1"
+                    >
+                      {section.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
-            </div>
+            </nav>
           </aside>
 
-          {/* محتوى المقال الرئيسي */}
-          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
-          </div>
-        )}
-
+          <article className="md:w-3/4 bg-white rounded-lg p-6 shadow-sm">
             <section id="intro">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            يشهد عالم الطيران تطوراً مستمراً في جميع جوانبه، من تقنيات الطائرات المتقدمة إلى أنظمة الخدمة المبتكرة. وفي خضم هذا التطور، يبرز تصميم زي طواقم الطيران كمجال حيوي يجمع بين الوظيفة والهوية والابتكار. فمع دخولنا عصراً جديداً من التكنولوجيا والاستدامة، تتغير توقعات المسافرين وتتطور احتياجات الطواقم، مما يدفع المصممين والشركات إلى إعادة النظر في مفهوم الزي الموحد للطيران.
+          <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+          <p className="mb-4 leading-7 text-gray-700">
+            يقف تصميم زي طواقم الطيران اليوم على أعتاب تحول جذري، مدفوعاً بالتطور التكنولوجي والمتطلبات المتغيرة لصناعة الطيران. على مدى العقود القادمة، ستشهد أزياء طواقم الطيران تغييرات ثورية تتجاوز مجرد التحسينات الجمالية لتشمل إدماج التكنولوجيا المتقدمة، والمواد الذكية، ومبادئ الاستدامة، والتصميم المتمحور حول الإنسان.
           </p>
-          <p className="mb-4">
-            لم يعد زي الطيران مجرد رمز للتعريف بالهوية المؤسسية أو عنصر جمالي، بل أصبح منظومة متكاملة تجمع بين الوظائف المتعددة، والتكيف مع الظروف المختلفة، والاستجابة للتحديات البيئية والاقتصادية. ومع تسارع وتيرة الابتكارات التكنولوجية في مجال المواد والتصنيع، تظهر إمكانيات جديدة لم تكن متاحة من قبل، تتيح تصميم أزياء أكثر ذكاءً وكفاءة وراحة.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستكشف ملامح مستقبل تصميم زي طواقم الطيران، ونلقي نظرة على الاتجاهات الناشئة والتقنيات الواعدة، والمواد الثورية التي ستشكل الجيل القادم من الأزياء المهنية في عالم الطيران. كما نتناول التحديات التي تواجه هذا التطور، والفرص التي يتيحها، ودور الاستدامة والتصميم المتمحور حول الإنسان في تشكيل مستقبل أكثر ابتكاراً وكفاءة لأزياء الطيران.
+          <p className="mb-4 leading-7 text-gray-700">
+            يستعرض هذا المقال أبرز الاتجاهات المستقبلية في تصميم زي طواقم الطيران، والابتكارات التي ستعيد تشكيل مفهوم الزي الموحد، والتحديات التي ستواجه شركات الطيران والمصممين في تحقيق التوازن بين التقليد والابتكار، بين الوظيفة والجمالية، وبين الهوية المؤسسية واحتياجات الطاقم المتنوعة.
           </p>
         </section>
 
             <section id="smart-materials">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">المواد الذكية والأقمشة المتطورة</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد الذكية والأقمشة المتطورة</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">تقنية النانو والأقمشة الوظيفية</h3>
-          <p className="mb-4">
-            ثورة في عالم المنسوجات:
+          <ArticleImage 
+            src="/images/flight_crew/air_crew_attire.jpeg"
+            alt="المواد الذكية والأقمشة المتطورة في زي طواقم الطيران"
+            caption="التقنيات الحديثة في صناعة الأقمشة الذكية تحدث ثورة في تصميم زي طواقم الطيران"
+          />
+          
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أقمشة متكيفة مع درجات الحرارة والرطوبة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
+            تقنيات ذكية للراحة المثلى:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة بطلاء النانو المقاومة للبقع والسوائل تقلل من تكاليف الصيانة وتطيل عمر الزي</li>
-            <li className="mb-2">منسوجات مضادة للبكتيريا تمنع نمو الميكروبات والروائح حتى بعد ساعات طويلة من العمل</li>
-            <li className="mb-2">معالجات النانو للحماية من الأشعة فوق البنفسجية تقي من أضرار التعرض الطويل للشمس</li>
-            <li className="mb-2">أقمشة فائقة النعومة والمتانة بفضل تقنيات النانو دون زيادة الوزن أو التكلفة</li>
+            <li className="mb-2">أقمشة تنظم درجة حرارة الجسم تلقائياً للتكيف مع بيئات الطائرة المتغيرة</li>
+            <li className="mb-2">مواد تمتص الرطوبة وتتبخرها بكفاءة عالية للحفاظ على جفاف الزي أثناء الرحلات الطويلة</li>
+            <li className="mb-2">طلاءات نانوية تمنع نمو البكتيريا والروائح حتى بعد ساعات طويلة من الارتداء</li>
+            <li className="mb-2">أقمشة قابلة للتنفس تتكيف مع مستويات نشاط الطاقم المختلفة</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد المتكيفة مع درجات الحرارة</h3>
-          <p className="mb-4">
-            تكنولوجيا التكيف الحراري:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية تتكيف مع درجة حرارة الجسم والبيئة المحيطة للحفاظ على راحة الطاقم</li>
-            <li className="mb-2">مواد ذات تغير طوري (PCM) تمتص الحرارة الزائدة وتطلقها عند الحاجة</li>
-            <li className="mb-2">أنسجة تنظم الرطوبة تلقائياً مع الحفاظ على المظهر الأنيق للزي</li>
-            <li className="mb-2">طبقات حرارية رقيقة للغاية مدمجة في القماش نفسه دون الحاجة إلى طبقات إضافية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة القابلة للتمدد والمرنة</h3>
-          <p className="mb-4">
-            حرية الحركة والراحة المطلقة:
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مواد خفيفة الوزن عالية الأداء</h3>
+          <p className="mb-4 leading-7 text-gray-700">
+            الجيل القادم من الأقمشة:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة مرنة في أربعة اتجاهات تتكيف مع حركة الجسم مع الحفاظ على الشكل الرسمي</li>
-            <li className="mb-2">مزيج من الألياف الطبيعية والاصطناعية المرنة يمنح مظهراً أنيقاً مع راحة فائقة</li>
-            <li className="mb-2">تقنيات نسيج متطورة تسمح بمرونة استراتيجية في مناطق محددة من الزي</li>
-            <li className="mb-2">خامات خفيفة الوزن تحافظ على شكلها رغم الاستخدام المتكرر والرحلات الطويلة</li>
+            <li className="mb-2">ألياف متطورة تقلل وزن الزي بنسبة تصل إلى 30% مع الحفاظ على المتانة والشكل</li>
+            <li className="mb-2">أقمشة مركبة مستوحاة من تقنيات الفضاء تجمع بين المرونة والثبات</li>
+            <li className="mb-2">تقنيات نسيج ثلاثية الأبعاد تخلق هياكل مريحة تدعم الجسم خلال الرحلات الطويلة</li>
+            <li className="mb-2">أقمشة بمقاومة فائقة للتجاعيد تحافظ على المظهر الأنيق طوال فترة الرحلة</li>
           </ol>
+
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مواد وظيفية متعددة الاستخدامات</h3>
+          <p className="mb-4 leading-7 text-gray-700">
+            أقمشة تتجاوز الوظيفة التقليدية:
+          </p>
+          <ul className="list-disc list-inside mb-4 mr-5">
+            <li className="mb-2">أقمشة مقاومة للحريق والحرارة بتقنيات متقدمة تفوق المعايير الحالية</li>
+            <li className="mb-2">مواد مقاومة للسوائل والبقع مع الحفاظ على الملمس الفاخر والراحة</li>
+            <li className="mb-2">أقمشة معالجة بجزيئات نشطة لتنقية الهواء المحيط من الملوثات</li>
+            <li className="mb-2">مواد ذات خصائص كهروستاتيكية متحكم بها لمنع تراكم الكهرباء الساكنة</li>
+          </ul>
         </section>
 
             <section id="wearable-tech">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التكنولوجيا الملبوسة والأنظمة المدمجة</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التكنولوجيا الملبوسة والأنظمة المدمجة</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">وظائف الاتصال المدمجة</h3>
-          <p className="mb-4">
-            تكامل تكنولوجيا الاتصال في الزي:
+          <ArticleImage 
+            src="/images/flight_crew/air_crew_attire.jpeg"
+            alt="التكنولوجيا الملبوسة في زي طواقم الطيران"
+            caption="أنظمة تكنولوجية متطورة مدمجة في زي طواقم الطيران لتحسين الأداء والسلامة"
+          />
+          
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أنظمة اتصال متكاملة ومدمجة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
+            تكنولوجيا غير مرئية لاتصال فعال:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أزرار وشارات ذكية تعمل كميكروفونات ووسائل اتصال تتكامل مع أنظمة الطائرة</li>
+            <li className="mb-2">أزرار تحكم مدمجة في الأكمام للتواصل السريع مع فريق الطاقم</li>
             <li className="mb-2">أساور وأربطة مدمجة لتتبع الإشارات الحيوية للطاقم أثناء الرحلات الطويلة</li>
             <li className="mb-2">تقنية نسيج موصل خفي تحول الزي بأكمله إلى شبكة اتصال متكاملة</li>
             <li className="mb-2">أنظمة تحديد المواقع مدمجة للمساعدة في حالات الطوارئ والإخلاء</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">أنظمة مراقبة الصحة والسلامة</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أنظمة مراقبة الصحة والسلامة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             حماية مدمجة في التصميم:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
@@ -188,8 +153,8 @@ export default function ArticlePage() {
             <li className="mb-2">ميزات سلامة متكاملة تضيء أو تصدر إشارات في حالات الطوارئ</li>
           </ol>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تقنيات الشحن وإدارة الطاقة</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">تقنيات الشحن وإدارة الطاقة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             الاستقلالية التكنولوجية:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -201,10 +166,16 @@ export default function ArticlePage() {
         </section>
 
             <section id="sustainability">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الاستدامة والمسؤولية البيئية</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاستدامة والمسؤولية البيئية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد المستدامة والصديقة للبيئة</h3>
-          <p className="mb-4">
+          <ArticleImage 
+            src="/images/flight_crew/air_crew_attire.jpeg"
+            alt="الاستدامة في تصميم زي طواقم الطيران"
+            caption="مبادرات الاستدامة تحول صناعة أزياء الطيران إلى نموذج أكثر صداقة للبيئة"
+          />
+          
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">المواد المستدامة والصديقة للبيئة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             ثورة خضراء في أزياء الطيران:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -214,8 +185,8 @@ export default function ArticlePage() {
             <li className="mb-2">مواد قابلة للتحلل البيولوجي يمكن إعادة تدويرها بالكامل عند انتهاء عمرها</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تقنيات التصنيع منخفضة التأثير</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">تقنيات التصنيع منخفضة التأثير</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             ثورة في أساليب الإنتاج:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
@@ -225,8 +196,8 @@ export default function ArticlePage() {
             <li className="mb-2">سلاسل توريد شفافة ومتتبعة تضمن الالتزام بالمعايير الأخلاقية والبيئية</li>
           </ol>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">اقتصاد التدوير وإطالة دورة الحياة</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">اقتصاد التدوير وإطالة دورة الحياة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             نهج شامل للاستدامة:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -238,10 +209,10 @@ export default function ArticlePage() {
         </section>
 
             <section id="human-centered">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التصميم المتمحور حول الإنسان</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التصميم المتمحور حول الإنسان</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الراحة الفائقة والأرجونوميكس</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الراحة الفائقة والأرجونوميكس</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             تصميم يضع تجربة المستخدم في المقدمة:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -251,8 +222,8 @@ export default function ArticlePage() {
             <li className="mb-2">قصات وخياطات مبتكرة تسمح بحرية حركة قصوى مع الحفاظ على الشكل الأنيق</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التخصيص والتكيف مع احتياجات الفرد</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التخصيص والتكيف مع احتياجات الفرد</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             تجاوز مفهوم المقاس الموحد:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
@@ -262,8 +233,8 @@ export default function ArticlePage() {
             <li className="mb-2">منصات رقمية للمشاركة في تصميم الزي وتقديم الملاحظات من قبل المستخدمين</li>
           </ol>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الشمولية والتنوع في التصميم</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الشمولية والتنوع في التصميم</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             زي يحتفي بالتنوع البشري:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -275,10 +246,10 @@ export default function ArticlePage() {
         </section>
 
             <section id="future-adaptation">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التكيف مع متغيرات الطيران المستقبلية</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التكيف مع متغيرات الطيران المستقبلية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الطيران التجاري عالي السرعة وطويل المدى</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الطيران التجاري عالي السرعة وطويل المدى</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             تصاميم للمستقبل القريب:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -288,8 +259,8 @@ export default function ArticlePage() {
             <li className="mb-2">ميزات تناسب خدمة الركاب في بيئات الطيران المستقبلية (كالكبائن المقسمة)</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">السياحة الفضائية والطيران شبه المداري</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">السياحة الفضائية والطيران شبه المداري</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             زي للحدود الجديدة:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
@@ -299,8 +270,8 @@ export default function ArticlePage() {
             <li className="mb-2">رموز بصرية تعكس العصر الجديد من السفر مع احترام تقاليد الطيران</li>
           </ol>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التحولات في تجربة الطيران ونماذج الخدمة</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التحولات في تجربة الطيران ونماذج الخدمة</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             تصاميم مرنة لعالم متغير:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -312,10 +283,10 @@ export default function ArticlePage() {
         </section>
 
             <section id="challenges">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات والفرص المستقبلية</h2>
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التحديات والفرص المستقبلية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين التقليد والابتكار</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التوازن بين التقليد والابتكار</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             الحفاظ على الهوية مع التطوير:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -325,8 +296,8 @@ export default function ArticlePage() {
             <li className="mb-2">نقاط التوازن بين الوظائف التقليدية (التمييز، الهوية) والمتطلبات الجديدة</li>
           </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التحديات الاقتصادية والإنتاجية</h3>
-          <p className="mb-4">
+          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التحديات الاقتصادية والإنتاجية</h3>
+          <p className="mb-4 leading-7 text-gray-700">
             جعل الابتكار مستداماً اقتصادياً:
           </p>
           <ol className="list-decimal list-inside mb-4 mr-5">
@@ -336,8 +307,8 @@ export default function ArticlePage() {
             <li className="mb-2">شراكات بين شركات الطيران وشركات التكنولوجيا والأزياء لتقاسم تكاليف التطوير</li>
           </ol>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">القبول والتبني من قبل الطواقم</h3>
-          <p className="mb-4">
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">القبول والتبني من قبل الطواقم</h3>
+          <p className="mb-4 leading-7 text-gray-700">
                 التوازن بين الابتكار والقبول:
           </p>
           <ul className="list-disc list-inside mb-4 mr-5">
@@ -349,14 +320,14 @@ export default function ArticlePage() {
         </section>
 
             <section id="conclusion">
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
+          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">خاتمة</h2>
+          <p className="mb-4 leading-7 text-gray-700">
                 يقف مستقبل تصميم زي طواقم الطيران على مفترق طرق بين الإرث العريق لصناعة الطيران وآفاق الابتكار اللامحدودة. فالتوازن الدقيق بين الوظيفة والهوية، والتقليد والتجديد، والتكنولوجيا والإنسانية، سيشكل ملامح الجيل القادم من أزياء الطيران التي ستكون أكثر ذكاءً، وأكثر استدامة، وأكثر تكيفاً مع الاحتياجات المتنوعة.
           </p>
-          <p className="mb-4">
+          <p className="mb-4 leading-7 text-gray-700">
                 إن المواد الذكية والتكنولوجيا الملبوسة والنهج المستدام ليست مجرد اتجاهات عابرة، بل تمثل تحولاً جوهرياً في كيفية تصميم وإنتاج واستخدام أزياء الطاقم. وبينما تتطور صناعة الطيران نحو آفاق جديدة من الرحلات فائقة الطول والسياحة الفضائية، سيتطور معها زي الطاقم ليكون شريكاً في النجاح وليس مجرد عنصر مظهري.
           </p>
-          <p className="mb-4">
+          <p className="mb-4 leading-7 text-gray-700">
                 في نهاية المطاف، يبقى الإنسان - سواء كان عضو طاقم الطيران أو المسافر - هو محور الاهتمام الرئيسي. وأفضل الابتكارات ستكون تلك التي تعزز التجربة الإنسانية، وتدعم الاحتياجات المتنوعة، وتحافظ على البيئة، وتعبر عن هوية وقيم شركات الطيران التي تمثلها. وبهذه الطريقة، سيستمر زي طاقم الطيران في كونه أحد أهم رموز هذه الصناعة العريقة، ولكن بصورة متجددة تواكب تطلعات المستقبل.
           </p>
         </section>

@@ -6,6 +6,9 @@ export const metadata = {
   description: 'استكشف العلاقة بين أزياء طاقم الطيران والهوية المؤسسية لشركات الطيران، وكيف تسهم الأزياء في بناء صورة العلامة التجارية وتعزيز قيمها.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/airline_corporate_identity.jpeg';
   const title = 'أزياء الطيران وهوية الشركات';

@@ -9,6 +9,9 @@ export const metadata = {
   description: 'تحليل مقارن لأزياء طواقم شركات الطيران المختلفة العاملة في المملكة العربية السعودية، من حيث التصميم والألوان والرمزية الثقافية والعناصر المميزة',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniforms_riyadh.jpg';
   const title = 'مقارنة بين زي طواقم شركات الطيران المختلفة العاملة في المملكة';

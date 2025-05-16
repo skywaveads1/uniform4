@@ -9,6 +9,9 @@ export const metadata = {
   description: 'دليل شامل حول بروتوكولات وقواعد ارتداء زي الطيران خارج ساعات العمل الرسمية، مع نظرة على الأبعاد القانونية والمهنية والثقافية ونصائح للتوازن بين التمثيل المؤسسي والحياة الشخصية',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniforms.jpeg';
   const title = 'بروتوكول ارتداء الزي الرسمي خارج ساعات العمل لطاقم الطيران';

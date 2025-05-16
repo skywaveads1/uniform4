@@ -9,11 +9,11 @@ const securityUniformsPosts = [
     id: 'uniform-security-materials',
     title: 'المواد المستخدمة في تصنيع أزياء الأمن: دليل شامل',
     description: 'استعراض تفصيلي للمواد المستخدمة في تصنيع أزياء الأمن والحراسة مع مقارنة بين أنواعها ومميزاتها',
-    image: '/images/security_uniforms/security_materials.jpeg',
+    image: "/images/protective_services/security_guard_uniforms.jpeg",
     date: '2024-06-01',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/protective_services/security_guard_uniforms.jpeg",
       role: 'خبراء أزياء الأمن'
     },
     category: 'أزياء الأمن',
@@ -22,16 +22,19 @@ const securityUniformsPosts = [
     id: 'importance-uniform-on-security',
     title: 'أهمية الزي الموحد في تعزيز مستوى الأمن والأمان',
     description: 'تحليل علمي لتأثير الزي الموحد على تعزيز مستوى الأمن والأمان في المنشآت والمؤسسات المختلفة',
-    image: '/images/security_uniforms/security_importance.jpeg',
+    image: "/images/protective_services/security_guard_uniforms.jpeg",
     date: '2024-06-02',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/protective_services/security_guard_uniforms.jpeg",
       role: 'خبراء أزياء الأمن'
     },
     category: 'أزياء الأمن',
   },
 ];
+
+// صورة الهيدر للمقال
+const heroImage = '/images/protective_services/header_security_uniform.jpeg';
 
 export default function SecurityUniformsBlogPage() {
   return (

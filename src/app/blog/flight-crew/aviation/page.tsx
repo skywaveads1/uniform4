@@ -6,6 +6,9 @@ export const metadata = {
   description: 'دليل شامل يغطي أساسيات ومبادئ تصميم أزياء الطيران بما في ذلك المواصفات الفنية والوظيفية والجمالية لتحقيق التوازن المثالي بين الأداء والأناقة.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/cabin_crew_uniforms.jpeg';
   const title = 'أساسيات تصميم أزياء الطيران: دليل شامل للمبادئ والأسس';

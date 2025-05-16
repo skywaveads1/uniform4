@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشف دور الإكسسوارات المختلفة في أزياء الطيران، وكيف تجمع بين الوظيفة العملية والأناقة، مع التركيز على الشارات، الأوشحة، الحقائب والإكسسوارات المميزة.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniform_accessories.jpeg';
   const title = 'الإكسسوارات في أزياء الطيران: اللمسات المكملة للأناقة والوظيفة';

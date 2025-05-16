@@ -6,6 +6,9 @@ export const metadata = {
   description: 'استعراض لأفضل تصاميم أزياء الطيران حول العالم، مع تحليل للعناصر التي تميزها من حيث الأناقة والوظيفية والابتكار.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/best_flight_crew_attire.jpeg';
   const title = 'أفضل تصاميم أزياء الطيران';

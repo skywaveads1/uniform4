@@ -1,24 +1,25 @@
-'use client';
-
 import React from 'react';
-import BlogArticle from '../../../../components/BlogArticle';
-import { 
-  Section, 
-  Paragraph, 
-  BulletList, 
-  ListItem, 
-  Quote, 
-  HighlightBox, 
-  KeyPointsBox,
-  ArticleImage
-} from '../../../../components/ArabicContentElements';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
-export default function ChefClothingDesign2025() {
+export const metadata = {
+  title: 'اتجاهات تصميم ملابس الطهاة لعام 2025',
+  description: 'استعراض لأحدث اتجاهات وابتكارات تصميم ملابس الطهاة المتوقعة في عام 2025 مع التركيز على التكنولوجيا المتقدمة والاستدامة والتخصيص',
+};
+
+export default function ChefUniformDesign2025() {
+  const imageSrc = '/images/chef_uniforms/modern_chef_wear_2025.jpeg';
+  const title = 'اتجاهات تصميم ملابس الطهاة لعام 2025';
+  const readingTime = '٧ دقائق للقراءة';
+  const datePublished = '١٠ يونيو ٢٠٢٤';
+
   const relatedArticles = [
     {
       title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
       description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
-      image: "/images/chef-uniforms/saudi_catering_uniform.jpeg",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
       url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
       date: "٢٠ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
@@ -26,7 +27,7 @@ export default function ChefClothingDesign2025() {
     {
       title: "تصميم أزياء الطهاة في المملكة العربية السعودية",
       description: "نظرة عميقة على اتجاهات وابتكارات تصميم أزياء الطهاة في المملكة العربية السعودية",
-      image: "/images/chef-uniforms/chef_design_saudi.jpeg",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
       url: "/blog/chef-uniforms/design-in-Saudi",
       date: "١٥ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
@@ -34,251 +35,382 @@ export default function ChefClothingDesign2025() {
     {
       title: "الملابس المهنية للطهاة: المعايير والمواصفات العالمية",
       description: "دليل شامل للمعايير والمواصفات العالمية لملابس الطهاة المهنية",
-      image: "/images/chef-uniforms/culinary_standards.jpeg",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
       url: "/blog/chef-uniforms/culinary_apparel-culinary-17",
       date: "٥ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
     }
   ];
 
-  const tags = ["أزياء الطهاة", "اتجاهات 2025", "تصميم ملابس الطهاة", "الابتكار في الزي المهني", "الاستدامة", "التكنولوجيا في الأزياء"];
+  const tags = ["تصميم أزياء الطهاة", "اتجاهات 2025", "ملابس الطهاة المستقبلية", "التقنيات الذكية للأزياء", "الاستدامة في ملابس الطهاة", "الأقمشة المبتكرة", "التخصيص في أزياء الطهاة"];
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'tech-integration', title: 'دمج التكنولوجيا في ملابس الطهاة' },
+    { id: 'sustainability', title: 'الاستدامة والمسؤولية البيئية' },
+    { id: 'customization', title: 'التخصيص والتفرد في التصميم' },
+    { id: 'functional-aesthetic', title: 'التوازن بين الوظيفة والجمالية' },
+    { id: 'health-safety', title: 'معايير الصحة والسلامة المتطورة' },
+    { id: 'cultural-elements', title: 'دمج العناصر الثقافية في التصميم العالمي' },
+  ];
 
   return (
-    <BlogArticle
-      title="اتجاهات تصميم ملابس الطهاة لعام 2025: ابتكار، استدامة، وتكنولوجيا"
-      description="استشراف مستقبل تصميم ملابس الطهاة في عام 2025، مع التركيز على الاتجاهات الناشئة في مجال الابتكار والاستدامة والتكنولوجيا الذكية وتأثيرها على صناعة أزياء الطهاة"
-      category="أزياء الطهاة"
-      categoryUrl="/blog/chef-uniforms"
-      heroImage="/images/culinary_apparel/culinary_apparel_design.jpeg"
-      publishDate="١٠ يونيو ٢٠٢٤"
-      readTime="٧ دقائق للقراءة"
-      authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
-      authorTitle="خبراء ملابس العمل"
-      backUrl="/blog/chef-uniforms"
-      tags={tags}
-      relatedArticles={relatedArticles}
-    >
-      <Section id="intro" title="مقدمة">
-        <Paragraph isLead={true}>
-          مع اقتراب عام 2025، تشهد صناعة ملابس الطهاة ثورة في التصميم والوظائف والمواد، مدفوعة بالتطورات التكنولوجية المتسارعة وزيادة الوعي بالاستدامة والتحولات في بيئة العمل. تجمع اتجاهات تصميم ملابس الطهاة للمستقبل القريب بين الابتكار العملي والأناقة العصرية، مع التركيز على تحسين تجربة الطهاة وتعزيز كفاءتهم.
-        </Paragraph>
-        <Paragraph>
-          في هذا المقال، نستشرف أبرز اتجاهات تصميم ملابس الطهاة المتوقعة لعام 2025، والتي ستُحدث تحولاً في صناعة المطاعم والضيافة على المستوى العالمي، مع تسليط الضوء على تأثيرها المحتمل في المنطقة العربية.
-        </Paragraph>
-      </Section>
-
-      <Section id="sustainable-materials" title="الاستدامة: مستقبل أقمشة ملابس الطهاة">
-        <Paragraph>
-          تتجه صناعة ملابس الطهاة بقوة نحو تبني مفاهيم الاستدامة والمسؤولية البيئية، استجابة للتوجهات العالمية وتنامي الوعي البيئي في قطاع الضيافة:
-        </Paragraph>
-        
-        <HighlightBox title="الاتجاهات المستدامة في أقمشة ملابس الطهاة 2025" color="green">
-          <BulletList>
-            <ListItem title="أقمشة مصنوعة من النفايات البحرية">
-              تتجه العلامات التجارية الرائدة لملابس الطهاة نحو استخدام أقمشة مبتكرة مصنوعة من البلاستيك المعاد تدويره المستخرج من المحيطات. هذه الأقمشة تتميز بمتانتها ومرونتها، مع تقليل الأثر البيئي. وتشير التوقعات إلى أن حوالي 30% من ملابس الطهاة الفاخرة في 2025 ستستخدم هذه التقنية.
-            </ListItem>
-            <ListItem title="أقمشة عضوية وخالية من المواد الكيميائية">
-              ستشهد صناعة ملابس الطهاة تحولاً نحو استخدام القطن العضوي والكتان المستدام الذي يتم إنتاجه دون استخدام المبيدات الحشرية أو الأسمدة الاصطناعية. هذه المواد لا تقلل فقط من البصمة البيئية، بل توفر أيضاً راحة أكبر للطهاة وتقلل من مخاطر التحسس الجلدي.
-            </ListItem>
-            <ListItem title="تقنيات صباغة منخفضة استهلاك الماء">
-              ستعتمد عمليات إنتاج ملابس الطهاة في 2025 على تقنيات صباغة مبتكرة تقلل استهلاك الماء بنسبة تصل إلى 90% مقارنة بالطرق التقليدية. تقنيات مثل الصباغة باستخدام ثاني أكسيد الكربون المضغوط CO2 ستكون معياراً في الصناعة.
-            </ListItem>
-            <ListItem title="دورة حياة مغلقة ومسؤولية ممتدة">
-              ستقدم الشركات المصنعة برامج لاستعادة ملابس الطهاة المستعملة وإعادة تدويرها في نهاية دورة حياتها، مما يخلق نظاماً دائرياً للإنتاج. سيكون هذا النهج جزءاً من استراتيجية أوسع للمسؤولية الممتدة للمنتج في قطاع الضيافة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <Quote author="لينا الحارثي" source="مستشارة الاستدامة في صناعة النسيج">
-          التحول نحو الاستدامة في ملابس الطهاة ليس مجرد اتجاه عابر، بل تغيير جذري في نموذج الأعمال. بحلول 2025، لن تكون الاستدامة ميزة تنافسية بل شرطاً أساسياً للبقاء في السوق، خاصة مع تزايد الضغط من العملاء والحكومات لتبني ممارسات أكثر مسؤولية بيئياً.
-        </Quote>
-
-        <ArticleImage 
-          src="/images/chef-uniforms/sustainable_chef_uniform_2025.jpeg"
-          alt="ملابس الطهاة المستدامة لعام 2025"
-          caption="تصاميم مبتكرة لملابس الطهاة المستدامة المتوقعة في 2025، مصنوعة من مواد معاد تدويرها وأقمشة عضوية"
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
         />
-      </Section>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Section id="smart-textiles" title="الأقمشة الذكية: تكنولوجيا تتجاوز التصور">
-        <Paragraph>
-          يتوقع أن تشهد صناعة ملابس الطهاة في عام 2025 ثورة حقيقية مع دمج التكنولوجيا المتقدمة في الأقمشة، مما سيحول الزي التقليدي إلى أداة ذكية متعددة الاستخدامات:
-        </Paragraph>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
 
-        <HighlightBox title="تقنيات الأقمشة الذكية في ملابس الطهاة 2025" color="blue">
-          <BulletList>
-            <ListItem title="أقمشة منظمة للحرارة">
-              ستعتمد ملابس الطهاة على أقمشة ذكية تحتوي على مواد متغيرة الطور (PCM) تمتص الحرارة الزائدة عندما ترتفع درجة حرارة الجسم وتطلقها عندما تنخفض. هذه التقنية ستوفر للطهاة بيئة عمل مريحة حتى في المطابخ شديدة الحرارة، مع تحسين الأداء وتقليل الإجهاد الحراري.
-            </ListItem>
-            <ListItem title="تقنية UV-Block المتطورة">
-              ستتضمن ملابس الطهاة للمطابخ الخارجية والمفتوحة تقنيات متقدمة لحماية الجلد من الأشعة فوق البنفسجية، مع قدرة على التكيف مع مستويات الإشعاع المختلفة. ستوفر هذه الملابس حماية بعامل SPF يتجاوز 50 مع الحفاظ على خفة الوزن والراحة.
-            </ListItem>
-            <ListItem title="أقمشة مضادة للبكتيريا بتقنيات النانو">
-              ستستخدم تقنيات النانو المتقدمة لدمج جزيئات الفضة والنحاس في ألياف النسيج، مما يوفر خصائص مضادة للبكتيريا تدوم طوال عمر الملابس. هذه التقنية ستعزز معايير النظافة وتقلل الروائح الكريهة حتى بعد ساعات طويلة من العمل في المطبخ.
-            </ListItem>
-            <ListItem title="الأقمشة المزودة بأجهزة استشعار">
-              ستتضمن بعض ملابس الطهاة الفاخرة أجهزة استشعار مدمجة لمراقبة درجة حرارة الطاهي ومستويات الإجهاد ووضعية الجسم، مع إرسال البيانات إلى تطبيق على الهاتف الذكي. هذه التقنية ستساعد على منع الإصابات وتحسين الصحة المهنية في بيئات المطابخ المجهدة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                {relatedArticles.map((article, index) => (
+                  <li key={index}>
+                    <Link href={article.url} className="text-sm hover:text-blue-600 block">
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
-        <KeyPointsBox 
-          title="مزايا الأقمشة الذكية للطهاة"
-          points={[
-            "تحسين الراحة الحرارية بنسبة تصل إلى 40% في بيئات المطبخ الساخنة",
-            "تقليل التعب والإجهاد المرتبط بالحرارة، مما يزيد الإنتاجية بنسبة تصل إلى 25%",
-            "تقليل نمو البكتيريا بنسبة 99.9%، مما يعزز معايير النظافة والسلامة الغذائية",
-            "انخفاض في الإصابات المرتبطة بالحروق والإجهاد الحراري بنسبة تصل إلى 30%",
-            "توفير في تكاليف الصيانة والغسيل بنسبة 20% بفضل خصائص مقاومة البقع والروائح"
-          ]}
-        />
-      </Section>
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يشهد عالم تصميم ملابس الطهاة تطورات متسارعة تدفعها التقنيات الجديدة والاحتياجات المتغيرة لبيئة العمل المعاصرة. مع اقتراب عام 2025، تتبلور اتجاهات واضحة ستشكل مستقبل هذه الصناعة، مجسدة التوازن بين الوظيفية والاستدامة والأناقة والهوية الثقافية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض أبرز الاتجاهات المتوقع أن تهيمن على تصميم ملابس الطهاة في عام 2025، استناداً إلى تحليل توجهات السوق الحالية، وآراء خبراء الصناعة، والتطورات التكنولوجية الناشئة. هذه النظرة المستقبلية تقدم رؤى قيمة للمصممين والمصنعين ومشغلي المطاعم والفنادق الراغبين في مواكبة أحدث التطورات في هذا المجال الحيوي.
+              </p>
+            </section>
 
-      <Section id="design-innovations" title="ابتكارات التصميم: الجمع بين الوظيفة والأناقة">
-        <Paragraph>
-          سيشهد عام 2025 تحولاً في فلسفة تصميم ملابس الطهاة، مع توجه نحو تصاميم تجمع بين الوظيفة العملية والأناقة العصرية، متجاوزة الصورة النمطية للزي التقليدي:
-        </Paragraph>
+            <section id="tech-integration" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">دمج التكنولوجيا في ملابس الطهاة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الأقمشة الذكية والتكنولوجيا المدمجة</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">أقمشة تنظيم الحرارة:</span> تقنيات متقدمة تتكيف مع درجة حرارة الجسم والبيئة المحيطة، تحافظ على برودة الطاهي في المطابخ الساخنة.</li>
+                  <li><span className="font-medium">مواد مضادة للميكروبات:</span> معالجات متطورة تمنع نمو البكتيريا والفطريات، تقلل الروائح وتطيل فترات الاستخدام بين الغسيل.</li>
+                  <li><span className="font-medium">أنسجة ذاتية التنظيف:</span> تقنيات نانو متقدمة تجعل الأقمشة طاردة للسوائل والبقع، وقادرة على تحليل البقع العنيدة عند تعرضها للضوء.</li>
+                  <li><span className="font-medium">أجهزة استشعار مدمجة:</span> مستشعرات صغيرة مدمجة في الملابس لقياس درجات الحرارة المحيطة وتنبيه الطهاة للمخاطر المحتملة.</li>
+                </ul>
+              </div>
 
-        <HighlightBox title="اتجاهات تصميم ملابس الطهاة 2025" color="amber">
-          <BulletList>
-            <ListItem title="الطبقات المتعددة القابلة للتحويل">
-              ستتميز تصاميم 2025 بقابلية التحويل والتكيف، مع قطع متعددة الطبقات يمكن إضافتها أو إزالتها حسب متطلبات العمل ودرجة الحرارة. سترات الطهاة ستأتي بأكمام قابلة للفصل وطبقات تهوية يمكن ضبطها، مما يسمح بالتكيف مع الظروف المتغيرة في المطبخ.
-            </ListItem>
-            <ListItem title="التصاميم المستوحاة من الرياضة">
-              ستكتسب ملابس الطهاة تأثيرات من عالم الملابس الرياضية التقنية، مع تركيز على خفة الوزن والمرونة وحرية الحركة. ستستخدم تقنيات القص والخياطة المستوحاة من الملابس الرياضية عالية الأداء لتحسين الراحة خلال نوبات العمل الطويلة.
-            </ListItem>
-            <ListItem title="التخصيص والتفرد في التصميم">
-              ستتيح التقنيات المتقدمة للتصنيع الرقمي إمكانية تخصيص ملابس الطهاة على نطاق واسع. سيتمكن المطاعم والطهاة من تصميم زي يعكس هويتهم وفلسفتهم الطهوية الفريدة، مع الحفاظ على المعايير العملية والوظيفية.
-            </ListItem>
-            <ListItem title="إعادة تعريف الأناقة في المطبخ">
-              ستكسر تصاميم 2025 الصورة النمطية لزي الطهاة التقليدي، مع تقديم خطوط أكثر أناقة وعصرية. سنرى ألواناً جريئة وقصات مبتكرة تعكس شخصية الطاهي وأسلوب المطعم، خاصة في المطاعم ذات المفهوم المفتوح حيث يكون الطهاة جزءاً من تجربة تناول الطعام.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="التكنولوجيا المدمجة في ملابس الطهاة المستقبلية"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  أحدث التقنيات المدمجة في سترات الطهاة لعام 2025 تجمع بين الراحة والوظائف الذكية
+                </div>
+              </div>
 
-        <Quote author="أحمد الشمري" source="مصمم أزياء الطهاة الحائز على جوائز عالمية">
-          في 2025، لن تكون ملابس الطهاة مجرد زي عمل، بل بيان أسلوب وهوية. نحن نصمم للطاهي المعاصر الذي يتنقل بين المطبخ والمائدة، بين الإبداع والعرض، بين التقاليد والابتكار. التحدي الحقيقي هو تصميم ملابس توفر أقصى درجات الأداء العملي مع مظهر متطور يعكس مكانة الطهي كفن وثقافة.
-        </Quote>
-      </Section>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">نشهد تحولاً جذرياً في توقعات المستخدمين لملابس الطهاة. لم تعد الوظيفة الأساسية كافية - يريد الطهاة المعاصرون ملابس تعمل بذكاء معهم، تتكيف مع احتياجاتهم وتعزز أداءهم في المطبخ.</p>
+                  <footer className="text-sm text-gray-600">— سارة المطيري، مديرة الابتكار في شركة تصميم الأزياء المهنية</footer>
+                </blockquote>
+              </div>
+            </section>
 
-      <ArticleImage 
-        src="/images/chef-uniforms/chef_design_innovation_2025.jpeg"
-        alt="ابتكارات تصميم ملابس الطهاة 2025"
-        caption="تصاميم مبتكرة لملابس الطهاة في 2025 تجمع بين الأناقة العصرية والوظائف التقنية المتقدمة"
-      />
+            <section id="sustainability" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاستدامة والمسؤولية البيئية</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تتزايد أهمية الاستدامة كاتجاه رئيسي في تصميم ملابس الطهاة، مدفوعة بالوعي البيئي المتنامي والتنظيمات الحكومية الصارمة:
+              </p>
 
-      <Section id="cultural-influence" title="التأثيرات الثقافية والهوية في تصاميم 2025">
-        <Paragraph>
-          ستشهد تصاميم ملابس الطهاة في 2025 تأثيرات ثقافية متنوعة، مع توجه عالمي نحو دمج العناصر التراثية والهويات المحلية في التصاميم المعاصرة:
-        </Paragraph>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">المواد المستدامة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>استخدام القطن العضوي المزروع بدون مبيدات</li>
+                    <li>ألياف مصنعة من النفايات البلاستيكية المعاد تدويرها</li>
+                    <li>مواد متجددة مثل قماش الليوسيل المستخرج من لب الخشب</li>
+                    <li>أقمشة مخلوطة تقلل الاعتماد على البتروكيماويات</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">عمليات الإنتاج المسؤولة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تقنيات الصباغة الخالية من المياه لتوفير الموارد</li>
+                    <li>استخدام الطاقة المتجددة في المصانع</li>
+                    <li>تقليل النفايات من خلال تقنيات القص المحوسبة</li>
+                    <li>سلاسل توريد محلية لتقليل البصمة الكربونية</li>
+                  </ul>
+                </div>
+              </div>
 
-        <HighlightBox title="التأثيرات الثقافية في تصاميم 2025" color="red">
-          <BulletList>
-            <ListItem title="استلهام التراث الطهوي العالمي">
-              ستعكس ملابس الطهاة في 2025 تنوع التراث الطهوي العالمي، مع تصاميم تستلهم من الملابس التقليدية للطهاة في مختلف الثقافات. سنرى عناصر من الزي الياباني والهندي والإيطالي والعربي معاد تفسيرها بأسلوب معاصر يحترم جذورها الثقافية.
-            </ListItem>
-            <ListItem title="التصاميم المتأثرة بالهوية العربية">
-              ستبرز في المنطقة العربية تصاميم تدمج عناصر من التراث العربي في زي الطهاة العصري. سنرى توظيفاً للتطريز التقليدي، والألوان المستوحاة من البيئة المحلية، والأنماط الزخرفية التراثية في تفاصيل الزي، مما يخلق هوية مميزة لطهاة المنطقة.
-            </ListItem>
-            <ListItem title="الطهي كوسيلة للتعبير الثقافي">
-              ستعكس ملابس الطهاة في 2025 الاتجاه المتزايد نحو اعتبار الطهي وسيلة للتعبير الثقافي والحفاظ على التراث. سنرى تصاميم تحكي قصة المطبخ الذي يمثله الطاهي، مع رموز وعناصر تشير إلى أصول الأطباق والتقنيات المستخدمة.
-            </ListItem>
-            <ListItem title="التواصل بين الثقافات">
-              ستعكس بعض التصاميم المبتكرة الاندماج والتبادل بين الثقافات الطهوية المختلفة، مع قطع تجمع بين عناصر من تقاليد طهي متنوعة في تعبير عن المطبخ المعاصر المتعدد الثقافات.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="ملابس الطهاة المستدامة والصديقة للبيئة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي الطهاة المستدام المصنوع من مواد معاد تدويرها وألياف طبيعية متجددة
+                </div>
+              </div>
 
-        <KeyPointsBox 
-          title="توقعات لتأثير الهوية العربية في تصاميم 2025"
-          points={[
-            "ظهور علامات تجارية عربية متخصصة في تصميم ملابس الطهاة تجمع بين المعايير العالمية والهوية المحلية",
-            "توظيف متزايد للحرف اليدوية التقليدية مثل السدو والتطريز النجدي في زي الطهاة الفاخر",
-            "ابتكار ألوان وأنماط مستوحاة من البيئة العربية لتمييز زي الطهاة في المطاعم الفاخرة بالمنطقة",
-            "تطوير قطع تكميلية فريدة تعكس الهوية العربية مثل مناديل الرأس المطورة وأزرار بتصاميم تراثية"
-          ]}
-        />
-      </Section>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الدورة الكاملة للمنتج</h3>
+                <p className="mb-2 text-gray-700">نهج "من المهد إلى المهد" في تصميم ملابس الطهاة لعام 2025:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تصميم قابل للتفكيك: سهولة فصل المكونات المختلفة عند نهاية العمر الافتراضي</li>
+                  <li>خدمات إصلاح من المصنعين لإطالة عمر المنتجات</li>
+                  <li>برامج إعادة التدوير: استعادة الملابس المستعملة لتحويلها إلى منتجات جديدة</li>
+                  <li>مواد قابلة للتحلل البيولوجي: تتحلل بأمان عند التخلص منها</li>
+                </ul>
+              </div>
+            </section>
 
-      <Section id="ergonomics" title="تطور الهندسة البشرية في ملابس الطهاة">
-        <Paragraph>
-          سيشهد عام 2025 قفزة نوعية في تطبيق مبادئ الهندسة البشرية (Ergonomics) على تصميم ملابس الطهاة، مع تركيز متزايد على الراحة والصحة المهنية:
-        </Paragraph>
+            <section id="customization" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التخصيص والتفرد في التصميم</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يتجه تصميم ملابس الطهاة في 2025 نحو مزيد من التخصيص والتفرد، مما يتيح للمطاعم والطهاة التعبير عن هويتهم الفريدة:
+              </p>
 
-        <HighlightBox title="ابتكارات الهندسة البشرية في ملابس الطهاة 2025" color="green">
-          <BulletList>
-            <ListItem title="دراسات حركة الطهاة وتأثيرها على التصميم">
-              ستستفيد تصاميم 2025 من دراسات متقدمة لحركة الطهاة أثناء العمل، مع تطبيق تقنيات قص وخياطة توفر مرونة استثنائية في مناطق الحركة الحرجة مثل الأكتاف والمرفقين. ستظهر تصاميم بقصات إستراتيجية تتيح حرية الحركة دون التضحية بالمظهر الأنيق.
-            </ListItem>
-            <ListItem title="أنظمة توزيع الوزن المتطورة">
-              ستتضمن ملابس الطهاة الفاخرة أنظمة مبتكرة لتوزيع الوزن، خاصة في المآزر والسترات متعددة الجيوب. سيساعد ذلك على تقليل الضغط على الرقبة والكتفين، مما يخفف من مشاكل الظهر والآلام العضلية الشائعة بين الطهاة.
-            </ListItem>
-            <ListItem title="أقمشة متباينة الكثافة">
-              ستستخدم تقنيات النسيج المتقدمة لإنتاج أقمشة متباينة الكثافة في القطعة الواحدة، مع مناطق أكثر سماكة للحماية وأخرى أكثر مرونة وتهوية. هذا التخصيص الدقيق سيوفر توازناً مثالياً بين الحماية والراحة.
-            </ListItem>
-            <ListItem title="تصاميم تراعي تنوع أجسام الطهاة">
-              ستقدم العلامات التجارية الرائدة مجموعات تصميم تراعي التنوع في أشكال وأحجام أجسام الطهاة من مختلف الأعراق والأجناس. سيتضمن ذلك مقاسات أكثر شمولية وخيارات تعديل أكثر مرونة لضمان ملاءمة مثالية للجميع.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">مستويات التخصيص المتقدمة</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">التصميم الرقمي والطباعة ثلاثية الأبعاد:</span> إمكانية تصميم أنماط فريدة وتفاصيل دقيقة تعكس هوية المطعم أو أسلوب الطاهي.</li>
+                    <li><span className="font-medium">القصات المخصصة:</span> تعديل الأنماط التقليدية لتناسب أنواع الأجسام المختلفة وتفضيلات الطهاة الشخصية.</li>
+                    <li><span className="font-medium">خيارات التطريز المتقدمة:</span> دمج شعارات ورموز معقدة باستخدام تقنيات تطريز آلية متطورة.</li>
+                    <li><span className="font-medium">أنظمة تصميم تفاعلية:</span> منصات رقمية تتيح للعملاء تصميم ملابسهم عبر الإنترنت وتعديلها بحرية.</li>
+                  </ul>
+                </div>
+              </div>
 
-        <Quote author="د. ريم الصالح" source="أخصائية الطب المهني وصحة الطهاة">
-          نشهد تحولاً من تصميم ملابس الطهاة بناءً على التقاليد والجماليات فقط، إلى نهج قائم على الأدلة العلمية حول صحة الطهاة واحتياجاتهم الجسدية. في 2025، ستساهم ملابس الطهاة المصممة وفق مبادئ الهندسة البشرية المتقدمة في تقليل الإصابات المهنية وتحسين جودة حياة العاملين في هذه المهنة المرهقة.
-        </Quote>
-      </Section>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="تخصيص ملابس الطهاة حسب الهوية والأسلوب"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  أنظمة التخصيص المتقدمة تتيح للطهاة تصميم ملابس تعكس أسلوبهم الشخصي وهوية مطاعمهم
+                </div>
+              </div>
 
-      <Section id="market-trends" title="اتجاهات السوق والاقتصاد في صناعة ملابس الطهاة">
-        <Paragraph>
-          يشهد سوق ملابس الطهاة تحولات اقتصادية ونماذج أعمال جديدة ستتبلور بشكل كامل بحلول عام 2025:
-        </Paragraph>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">نرى تحولاً واضحاً من النمط الموحد العالمي إلى التعبير عن الهوية الفردية. لم يعد الطهاة يريدون أن يبدوا متشابهين - بل يسعون إلى ملابس تعكس فلسفتهم الطهوية ومصدر إلهامهم وقصتهم الخاصة.</p>
+                  <footer className="text-sm text-gray-600">— فيصل العنزي، مصمم أزياء الطهاة ومستشار المطاعم</footer>
+                </blockquote>
+              </div>
+            </section>
 
-        <KeyPointsBox 
-          title="توقعات سوق ملابس الطهاة 2025"
-          points={[
-            "نمو سوق ملابس الطهاة عالية الأداء بنسبة 12.5% سنوياً ليصل إلى 2.8 مليار دولار بحلول عام 2025",
-            "زيادة حصة الملابس المستدامة إلى 40% من السوق، مقارنة بـ 15% في عام 2023",
-            "توجه 60% من المطاعم الفاخرة نحو ملابس طهاة مخصصة تعكس هويتها المميزة",
-            "نمو قطاع ملابس الطهاة الذكية بنسبة 22% سنوياً، مع تزايد اعتمادها في المطاعم الحاصلة على نجوم ميشلان"
-          ]}
-        />
+            <section id="functional-aesthetic" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التوازن بين الوظيفة والجمالية</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يتجه تصميم ملابس الطهاة لعام 2025 نحو تحقيق توازن أفضل بين المتطلبات الوظيفية والجمالية، مستفيداً من التطورات في تقنيات الأقمشة والتصميم:
+              </p>
 
-        <Paragraph>
-          تتضمن نماذج الأعمال المبتكرة المتوقعة في صناعة ملابس الطهاة لعام 2025:
-        </Paragraph>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تطورات وظيفية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تصميمات مرنة تتكيف مع حركة الجسم أثناء العمل المكثف</li>
+                      <li>أنظمة تهوية مدمجة تعزز تدفق الهواء في المناطق الحرجة</li>
+                      <li>جيوب وحوامل أدوات معاد تصميمها لتحسين الوصول وتنظيم المعدات</li>
+                      <li>تقنيات تثبيت متطورة تلغي الحاجة للأزرار التقليدية</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">عناصر جمالية معاصرة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>خطوط أنيقة مستوحاة من تصاميم الأزياء المعاصرة</li>
+                      <li>ألوان جريئة تخرج عن التقليدية الأبيض والأسود</li>
+                      <li>لمسات من الأقمشة ذات الملمس المميز للتباين البصري</li>
+                      <li>تفاصيل معمارية مستوحاة من تصميم المطاعم الحديثة</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-        <HighlightBox title="نماذج أعمال مبتكرة في صناعة ملابس الطهاة 2025" color="blue">
-          <BulletList>
-            <ListItem title="الاشتراك في خدمات ملابس الطهاة">
-              ستقدم الشركات الرائدة نماذج اشتراك شهري أو سنوي يتيح للمطاعم تحديث ملابس طهاتها بانتظام مع خدمات صيانة وتنظيف متكاملة، مما يخفض التكلفة الإجمالية ويضمن معايير نظافة وجودة ثابتة.
-            </ListItem>
-            <ListItem title="منصات التصميم التعاوني">
-              ستتيح المنصات الرقمية للطهاة والمطاعم المشاركة في تصميم ملابسهم بالتعاون مع مصممين محترفين، مع إمكانية رؤية التصميم في بيئة افتراضية قبل الإنتاج، مما يجمع بين مزايا التخصيص والإنتاج بكميات اقتصادية.
-            </ListItem>
-            <ListItem title="إعادة التدوير كخدمة مدمجة">
-              ستقدم الشركات المصنعة برامج متكاملة لإعادة تدوير ملابس الطهاة القديمة، مع خصومات عند شراء منتجات جديدة، مما يخلق نموذج اقتصاد دائري يقلل النفايات ويحسن الصورة البيئية للمطاعم.
-            </ListItem>
-            <ListItem title="التكامل مع منظومة المطعم الذكي">
-              ستصبح ملابس الطهاة جزءاً من منظومة المطعم الذكي المتكاملة، مع إمكانية ربطها بأنظمة إدارة المطبخ ومراقبة الجودة، مما يفتح أسواقاً جديدة للمصنعين القادرين على تقديم حلول متكاملة وليس مجرد منتجات.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="التوازن بين الوظيفة والجمالية في تصميم ملابس الطهاة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  تصاميم مبتكرة تجمع بين الأداء العملي والأناقة العصرية في أزياء الطهاة لعام 2025
+                </div>
+              </div>
+            </section>
 
-        <ArticleImage 
-          src="/images/chef-uniforms/chef_uniform_market_2025.jpeg"
-          alt="اتجاهات سوق ملابس الطهاة 2025"
-          caption="تحليل بصري لاتجاهات سوق ملابس الطهاة المتوقعة في 2025، يوضح نمو قطاعات الاستدامة والتكنولوجيا"
-        />
-      </Section>
+            <section id="health-safety" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">معايير الصحة والسلامة المتطورة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">معايير السلامة المتقدمة في تصميم 2025</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">حماية متطورة من الحرارة:</span> طبقات ومواد مركبة توفر عزلاً أفضل ضد الحرارة العالية والرذاذ الساخن.</li>
+                  <li><span className="font-medium">مقاومة متقدمة للقطع:</span> تقنيات نسيج جديدة تحمي من إصابات السكاكين دون المساس بخفة الوزن.</li>
+                  <li><span className="font-medium">ميزات مضادة للانزلاق:</span> تصميمات أحذية مبتكرة توفر قبضة أفضل على الأسطح الرطبة.</li>
+                  <li><span className="font-medium">أنظمة تنبيه مدمجة:</span> مستشعرات تكشف المخاطر المحتملة مثل درجات الحرارة المفرطة أو التعرض الطويل للحرارة.</li>
+                </ul>
+              </div>
 
-      <Section id="conclusion" title="خاتمة: مستقبل بلا حدود لتصميم ملابس الطهاة">
-        <Paragraph>
-          يبشر عام 2025 بأفق جديد تماماً لصناعة ملابس الطهاة، حيث تجتمع الابتكارات التكنولوجية مع الوعي البيئي المتزايد والتصاميم المتطورة لتشكيل جيل جديد من الملابس المهنية تتجاوز مجرد الوظيفة التقليدية. ستكون ملابس الطهاة في المستقبل القريب أكثر ذكاءً، أكثر استدامة، وأكثر تعبيراً عن الهوية الفردية والثقافية.
-        </Paragraph>
-        <Paragraph>
-          هذه التطورات لا تعكس فقط تقدماً تقنياً في صناعة النسيج، بل تعبر عن التحول الكبير في مكانة الطهي كمهنة إبداعية ومؤثرة في ثقافتنا المعاصرة. مع اقتراب عام 2025، نتطلع إلى رؤية كيف ستسهم هذه الابتكارات في تحسين تجربة الطهاة، تعزيز استدامة القطاع، وإثراء تجربة تناول الطعام للجميع.
-        </Paragraph>
-      </Section>
-    </BlogArticle>
+              <p className="mb-4 leading-7 text-gray-700">
+                تعكس معايير الصحة والسلامة المتطورة في تصميم ملابس الطهاة لعام 2025 الوعي المتزايد بأهمية حماية العاملين في بيئات المطابخ المحفوفة بالمخاطر. تدفع التشريعات العالمية والمحلية الأكثر صرامة، إلى جانب الطلب المتزايد من أصحاب المطاعم والطهاة أنفسهم، تطوير حلول مبتكرة تجمع بين الحماية المتقدمة والراحة العالية.
+              </p>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الصحة والرفاهية المهنية</h3>
+                <p className="mb-2 text-gray-700">تطورات تركز على الصحة طويلة المدى للطهاة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تصميمات مريحة هندسياً تقلل من إجهاد العضلات والمفاصل خلال نوبات العمل الطويلة</li>
+                  <li>أنظمة دعم الظهر المدمجة لتحسين وضعية الجسم أثناء الوقوف لفترات طويلة</li>
+                  <li>مواد خالية من المواد الكيميائية الضارة لتقليل مخاطر تهيج الجلد والحساسية</li>
+                  <li>تقنيات تخفيف الضغط المستهدف في مناطق الجسم الأكثر عرضة للإجهاد</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="cultural-elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">دمج العناصر الثقافية في التصميم العالمي</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يتجه تصميم ملابس الطهاة في 2025 نحو دمج أكثر إبداعاً للعناصر الثقافية المحلية ضمن إطار عالمي، مما يخلق هويات مميزة تعكس تنوع المطابخ والثقافات:
+              </p>
+
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">توجهات الهوية الثقافية في تصميم 2025</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">رموز ثقافية مدمجة:</span> استخدام عناصر من التراث المحلي في التفاصيل والزخارف.</li>
+                    <li><span className="font-medium">تقنيات حرفية تقليدية:</span> إحياء أساليب الصباغة والتطريز الحرفية التقليدية بلمسة معاصرة.</li>
+                    <li><span className="font-medium">لوحات ألوان مستوحاة من البيئات المحلية:</span> اختيار ألوان تعكس البيئة الطبيعية والثقافية للمنطقة.</li>
+                    <li><span className="font-medium">تكييف القصات التقليدية:</span> تطويع الأنماط العالمية لتعكس التفضيلات المحلية للراحة والأناقة.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="دمج العناصر الثقافية في تصميم ملابس الطهاة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  ملابس طهاة تجمع بين العناصر الثقافية السعودية التقليدية ومعايير التصميم العالمية المعاصرة
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">التوازن الدقيق بين احترام الهوية الثقافية وتلبية المعايير العالمية هو مفتاح تصميم ملابس الطهاة المستقبلية. نسعى لخلق تصاميم تحتفي بالتراث المحلي دون التضحية بالوظائف والمعايير العالمية التي تحدد زي الطهاة الاحترافي.</p>
+                  <footer className="text-sm text-gray-600">— د. نورة القحطاني، أستاذة تصميم الأزياء المهنية</footer>
+                </blockquote>
+              </div>
+            </section>
+            
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-10">
+              <h2 className="text-xl font-semibold mb-3">الكلمات المفتاحية</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 mt-10 pt-6">
+              <h2 className="text-xl font-semibold mb-4">مقالات ذات صلة</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {relatedArticles.map((article, index) => (
+                  <div key={index} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold mb-2 text-blue-900 hover:text-blue-700">
+                        <Link href={article.url}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                      <p className="text-sm text-gray-700 line-clamp-2">{article.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 } 

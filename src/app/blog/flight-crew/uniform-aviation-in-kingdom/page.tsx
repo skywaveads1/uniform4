@@ -6,6 +6,9 @@ export const metadata = {
   description: 'استكشف تاريخ وتطور أزياء الطيران في المملكة العربية السعودية، والتي تعكس الهوية الوطنية والتزامها بالمعايير العالمية للطيران المدني.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniforms_riyadh.jpg';
   const title = 'أزياء الطيران في المملكة العربية السعودية: تاريخ وتطور وهوية';

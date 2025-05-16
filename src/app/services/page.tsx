@@ -1,8 +1,9 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { ClientBreadcrumbSchema, ClientServiceSchema } from '../components/ClientSchemaWrapper';
+import ClientOptimizedImage from '../components/ClientOptimizedImage';
 
 // تعريف الخدمات مع الصور والتفاصيل
 const serviceCategories = [
@@ -10,7 +11,7 @@ const serviceCategories = [
     id: 'flight-crew',
     title: 'أزياء الطيران',
     description: 'نقدم تصاميم عصرية وأنيقة لأطقم الطيران بما يتوافق مع هوية شركات الطيران ومعايير الراحة والأناقة.',
-    image: '/images/flight_crew/flight_crew_uniforms_riyadh.jpg',
+    image: '/images/flight_crew/cockpit_crew_clothing.jpeg',
     features: [
       'زي كامل لأطقم الطيران مصمم بأعلى معايير الجودة',
       'مواد مقاومة للتجاعيد وسهلة العناية',
@@ -22,189 +23,195 @@ const serviceCategories = [
     id: 'clinic-wear',
     title: 'الأزياء الطبية',
     description: 'تشكيلة متكاملة من الملابس الطبية المريحة والعملية للأطباء والممرضين وطاقم العمل الطبي بمختلف تخصصاتهم.',
-    image: '/images/clinic_wear/clinic_scrubs.jpg',
+    image: '/images/clinic_wear/clinic_nurse_uniforms.jpeg',
     features: [
-      'سكراب طبي بخامات مضادة للبكتيريا وسهلة التنظيف',
-      'معاطف مخبرية بمقاسات وألوان متعددة',
-      'ملابس طبية مريحة تناسب ساعات العمل الطويلة',
-      'إمكانية تطريز الشعارات والأسماء على الملابس الطبية'
+      'أزياء مصممة حسب المعايير الطبية العالمية',
+      'مواد مقاومة للبكتيريا وسهلة التنظيف',
+      'خيارات متنوعة للأقسام والتخصصات المختلفة',
+      'إمكانية تطريز الأسماء والشعارات'
     ]
   },
   {
     id: 'culinary-apparel',
     title: 'أزياء الطهاة',
-    description: 'مجموعة متنوعة من الأزياء المخصصة للطهاة والعاملين في المطابخ والمطاعم، مصممة لتوفير الراحة والحماية أثناء العمل.',
-    image: '/images/culinary_apparel/kitchen_staff_clothing.jpeg',
+    description: 'ملابس احترافية عالية الجودة لفرق الطهي في المطاعم والفنادق وشركات التموين، مصممة لتوفير الراحة والأناقة.',
+    image: '/images/culinary_apparel/chef_coats.jpeg',
     features: [
-      'سترات شيف بتصاميم عصرية ومتنوعة',
-      'مرايل للطهاة بخامات متينة ومقاومة للحرارة',
-      'قبعات طهاة بمقاسات مختلفة',
-      'ملابس كاملة لطاقم المطبخ والخدمة'
+      'تشكيلة كاملة من جاكيتات وبناطيل وقبعات الطهاة',
+      'مواد متينة تتحمل درجات الحرارة العالية',
+      'تصاميم عملية مع تهوية جيدة',
+      'خيارات تخصيص متعددة للمطاعم والفنادق'
     ]
   },
   {
     id: 'academic-attire',
     title: 'الزي الأكاديمي',
-    description: 'مجموعة متكاملة من الزي المدرسي والجامعي، بما في ذلك عباءات التخرج والقبعات والشالات الأكاديمية.',
-    image: '/images/utility_services/utility_uniforms.jpeg',
+    description: 'الأزياء المدرسية والجامعية المصممة بأعلى معايير الجودة والراحة، مناسبة للمناخ المحلي ومتطلبات المؤسسات التعليمية.',
+    image: '/images/academic_attire/school_uniform_fabrics.jpeg',
     features: [
-      'زي مدرسي كامل للمراحل التعليمية المختلفة',
-      'عباءات وقبعات تخرج بتصاميم أنيقة',
-      'شالات أكاديمية بألوان متنوعة حسب التخصص',
-      'إمكانية تطريز شعارات المؤسسات التعليمية'
+      'أزياء مدرسية تناسب مختلف المراحل التعليمية',
+      'خامات عالية الجودة تتحمل الاستخدام اليومي',
+      'تصاميم مريحة تناسب مناخ المملكة',
+      'إمكانية تطريز شعارات المدارس والجامعات'
     ]
   },
   {
     id: 'protective-services',
-    title: 'خدمات الحماية',
-    description: 'ملابس وزي رسمي للعاملين في مجالات الأمن والحراسة والخدمات الوقائية، مصممة بمعايير حماية وراحة عالية.',
+    title: 'أزياء الحماية والأمن',
+    description: 'أزياء احترافية لفرق الأمن والحراسة، مصممة بمعايير عالية من الجودة والمتانة، مع مراعاة متطلبات العمل في الظروف المختلفة.',
     image: '/images/protective_services/security_guard_uniforms.jpeg',
     features: [
-      'بدلات رسمية للحراس الأمنيين',
-      'سترات تحمل علامات وشعارات الأمن',
-      'ملابس مقاومة للعوامل الجوية للعمل الخارجي',
-      'إكسسوارات أمنية مكملة للزي الرسمي'
+      'أزياء رسمية لفرق الأمن والحراسة',
+      'مواد متينة مقاومة للتمزق والاهتراء',
+      'جيوب وتقنيات عملية تناسب طبيعة العمل',
+      'خيارات متعددة للشارات والرتب'
     ]
   },
   {
     id: 'utility-services',
-    title: 'خدمات المرافق',
-    description: 'أزياء موحدة للعاملين في خدمات الصيانة والمرافق العامة، مصممة للراحة والمتانة وسهولة الحركة أثناء العمل.',
+    title: 'ملابس الخدمات والصيانة',
+    description: 'ملابس عمل متينة ومريحة لفرق الصيانة والخدمات، مصممة لتوفير الحماية والمتانة مع سهولة الحركة والراحة.',
     image: '/images/utility_services/maintenance_technician_clothing.jpeg',
     features: [
-      'أوفرول عمل متين للفنيين والمهندسين',
-      'سترات عاكسة للعمل في الظروف المختلفة',
-      'قمصان وبنطلونات عمل مريحة',
-      'معدات وقاية شخصية مكملة للزي الرسمي'
+      'أفرولات وملابس عمل بمعايير عالية',
+      'أقمشة مقاومة للاتساخ والزيوت',
+      'تصاميم عملية تسهل الحركة أثناء العمل',
+      'طباعة وتطريز شعارات الشركات'
     ]
   }
 ];
 
-export default function Services() {
+// تحديد البيانات الوصفية للصفحة (Metadata)
+export const metadata: Metadata = {
+  title: 'خدماتنا | يونيفورم - تصميم وتصنيع الأزياء الموحدة المتخصصة',
+  description: 'استكشف مجموعتنا الشاملة من خدمات تصميم وتصنيع الأزياء الموحدة المتخصصة لمختلف القطاعات بما في ذلك الطيران والرعاية الصحية والضيافة والتعليم والأمن.',
+  keywords: 'أزياء موحدة, يونيفورم شركات, ملابس طيران, أزياء طبية, زي مدرسي, يونيفورم أمن, أزياء طهاة, ملابس عمل, أزياء مهنية, المملكة العربية السعودية',
+  alternates: {
+    canonical: 'https://www.yourdomain.com/services',
+  },
+  openGraph: {
+    title: 'خدماتنا | يونيفورم - تصميم وتصنيع الأزياء الموحدة المتخصصة',
+    description: 'استكشف مجموعة متخصصة من خدمات تصميم وتصنيع الأزياء الموحدة المتخصصة لمختلف القطاعات في المملكة العربية السعودية',
+    url: 'https://www.yourdomain.com/services',
+    siteName: 'يونيفورم - الأزياء الموحدة المتخصصة',
+    images: [
+      {
+        url: 'https://www.yourdomain.com/images/services-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'خدمات تصميم وتصنيع الأزياء الموحدة المتخصصة',
+      },
+    ],
+    locale: 'ar_SA',
+    type: 'website',
+  },
+};
+
+export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Schema.org markup */}
+      <ClientBreadcrumbSchema 
+        items={[
+          { name: 'الرئيسية', url: 'https://www.yourdomain.com/' },
+          { name: 'خدماتنا', url: 'https://www.yourdomain.com/services' },
+        ]}
+      />
+
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700">
-        <div className="text-center text-white p-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">خدماتنا المتميزة</h1>
-          <p className="text-xl text-blue-100 mb-8">نقدم حلولاً متكاملة للأزياء الموحدة لمختلف القطاعات بأعلى معايير الجودة</p>
-          <Link href="/quote" className="bg-white text-blue-900 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition-colors inline-block">
-            اطلب عرض سعر
-          </Link>
-        </div>
-      </section>
-
-      {/* Services Overview */}
-      <section className="max-w-7xl mx-auto py-16 px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">نلبي احتياجات جميع القطاعات</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            تخصصنا في يونيفورم هو توفير حلول أزياء موحدة عالية الجودة لمختلف القطاعات، مع التركيز على الراحة والمتانة والتصميم الأنيق.
-          </p>
-        </div>
-
-        {/* Service Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceCategories.map((category) => (
-            <div key={category.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="relative h-64 w-full bg-gray-200">
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/images/culinary_apparel/kitchen_staff_clothing.jpeg';
-                  }}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{category.title}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {category.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="h-5 w-5 text-blue-600 mt-0.5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href={`/quote?service=${category.id}`} className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors w-full text-center">
-                  احصل على عرض سعر
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="bg-gradient-to-br from-blue-50 to-blue-100 py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">لماذا تختار يونيفورم؟</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              نتميز بتقديم حلول متكاملة للأزياء الموحدة مع التركيز على الجودة والخدمة المتميزة والتصاميم العصرية.
+      <section className="py-16 bg-blue-900 text-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">خدماتنا</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              نقدم مجموعة متكاملة من خدمات تصميم وتصنيع الأزياء الموحدة لمختلف القطاعات والمجالات بأعلى معايير الجودة
             </p>
           </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 opacity-80"></div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mb-4">
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
+      {/* Service Categories Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 md:gap-16">
+            {serviceCategories.map((category, index) => (
+              <div key={category.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className={`flex flex-col lg:flex-row ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                  <div className="lg:w-2/5 relative h-64 lg:h-auto">
+                    <ClientOptimizedImage
+                      src={category.image}
+                      alt={`${category.title} - يونيفورم للأزياء الموحدة المتخصصة`}
+                      fill
+                      className="object-cover h-full w-full"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="lg:w-3/5 p-6 lg:p-8">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">{category.title}</h2>
+                    <p className="text-gray-600 mb-6">{category.description}</p>
+                    
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">مميزات الخدمة:</h3>
+                    <ul className="space-y-2 mb-6">
+                      {category.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-blue-600 ml-2">✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-auto">
+                      <Link 
+                        href={`/services/${category.id}`}
+                        className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                      >
+                        عرض التفاصيل
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Schema markup for each service */}
+                <ClientServiceSchema 
+                  service={{
+                    name: category.title,
+                    description: category.description,
+                    provider: {
+                      '@type': 'Organization',
+                      name: 'يونيفورم',
+                      url: 'https://www.yourdomain.com'
+                    },
+                    serviceType: 'تصميم وتصنيع الأزياء الموحدة',
+                    url: `https://www.yourdomain.com/services/${category.id}`,
+                    image: `https://www.yourdomain.com${category.image}`
+                  }} 
+                />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">جودة عالية</h3>
-              <p className="text-gray-600">
-                نستخدم أفضل الخامات ونطبق أعلى معايير الجودة في تصنيع جميع منتجاتنا لضمان المتانة والراحة.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mb-4">
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">تصاميم عصرية</h3>
-              <p className="text-gray-600">
-                نواكب أحدث صيحات الموضة العالمية مع الحفاظ على التناسب مع الثقافة المحلية والاحتياجات العملية.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mb-4">
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">حلول متكاملة</h3>
-              <p className="text-gray-600">
-                نقدم خدمة شاملة من التصميم والتصنيع إلى التوصيل والصيانة، مع إمكانية التخصيص حسب احتياجات العميل.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-700 text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">جاهزون لخدمتك</h2>
-          <p className="text-xl mb-8">
-            تواصل معنا اليوم للحصول على استشارة مجانية ومعرفة كيف يمكننا مساعدتك في توفير أفضل حلول الأزياء الموحدة لمؤسستك.
+      <section className="py-16 bg-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">جاهز لتطوير مظهر فريق عملك؟</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            تواصل معنا اليوم للحصول على عرض سعر مخصص يناسب احتياجات مؤسستك ويعكس هويتها بشكل احترافي
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition-colors inline-block">
-              تواصل معنا
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              href="/quote"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              طلب عرض سعر
             </Link>
-            <Link href="/quote" className="bg-transparent hover:bg-blue-800 text-white border border-white px-6 py-3 rounded-lg font-semibold transition-colors inline-block">
-              اطلب عرض سعر
+            <Link 
+              href="/contact"
+              className="bg-white text-blue-600 border border-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            >
+              اتصل بنا
             </Link>
           </div>
         </div>

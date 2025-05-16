@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشاف تاريخ وتطور أزياء الطيران النسائية، والاتجاهات الحديثة في تصميمها، والتحديات التي تواجهها، وكيف تجمع بين الأناقة والوظيفية والراحة.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/female_male_air_crew_wear.jpeg';
   const title = 'أزياء الطيران النسائية: تطورها وخصائصها الحديثة';

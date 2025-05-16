@@ -155,7 +155,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 1",
         description: "وصف المقال الأول ذو الصلة",
-        image: "/images/placeholder.jpg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
         url: "/blog/category/article-1",
         date: "١٠ مايو ٢٠٢٤",
         category: "الفئة"
@@ -163,7 +163,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 2",
         description: "وصف المقال الثاني ذو الصلة",
-        image: "/images/placeholder.jpg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
         url: "/blog/category/article-2",
         date: "١٢ مايو ٢٠٢٤",
         category: "الفئة"
@@ -171,7 +171,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 3",
         description: "وصف المقال الثالث ذو الصلة",
-        image: "/images/placeholder.jpg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
         url: "/blog/category/article-3",
         date: "١٤ مايو ٢٠٢٤",
         category: "الفئة"

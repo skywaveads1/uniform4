@@ -6,6 +6,9 @@ export const metadata = {
   description: 'استكشف أحدث الابتكارات في تصميم ملابس طاقم الطائرة وتأثيرها على الراحة والأداء والصورة المؤسسية لشركات الطيران.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/cockpit_crew_clothing.jpeg';
   const title = 'الابتكار في تصميم ملابس طاقم الطائرة';

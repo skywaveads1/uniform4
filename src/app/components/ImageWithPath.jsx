@@ -10,8 +10,7 @@ export default function ImageWithPath({ src, alt, ...props }) {
   const correctedSrc = getImagePath(src);
   
   return (
-    <img 
-      src={correctedSrc} 
+    <img loading="lazy" src={correctedSrc} 
       alt={alt || ''} 
       {...props} 
     />

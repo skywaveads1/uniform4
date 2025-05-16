@@ -9,6 +9,9 @@ export const metadata = {
   description: 'دليل شامل حول كيفية اختيار الأحذية المثالية لطاقم الطيران، مع مراعاة عوامل الراحة والسلامة والمظهر المهني',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniform_accessories.jpeg';
   const title = 'كيفية اختيار الأحذية المناسبة لطاقم الطيران';

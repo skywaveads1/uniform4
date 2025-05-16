@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 interface ShareButtonsProps {
-  url: string;
+  url?: string;
   title: string;
 }
 
@@ -18,10 +18,10 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
   }, [currentUrl]);
 
   const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(title)}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`,
-    whatsapp: `https://wa.me/?text=${encodeURIComponent(`${title} ${currentUrl}`)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl || '')}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl || '')}&text=${encodeURIComponent(title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl || '')}&title=${encodeURIComponent(title)}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(`${title} ${currentUrl || ''}`)}`,
   };
 
   const handleShare = (platform: string) => {

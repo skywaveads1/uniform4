@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشف العوامل المؤثرة في تصميم زي شركات الطيران، من العناصر الوظيفية والراحة إلى الهوية المؤسسية والمتطلبات التشغيلية التي يجب مراعاتها.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniform_design.jpeg';
   const title = 'اعتبارات تصميم زي شركات الطيران';

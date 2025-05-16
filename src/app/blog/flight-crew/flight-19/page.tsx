@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'الزي الموحد لموظفي الخدمات الأرضية في المطارات',
@@ -7,300 +10,298 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
+  const imageSrc = '/images/flight_crew/ground_crew_attire.jpeg';
   const title = 'الزي الموحد لموظفي الخدمات الأرضية في المطارات';
+  const readingTime = '9 دقائق';
+  const datePublished = '١٢ يونيو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'psychological-impact', title: 'الأبعاد النفسية للزي الرسمي' },
+    { id: 'identity-belonging', title: 'تعزيز الانتماء والهوية الجماعية' },
+    { id: 'professional-performance', title: 'تعزيز المهنية والأداء' },
+    { id: 'design-considerations', title: 'تصميم الزي لتعزيز الانتماء والمهنية' },
+    { id: 'challenges', title: 'التحديات والاعتبارات' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            يمثل الزي الرسمي لطاقم الطيران أكثر من مجرد ملابس موحدة؛ فهو يحمل في طياته رمزية عميقة ودلالات متعددة تتجاوز المظهر الخارجي. فعندما يرتدي أفراد الطاقم زيهم الرسمي، فإنهم لا يرتدون فقط قطعاً من الملابس، بل يتقمصون هوية مؤسسية كاملة، ويدخلون في دور مهني محدد المعالم والتوقعات.
-          </p>
-          <p className="mb-4">
-            تلعب الأزياء الموحدة دوراً محورياً في تشكيل شعور الانتماء للمؤسسة وتعزيز المهنية والاحترافية لدى طواقم الطيران. فالزي الرسمي يخلق لغة بصرية مشتركة تربط بين العاملين، ويمنحهم إحساساً بالوحدة والتماسك، كما يعزز ثقتهم بأنفسهم ويؤثر إيجاباً على أدائهم.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستكشف كيف يساهم الزي الرسمي في بناء الهوية المهنية والانتماء المؤسسي لطاقم الطيران، ونحلل تأثيره النفسي والاجتماعي على الموظفين وعلاقاتهم ببعضهم البعض وبالمؤسسة التي ينتمون إليها، كما نتناول استراتيجيات تصميم الزي الرسمي بطريقة تعزز هذه الجوانب الإيجابية.
-          </p>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+          </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-8" className="text-sm hover:text-blue-600 block">
+                    دور الأزياء في تعزيز الحضور المهني لطاقم الطائرة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/ground-crew-attire" className="text-sm hover:text-blue-600 block">
+                    ملابس طاقم الخدمات الأرضية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-18" className="text-sm hover:text-blue-600 block">
+                    الإكسسوارات المكملة لزي طاقم الطيران
+                  </Link>
+                </li>
+          </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعمل طاقم الخدمات الأرضية دوراً محورياً في سلسلة عمليات الطيران، إذ يقع على عاتقهم مسؤولية تنفيذ العمليات الحيوية التي تضمن سلامة وراحة المسافرين قبل وبعد الرحلة الجوية. ومن هنا تأتي أهمية تصميم زي متخصص يلبي احتياجاتهم المتنوعة، ويعكس صورة الشركة، ويسهم في تمييزهم بوضوح أمام المسافرين.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض الخصائص والمتطلبات الأساسية لملابس طاقم الخدمات الأرضية، والاعتبارات التي تؤخذ في الاعتبار عند تصميمها، وكيفية موازنة الأناقة مع الوظيفية في هذا النوع من الأزياء المتخصصة. كما نلقي الضوء على الاتجاهات الحديثة في تصميم هذه الأزياء والابتكارات التكنولوجية التي تسهم في تعزيز أداء وسلامة طاقم العمليات الأرضية.
+              </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الأبعاد النفسية للزي الرسمي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تأثير الزي على الإدراك الذاتي للموظف</h3>
-          <p className="mb-4">
-            عندما يرتدي العاملون الزي الرسمي، يحدث تحول نفسي في إدراكهم لأنفسهم:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تفعيل ظاهرة "التفكير الملبوس" (Enclothed Cognition) حيث يؤثر ما نرتديه على سلوكنا</li>
-            <li className="mb-2">تعزيز الإحساس بالمسؤولية والالتزام بمعايير الشركة</li>
-            <li className="mb-2">زيادة الشعور بالثقة والاحترافية والكفاءة</li>
-            <li className="mb-2">تحسين الانضباط الذاتي والالتزام بالمعايير المهنية</li>
+            <section id="psychological-impact" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأبعاد النفسية للزي الرسمي</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير الزي على الإدراك الذاتي للموظف</h3>
+                <p className="mb-2 font-medium text-blue-700">عندما يرتدي العاملون الزي الرسمي، يحدث تحول نفسي في إدراكهم لأنفسهم:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>تفعيل ظاهرة "التفكير الملبوس" (Enclothed Cognition) حيث يؤثر ما نرتديه على سلوكنا</li>
+                  <li>تعزيز الإحساس بالمسؤولية والالتزام بمعايير الشركة</li>
+                  <li>زيادة الشعور بالثقة والاحترافية والكفاءة</li>
+                  <li>تحسين الانضباط الذاتي والالتزام بالمعايير المهنية</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي كمصدر للفخر المهني</h3>
-          <p className="mb-4">
-            يرتبط الزي الرسمي بمشاعر الفخر والاعتزاز المهني من خلال:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الارتباط بتاريخ وإرث شركة الطيران وإنجازاتها</li>
-            <li className="mb-2">تمثيل الانتماء لمهنة ذات قيمة ومكانة اجتماعية</li>
-            <li className="mb-2">الإحساس بالتميز والخصوصية المرتبط بالزي المميز</li>
-            <li className="mb-2">زيادة الرضا الوظيفي المرتبط بوضوح الهوية المهنية</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الزي كمصدر للفخر المهني</h3>
+                  <p className="mb-2 text-gray-700">يرتبط الزي الرسمي بمشاعر الفخر والاعتزاز المهني من خلال:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>الارتباط بتاريخ وإرث شركة الطيران وإنجازاتها</li>
+                    <li>تمثيل الانتماء لمهنة ذات قيمة ومكانة اجتماعية</li>
+                    <li>الإحساس بالتميز والخصوصية المرتبط بالزي المميز</li>
+                    <li>زيادة الرضا الوظيفي المرتبط بوضوح الهوية المهنية</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي وتقليل الضغط النفسي</h3>
-          <p className="mb-4">
-            الدور الإيجابي للزي الموحد في التعامل مع ضغوط العمل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تخفيف القلق المرتبط باختيار الملابس اليومية</li>
-            <li className="mb-2">توفير إطار عمل واضح للتصرف في المواقف المختلفة</li>
-            <li className="mb-2">خلق مسافة نفسية بين الشخصية المهنية والشخصية الخاصة</li>
-            <li className="mb-2">تيسير الانتقال الذهني من وضع الحياة الشخصية إلى بيئة العمل</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الزي وتقليل الضغط النفسي</h3>
+                  <p className="mb-2 text-gray-700">الدور الإيجابي للزي الموحد في التعامل مع ضغوط العمل:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تخفيف القلق المرتبط باختيار الملابس اليومية</li>
+                    <li>توفير إطار عمل واضح للتصرف في المواقف المختلفة</li>
+                    <li>خلق مسافة نفسية بين الشخصية المهنية والشخصية الخاصة</li>
+                    <li>تيسير الانتقال الذهني من وضع الحياة الشخصية إلى بيئة العمل</li>
           </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تعزيز الانتماء والهوية الجماعية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">بناء الإحساس بالفريق الواحد</h3>
-          <p className="mb-4">
-            يساهم الزي الموحد في تكوين روح الفريق من خلال:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">إلغاء الفوارق الظاهرية والتركيز على الهوية المشتركة</li>
-            <li className="mb-2">تيسير التعرف السريع على أعضاء الفريق خاصة في المواقف الطارئة</li>
-            <li className="mb-2">تعزيز الشعور بالتضامن والدعم المتبادل بين أفراد الطاقم</li>
-            <li className="mb-2">خلق لغة مشتركة غير لفظية للتواصل والتعاون</li>
+            <section id="identity-belonging" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تعزيز الانتماء والهوية الجماعية</h2>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="فريق عمل أرضي يرتدي زياً موحداً"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  فريق عمل أرضي يرتدي الزي الموحد لإحدى شركات الطيران | المصدر: مجلة الطيران الدولية
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">بناء الإحساس بالفريق الواحد</h3>
+              <div className="border-r-2 border-blue-500 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">يساهم الزي الموحد في تكوين روح الفريق من خلال:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>إلغاء الفوارق الظاهرية والتركيز على الهوية المشتركة</li>
+                  <li>تيسير التعرف السريع على أعضاء الفريق خاصة في المواقف الطارئة</li>
+                  <li>تعزيز الشعور بالتضامن والدعم المتبادل بين أفراد الطاقم</li>
+                  <li>خلق لغة مشتركة غير لفظية للتواصل والتعاون</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تجاوز الفروقات الثقافية والشخصية</h3>
-          <p className="mb-4">
-            دور الزي في طواقم الطيران متعددة الثقافات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">توحيد المظهر مع احترام التنوع من خلال تعديلات مدروسة</li>
-            <li className="mb-2">تقليل صدمات الاختلاف الثقافي وتسهيل الاندماج</li>
-            <li className="mb-2">تركيز الهوية على الانتماء المهني بدلاً من الخلفيات المتنوعة</li>
-            <li className="mb-2">تسهيل التعامل بين موظفين من خلفيات ثقافية واجتماعية مختلفة</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الزي كرمز للانتماء المؤسسي</h3>
+                <p className="mb-2 text-gray-700">كيف يحول الزي الموظف إلى سفير للشركة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>استيعاب وتمثل قيم ورؤية الشركة من خلال الزي الرسمي</li>
+                  <li>تعزيز الارتباط العاطفي بالعلامة التجارية والشعور بتمثيلها</li>
+                  <li>زيادة الالتزام بالسلوكيات المتوافقة مع قيم المؤسسة</li>
+                  <li>تحفيز المشاركة الإيجابية في فعاليات وأنشطة الشركة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي كرمز للانتماء المؤسسي</h3>
-          <p className="mb-4">
-            كيف يحول الزي الموظف إلى سفير للشركة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استيعاب وتمثل قيم ورؤية الشركة من خلال الزي الرسمي</li>
-            <li className="mb-2">تعزيز الارتباط العاطفي بالعلامة التجارية والشعور بتمثيلها</li>
-            <li className="mb-2">زيادة الالتزام بالسلوكيات المتوافقة مع قيم المؤسسة</li>
-            <li className="mb-2">تحفيز المشاركة الإيجابية في فعاليات وأنشطة الشركة</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تعزيز المهنية والأداء</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">دور الزي في تحسين الأداء المهني</h3>
-          <p className="mb-4">
-            تأثير الزي المناسب على جودة العمل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">زيادة التركيز على المهام المهنية وتقليل التشتت</li>
-            <li className="mb-2">تعزيز الالتزام بإجراءات وبروتوكولات السلامة والخدمة</li>
-            <li className="mb-2">تحسين مستويات الانضباط والدقة في أداء المهام</li>
-            <li className="mb-2">تسهيل تحول السلوك من الشخصي إلى المهني عند ارتداء الزي</li>
+            <section id="professional-performance" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تعزيز المهنية والأداء</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">دور الزي في تحسين الأداء المهني</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">تأثير الزي المناسب على جودة العمل:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>زيادة التركيز على المهام المهنية وتقليل التشتت</li>
+                      <li>تعزيز الالتزام بإجراءات وبروتوكولات السلامة والخدمة</li>
+                      <li>تحسين مستويات الانضباط والدقة في أداء المهام</li>
+                      <li>تسهيل تحول السلوك من الشخصي إلى المهني عند ارتداء الزي</li>
           </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير الزي على إدراك العملاء للمهنية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">كيف يؤثر زي الطاقم على ثقة المسافرين:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>زيادة ثقة المسافرين في كفاءة وقدرات طاقم الطائرة</li>
+                      <li>تسهيل التعرف على الطاقم وطلب المساعدة عند الحاجة</li>
+                      <li>تعزيز الشعور بالأمان والاطمئنان خلال الرحلة</li>
+                      <li>تكوين انطباعات إيجابية عن مستوى خدمات شركة الطيران</li>
+          </ul>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تأثير الزي على إدراك العملاء للمهنية</h3>
-          <p className="mb-4">
-            كيف يؤثر زي الطاقم على ثقة المسافرين:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">زيادة ثقة المسافرين في كفاءة وقدرات طاقم الطائرة</li>
-            <li className="mb-2">تسهيل التعرف على الطاقم وطلب المساعدة عند الحاجة</li>
-            <li className="mb-2">تعزيز الشعور بالأمان والاطمئنان خلال الرحلة</li>
-            <li className="mb-2">تكوين انطباعات إيجابية عن مستوى خدمات شركة الطيران</li>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">الزي والتواصل غير اللفظي</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">أهمية الزي كأداة تواصل لطاقم الطيران:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>نقل معلومات فورية عن دور ومسؤولية الموظف دون الحاجة للشرح</li>
+                    <li>استخدام عناصر الزي (مثل الشارات والرتب) لتوضيح التسلسل الهرمي</li>
+                    <li>تسهيل التعامل مع المسافرين من مختلف الثقافات واللغات</li>
+                    <li>تعزيز التواصل الفعال مع الركاب وبناء الثقة السريعة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي والتواصل غير اللفظي</h3>
-          <p className="mb-4">
-            أهمية الزي كأداة تواصل لطاقم الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نقل معلومات فورية عن دور ومسؤولية الموظف دون الحاجة للشرح</li>
-            <li className="mb-2">استخدام عناصر الزي (مثل الشارات والرتب) لتوضيح التسلسل الهرمي</li>
-            <li className="mb-2">تسهيل التعامل مع المسافرين من مختلف الثقافات واللغات</li>
-            <li className="mb-2">تعزيز التواصل الفعال مع الركاب وبناء الثقة السريعة</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تصميم الزي لتعزيز الانتماء والمهنية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">عناصر التصميم المؤثرة في الشعور بالانتماء</h3>
-          <p className="mb-4">
-            خصائص تصميمية تعزز الهوية المشتركة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام ألوان الشركة الرئيسية بشكل متناسق ومدروس</li>
-            <li className="mb-2">دمج رموز وشعارات تعكس تاريخ وقيم المؤسسة</li>
-            <li className="mb-2">تضمين عناصر مميزة وفريدة تميز الشركة عن منافسيها</li>
-            <li className="mb-2">التوازن بين التوحيد والسماح بلمسات فردية محدودة</li>
+            <section id="design-considerations" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تصميم الزي لتعزيز الانتماء والمهنية</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">عناصر التصميم المؤثرة في الشعور بالانتماء</h3>
+                <p className="mb-2 font-medium text-blue-700">خصائص تصميمية تعزز الهوية المشتركة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استخدام ألوان الشركة الرئيسية بشكل متناسق ومدروس</li>
+                  <li>دمج رموز وشعارات تعكس تاريخ وقيم المؤسسة</li>
+                  <li>تضمين عناصر مميزة وفريدة تميز الشركة عن منافسيها</li>
+                  <li>التوازن بين التوحيد والسماح بلمسات فردية محدودة</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تصميم يراعي التنوع ويعزز الشمولية</h3>
-          <p className="mb-4">
-            كيفية تصميم زي موحد يحترم الاختلافات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">توفير خيارات متعددة تناسب مختلف أنماط الجسم والتفضيلات</li>
-            <li className="mb-2">مراعاة الاعتبارات الثقافية والدينية مع الحفاظ على الهوية الموحدة</li>
-            <li className="mb-2">تصميم قطع مرنة قابلة للتعديل لتناسب احتياجات مختلفة</li>
-            <li className="mb-2">استشارة أفراد الطاقم من خلفيات متنوعة خلال عملية التصميم</li>
-          </ol>
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="تصميم زي فريق العمل الأرضي"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  تصميم يراعي الراحة والوظيفية مع الحفاظ على الأناقة | المصدر: معهد تصميم أزياء الطيران
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الموازنة بين الراحة والمظهر المهني</h3>
-          <p className="mb-4">
-            أهمية تصميم زي مريح ووظيفي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">اختيار أقمشة عالية الجودة توفر الراحة والمتانة معاً</li>
-            <li className="mb-2">تصميم قصات تسمح بالحركة بحرية مع الاحتفاظ بالمظهر الأنيق</li>
-            <li className="mb-2">مراعاة ظروف العمل المختلفة (درجات الحرارة، ساعات العمل الطويلة)</li>
-            <li className="mb-2">تصميم زي مناسب للطوارئ دون المساس بالمظهر المهني</li>
-          </ul>
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الموازنة بين الراحة والمظهر المهني</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                تعتبر الموازنة بين راحة الموظفين والمظهر الاحترافي من أهم التحديات في تصميم زي طاقم الطيران. فمن جهة، يقضي أفراد الطاقم ساعات طويلة في أداء مهام تتطلب الحركة والنشاط، مما يستدعي ارتداء ملابس مريحة تسمح بحرية الحركة. ومن جهة أخرى، يمثل الزي واجهة الشركة ويجب أن يعكس صورة احترافية وأنيقة تليق بمكانة شركة الطيران.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                يمكن تحقيق هذا التوازن من خلال اختيار أقمشة عالية الجودة توفر المرونة والراحة مع الاحتفاظ بمظهر أنيق، وتصميم قصات تراعي طبيعة الحركة مع الحفاظ على الخطوط الأنيقة، والاهتمام بتفاصيل مثل المرونة في منطقة الخصر والكتفين، واستخدام تقنيات خياطة متطورة تجمع بين المتانة والأناقة.
+              </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات والاعتبارات</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تحديات التوازن بين الفردية والهوية المشتركة</h3>
-          <p className="mb-4">
-            صعوبات الموازنة بين التوحيد واحترام الشخصية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تلبية رغبة الموظفين في التعبير عن شخصياتهم ضمن إطار الزي الموحد</li>
-            <li className="mb-2">تحديات تصميم زي يناسب جميع الأعمار والأجيال من الموظفين</li>
-            <li className="mb-2">إيجاد توازن بين الصرامة المهنية والراحة النفسية</li>
-            <li className="mb-2">تجنب الشعور بفقدان الهوية الشخصية مع تعزيز الانتماء المؤسسي</li>
+            <section id="challenges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التحديات والاعتبارات</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تحديات التوازن بين الفردية والهوية المشتركة</h3>
+                  <p className="mb-2 text-gray-700">صعوبات الموازنة بين التوحيد واحترام الشخصية:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تلبية رغبة الموظفين في التعبير عن شخصياتهم</li>
+                    <li>تصميم زي يناسب جميع الأعمار والأجيال من الموظفين</li>
+                    <li>الموازنة بين القوالب المهنية والتطلعات الشخصية</li>
+                    <li>تحديد مساحة "الحرية المقيدة" في اختيار الإكسسوارات والتعديلات</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تحديث الزي مع الحفاظ على الهوية</h3>
-          <p className="mb-4">
-            كيفية تطوير الزي دون المساس بالانتماء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التطوير التدريجي مع الاحتفاظ بالعناصر الأساسية للهوية</li>
-            <li className="mb-2">إشراك الموظفين في عملية تحديث الزي الرسمي</li>
-            <li className="mb-2">توثيق وشرح أسباب التغيير وربطها برؤية وقيم الشركة</li>
-            <li className="mb-2">الاحتفاء بتاريخ الزي القديم مع الترحيب بالتصميم الجديد</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تجاوز الصور النمطية التقليدية</h3>
+                  <p className="mb-2 text-gray-700">تحديات كسر القوالب التقليدية:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تقديم خيارات غير نمطية تتجاوز التقسيمات التقليدية</li>
+                    <li>تصميم زي يحترم التنوع الثقافي والديني للموظفين</li>
+                    <li>تحديث الأزياء التقليدية دون فقدان الهوية والتراث</li>
+                    <li>تقديم خيارات مرنة تناسب مختلف الأذواق والتفضيلات</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">قياس تأثير الزي على الانتماء والمهنية</h3>
-          <p className="mb-4">
-            أساليب تقييم فعالية الزي في تحقيق أهدافه:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استطلاعات رأي الموظفين حول مشاعرهم تجاه الزي والانتماء</li>
-            <li className="mb-2">قياس مؤشرات الأداء قبل وبعد تغيير أو تحسين الزي</li>
-            <li className="mb-2">تحليل تعليقات العملاء حول انطباعاتهم عن الطاقم</li>
-            <li className="mb-2">دراسة معدلات دوران الموظفين وارتباطها بالرضا عن الزي الرسمي</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">حالات دراسية ناجحة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تجارب شركات طيران عالمية</h3>
-          <p className="mb-4">
-            نماذج من تجارب ناجحة في تعزيز الانتماء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط السنغافورية: الاستمرارية في تصميم الزي مع التحديث المدروس</li>
-            <li className="mb-2">طيران الإمارات: تصميم يعكس الثقافة المحلية والتنوع العالمي</li>
-            <li className="mb-2">الخطوط البريطانية: توازن بين التاريخ العريق والتصميم المعاصر</li>
-            <li className="mb-2">الخطوط السعودية: تطوير الزي مع الاحتفاظ بعناصر الهوية الوطنية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">استراتيجيات ناجحة لبناء ثقافة الانتماء عبر الزي</h3>
-          <p className="mb-4">
-            ممارسات فعالة لتعزيز المهنية والانتماء:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تنظيم احتفالات خاصة بتسليم الزي الرسمي للموظفين الجدد</li>
-            <li className="mb-2">برامج تعريفية حول تاريخ وتطور زي الشركة وقيمه الرمزية</li>
-            <li className="mb-2">إشراك الموظفين في مسابقات وأنشطة مرتبطة بالزي الرسمي</li>
-            <li className="mb-2">مشاريع مجتمعية واحتفالات خاصة يظهر فيها الطاقم بالزي الرسمي</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">المستقبل: اتجاهات تعزيز الانتماء من خلال الزي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التكنولوجيا والزي المهني</h3>
-          <p className="mb-4">
-            الابتكارات المستقبلية في أزياء الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">دمج التقنيات القابلة للارتداء مع الحفاظ على الهوية المشتركة</li>
-            <li className="mb-2">أزياء ذكية تساعد الطاقم على أداء مهامهم بكفاءة أعلى</li>
-            <li className="mb-2">أنظمة تخصيص رقمية تسمح بتعديلات محدودة مع الحفاظ على الهوية</li>
-            <li className="mb-2">واقع معزز للتدريب على ارتداء الزي وفهم قيمه وتاريخه</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي والمسؤولية الاجتماعية</h3>
-          <p className="mb-4">
-            الاتجاه نحو أزياء أكثر استدامة وشمولية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">زي يعكس قيم الاستدامة والمسؤولية البيئية للشركة</li>
-            <li className="mb-2">تصاميم شاملة تراعي مختلف القدرات والاحتياجات</li>
-            <li className="mb-2">شفافية في سلسلة التوريد وظروف الإنتاج الأخلاقية</li>
-            <li className="mb-2">تعزيز الانتماء من خلال المشاركة في مبادرات مجتمعية بالزي الرسمي</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تطوير الهوية المهنية في عصر العمل المرن</h3>
-          <p className="mb-4">
-            التكيف مع متغيرات بيئة العمل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم زي يعمل بشكل فعال في بيئات عمل متغيرة</li>
-            <li className="mb-2">الموازنة بين هوية عالمية موحدة واحترام السياقات المحلية</li>
-            <li className="mb-2">تكييف الزي مع الأجيال الجديدة من العاملين وتوقعاتهم</li>
-            <li className="mb-2">توظيف الزي كأداة للتماسك في فترات التغيير المؤسسي</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يظل الزي الرسمي لطاقم الطيران عنصراً أساسياً في تشكيل الهوية المهنية وتعزيز الشعور بالانتماء للمؤسسة. فمن خلال التصميم المدروس والتطبيق الفعال، يتحول الزي من مجرد ملابس موحدة إلى أداة قوية لبناء ثقافة مؤسسية إيجابية وتعزيز التماسك والتعاون بين أفراد الطاقم.
-          </p>
-          <p className="mb-4">
-            إن الموازنة الدقيقة بين عناصر التوحيد والسماح بالتعبير الفردي، وبين المتطلبات الوظيفية والجوانب الجمالية، تشكل تحدياً مستمراً لمصممي أزياء الطيران. لكن النجاح في تحقيق هذا التوازن يعود بفوائد كبيرة على المستويين الفردي والمؤسسي، من تعزيز الأداء والرضا الوظيفي إلى تقوية صورة العلامة التجارية وثقة العملاء.
-          </p>
-          <p className="mb-4">
-            مع التطور المستمر في صناعة الطيران وتغير توقعات العاملين والعملاء، ستستمر أزياء طاقم الطيران في التطور والتكيف. ومع ذلك، سيظل دورها الأساسي في تعزيز المهنية والانتماء ثابتاً، كونها تجسيداً مرئياً للقيم والمعايير التي تجمع أفراد طاقم الطيران معاً في خدمة هدف مشترك.
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">المستقبل: الاتجاهات الجديدة في تصميم الزي</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                يشهد مجال تصميم أزياء طاقم الطيران تطورات متسارعة تعكس التغيرات في المفاهيم المجتمعية والتكنولوجية. من بين الاتجاهات البارزة: تصاميم أكثر شمولية تناسب مختلف أنماط الجسم والهويات، واعتماد نهج "المجموعة" بدلاً من "الزي الموحد"، حيث يتم توفير عدة خيارات متناسقة يمكن للموظفين الاختيار من بينها، والاستفادة من التكنولوجيا في تطوير أقمشة ذكية توفر راحة أكبر وأداء أفضل.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                كما يتزايد الاهتمام بالاستدامة في تصميم الأزياء، مع توجه العديد من شركات الطيران نحو استخدام مواد صديقة للبيئة، وتصميم قطع متعددة الاستخدامات، وتبني نماذج الاقتصاد الدائري في إنتاج وتداول الزي. هذه التوجهات لا تسهم فقط في تقليل البصمة البيئية لشركات الطيران، بل تعزز أيضاً صورتها كمؤسسات مسؤولة ومواكبة للتطورات العالمية.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

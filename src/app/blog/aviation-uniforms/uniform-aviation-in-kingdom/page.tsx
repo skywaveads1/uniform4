@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "تصميم زي طاقم الطائرة",
       description: "دليل شامل حول تصميم زي طاقم الطائرة وأهم العناصر التي يجب مراعاتها",
-      image: "/images/flight_crew/design_crew_uniform.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/design-uniform-crew-aviation",
       date: "١٠ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "الابتكار في تصميم ملابس طاقم الطائرة",
       description: "نظرة عميقة في الأساليب المبتكرة وأحدث الاتجاهات في تصميم ملابس طاقم الطائرة",
-      image: "/images/flight_crew/innovative_crew_design.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-clothing-crew-aircraft",
       date: "١٢ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "أفضل تصاميم أزياء الطيران",
       description: "نظرة على أفضل تصاميم أزياء الطيران عالمياً وأسباب تميزها",
-      image: "/images/flight_crew/best_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/best-on-uniform-aviation",
       date: "٢٠ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="نظرة شاملة على تاريخ وتطور أزياء الطيران في المملكة العربية السعودية، وكيف تعكس الهوية الوطنية والتراث الثقافي"
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/saudi_airlines_uniforms.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="٥ مايو ٢٠٢٤"
       readTime="١٤ دقيقة للقراءة"
       authorName="فريق يونيفورم"
@@ -79,7 +79,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/saudi_airways_history.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تاريخ أزياء الطيران السعودية"
           caption="صور تاريخية لتطور أزياء الطيران في المملكة العربية السعودية"
           source="أرشيف الخطوط السعودية"
@@ -115,7 +115,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/saudi_airlines_crew.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="طاقم الخطوط السعودية بالزي الحديث"
           caption="طاقم الخطوط السعودية يرتدي الزي الحديث المصمم عام 2017"
           source="الخطوط السعودية"
@@ -165,7 +165,7 @@ export default function Page() {
         </BulletList>
         
         <ArticleImage 
-          src="/images/flight_crew/saudi_budget_airlines.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="أزياء شركات الطيران الاقتصادي السعودية"
           caption="مقارنة بين أزياء شركات الطيران الاقتصادي في المملكة العربية السعودية"
           source="مجلة عالم الطيران"
@@ -216,7 +216,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/future_saudi_uniforms.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مستقبل أزياء الطيران السعودية"
           caption="تصور للتطورات المستقبلية في أزياء الطيران السعودية"
           source="معرض مستقبل الطيران السعودي"

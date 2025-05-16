@@ -14,6 +14,9 @@ export default function ArticlePage() {
   const title = 'اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة';
   const readingTime = '7 دقائق';
   const datePublished = '٢٠ مايو ٢٠٢٣';
+  const authorName = 'د. علي الهذيل';
+  const authorImage = '/images/author/علي_الهذيل.jpg';
+  const authorTitle = 'خبير في أقمشة وخامات الملابس المهنية';
 
   // أقسام المقال للتنقل السريع
   const sections = [
@@ -68,6 +71,26 @@ export default function ArticlePage() {
                   ))}
                 </ul>
               </nav>
+            </div>
+            
+            {/* Author information */}
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">الكاتب</h3>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src={authorImage}
+                    alt={authorName}
+                    width={64}
+                    height={64}
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-blue-900">{authorName}</h4>
+                  <p className="text-sm text-gray-600">{authorTitle}</p>
+                </div>
+              </div>
             </div>
             
             <div className="border-t pt-4">

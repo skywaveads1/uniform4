@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "أزياء الطيران النسائية: تطورها وخصائصها الحديثة",
       description: "استكشاف شامل لتاريخ تطور أزياء الطيران النسائية وأحدث خصائصها ومميزاتها في عصرنا الحالي",
-      image: "/images/flight_crew/women_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-3",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز",
       description: "دليل شامل حول مواصفات الزي الرسمي لطياري وقائدي الطائرات، ورموز الرتب والشارات",
-      image: "/images/flight_crew/pilot_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-4",
       date: "١٧ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
       description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="استكشاف كيفية تأثير الثقافة المحلية والهوية الوطنية على تصميم أزياء شركات الطيران في مختلف أنحاء العالم مع التركيز على المنطقة العربية"
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/cultural_influence_uniforms.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="٢٠ مايو ٢٠٢٤"
       readTime="١٢ دقيقة للقراءة"
       authorName="فريق يونيفورم"
@@ -73,7 +73,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/cultural_diversity_uniforms.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تنوع أزياء شركات الطيران العالمية"
           caption="تنوع الأزياء الرسمية لشركات الطيران حول العالم يعكس غنى الثقافات المحلية"
           source="معرض أزياء الطيران الدولي"
@@ -138,7 +138,7 @@ export default function Page() {
         </Paragraph>
 
         <ArticleImage 
-          src="/images/flight_crew/uniform_cultural_elements.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="عناصر ثقافية في أزياء الطيران"
           caption="تفاصيل العناصر الثقافية في أزياء الطيران من مختلف شركات الطيران العالمية"
           source="مجلة الطيران والتصميم"
@@ -210,7 +210,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/cultural_modern_balance.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="التوازن بين الأصالة والحداثة"
           caption="الموازنة الدقيقة بين العناصر الثقافية التقليدية والمتطلبات العملية في تصميم أزياء الطيران"
           source="المجلة العربية للتصميم المعاصر"

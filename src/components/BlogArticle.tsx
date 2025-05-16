@@ -106,7 +106,14 @@ export default function BlogArticle({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <article className="min-h-screen bg-gray-50" itemScope itemType="http://schema.org/BlogPosting">
+      {/* Schema.org metadata */}
+      <meta itemProp="headline" content={title} />
+      <meta itemProp="description" content={description} />
+      <meta itemProp="datePublished" content={publishDate} />
+      <meta itemProp="author" content={authorName} />
+      <meta itemProp="image" content={heroImage} />
+      
       {/* Reading Progress Bar - Fixed at top */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-50">
         <div 
@@ -124,6 +131,7 @@ export default function BlogArticle({
         <Link 
           href={backUrl} 
           className="flex items-center gap-2 bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all"
+          aria-label="العودة إلى صفحة المدونة الرئيسية"
         >
           <ChevronLeft className="h-5 w-5" />
           <span className="text-sm font-medium">العودة للمدونة</span>
@@ -137,28 +145,28 @@ export default function BlogArticle({
         <button 
           onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
           className="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-blue-50 transition-all"
-          aria-label="Share on Facebook"
+          aria-label="مشاركة على فيسبوك"
         >
           <Facebook className="h-5 w-5 text-blue-600" />
         </button>
         <button 
           onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title)}`, '_blank')}
           className="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-blue-50 transition-all"
-          aria-label="Share on Twitter"
+          aria-label="مشاركة على تويتر"
         >
           <Twitter className="h-5 w-5 text-blue-400" />
         </button>
         <button 
           onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank')}
           className="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-blue-50 transition-all"
-          aria-label="Share on LinkedIn"
+          aria-label="مشاركة على لينكد إن"
         >
           <Linkedin className="h-5 w-5 text-blue-700" />
         </button>
         <button 
           onClick={copyToClipboard}
           className="bg-white p-3 rounded-full shadow-md hover:shadow-lg hover:bg-blue-50 transition-all relative"
-          aria-label="Copy link"
+          aria-label="نسخ الرابط"
         >
           <Link2 className="h-5 w-5 text-gray-600" />
           {isCopied && (
@@ -170,7 +178,7 @@ export default function BlogArticle({
       </div>
 
       {/* Hero Section - Enhanced with gradient overlay */}
-      <div className="relative h-[70vh] max-h-[600px]">
+      <header className="relative h-[70vh] max-h-[600px]" itemProp="image" itemScope itemType="http://schema.org/ImageObject">
         {!imageError ? (
           <Image
             src={heroImage}
@@ -180,6 +188,7 @@ export default function BlogArticle({
             priority
             onError={handleImageError}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+            itemProp="url"
           />
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -193,18 +202,87 @@ export default function BlogArticle({
                 {category}
               </Link>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{title}</h1>
-            <p className="text-xl md:text-2xl opacity-90 font-light">{description}</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" itemProp="headline">{title}</h1>
+            <p className="text-xl md:text-2xl opacity-90 font-light" itemProp="description">{description}</p>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div className="max-w-5xl mx-auto px-4 -mt-16 relative z-10">
-        <div className="bg-white rounded-xl shadow-xl p-6 md:p-10">
-          {/* Article Meta Information */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-gray-100 pb-8">
-            <div className="flex items-center mb-4 md:mb-0">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+      {/* Article Content with Sidebar */}
+      <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* Table of Contents - Sidebar */}
+        <aside className="lg:col-span-1 h-full">
+          <div className="bg-white p-6 rounded-xl shadow-sm sticky top-24 border-r-4 border-blue-600">
+            <h2 className="text-xl font-bold mb-4 text-gray-800">محتويات المقال</h2>
+            
+            <nav aria-label="جدول المحتويات">
+              <ul className="space-y-3">
+                {tableOfContents.map((item) => (
+                  <li key={item.id}>
+                    <a 
+                      href={`#${item.id}`}
+                      className="block text-gray-600 hover:text-blue-600 transition-colors py-1 pr-3 border-r-2 border-transparent hover:border-blue-600"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        
+        {/* Main Content */}
+        <main className="lg:col-span-3" itemProp="articleBody">
+          {/* Article Metadata */}
+          <div className="flex flex-wrap justify-between items-center mb-8 text-sm text-gray-500">
+            <div className="flex items-center gap-4 mb-4 md:mb-0">
+              <time itemProp="datePublished" className="flex items-center gap-1">
+                <Calendar className="h-4 w-4" />
+                {publishDate}
+              </time>
+              <span className="flex items-center gap-1">
+                <Clock className="h-4 w-4" />
+                {readTime}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <button className="flex items-center gap-1 text-gray-500 hover:text-blue-600 transition-colors">
+                <Share2 className="h-4 w-4" />
+                مشاركة
+              </button>
+              <button className="flex items-center gap-1 text-gray-500 hover:text-blue-600 transition-colors">
+                <Bookmark className="h-4 w-4" />
+                حفظ
+              </button>
+            </div>
+          </div>
+          
+          {/* Article Content */}
+          <div className="prose prose-lg max-w-none">
+            {children}
+          </div>
+          
+          {/* Tags */}
+          <section className="mt-10 mb-12" aria-labelledby="article-tags">
+            <h2 id="article-tags" className="sr-only">وسوم المقال</h2>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <Link 
+                  key={index} 
+                  href={`/blog/tag/${tag.replace(/\s+/g, '-').toLowerCase()}`}
+                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded-md text-sm hover:bg-gray-200 transition-colors"
+                >
+                  {tag}
+                </Link>
+              ))}
+            </div>
+          </section>
+          
+          {/* Author Bio */}
+          <section className="mb-12 border-t pt-10" itemProp="author" itemScope itemType="http://schema.org/Person">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+              <div className="w-24 h-24 relative rounded-full overflow-hidden">
                 {!authorImageError ? (
                   <Image
                     src={authorImage}
@@ -212,135 +290,52 @@ export default function BlogArticle({
                     fill
                     className="object-cover"
                     onError={handleAuthorImageError}
-                    sizes="56px"
+                    itemProp="image"
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">صورة غير متوفرة</span>
+                    <span className="text-gray-500 text-sm">صورة غير متوفرة</span>
                   </div>
                 )}
               </div>
-              <div className="mr-4">
-                <p className="font-bold text-lg">{authorName}</p>
-                <p className="text-gray-600">{authorTitle}</p>
+              <div className="text-center sm:text-right">
+                <h3 className="text-xl font-bold text-gray-900" itemProp="name">{authorName}</h3>
+                <p className="text-gray-600 mb-3" itemProp="jobTitle">{authorTitle}</p>
+                <p className="text-gray-700" itemProp="description">خبير متخصص في مجال تصميم وتطوير الأزياء الموحدة للشركات والمؤسسات، مع خبرة واسعة في قطاع الطيران والضيافة والخدمات.</p>
               </div>
             </div>
-            
-            <div className="flex items-center gap-8">
-              <div className="flex items-center text-gray-600">
-                <Calendar className="h-4 w-4 ml-2" />
-                <span className="text-sm">{publishDate}</span>
-              </div>
-              <div className="flex items-center text-gray-600">
-                <Clock className="h-4 w-4 ml-2" />
-                <span className="text-sm">{readTime}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Share & Save Buttons */}
-          <div className="flex justify-end gap-4 mb-8">
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <Share2 className="h-5 w-5" />
-              <span className="text-sm">مشاركة</span>
-            </button>
-            <button className="flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors">
-              <Bookmark className="h-5 w-5" />
-              <span className="text-sm">حفظ</span>
-            </button>
-          </div>
-
-          {/* Article Content - Enhanced for Arabic RTL content */}
-          <article className="prose prose-lg lg:prose-xl max-w-none" dir="rtl">
-            <div className="article-content text-right space-y-8 leading-relaxed text-gray-800">
-              {children}
-            </div>
-          </article>
-
-          {/* Article Tags */}
-          <div className="mt-12 border-t border-gray-100 pt-8">
-            <div className="flex flex-wrap gap-2 justify-end" dir="rtl">
-              <span className="text-gray-600 ml-2">الكلمات المفتاحية:</span>
-              {tags.map((tag, index) => (
-                <span key={index} className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full hover:bg-gray-200 transition-colors">
-                  {tag}
-                </span>
+          </section>
+          
+          {/* Related Articles */}
+          <section className="mb-10" aria-labelledby="related-articles">
+            <h2 id="related-articles" className="text-2xl font-bold mb-8 text-gray-900">مقالات ذات صلة</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedArticles.map((article, index) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                  <Link href={article.url} className="block">
+                    <div className="relative h-48">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded mb-2">
+                        {article.category}
+                      </span>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">{article.title}</h3>
+                      <p className="text-gray-600 text-sm line-clamp-2">{article.description}</p>
+                      <div className="mt-4 text-xs text-gray-500">{article.date}</div>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
-
-      {/* Related Articles - Enhanced Card Design */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">مقالات ذات صلة</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {relatedArticles.map((article, index) => (
-            <Link 
-              key={index} 
-              href={article.url}
-              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
-            >
-              <div className="relative h-48">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-medium text-blue-600">{article.category}</span>
-                  <span className="text-xs text-gray-500">{article.date}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 line-clamp-2">{article.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* Newsletter Signup - Enhanced Design */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">اشترك في نشرتنا البريدية</h2>
-          <p className="text-blue-100 mb-8 text-lg">احصل على أحدث المقالات والأخبار حول ملابس العمل وأزياء الشركات</p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <input 
-              type="email" 
-              placeholder="البريد الإلكتروني" 
-              className="px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 w-full md:w-96 text-right"
-            />
-            <button className="bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors shadow-md">
-              اشترك الآن
-            </button>
-          </div>
-          <p className="text-blue-200 text-sm mt-4">نحترم خصوصيتك - لن نشارك بريدك الإلكتروني مع أي طرف ثالث</p>
-        </div>
-      </div>
-
-      {/* Table of Contents - Floating */}
-      {tableOfContents.length > 0 && (
-        <div className="fixed right-8 top-32 z-40 bg-white rounded-xl shadow-lg p-6 max-w-xs w-full hidden xl:block">
-          <h3 className="font-bold text-lg mb-4 border-b pb-2 text-right">محتويات المقال</h3>
-          <nav className="toc space-y-2 text-right" dir="rtl">
-            {tableOfContents.map((item) => (
-              <a 
-                key={item.id} 
-                href={`#${item.id}`} 
-                className="block text-gray-600 hover:text-blue-600 transition-colors py-1"
-              >
-                {item.title}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
-    </div>
+    </article>
   );
 } 

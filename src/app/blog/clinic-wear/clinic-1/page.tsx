@@ -1,320 +1,410 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'أفضل أنواع السكراب الطبي للممرضين والأطباء',
-  description: 'دليل شامل حول أفضل أنواع السكراب الطبي للممرضين والأطباء، مع تحليل مفصل للمواد والتصاميم والخصائص المناسبة لمختلف التخصصات الطبية والبيئات الصحية',
+  title: 'الزي الطبي الحديث: مزايا وتطورات ملابس العيادات',
+  description: 'استعراض شامل للتطورات الحديثة في تصميم الزي الطبي للعيادات وأهميته في تعزيز الصورة المهنية وتحسين تجربة المرضى والطاقم الطبي',
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/clinic_wear/clinic_scrubs.jpg';
-  const title = 'أفضل أنواع السكراب الطبي للممرضين والأطباء';
+export default function ClinicWear1() {
+  const imageSrc = '/images/clinic_wear/clinic_uniforms.jpeg';
+  const title = 'الزي الطبي الحديث: مزايا وتطورات ملابس العيادات';
+  const readingTime = '٧ دقائق للقراءة';
+  const datePublished = '١٨ يونيو ٢٠٢٤';
+
+  const relatedArticles = [
+    {
+      title: "معايير اختيار الزي الطبي للعيادات الخاصة",
+      description: "دليل شامل لمعايير اختيار الزي الطبي المناسب للعيادات الخاصة بما يتوافق مع المتطلبات العملية والمهنية",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/clinic-wear/clinic-2",
+      date: "١٢ يونيو ٢٠٢٤",
+      category: "الزي الطبي"
+    },
+    {
+      title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
+      description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
+      date: "٢٠ يونيو ٢٠٢٤",
+      category: "أزياء الطهاة"
+    },
+    {
+      title: "اتجاهات تصميم ملابس الطهاة لعام 2025",
+      description: "استعراض لأحدث اتجاهات تصميم ملابس الطهاة المتوقعة في عام 2025",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/chef-uniforms/in-design-clothing-chef-2025",
+      date: "١٠ يونيو ٢٠٢٤",
+      category: "أزياء الطهاة"
+    }
+  ];
+
+  const tags = ["الزي الطبي", "ملابس العيادات", "يونيفورم طبي", "الصورة المهنية الطبية", "زي الأطباء", "زي الممرضات"];
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'evolution', title: 'تطور الزي الطبي عبر التاريخ' },
+    { id: 'modern-design', title: 'خصائص تصميم الزي الطبي الحديث' },
+    { id: 'benefits', title: 'مزايا الزي الطبي المتطور' },
+    { id: 'materials', title: 'المواد والأقمشة المتقدمة' },
+    { id: 'specializations', title: 'ملابس العيادات حسب التخصصات' },
+    { id: 'trends', title: 'اتجاهات مستقبلية في الزي الطبي' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            السكراب الطبي ليس مجرد زي موحد يرتديه العاملون في القطاع الصحي، بل هو أداة أساسية تؤثر بشكل مباشر في مستوى الراحة، الكفاءة، والسلامة المهنية. مع التطور المستمر في عالم الرعاية الصحية، أصبحت خيارات السكراب الطبي أكثر تنوعاً وتخصصاً لتلبية احتياجات مختلف التخصصات والبيئات الطبية.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                {relatedArticles.map((article, index) => (
+                  <li key={index}>
+                    <Link href={article.url} className="text-sm hover:text-blue-600 block">
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعتبر الزي الطبي أحد أهم عناصر البيئة العلاجية في العيادات والمراكز الطبية، حيث يتجاوز دوره كونه مجرد ملابس موحدة إلى أداة تساهم في تعزيز الصورة المهنية وتحسين تجربة المرضى وتوفير الراحة والوظائف العملية للطاقم الطبي.
           </p>
-          <p className="mb-4">
-            يواجه الأطباء والممرضون والفنيون الصحيون تحديات يومية تتطلب ملابس عملية تدعم أداءهم المهني. من نوبات العمل الطويلة إلى التعامل مع الحالات الطارئة، ومن الحاجة للتنقل السريع إلى ضرورة الحفاظ على مستويات عالية من النظافة والتعقيم، كلها عوامل تجعل اختيار السكراب المناسب قراراً مهماً يؤثر في جودة الخدمة الطبية المقدمة.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستعرض أفضل أنواع السكراب الطبي للممرضين والأطباء، مع تحليل مفصل للمواد، التصاميم، والخصائص المناسبة لمختلف التخصصات والبيئات الصحية. كما نناقش أحدث الابتكارات في مجال الملابس الطبية، والعوامل الرئيسية التي يجب مراعاتها عند اختيار السكراب المثالي، بالإضافة إلى نصائح عملية للعناية والصيانة لضمان الأداء الأمثل والعمر الأطول لهذا الاستثمار المهني المهم.
+              <p className="mb-4 leading-7 text-gray-700">
+                في السنوات الأخيرة، شهد تصميم الزي الطبي تطورات كبيرة تماشياً مع التقدم التكنولوجي والمتطلبات المتغيرة للرعاية الصحية الحديثة. في هذا المقال، نستعرض مزايا وتطورات الزي الطبي العصري للعيادات، وكيف أصبح استثماراً استراتيجياً يسهم في تحسين جودة الخدمات الصحية وتعزيز ثقة المرضى.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">المواد المستخدمة في صناعة السكراب الطبي الحديث</h2>
+            <section id="evolution" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تطور الزي الطبي عبر التاريخ</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">أقمشة الألياف الطبيعية وخصائصها</h3>
-          <p className="mb-4">
-            المواد التقليدية ومزاياها:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">القطن 100%: يوفر تهوية ممتازة وراحة فائقة، مناسب جداً للبشرة الحساسة وبيئات العمل الأقل عرضة للتلوث</li>
-            <li className="mb-2">القطن العضوي: خيار صديق للبيئة يقلل التعرض للمواد الكيميائية، مثالي لمن يعانون من الحساسية</li>
-            <li className="mb-2">الكتان: خفيف وقابل للتنفس بشكل استثنائي، يتحسن مع الغسيل المتكرر، ولكنه أكثر عرضة للتجعد</li>
-            <li className="mb-2">حرير البامبو: مادة مستدامة توفر نعومة فائقة مع خصائص مضادة للبكتيريا طبيعية</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">المراحل الرئيسية في تطور الزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">العصور القديمة (قبل القرن 19):</span> كان الأطباء يرتدون ملابسهم العادية، مع استخدام بعض الرموز كالعصا والثعبان للتمييز.</li>
+                  <li><span className="font-medium">القرن 19 وبداية القرن 20:</span> ظهور المعاطف البيضاء كرمز للنظافة والنقاء، وبدء استخدام الملابس الموحدة في المستشفيات.</li>
+                  <li><span className="font-medium">منتصف القرن 20:</span> تطور الزي الطبي ليشمل البدلات الجراحية (Scrubs) والملابس المتخصصة لمختلف أقسام المستشفى.</li>
+                  <li><span className="font-medium">العصر الحديث (من 1980 حتى الآن):</span> ثورة في تصميم الزي الطبي مع التركيز على الراحة، الوظائف العملية، المظهر الاحترافي، والتقنيات المتقدمة في الأقمشة.</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة الاصطناعية والمركبة</h3>
-          <p className="mb-4">
-            التطور التقني في خدمة الراحة والأداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">مزيج البوليستر والقطن (أشهرها نسبة 65% بوليستر و35% قطن): توازن مثالي بين المتانة والراحة، يقاوم التجعد ويجف بسرعة</li>
-            <li className="mb-2">البوليستر المتطور: خفيف الوزن، سريع الجفاف، مقاوم للبقع، مثالي للبيئات عالية الحركة</li>
-            <li className="mb-2">مزيج الرايون: يضيف نعومة وانسيابية مع الحفاظ على القوة والمتانة</li>
-            <li className="mb-2">سبانديكس (إيلاستان): يضاف بنسب صغيرة (2-4%) لتوفير مرونة إضافية تسمح بحرية الحركة</li>
-          </ul>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="تطور الزي الطبي عبر العصور"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  تطور الزي الطبي من المعاطف التقليدية إلى التصاميم العصرية المتخصصة
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة المتخصصة ذات الخصائص الإضافية</h3>
-          <p className="mb-4">
-            ابتكارات تلبي احتياجات محددة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة مضادة للميكروبات: معالجة بمواد مثل الفضة النانوية أو المركبات العضوية لتثبيط نمو البكتيريا والفطريات</li>
-            <li className="mb-2">أقمشة طاردة للسوائل: تمنع امتصاص السوائل والبقع، مثالية لأقسام الطوارئ وغرف العمليات</li>
-            <li className="mb-2">أقمشة مقاومة للتجعد: تحافظ على المظهر الأنيق رغم ساعات العمل الطويلة</li>
-            <li className="mb-2">أقمشة مانعة للكهرباء الساكنة: ضرورية في بيئات غرف العمليات والأماكن التي تستخدم فيها الأكسجين بكثافة</li>
-          </ol>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">عبر التاريخ، عكس تطور الزي الطبي تغيرات جذرية في فهمنا للطب والرعاية الصحية. من رموز السلطة إلى علامات النظافة، ثم إلى أدوات وظيفية متكاملة، تحول الزي الطبي ليصبح جزءاً أساسياً من المنظومة العلاجية الحديثة.</p>
+                  <footer className="text-sm text-gray-600">— د. سارة العتيبي، أستاذة تاريخ الطب</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تصاميم السكراب المناسبة للتخصصات المختلفة</h2>
+            <section id="modern-design" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">خصائص تصميم الزي الطبي الحديث</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">سكراب الجراحة وغرف العمليات</h3>
-          <p className="mb-4">
-            الخصائص الأساسية لبيئة معقمة عالية الضغط:
+              <p className="mb-4 leading-7 text-gray-700">
+                يتميز الزي الطبي الحديث للعيادات بمجموعة من الخصائص التي تجمع بين الجمالية والوظيفة والراحة:
           </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم محكم مع أكمام قصيرة لتجنب التلامس مع المناطق المعقمة</li>
-            <li className="mb-2">خامات طاردة للسوائل ومعالجة بمضادات الميكروبات</li>
-            <li className="mb-2">قصات بسيطة خالية من الجيوب الكثيرة أو المناطق التي تتجمع فيها الملوثات</li>
-            <li className="mb-2">ألوان فاتحة (غالباً الأزرق الفاتح أو الأخضر) لسهولة ملاحظة التلوث</li>
-          </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">سكراب الرعاية المباشرة للمرضى (التمريض)</h3>
-          <p className="mb-4">
-            تصاميم تدعم الحركة والوظائف المتعددة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">جيوب متعددة وعملية لحمل الأدوات الضرورية (الأقلام، المقصات، أجهزة قياس الضغط الصغيرة)</li>
-            <li className="mb-2">أقمشة مرنة تسمح بالحركة المتكررة مثل الانحناء والوقوف</li>
-            <li className="mb-2">تصاميم مريحة مع خيارات متنوعة للياقات لتناسب مختلف الأذواق</li>
-            <li className="mb-2">ألوان متنوعة غالباً ما تعكس تنظيم الأقسام (مثل ألوان محددة لكل قسم)</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التصميم الوظيفي</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>جيوب متعددة الأحجام والأغراض</li>
+                    <li>حلقات تعليق للشارات والأدوات</li>
+                    <li>قصات تسمح بحرية الحركة</li>
+                    <li>تصميمات سهلة الارتداء والخلع</li>
           </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الراحة والمتانة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أقمشة مرنة تتكيف مع حركة الجسم</li>
+                    <li>خامات خفيفة الوزن للعمل لساعات طويلة</li>
+                    <li>تقنيات خياطة متقدمة لتحمل الاستخدام المكثف</li>
+                    <li>أنظمة تهوية لمنع تراكم الحرارة</li>
+          </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">سكراب التخصصات الفرعية</h3>
-          <p className="mb-4">
-            تصاميم تلبي احتياجات محددة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">طب الأطفال: تصاميم ملونة وزاهية مع رسومات صديقة للأطفال لتخفيف توتر الصغار</li>
-            <li className="mb-2">العلاج الطبيعي: مرونة فائقة مع نسبة أعلى من الإيلاستان لدعم الحركة النشطة</li>
-            <li className="mb-2">الأشعة والتصوير: تصاميم بسيطة وعملية غالباً بألوان محايدة</li>
-            <li className="mb-2">طب الأسنان: سكراب مع طبقة إضافية للحماية، وغالباً ما يكون مقاوم للبقع بشكل خاص</li>
-          </ol>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="تصميم الزي الطبي الحديث"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي طبي عصري بتصميم يجمع بين الأناقة المهنية والوظائف العملية
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مواصفات السكراب الطبي عالي الجودة</h2>
+            <section id="benefits" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مزايا الزي الطبي المتطور</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير الراحة والأداء</h3>
-          <p className="mb-4">
-            العناصر الأساسية للاستخدام اليومي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">خامات قابلة للتنفس تسمح بتبادل الهواء وتنظيم درجة حرارة الجسم</li>
-            <li className="mb-2">وزن مناسب للقماش (180-240 جرام/متر مربع) يوفر توازناً بين الخفة والمتانة</li>
-            <li className="mb-2">مرونة استراتيجية في مناطق مثل الكتفين والمرفقين والركبتين</li>
-            <li className="mb-2">خصر مريح قابل للتعديل (شريط مطاطي، رباط قابل للتعديل، أو حبل)</li>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">المزايا الرئيسية للزي الطبي الحديث</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">تعزيز الهوية المهنية:</span> يساعد الزي الموحد في تمييز الكادر الطبي وترسيخ صورة احترافية تعزز ثقة المرضى.</li>
+                    <li><span className="font-medium">تحسين النظافة ومكافحة العدوى:</span> تصميمات وأقمشة تقلل من تراكم الجراثيم وتسهل عمليات التعقيم.</li>
+                    <li><span className="font-medium">زيادة الراحة وتقليل الإجهاد:</span> ملابس مريحة تساعد الطاقم الطبي على العمل لساعات طويلة بكفاءة أعلى.</li>
+                    <li><span className="font-medium">تمييز التخصصات والأدوار:</span> استخدام الألوان والتصاميم لتمييز مختلف التخصصات والمستويات الوظيفية.</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير المتانة وطول العمر</h3>
-          <p className="mb-4">
-            مؤشرات الجودة العالية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خياطة معززة (double-stitching) في مناطق الإجهاد مثل الجيوب والأكتاف</li>
-            <li className="mb-2">ثبات الألوان بعد الغسيل المتكرر في درجات حرارة عالية</li>
-            <li className="mb-2">مقاومة للتنسيل والتآكل، خاصة في المناطق المعرضة للاحتكاك المستمر</li>
-            <li className="mb-2">أزرار أو سحابات عالية الجودة تتحمل الاستخدام المتكرر</li>
-          </ol>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="الزي الطبي وتمييز الأدوار المختلفة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  فريق طبي بأزياء موحدة تساعد في تمييز التخصصات المختلفة داخل العيادة
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير النظافة والتعقيم</h3>
-          <p className="mb-4">
-            خصائص ضرورية للبيئة الطبية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قابلية الغسيل بدرجات حرارة مرتفعة (60-90 درجة مئوية) لقتل البكتيريا والميكروبات</li>
-            <li className="mb-2">مقاومة لمواد التعقيم والمطهرات الشائعة دون تأثر الألوان أو القماش</li>
-            <li className="mb-2">سرعة الجفاف لمنع تكاثر البكتيريا والعفن</li>
-            <li className="mb-2">خامات تقلل من الاحتفاظ بالروائح حتى بعد الاستخدام المطول</li>
-          </ul>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">لاحظنا تحسناً ملحوظاً في تجربة المرضى وأداء الفريق الطبي بعد تحديث الزي الموحد في عيادتنا. الملابس المريحة والعملية أسهمت في تقليل إرهاق الطاقم، بينما ساعد المظهر المهني الموحد في تعزيز ثقة المرضى وتحسين التواصل معهم.</p>
+                  <footer className="text-sm text-gray-600">— د. فهد القحطاني، مدير مجمع عيادات الرياض التخصصي</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">أفضل العلامات التجارية والموردين في السعودية</h2>
+            <section id="materials" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد والأقمشة المتقدمة</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">العلامات التجارية العالمية الرائدة</h3>
-          <p className="mb-4">
-            خيارات موثوقة متوفرة في السوق السعودي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">فيونيكس (FIGS): عُرفت بتصاميمها العصرية وأقمشتها فائقة الجودة المقاومة للتجعد</li>
-            <li className="mb-2">تشيروكي (Cherokee): تقدم مجموعة واسعة من الخيارات بأسعار معقولة مع الحفاظ على المتانة</li>
-            <li className="mb-2">جرايز أناتومي (Grey's Anatomy): تتميز بأقمشة فائقة النعومة وقصات مريحة تشبه الملابس العادية</li>
-            <li className="mb-2">هيلي هانسن (Healing Hands): متخصصة في الأقمشة المرنة ذات المظهر الأنيق</li>
-          </ul>
+              <p className="mb-4 leading-7 text-gray-700">
+                شهدت المواد المستخدمة في صناعة الزي الطبي تطوراً كبيراً في السنوات الأخيرة، مع التركيز على تحسين الأداء والراحة:
+              </p>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المصنعين والموردين المحليين</h3>
-          <p className="mb-4">
-            خيارات سعودية عالية الجودة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">يونيفورمات المهنية: مصنع سعودي متخصص يوفر سكراب مخصص للمناخ المحلي مع دعم ممتاز بعد البيع</li>
-            <li className="mb-2">الزي الطبي السعودي: يقدم تصاميم تجمع بين المعايير العالمية واحتياجات السوق المحلي</li>
-            <li className="mb-2">ميديكال ستايل: يتميز بخيارات مخصصة للمستشفيات والمراكز الطبية مع إمكانية التطريز والشعارات</li>
-            <li className="mb-2">واحة الممرضين: متخصص في سكراب عالي الجودة للتمريض بألوان وتصاميم متنوعة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">منصات التسوق الإلكتروني المتخصصة</h3>
-          <p className="mb-4">
-            خيارات الشراء عبر الإنترنت:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ميديكال سبلاي: منصة متخصصة توفر مجموعة واسعة من العلامات التجارية مع خدمة توصيل سريعة</li>
-            <li className="mb-2">نون ميديكال: قسم متخصص للمستلزمات الطبية مع خيارات دفع متنوعة وعروض موسمية</li>
-            <li className="mb-2">متجر الطبيب: يوفر تشكيلة محلية ومستوردة مع خدمة الشحن لجميع أنحاء المملكة</li>
-            <li className="mb-2">أمازون السعودية (القسم الطبي): يضم علامات تجارية عالمية مع تقييمات مستخدمين حقيقية</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التقنيات المتقدمة في أقمشة الزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">أقمشة مضادة للميكروبات:</span> معالجات خاصة تمنع نمو البكتيريا والفطريات، تقلل الروائح وتطيل فترات الاستخدام بين الغسيل.</li>
+                  <li><span className="font-medium">تقنيات التنظيف الذاتي:</span> معالجات طاردة للسوائل تمنع امتصاص البقع وتسهل تنظيفها.</li>
+                  <li><span className="font-medium">أقمشة تنظيم الحرارة:</span> مواد متطورة تساعد على الحفاظ على درجة حرارة مريحة للجسم في مختلف بيئات العمل.</li>
+                  <li><span className="font-medium">خامات قابلة للتمدد 4-way stretch:</span> مرونة في جميع الاتجاهات تسمح بحرية الحركة الكاملة.</li>
+                  <li><span className="font-medium">الأقمشة المستدامة:</span> مواد صديقة للبيئة مصنوعة من مصادر متجددة أو معاد تدويرها.</li>
           </ul>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="أقمشة متطورة للزي الطبي"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  أقمشة طبية متطورة بتقنيات مضادة للميكروبات وطاردة للسوائل
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">اعتبارات مهمة عند اختيار السكراب الطبي</h2>
+            <section id="specializations" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">ملابس العيادات حسب التخصصات</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تختلف متطلبات الزي الطبي باختلاف التخصصات والأدوار في العيادات المختلفة:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">زي الأطباء والاستشاريين</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>معاطف بيضاء طويلة للاستشاريين</li>
+                      <li>معاطف قصيرة للأطباء المقيمين</li>
+                      <li>تصاميم مع جيوب متعددة للأدوات الطبية</li>
+                      <li>أقمشة متينة مقاومة للبقع والتجعد</li>
+          </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">زي التمريض والمساعدين</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>بدلات عملية (Scrubs) مريحة بألوان مميزة</li>
+                      <li>تصاميم عملية مع جيوب متعددة الاستخدامات</li>
+                      <li>أقمشة سهلة التنظيف ومضادة للميكروبات</li>
+                      <li>خيارات متنوعة للسترات والجاكيتات</li>
+          </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="زي التمريض في العيادات الحديثة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي تمريض عصري يجمع بين الراحة والأناقة والوظائف العملية
+                </div>
+              </div>
+
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">ملابس العيادات المتخصصة</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">عيادات الأسنان:</span> بدلات مقاومة للماء مع واقيات إضافية وألوان فاتحة.</li>
+                  <li><span className="font-medium">عيادات الأطفال:</span> أزياء بألوان زاهية ورسومات مرحة لخلق بيئة ودية.</li>
+                  <li><span className="font-medium">عيادات الجلدية والتجميل:</span> أزياء أنيقة بتصاميم عصرية تعكس هوية العيادة التجميلية.</li>
+                  <li><span className="font-medium">العيادات الجراحية:</span> ملابس بمواصفات أعلى للتعقيم والحماية.</li>
+          </ul>
+              </div>
+        </section>
+
+            <section id="trends" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اتجاهات مستقبلية في الزي الطبي</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">اعتبارات المناخ والبيئة</h3>
-          <p className="mb-4">
-            مراعاة الظروف المحلية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">المناخ الحار في معظم مناطق المملكة يتطلب أقمشة خفيفة وقابلة للتنفس</li>
-            <li className="mb-2">التكييف المكثف في المنشآت الطبية يستدعي طبقات قابلة للتعديل</li>
-            <li className="mb-2">المناطق التي تشهد تقلبات حرارية تتطلب خيارات متنوعة للمواسم المختلفة</li>
-            <li className="mb-2">بيئات العمل المختلفة (غرف العمليات الباردة، المناطق الإدارية الدافئة) تحتاج إلى مرونة في الاختيار</li>
-          </ul>
+              <p className="mb-4 leading-7 text-gray-700">
+                تشير التوجهات الحالية إلى عدة اتجاهات مستقبلية في تصميم وتصنيع الزي الطبي للعيادات:
+              </p>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الاعتبارات الثقافية والدينية</h3>
-          <p className="mb-4">
-            توافق الزي مع قيم المجتمع:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خيارات محتشمة للنساء مع أكمام طويلة وتصاميم فضفاضة</li>
-            <li className="mb-2">ملحقات خاصة متوافقة مع الحجاب للممرضات المحجبات</li>
-            <li className="mb-2">خيارات بألوان مناسبة ثقافياً (تجنب بعض الألوان ذات الدلالات الخاصة)</li>
-            <li className="mb-2">تصاميم تراعي الخصوصية مع سهولة أداء العبادات خلال النوبات الطويلة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">اعتبارات التمييز والهوية المهنية</h3>
-          <p className="mb-4">
-            ترتيب تنظيمي من خلال الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام أنظمة الألوان لتمييز الأقسام والتخصصات المختلفة</li>
-            <li className="mb-2">أهمية الشارات والتطريز لتحديد الأسماء والمناصب بوضوح</li>
-            <li className="mb-2">ترميز خاص للمستويات المهنية المختلفة (طبيب استشاري، أخصائي، ممرض)</li>
-            <li className="mb-2">توازن بين التمييز المهني والحفاظ على وحدة الفريق الطبي</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاتجاهات المستقبلية للزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">التخصيص الشخصي:</span> تقنيات متقدمة تتيح تخصيص الزي حسب متطلبات كل طبيب.</li>
+                  <li><span className="font-medium">الأقمشة الذكية:</span> أقمشة مزودة بمستشعرات لمراقبة الإجهاد أو التعرض للمواد الخطرة.</li>
+                  <li><span className="font-medium">الاستدامة:</span> التحول نحو المواد المستدامة والقابلة للتدوير والإنتاج المسؤول بيئياً.</li>
+                  <li><span className="font-medium">التصاميم المستوحاة من الرياضة:</span> دمج تقنيات الملابس الرياضية لمزيد من الراحة والأداء.</li>
+                  <li><span className="font-medium">العلامة التجارية المتكاملة:</span> تصميم الزي كجزء من هوية العيادة البصرية الشاملة.</li>
           </ul>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="اتجاهات مستقبلية في تصميم الزي الطبي"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  تصميمات مبتكرة تعكس الاتجاهات المستقبلية في الزي الطبي للعيادات
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">مستقبل الزي الطبي سيتجاوز مجرد الملابس إلى أنظمة متكاملة تدمج التكنولوجيا والتصميم والوظائف المتقدمة. نتوقع أزياء طبية تتفاعل مع البيئة المحيطة، تساعد في تشخيص حالة مرتديها، وتسهم في تحسين التواصل مع المرضى بطرق مبتكرة.</p>
+                  <footer className="text-sm text-gray-600">— م. خالد النعيمي، مصمم ومطور الأزياء الطبية التقنية</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">ابتكارات حديثة في عالم السكراب الطبي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التقنيات الذكية في الملابس الطبية</h3>
-          <p className="mb-4">
-            دمج التكنولوجيا في الزي الطبي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية تغير خصائصها استجابةً للظروف المحيطة (درجة الحرارة، الرطوبة)</li>
-            <li className="mb-2">جيوب مصممة خصيصاً للأجهزة الطبية الحديثة والهواتف الذكية</li>
-            <li className="mb-2">تقنية RFID المدمجة للتتبع والمساعدة في إدارة المخزون والتعقيم</li>
-            <li className="mb-2">معالجات نانوية متقدمة للحماية من السوائل والمواد الملوثة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التوجه نحو الاستدامة</h3>
-          <p className="mb-4">
-            الممارسات الصديقة للبيئة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة معاد تدويرها من زجاجات البلاستيك وغيرها من المواد</li>
-            <li className="mb-2">صباغة وإنتاج بتقنيات توفر المياه والطاقة</li>
-            <li className="mb-2">تصاميم متينة تقلل الحاجة للاستبدال المتكرر (فلسفة الاستهلاك المسؤول)</li>
-            <li className="mb-2">عبوات وتغليف قابل للتحلل وصديق للبيئة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تطور القصات والتصاميم</h3>
-          <p className="mb-4">
-            من الوظيفة إلى الأناقة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم أكثر انسيابية تحاكي أحدث صيحات الموضة مع الحفاظ على الوظائف الأساسية</li>
-            <li className="mb-2">خيارات متنوعة للنساء بقصات أكثر تناسباً مع الجسم النسائي</li>
-            <li className="mb-2">تطور في تصاميم الرجال لتكون أكثر عصرية وأقل حجماً</li>
-            <li className="mb-2">إضافات جمالية مثل الألوان المتناسقة والتفاصيل الدقيقة (الأشرطة، الأزرار المميزة)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">نصائح للعناية بالسكراب الطبي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">طرق الغسيل والتعقيم المثالية</h3>
-          <p className="mb-4">
-            الحفاظ على النظافة والمتانة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">غسل السكراب بشكل منفصل عن الملابس العادية لتجنب انتقال الملوثات</li>
-            <li className="mb-2">استخدام درجات حرارة مناسبة (60-90 درجة للتعقيم، أو حسب توصيات المصنع)</li>
-            <li className="mb-2">تجنب المنعمات التي قد تقلل من قدرة القماش على امتصاص السوائل</li>
-            <li className="mb-2">الاعتماد على منظفات طبية خاصة للحالات عالية التلوث</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">نصائح لإطالة عمر السكراب</h3>
-          <p className="mb-4">
-            الاستفادة القصوى من الاستثمار:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">امتلاك عدد كافٍ من السكراب للتناوب وتقليل الضغط على كل قطعة</li>
-            <li className="mb-2">التعامل الفوري مع البقع بطرق مناسبة حسب نوع البقعة</li>
-            <li className="mb-2">تجنب استخدام المبيضات القوية بشكل متكرر لمنع تلف الألياف</li>
-            <li className="mb-2">تخزين السكراب بطريقة مناسبة تمنع التجعد والتلف (استخدام العلاقات أو الرف المناسب)</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تكييف السكراب للراحة الشخصية</h3>
-          <p className="mb-4">
-            تخصيص التجربة للاحتياجات الفردية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تعديلات بسيطة يمكن إجراؤها لتحسين الملاءمة (مثل تقصير الأطراف)</li>
-            <li className="mb-2">إضافة طبقات استراتيجية للراحة في المناطق عالية الاحتكاك</li>
-            <li className="mb-2">استخدام طبقات إضافية في فصل الشتاء دون التضحية بحرية الحركة</li>
-            <li className="mb-2">إضافة عناصر شخصية مميزة ضمن المعايير المسموح بها (دبابيس، حاملات شارات مميزة)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يمثل اختيار السكراب الطبي المناسب استثماراً مهنياً مهماً للأطباء والممرضين والعاملين في القطاع الصحي. فالسكراب الجيد ليس مجرد زي موحد، بل هو أداة عمل تؤثر بشكل مباشر في الراحة، الأداء، والسلامة المهنية، وبالتالي في جودة الرعاية الصحية المقدمة للمرضى.
-          </p>
-          <p className="mb-4">
-            مع التطور المستمر في تقنيات النسيج والتصميم، أصبحت خيارات السكراب الطبي أكثر تنوعاً وتخصصاً، مما يتيح للعاملين في المجال الصحي اختيار ما يناسب طبيعة عملهم، تخصصهم، واحتياجاتهم الشخصية. وفي المملكة العربية السعودية، يزداد الوعي بأهمية الاستثمار في سكراب عالي الجودة، والبحث عن الموردين والعلامات التجارية التي توفر أفضل توازن بين الجودة، المتانة، والقيمة.
-          </p>
-          <p className="mb-4">
-            كما يعكس التوجه نحو الاستدامة وتبني التقنيات الذكية في الملابس الطبية الوعي المتزايد بالمسؤولية البيئية وبإمكانيات دمج التكنولوجيا في كل جوانب العمل الصحي. ومن المتوقع أن تشهد السنوات القادمة المزيد من الابتكارات في هذا المجال، مما سيسهم في تعزيز تجربة العاملين الصحيين ويدعم جهودهم لتقديم أفضل رعاية ممكنة.
-          </p>
-          <p className="mb-4">
-            في النهاية، فإن الاهتمام باختيار السكراب المناسب والعناية به بالطريقة الصحيحة هو جزء من الالتزام المهني بمعايير الجودة والسلامة في بيئة العمل الصحية. ومع توفر المزيد من الخيارات عالية الجودة في السوق السعودي، يمكن للعاملين في القطاع الصحي ايجاد الزي المثالي الذي يعزز أداءهم المهني ويعكس تفانيهم في خدمة المرضى والمجتمع.
-          </p>
-        </section>
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-10">
+              <h2 className="text-xl font-semibold mb-3">الكلمات المفتاحية</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 mt-10 pt-6">
+              <h2 className="text-xl font-semibold mb-4">مقالات ذات صلة</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {relatedArticles.map((article, index) => (
+                  <div key={index} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold mb-2 text-blue-900 hover:text-blue-700">
+                        <Link href={article.url}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                      <p className="text-sm text-gray-700 line-clamp-2">{article.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

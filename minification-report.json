@@ -1,0 +1,2257 @@
+{
+  "date": "2025-05-16T13:11:04.753Z",
+  "summary": {
+    "totalFiles": 280,
+    "jsFiles": 280,
+    "cssFiles": 0,
+    "successfullyMinified": 4,
+    "errors": 0,
+    "skipped": 276,
+    "totalOriginalSize": 98686,
+    "totalMinifiedSize": 98888,
+    "totalSavings": -202,
+    "totalPercentage": "-0.20"
+  },
+  "files": [
+    {
+      "file": ".next\\prerender-manifest.js",
+      "originalSize": 44536,
+      "minifiedSize": 44536,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\static\\OcQMa3tDD6ytqcj-CUbAq\\_ssgManifest.js",
+      "originalSize": 120,
+      "minifiedSize": 120,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\static\\OcQMa3tDD6ytqcj-CUbAq\\_buildManifest.js",
+      "originalSize": 224,
+      "minifiedSize": 224,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\webpack-runtime.js",
+      "originalSize": 1461,
+      "minifiedSize": 1461,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\server-reference-manifest.js",
+      "originalSize": 121,
+      "minifiedSize": 121,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\next-font-manifest.js",
+      "originalSize": 106,
+      "minifiedSize": 106,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\middleware-react-loadable-manifest.js",
+      "originalSize": 36,
+      "minifiedSize": 36,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\middleware-build-manifest.js",
+      "originalSize": 824,
+      "minifiedSize": 824,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\pages\\_error.js",
+      "originalSize": 8658,
+      "minifiedSize": 8658,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\pages\\_document.js",
+      "originalSize": 385,
+      "minifiedSize": 385,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\pages\\_app.js",
+      "originalSize": 3307,
+      "minifiedSize": 3307,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\9089.js",
+      "originalSize": 12885,
+      "minifiedSize": 12910,
+      "savings": -25,
+      "percentage": "-0.19",
+      "status": "success"
+    },
+    {
+      "file": ".next\\server\\chunks\\6199.js",
+      "originalSize": 161839,
+      "minifiedSize": 161839,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\605.js",
+      "originalSize": 25042,
+      "minifiedSize": 25042,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\4502.js",
+      "originalSize": 18586,
+      "minifiedSize": 18599,
+      "savings": -13,
+      "percentage": "-0.07",
+      "status": "success"
+    },
+    {
+      "file": ".next\\server\\chunks\\4274.js",
+      "originalSize": 12941,
+      "minifiedSize": 12941,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\2813.js",
+      "originalSize": 6847,
+      "minifiedSize": 6847,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\2179.js",
+      "originalSize": 9234,
+      "minifiedSize": 9234,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\1900.js",
+      "originalSize": 12452,
+      "minifiedSize": 12452,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\chunks\\1072.js",
+      "originalSize": 32667,
+      "minifiedSize": 32606,
+      "savings": 61,
+      "percentage": "0.19",
+      "status": "success"
+    },
+    {
+      "file": ".next\\server\\app\\_not-found_client-reference-manifest.js",
+      "originalSize": 6463,
+      "minifiedSize": 6463,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\_not-found.js",
+      "originalSize": 1830,
+      "minifiedSize": 1830,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\page_client-reference-manifest.js",
+      "originalSize": 6457,
+      "minifiedSize": 6457,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\page.js",
+      "originalSize": 136189,
+      "minifiedSize": 136189,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\workwear\\workwear-1\\page_client-reference-manifest.js",
+      "originalSize": 7170,
+      "minifiedSize": 7170,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\workwear\\workwear-1\\page.js",
+      "originalSize": 29912,
+      "minifiedSize": 29912,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\terms\\page_client-reference-manifest.js",
+      "originalSize": 6537,
+      "minifiedSize": 6537,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\terms\\page.js",
+      "originalSize": 6726,
+      "minifiedSize": 6726,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\services\\page_client-reference-manifest.js",
+      "originalSize": 7369,
+      "minifiedSize": 7369,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\services\\page.js",
+      "originalSize": 17186,
+      "minifiedSize": 17186,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\quote\\page_client-reference-manifest.js",
+      "originalSize": 6779,
+      "minifiedSize": 6779,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\quote\\page.js",
+      "originalSize": 10257,
+      "minifiedSize": 10257,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\privacy\\page_client-reference-manifest.js",
+      "originalSize": 6543,
+      "minifiedSize": 6543,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\privacy\\page.js",
+      "originalSize": 6679,
+      "minifiedSize": 6679,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\faq\\page_client-reference-manifest.js",
+      "originalSize": 6770,
+      "minifiedSize": 6770,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\faq\\page.js",
+      "originalSize": 7558,
+      "minifiedSize": 7558,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\contact\\page_client-reference-manifest.js",
+      "originalSize": 6787,
+      "minifiedSize": 6787,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\contact\\page.js",
+      "originalSize": 6915,
+      "minifiedSize": 6915,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\page_client-reference-manifest.js",
+      "originalSize": 6918,
+      "minifiedSize": 6918,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\page.js",
+      "originalSize": 10232,
+      "minifiedSize": 10232,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\[category]\\[slug]\\page_client-reference-manifest.js",
+      "originalSize": 8267,
+      "minifiedSize": 8267,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\[category]\\[slug]\\page.js",
+      "originalSize": 42540,
+      "minifiedSize": 42540,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\page_client-reference-manifest.js",
+      "originalSize": 7267,
+      "minifiedSize": 7267,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\page.js",
+      "originalSize": 3292,
+      "minifiedSize": 3292,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\workwear-maintenance-guide\\page_client-reference-manifest.js",
+      "originalSize": 8386,
+      "minifiedSize": 8386,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\workwear-maintenance-guide\\page.js",
+      "originalSize": 36401,
+      "minifiedSize": 36401,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\workwear-2\\page_client-reference-manifest.js",
+      "originalSize": 8586,
+      "minifiedSize": 8586,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\workwear-2\\page.js",
+      "originalSize": 24975,
+      "minifiedSize": 24975,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\utility-services-uniform-standards\\page_client-reference-manifest.js",
+      "originalSize": 8754,
+      "minifiedSize": 8754,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\utility-services-uniform-standards\\page.js",
+      "originalSize": 31544,
+      "minifiedSize": 31544,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-sectors\\page_client-reference-manifest.js",
+      "originalSize": 8621,
+      "minifiedSize": 8621,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-sectors\\page.js",
+      "originalSize": 27934,
+      "minifiedSize": 27934,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-in-Saudi\\page_client-reference-manifest.js",
+      "originalSize": 8628,
+      "minifiedSize": 8628,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-in-Saudi\\page.js",
+      "originalSize": 27568,
+      "minifiedSize": 27568,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-in\\page_client-reference-manifest.js",
+      "originalSize": 8586,
+      "minifiedSize": 8586,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform-in\\page.js",
+      "originalSize": 31537,
+      "minifiedSize": 31537,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform\\page_client-reference-manifest.js",
+      "originalSize": 8560,
+      "minifiedSize": 8560,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\uniform\\page.js",
+      "originalSize": 30794,
+      "minifiedSize": 30794,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\safety-shoes-from-uniform-workers-facilities\\page_client-reference-manifest.js",
+      "originalSize": 8824,
+      "minifiedSize": 8824,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\safety-shoes-from-uniform-workers-facilities\\page.js",
+      "originalSize": 30385,
+      "minifiedSize": 30385,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\on-clothing\\page_client-reference-manifest.js",
+      "originalSize": 8583,
+      "minifiedSize": 8583,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\on-clothing\\page.js",
+      "originalSize": 31209,
+      "minifiedSize": 31209,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\maintenance-worker-uniform-requirements\\page_client-reference-manifest.js",
+      "originalSize": 8784,
+      "minifiedSize": 8784,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\maintenance-worker-uniform-requirements\\page.js",
+      "originalSize": 32008,
+      "minifiedSize": 32008,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\maintenance\\page_client-reference-manifest.js",
+      "originalSize": 8593,
+      "minifiedSize": 8593,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\maintenance\\page.js",
+      "originalSize": 26931,
+      "minifiedSize": 26931,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\in-clothing-maintenance\\page_client-reference-manifest.js",
+      "originalSize": 8677,
+      "minifiedSize": 8677,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\in-clothing-maintenance\\page.js",
+      "originalSize": 30024,
+      "minifiedSize": 30024,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\importance-from-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8677,
+      "minifiedSize": 8677,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\importance-from-uniform\\page.js",
+      "originalSize": 30896,
+      "minifiedSize": 30896,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\how-to-choosing\\page_client-reference-manifest.js",
+      "originalSize": 8616,
+      "minifiedSize": 8616,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\how-to-choosing\\page.js",
+      "originalSize": 33146,
+      "minifiedSize": 33146,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\field-service-technician-workwear\\page_client-reference-manifest.js",
+      "originalSize": 8747,
+      "minifiedSize": 8747,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\field-service-technician-workwear\\page.js",
+      "originalSize": 34482,
+      "minifiedSize": 34482,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\design-uniform-maintenance\\page_client-reference-manifest.js",
+      "originalSize": 7863,
+      "minifiedSize": 7863,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\design-uniform-maintenance\\page.js",
+      "originalSize": 29386,
+      "minifiedSize": 29386,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\corporate-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8635,
+      "minifiedSize": 8635,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\corporate-uniform\\page.js",
+      "originalSize": 33022,
+      "minifiedSize": 33022,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-maintenance-work-health\\page_client-reference-manifest.js",
+      "originalSize": 8740,
+      "minifiedSize": 8740,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-maintenance-work-health\\page.js",
+      "originalSize": 29840,
+      "minifiedSize": 29840,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-in-kingdom\\page_client-reference-manifest.js",
+      "originalSize": 7835,
+      "minifiedSize": 7835,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-in-kingdom\\page.js",
+      "originalSize": 32515,
+      "minifiedSize": 32515,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-facilities-in-Dammam\\page_client-reference-manifest.js",
+      "originalSize": 7875,
+      "minifiedSize": 7875,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing-facilities-in-Dammam\\page.js",
+      "originalSize": 27574,
+      "minifiedSize": 27574,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing\\page_client-reference-manifest.js",
+      "originalSize": 8572,
+      "minifiedSize": 8572,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\workwear\\clothing\\page.js",
+      "originalSize": 26376,
+      "minifiedSize": 26376,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\utility-services\\utility-2\\page_client-reference-manifest.js",
+      "originalSize": 8295,
+      "minifiedSize": 8295,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\utility-services\\utility-2\\page.js",
+      "originalSize": 32390,
+      "minifiedSize": 32390,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\utility-services\\utility-1\\page_client-reference-manifest.js",
+      "originalSize": 8295,
+      "minifiedSize": 8295,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\utility-services\\utility-1\\page.js",
+      "originalSize": 33627,
+      "minifiedSize": 33627,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\uniform-care\\uniform-care-1\\page_client-reference-manifest.js",
+      "originalSize": 8302,
+      "minifiedSize": 8302,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\uniform-care\\uniform-care-1\\page.js",
+      "originalSize": 42364,
+      "minifiedSize": 42364,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\security-uniform-standards\\page_client-reference-manifest.js",
+      "originalSize": 8421,
+      "minifiedSize": 8421,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\security-uniform-standards\\page.js",
+      "originalSize": 30762,
+      "minifiedSize": 30762,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\security-uniform-colors-psychology\\page_client-reference-manifest.js",
+      "originalSize": 8477,
+      "minifiedSize": 8477,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\security-uniform-colors-psychology\\page.js",
+      "originalSize": 30671,
+      "minifiedSize": 30671,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\importance-uniform-on-security\\page_client-reference-manifest.js",
+      "originalSize": 8449,
+      "minifiedSize": 8449,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\importance-uniform-on-security\\page.js",
+      "originalSize": 30775,
+      "minifiedSize": 30775,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\importance-rank-badges\\page_client-reference-manifest.js",
+      "originalSize": 8393,
+      "minifiedSize": 8393,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security_uniforms\\importance-rank-badges\\page.js",
+      "originalSize": 29050,
+      "minifiedSize": 29050,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\page_client-reference-manifest.js",
+      "originalSize": 7305,
+      "minifiedSize": 7305,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\page.js",
+      "originalSize": 3369,
+      "minifiedSize": 3369,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\uniform-security-materials\\page_client-reference-manifest.js",
+      "originalSize": 8790,
+      "minifiedSize": 8790,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\uniform-security-materials\\page.js",
+      "originalSize": 33783,
+      "minifiedSize": 33783,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\security-uniform-specifications\\page_client-reference-manifest.js",
+      "originalSize": 8825,
+      "minifiedSize": 8825,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\security-uniform-specifications\\page.js",
+      "originalSize": 34457,
+      "minifiedSize": 34457,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\importance-uniform-on-security\\page_client-reference-manifest.js",
+      "originalSize": 8813,
+      "minifiedSize": 8813,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\security-uniforms\\importance-uniform-on-security\\page.js",
+      "originalSize": 33858,
+      "minifiedSize": 33858,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\protective-services\\protective-2\\page_client-reference-manifest.js",
+      "originalSize": 8337,
+      "minifiedSize": 8337,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\protective-services\\protective-2\\page.js",
+      "originalSize": 27897,
+      "minifiedSize": 27897,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\protective-services\\protective-1\\page_client-reference-manifest.js",
+      "originalSize": 8337,
+      "minifiedSize": 8337,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\protective-services\\protective-1\\page.js",
+      "originalSize": 34215,
+      "minifiedSize": 34215,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\hospitality\\hospitality-1\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\hospitality\\hospitality-1\\page.js",
+      "originalSize": 45611,
+      "minifiedSize": 45611,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniforms-saudi-arabia\\page_client-reference-manifest.js",
+      "originalSize": 8344,
+      "minifiedSize": 8344,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniforms-saudi-arabia\\page.js",
+      "originalSize": 29177,
+      "minifiedSize": 29177,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniform-crew\\page_client-reference-manifest.js",
+      "originalSize": 7667,
+      "minifiedSize": 7667,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniform-crew\\page.js",
+      "originalSize": 25039,
+      "minifiedSize": 25039,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniform-aviation-in-kingdom\\page_client-reference-manifest.js",
+      "originalSize": 7727,
+      "minifiedSize": 7727,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\uniform-aviation-in-kingdom\\page.js",
+      "originalSize": 13952,
+      "minifiedSize": 13952,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\stewardess-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8323,
+      "minifiedSize": 8323,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\stewardess-uniform\\page.js",
+      "originalSize": 34512,
+      "minifiedSize": 34512,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\pilot-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\pilot-uniform\\page.js",
+      "originalSize": 32412,
+      "minifiedSize": 32412,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\modern-flight-attendant-fashion\\page_client-reference-manifest.js",
+      "originalSize": 8414,
+      "minifiedSize": 8414,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\modern-flight-attendant-fashion\\page.js",
+      "originalSize": 32959,
+      "minifiedSize": 32959,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\in-design-uniform-aviation-saudi\\page_client-reference-manifest.js",
+      "originalSize": 8813,
+      "minifiedSize": 8813,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\in-design-uniform-aviation-saudi\\page.js",
+      "originalSize": 28407,
+      "minifiedSize": 28407,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\in-design-clothing-crew-aircraft\\page_client-reference-manifest.js",
+      "originalSize": 7747,
+      "minifiedSize": 7747,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\in-design-clothing-crew-aircraft\\page.js",
+      "originalSize": 18997,
+      "minifiedSize": 18997,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\ground-crew-attire\\page_client-reference-manifest.js",
+      "originalSize": 8323,
+      "minifiedSize": 8323,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\ground-crew-attire\\page.js",
+      "originalSize": 32893,
+      "minifiedSize": 32893,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-crew-uniform-design\\page_client-reference-manifest.js",
+      "originalSize": 8379,
+      "minifiedSize": 8379,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-crew-uniform-design\\page.js",
+      "originalSize": 33907,
+      "minifiedSize": 33907,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-9\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-9\\page.js",
+      "originalSize": 35775,
+      "minifiedSize": 35775,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-8\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-8\\page.js",
+      "originalSize": 32982,
+      "minifiedSize": 32982,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-7\\page_client-reference-manifest.js",
+      "originalSize": 8992,
+      "minifiedSize": 8992,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-7\\page.js",
+      "originalSize": 34548,
+      "minifiedSize": 34773,
+      "savings": -225,
+      "percentage": "-0.65",
+      "status": "success"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-6\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-6\\page.js",
+      "originalSize": 34101,
+      "minifiedSize": 34101,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-5\\page_client-reference-manifest.js",
+      "originalSize": 8248,
+      "minifiedSize": 8248,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-5\\page.js",
+      "originalSize": 38653,
+      "minifiedSize": 38653,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-4\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-4\\page.js",
+      "originalSize": 31461,
+      "minifiedSize": 31461,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-3\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-3\\page.js",
+      "originalSize": 24192,
+      "minifiedSize": 24192,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-25\\page_client-reference-manifest.js",
+      "originalSize": 7655,
+      "minifiedSize": 7655,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-25\\page.js",
+      "originalSize": 31760,
+      "minifiedSize": 31760,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-24\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-24\\page.js",
+      "originalSize": 34694,
+      "minifiedSize": 34694,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-23\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-23\\page.js",
+      "originalSize": 37593,
+      "minifiedSize": 37593,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-22\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-22\\page.js",
+      "originalSize": 23341,
+      "minifiedSize": 23341,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-21\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-21\\page.js",
+      "originalSize": 33782,
+      "minifiedSize": 33782,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-20\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-20\\page.js",
+      "originalSize": 33376,
+      "minifiedSize": 33376,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-2\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-2\\page.js",
+      "originalSize": 31249,
+      "minifiedSize": 31249,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-19\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-19\\page.js",
+      "originalSize": 27788,
+      "minifiedSize": 27788,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-18\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-18\\page.js",
+      "originalSize": 46307,
+      "minifiedSize": 46307,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-17\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-17\\page.js",
+      "originalSize": 38085,
+      "minifiedSize": 38085,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-16\\page_client-reference-manifest.js",
+      "originalSize": 8255,
+      "minifiedSize": 8255,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-16\\page.js",
+      "originalSize": 27830,
+      "minifiedSize": 27830,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-15\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-15\\page.js",
+      "originalSize": 36279,
+      "minifiedSize": 36279,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-14\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-14\\page.js",
+      "originalSize": 31326,
+      "minifiedSize": 31326,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-13\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-13\\page.js",
+      "originalSize": 34004,
+      "minifiedSize": 34004,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-12\\page_client-reference-manifest.js",
+      "originalSize": 8255,
+      "minifiedSize": 8255,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-12\\page.js",
+      "originalSize": 32917,
+      "minifiedSize": 32917,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-11\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-11\\page.js",
+      "originalSize": 36007,
+      "minifiedSize": 36007,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-10\\page_client-reference-manifest.js",
+      "originalSize": 8260,
+      "minifiedSize": 8260,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-10\\page.js",
+      "originalSize": 31619,
+      "minifiedSize": 31619,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-1\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\flight-1\\page.js",
+      "originalSize": 28436,
+      "minifiedSize": 28436,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\design-uniform-crew-aviation\\page_client-reference-manifest.js",
+      "originalSize": 7731,
+      "minifiedSize": 7731,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\design-uniform-crew-aviation\\page.js",
+      "originalSize": 22528,
+      "minifiedSize": 22528,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\design-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8001,
+      "minifiedSize": 8001,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\design-uniform\\page.js",
+      "originalSize": 33101,
+      "minifiedSize": 33101,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\comfort-safety-airline-uniforms\\page_client-reference-manifest.js",
+      "originalSize": 8414,
+      "minifiedSize": 8414,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\comfort-safety-airline-uniforms\\page.js",
+      "originalSize": 33887,
+      "minifiedSize": 33887,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\cabin-crew-uniform-fabric-selection\\page_client-reference-manifest.js",
+      "originalSize": 7759,
+      "minifiedSize": 7759,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\cabin-crew-uniform-fabric-selection\\page.js",
+      "originalSize": 23390,
+      "minifiedSize": 23390,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\best-on-uniform-aviation\\page_client-reference-manifest.js",
+      "originalSize": 7715,
+      "minifiedSize": 7715,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\best-on-uniform-aviation\\page.js",
+      "originalSize": 20566,
+      "minifiedSize": 20566,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation-uniform-standards-2025\\page_client-reference-manifest.js",
+      "originalSize": 7743,
+      "minifiedSize": 7743,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation-uniform-standards-2025\\page.js",
+      "originalSize": 24600,
+      "minifiedSize": 24600,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation-in\\page_client-reference-manifest.js",
+      "originalSize": 7661,
+      "minifiedSize": 7661,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation-in\\page.js",
+      "originalSize": 22974,
+      "minifiedSize": 22974,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation\\page_client-reference-manifest.js",
+      "originalSize": 7651,
+      "minifiedSize": 7651,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\aviation\\page.js",
+      "originalSize": 21882,
+      "minifiedSize": 21882,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-uniform-design-considerations\\page_client-reference-manifest.js",
+      "originalSize": 8456,
+      "minifiedSize": 8456,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-uniform-design-considerations\\page.js",
+      "originalSize": 32052,
+      "minifiedSize": 32052,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-uniform-design\\page_client-reference-manifest.js",
+      "originalSize": 8351,
+      "minifiedSize": 8351,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-uniform-design\\page.js",
+      "originalSize": 55373,
+      "minifiedSize": 55373,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-corporate-identity-uniforms\\page_client-reference-manifest.js",
+      "originalSize": 7759,
+      "minifiedSize": 7759,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\airline-corporate-identity-uniforms\\page.js",
+      "originalSize": 24857,
+      "minifiedSize": 24857,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\air-crew-attire\\page_client-reference-manifest.js",
+      "originalSize": 8302,
+      "minifiedSize": 8302,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\flight-crew\\air-crew-attire\\page.js",
+      "originalSize": 32561,
+      "minifiedSize": 32561,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\culinary-apparel\\culinary-2\\page_client-reference-manifest.js",
+      "originalSize": 8302,
+      "minifiedSize": 8302,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\culinary-apparel\\culinary-2\\page.js",
+      "originalSize": 39729,
+      "minifiedSize": 39729,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\culinary-apparel\\culinary-1\\page_client-reference-manifest.js",
+      "originalSize": 8302,
+      "minifiedSize": 8302,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\culinary-apparel\\culinary-1\\page.js",
+      "originalSize": 22709,
+      "minifiedSize": 22709,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\corporate-uniforms\\corporate-1\\page_client-reference-manifest.js",
+      "originalSize": 8323,
+      "minifiedSize": 8323,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\corporate-uniforms\\corporate-1\\page.js",
+      "originalSize": 47640,
+      "minifiedSize": 47640,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\clinic-wear\\clinic-2\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\clinic-wear\\clinic-2\\page.js",
+      "originalSize": 31755,
+      "minifiedSize": 31755,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\clinic-wear\\clinic-1\\page_client-reference-manifest.js",
+      "originalSize": 8253,
+      "minifiedSize": 8253,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\clinic-wear\\clinic-1\\page.js",
+      "originalSize": 31354,
+      "minifiedSize": 31354,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\uniform-in-services-catering-Saudi\\page_client-reference-manifest.js",
+      "originalSize": 8444,
+      "minifiedSize": 8444,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\uniform-in-services-catering-Saudi\\page.js",
+      "originalSize": 33323,
+      "minifiedSize": 33323,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\in-design-clothing-chef-2025\\page_client-reference-manifest.js",
+      "originalSize": 8407,
+      "minifiedSize": 8407,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\in-design-clothing-chef-2025\\page.js",
+      "originalSize": 33569,
+      "minifiedSize": 33569,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\design-in-Saudi\\page_client-reference-manifest.js",
+      "originalSize": 7608,
+      "minifiedSize": 7608,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\design-in-Saudi\\page.js",
+      "originalSize": 22276,
+      "minifiedSize": 22276,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\culinary_apparel-culinary-17\\page_client-reference-manifest.js",
+      "originalSize": 8407,
+      "minifiedSize": 8407,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\chef-uniforms\\culinary_apparel-culinary-17\\page.js",
+      "originalSize": 32100,
+      "minifiedSize": 32100,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\uniform-crew\\page_client-reference-manifest.js",
+      "originalSize": 8308,
+      "minifiedSize": 8308,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\uniform-crew\\page.js",
+      "originalSize": 17560,
+      "minifiedSize": 17560,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\uniform-aviation-in-kingdom\\page_client-reference-manifest.js",
+      "originalSize": 8383,
+      "minifiedSize": 8383,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\uniform-aviation-in-kingdom\\page.js",
+      "originalSize": 33408,
+      "minifiedSize": 33408,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-uniform-aviation-Saudi\\page_client-reference-manifest.js",
+      "originalSize": 8861,
+      "minifiedSize": 8861,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-uniform-aviation-Saudi\\page.js",
+      "originalSize": 28122,
+      "minifiedSize": 28122,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-uniform-aviation\\page_client-reference-manifest.js",
+      "originalSize": 8421,
+      "minifiedSize": 8421,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-uniform-aviation\\page.js",
+      "originalSize": 21620,
+      "minifiedSize": 21620,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-clothing-crew-aircraft\\page_client-reference-manifest.js",
+      "originalSize": 8463,
+      "minifiedSize": 8463,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\in-design-clothing-crew-aircraft\\page.js",
+      "originalSize": 26941,
+      "minifiedSize": 26941,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-7\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-7\\page.js",
+      "originalSize": 18891,
+      "minifiedSize": 18891,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-6\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-6\\page.js",
+      "originalSize": 27279,
+      "minifiedSize": 27279,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-5\\page_client-reference-manifest.js",
+      "originalSize": 8285,
+      "minifiedSize": 8285,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-5\\page.js",
+      "originalSize": 32422,
+      "minifiedSize": 32422,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-4\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-4\\page.js",
+      "originalSize": 41577,
+      "minifiedSize": 41577,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-3\\page_client-reference-manifest.js",
+      "originalSize": 8288,
+      "minifiedSize": 8288,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\flight-3\\page.js",
+      "originalSize": 45638,
+      "minifiedSize": 45638,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\design-uniform-crew-aviation\\page_client-reference-manifest.js",
+      "originalSize": 8435,
+      "minifiedSize": 8435,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\design-uniform-crew-aviation\\page.js",
+      "originalSize": 32534,
+      "minifiedSize": 32534,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\design-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8717,
+      "minifiedSize": 8717,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\design-uniform\\page.js",
+      "originalSize": 29639,
+      "minifiedSize": 29639,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\crew-aviation-on-uniform\\page_client-reference-manifest.js",
+      "originalSize": 8407,
+      "minifiedSize": 8407,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\crew-aviation-on-uniform\\page.js",
+      "originalSize": 25530,
+      "minifiedSize": 25530,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\cabin-crew-uniform-fabric-selection\\page_client-reference-manifest.js",
+      "originalSize": 8484,
+      "minifiedSize": 8484,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\cabin-crew-uniform-fabric-selection\\page.js",
+      "originalSize": 31626,
+      "minifiedSize": 31626,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\best-on-uniform-aviation\\page_client-reference-manifest.js",
+      "originalSize": 8407,
+      "minifiedSize": 8407,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\best-on-uniform-aviation\\page.js",
+      "originalSize": 31787,
+      "minifiedSize": 31787,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation-uniform-standards-2025\\page_client-reference-manifest.js",
+      "originalSize": 8456,
+      "minifiedSize": 8456,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation-uniform-standards-2025\\page.js",
+      "originalSize": 32226,
+      "minifiedSize": 32226,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation-in\\page_client-reference-manifest.js",
+      "originalSize": 8311,
+      "minifiedSize": 8311,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation-in\\page.js",
+      "originalSize": 32668,
+      "minifiedSize": 32668,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation\\page_client-reference-manifest.js",
+      "originalSize": 8295,
+      "minifiedSize": 8295,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\aviation\\page.js",
+      "originalSize": 22228,
+      "minifiedSize": 22228,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-uniform-design-evolution\\page_client-reference-manifest.js",
+      "originalSize": 8463,
+      "minifiedSize": 8463,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-uniform-design-evolution\\page.js",
+      "originalSize": 48679,
+      "minifiedSize": 48679,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-uniform-design-considerations\\page_client-reference-manifest.js",
+      "originalSize": 8430,
+      "minifiedSize": 8430,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-uniform-design-considerations\\page.js",
+      "originalSize": 24582,
+      "minifiedSize": 24582,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-corporate-identity-uniforms\\page_client-reference-manifest.js",
+      "originalSize": 8484,
+      "minifiedSize": 8484,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-corporate-identity-uniforms\\page.js",
+      "originalSize": 32954,
+      "minifiedSize": 32954,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-corporate-identity\\page_client-reference-manifest.js",
+      "originalSize": 8421,
+      "minifiedSize": 8421,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation-uniforms\\airline-corporate-identity\\page.js",
+      "originalSize": 28630,
+      "minifiedSize": 28630,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation\\page_client-reference-manifest.js",
+      "originalSize": 7269,
+      "minifiedSize": 7269,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation\\page.js",
+      "originalSize": 3259,
+      "minifiedSize": 3259,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation\\page\\page_client-reference-manifest.js",
+      "originalSize": 8546,
+      "minifiedSize": 8546,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\aviation\\page\\page.js",
+      "originalSize": 24195,
+      "minifiedSize": 24195,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\academic-attire\\academic-2\\page_client-reference-manifest.js",
+      "originalSize": 8295,
+      "minifiedSize": 8295,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\academic-attire\\academic-2\\page.js",
+      "originalSize": 35845,
+      "minifiedSize": 35845,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\academic-attire\\academic-1\\page_client-reference-manifest.js",
+      "originalSize": 8290,
+      "minifiedSize": 8290,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\blog\\academic-attire\\academic-1\\page.js",
+      "originalSize": 33315,
+      "minifiedSize": 33315,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\about\\page_client-reference-manifest.js",
+      "originalSize": 6872,
+      "minifiedSize": 6872,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    },
+    {
+      "file": ".next\\server\\app\\about\\page.js",
+      "originalSize": 11124,
+      "minifiedSize": 11124,
+      "savings": 0,
+      "percentage": 0,
+      "status": "skipped"
+    }
+  ]
+}

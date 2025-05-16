@@ -20,11 +20,14 @@ export const metadata = {
   description: 'دراسة تحليلية حول تأثير احتياجات وملاحظات طاقم الطيران على تطوير وتصميم الزي الموحد، وأهمية مشاركتهم في عملية التصميم',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/aviation_uniforms/header_airline_uniform.jpeg';
+
 export default function ArticlePage() {
-  const imageSrc = '/images/aviation-uniforms/crew_uniforms.jpeg';
-  const title = 'تأثير طاقم الطيران على الزي الموحد';
-  const readingTime = '١٢ دقائق';
-  const datePublished = '١٠ مايو ٢٠٢٤';
+  const imageSrc = '/images/aviation_uniforms/crew_aviation_on_uniform.jpeg';
+  const title = 'تأثير زي الطاقم الجوي على تجربة الركاب وصورة الناقل الجوي';
+  const readingTime = '9 دقائق للقراءة';
+  const datePublished = '١٧ مايو ٢٠٢٤';
 
   // أقسام المقال للتنقل السريع
   const sections = [
@@ -39,7 +42,7 @@ export default function ArticlePage() {
     {
       title: "تصميم أزياء الطيران في المملكة العربية السعودية",
       description: "نظرة شاملة على عالم تصميم أزياء الطيران في المملكة وكيف تجمع بين الهوية الوطنية والمعايير العالمية",
-      image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation-Saudi",
       date: "٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -47,7 +50,7 @@ export default function ArticlePage() {
     {
       title: "الابتكار في تصميم أزياء الطيران",
       description: "استكشاف أحدث التوجهات والابتكارات في عالم تصميم أزياء الطيران",
-      image: "/images/flight_crew/innovative_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation",
       date: "١٢ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -55,7 +58,7 @@ export default function ArticlePage() {
     {
       title: "زي الطيران وهوية الشركة المؤسسية",
       description: "تأثير تصميم زي طاقم الطيران على هوية الشركة المؤسسية وانطباع العملاء",
-      image: "/images/flight_crew/airline_corporate_identity.jpeg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/airline-corporate-identity-uniforms",
       date: "٢٠ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -195,7 +198,7 @@ export default function ArticlePage() {
               
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/airline_identity_elements.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
                   alt="عناصر الهوية في زي الطيران"
                   fill
                   style={{ objectFit: 'cover' }}

@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشف المواصفات والرموز المميزة للزي الرسمي لطياري وقائدي الطائرات، وتاريخه وتطوره، وأهميته في هرمية الطيران والسلامة والهوية المؤسسية.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/pilot_attendant_uniforms.jpeg';
   const title = 'الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز';

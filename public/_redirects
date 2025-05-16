@@ -2,4 +2,15 @@
 # Handle SPA routing for Next.js
 # These rules will ensure that routes like /blog work properly
 
-/*    /index.html   200 
+# Redirect default Netlify subdomain to primary domain
+https://uniform-blogs.netlify.app/* https://uniform-blogs.com/:splat 301!
+
+# Handle trailing slashes consistently
+/*/ /:splat 301
+
+# Redirect old blog URLs if needed
+/blog/old-post /blog/new-post 301
+/articles/* /blog/:splat 301
+
+# SPA fallback for client-side routing
+/* /index.html 200 

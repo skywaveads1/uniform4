@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "تصميم أزياء الطيران في المملكة العربية السعودية",
       description: "نظرة شاملة على عالم تصميم أزياء الطيران في المملكة وكيف تجمع بين الهوية الوطنية والمعايير العالمية",
-      image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation-Saudi",
       date: "٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "أساسيات تصميم أزياء الطيران",
       description: "دليل شامل للمبادئ والأسس المهمة في تصميم أزياء الطيران",
-      image: "/images/flight_crew/aviation_design_basics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/aviation",
       date: "٧ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "الابتكار في تصميم أزياء الطيران",
       description: "استكشاف أحدث التوجهات والابتكارات في عالم تصميم أزياء الطيران",
-      image: "/images/flight_crew/innovative_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation",
       date: "١٢ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="رحلة تاريخية عبر الزمن لاستكشاف تطور زي طاقم الطائرة، والعوامل التي أثرت في تصميمه، وكيف عكس كل عصر قيمه واحتياجاته من خلال هذه الأزياء المميزة."
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/uniform_evolution_timeline.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="١٨ مايو ٢٠٢٤"
       readTime="١٥ دقيقة للقراءة"
       authorName="فريق يونيفورم"
@@ -94,7 +94,7 @@ export default function Page() {
         </BulletList>
         
         <ArticleImage 
-          src="/images/flight_crew/early_aviation_uniforms.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="زي الطيران في الثلاثينيات"
           caption="المضيفات الأوائل بزي يشبه زي الممرضات في ثلاثينيات القرن العشرين"
           source="أرشيف تاريخ الطيران الأمريكي"
@@ -186,7 +186,7 @@ export default function Page() {
         </BulletList>
         
         <ArticleImage 
-          src="/images/flight_crew/nineties_millenium_uniforms.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="أزياء الطيران في التسعينيات"
           caption="تصاميم أزياء الطيران في فترة التسعينيات التي جمعت بين الكلاسيكية والحداثة"
           source="مجلة تصميم الأزياء الموحدة"

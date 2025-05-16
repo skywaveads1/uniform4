@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaClock } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
   title: 'زي موحد لطواقم التدريب والمحاكاة في أكاديميات الطيران السعودية',
@@ -10,7 +11,7 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_training.jpeg';
+  const imageSrc = '/images/flight_crew/flight-22.jpeg';
   const title = 'زي موحد لطواقم التدريب والمحاكاة في أكاديميات الطيران السعودية';
   const readingTime = '8 دقائق';
   const datePublished = '٢٢ مايو ٢٠٢٣';
@@ -113,22 +114,36 @@ export default function ArticlePage() {
               </div>
             )}
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-              <p className="mb-4">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="تدريب الطيارين في محاكي الطيران"
+                caption="طواقم التدريب والمحاكاة في أكاديميات الطيران السعودية بالزي الموحد"
+              />
+              
+              <p className="mb-4 leading-7 text-gray-700">
                 تعتبر أكاديميات الطيران في المملكة العربية السعودية مراكز حيوية لإعداد الكوادر الوطنية المؤهلة للعمل في قطاع الطيران المتنامي. وفي سياق التدريب على مهارات الطيران والخدمة الجوية، تلعب المحاكاة دوراً محورياً في إعداد المتدربين للواقع العملي قبل الانخراط الفعلي في العمل على متن الطائرات.
               </p>
-              <p className="mb-4">
+              <p className="mb-4 leading-7 text-gray-700">
                 الزي الموحد لطواقم التدريب والمحاكاة في هذه الأكاديميات ليس مجرد عنصر شكلي، بل هو جزء أساسي من العملية التعليمية. فهو يساهم في خلق بيئة تدريب واقعية، ويساعد المتدربين على استيعاب الهوية المهنية وثقافة الطيران، ويعزز الانضباط والالتزام بالمعايير المهنية العالية التي تميز قطاع الطيران.
               </p>
-              <p className="mb-4">
+              <p className="mb-4 leading-7 text-gray-700">
                 في هذا المقال، نتناول بالتفصيل خصائص الزي الموحد لطواقم التدريب والمحاكاة في أكاديميات الطيران السعودية، ودوره في العملية التعليمية، والتحديات التي تواجه تصميمه وإدارته، والمعايير التي تحكم اختياره، وأثره على تجربة التدريب وإعداد الكوادر المستقبلية لصناعة الطيران السعودية.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">أهمية الزي في بيئة التدريب والمحاكاة</h2>
+            <section id="importance" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">أهمية الزي الموحد في بيئة التدريب</h2>
               
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أهمية الزي الموحد في التدريب"
+                caption="الزي الموحد يعزز الواقعية ويرسخ المهنية في بيئة التدريب"
+              />
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
               <h3 className="text-xl font-medium mt-6 mb-3">تعزيز الواقعية في التدريب</h3>
               <p className="mb-4">
                 دور الزي في محاكاة البيئة الحقيقية:
@@ -161,88 +176,19 @@ export default function ArticlePage() {
                 <li className="mb-2">خلق صورة احترافية موحدة في جميع مرافق التدريب</li>
                 <li className="mb-2">تأصيل ثقافة الالتزام بالمعايير المظهرية العالمية في قطاع الطيران</li>
               </ol>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">خصائص زي المتدربين في أكاديميات الطيران السعودية</h2>
+            <section id="design-specs" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مواصفات تصميم الزي الموحد لطواقم التدريب</h2>
               
-              <h3 className="text-xl font-medium mt-6 mb-3">مواصفات زي متدربي قيادة الطائرات</h3>
-              <p className="mb-4">
-                الخصائص المميزة لزي طلاب الطيران:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">قمصان رسمية بيضاء أو زرقاء فاتحة مع أربطة عنق دقيقة النقش</li>
-                <li className="mb-2">بنطلونات بحبكة مناسبة باللون الكحلي أو الأسود</li>
-                <li className="mb-2">سترات (بليزر) بلون موحد تحمل شعار الأكاديمية</li>
-                <li className="mb-2">شارات الرتبة التدريبية على الأكتاف تشير إلى مستوى التقدم في البرنامج</li>
-                <li className="mb-2">حزام أسود جلدي ذو إبزيم بسيط غير مزخرف</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">مواصفات زي متدربي الضيافة الجوية</h3>
-              <p className="mb-4">
-                عناصر زي المضيفين والمضيفات المتدربين:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">بدلات تشبه الزي الرسمي لمضيفي الخطوط السعودية مع تعديلات بسيطة</li>
-                <li className="mb-2">للإناث: تنورة بطول مناسب أو بنطلون، بلوزة بلون متناسق، وشاح بألوان الأكاديمية</li>
-                <li className="mb-2">للذكور: بنطلون وقميص وسترة مع ربطة عنق تحمل ألوان الأكاديمية</li>
-                <li className="mb-2">شارات تعريفية توضح الاسم والمرحلة التدريبية</li>
-                <li className="mb-2">قواعد صارمة للشعر والمكياج والإكسسوارات تحاكي متطلبات الطيران الفعلي</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">مواصفات زي مدربي المحاكاة والتدريب العملي</h3>
-              <p className="mb-4">
-                الزي الرسمي للكادر التدريبي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">مدربو الطيران: زي مشابه لزي الطيارين المهنيين مع شارات توضح الرتبة والخبرة</li>
-                <li className="mb-2">مدربو الضيافة الجوية: زي رسمي مهني يميزهم عن المتدربين ويعكس خبرتهم</li>
-                <li className="mb-2">الفنيون: ملابس عملية تناسب طبيعة التدريب الفني مع تمييز للدور الإشرافي</li>
-                <li className="mb-2">شارات وعلامات مميزة توضح اختصاص المدرب ومجاله (طيران، أمان، خدمة)</li>
-                <li className="mb-2">مستوى أعلى من الرسمية والتميز لتعزيز الهيبة المهنية أمام المتدربين</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">أنواع الزي حسب مرافق التدريب المختلفة</h2>
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="مواصفات زي طواقم التدريب"
+                caption="المواصفات الدقيقة لزي طواقم التدريب تجمع بين الوظيفية والأناقة"
+              />
               
-              <h3 className="text-xl font-medium mt-6 mb-3">زي التدريب في أجهزة المحاكاة</h3>
-              <p className="mb-4">
-                متطلبات خاصة لبيئة محاكيات الطيران:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">زي رسمي كامل مشابه للزي العملي على متن الطائرات الحقيقية</li>
-                <li className="mb-2">مراعاة الراحة والحركة في تصميم الزي للجلسات الطويلة في المحاكي</li>
-                <li className="mb-2">قواعد صارمة تحاكي الطيران الفعلي من حيث الالتزام والانضباط</li>
-                <li className="mb-2">توفير ملحقات مثل سماعات الرأس وبطاقات الهوية تمامًا كما في الواقع</li>
-              </ol>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">زي التدريب في النماذج المجسمة للطائرات</h3>
-              <p className="mb-4">
-                خصائص الزي في بيئة التدريب العملي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">زي عملي يسمح بحرية الحركة أثناء تدريبات السلامة والإخلاء</li>
-                <li className="mb-2">أحذية مناسبة للتحرك السريع والآمن داخل نماذج الطائرات</li>
-                <li className="mb-2">إضافة عناصر مثل سترات النجاة عند التدريب على إجراءات الطوارئ</li>
-                <li className="mb-2">تمييز واضح بين أدوار المتدربين أثناء تمارين المحاكاة (طاقم، ركاب)</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">زي القاعات الدراسية النظرية</h3>
-              <p className="mb-4">
-                معايير الزي في بيئة التعليم النظري:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">مستوى أقل رسمية مع الحفاظ على الهوية المهنية والانضباط</li>
-                <li className="mb-2">إمكانية الاكتفاء بجزء من الزي الرسمي (مثل القميص والبنطلون دون السترة)</li>
-                <li className="mb-2">التركيز على النظافة والترتيب العام دون التشدد في كل التفاصيل</li>
-                <li className="mb-2">مرونة أكبر في الإكسسوارات والمظهر العام مقارنة بالتدريب العملي</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">معايير التصميم والإنتاج</h2>
-              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
               <h3 className="text-xl font-medium mt-6 mb-3">الموازنة بين التشابه مع الزي المهني والتمييز التعليمي</h3>
               <p className="mb-4">
                 تحقيق التوازن بين المحاكاة والتمييز:
@@ -253,7 +199,9 @@ export default function ArticlePage() {
                 <li className="mb-2">شارات وعلامات مميزة توضح الوضع التدريبي وليس المهني</li>
                 <li className="mb-2">معايير جودة عالية مع مراعاة الاستخدام التدريبي والتكلفة المناسبة</li>
               </ul>
+              </div>
 
+              <div className="bg-white p-5 rounded-lg border border-gray-200 mb-6">
               <h3 className="text-xl font-medium mt-6 mb-3">مواصفات الخامات والمتانة</h3>
               <p className="mb-4">
                 اختيار المواد المناسبة لبيئة التدريب:
@@ -264,7 +212,9 @@ export default function ArticlePage() {
                 <li className="mb-2">مواد سهلة العناية والتنظيف تحافظ على مظهرها لفترة طويلة</li>
                 <li className="mb-2">مراعاة المناخ السعودي في اختيار الأقمشة المناسبة من حيث الحرارة والتهوية</li>
               </ol>
+              </div>
 
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
               <h3 className="text-xl font-medium mt-6 mb-3">الاعتبارات الثقافية والمحلية</h3>
               <p className="mb-4">
                 تصميم يراعي السياق السعودي:
@@ -275,167 +225,7 @@ export default function ArticlePage() {
                 <li className="mb-2">دمج عناصر من التراث السعودي في بعض تفاصيل الزي مثل النقوش والألوان</li>
                 <li className="mb-2">التوفيق بين المعايير العالمية للطيران والخصوصية الثقافية المحلية</li>
               </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">إدارة منظومة الزي التدريبي</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">سياسات توفير وتوزيع الزي</h3>
-              <p className="mb-4">
-                أنظمة إدارة الزي الموحد:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">نماذج مختلفة: توفير الزي من قبل الأكاديمية أو تحمل المتدرب للتكلفة</li>
-                <li className="mb-2">أنظمة الحصص وعدد القطع المخصصة لكل متدرب خلال فترة التدريب</li>
-                <li className="mb-2">آليات الصيانة والاستبدال للقطع التالفة أو المتضررة</li>
-                <li className="mb-2">إجراءات تسليم واستلام الزي عند بداية ونهاية البرنامج التدريبي</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">قواعد الالتزام والإنفاذ</h3>
-              <p className="mb-4">
-                الضوابط والمعايير السلوكية:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">قواعد مكتوبة واضحة حول معايير ارتداء الزي والمظهر العام</li>
-                <li className="mb-2">آلية التفتيش والإشراف على الالتزام بمعايير الزي</li>
-                <li className="mb-2">إجراءات تأديبية متدرجة للمخالفات المتعلقة بالزي</li>
-                <li className="mb-2">تضمين معايير الزي في تقييم المتدرب وتقدمه الأكاديمي</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">برامج التوعية والتثقيف</h3>
-              <p className="mb-4">
-                تعزيز فهم أهمية الزي:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">برامج تعريفية للمتدربين الجدد حول أهمية الزي في الطيران</li>
-                <li className="mb-2">دورات في الإتيكيت المهني والمظهر المناسب لمهن الطيران</li>
-                <li className="mb-2">ورش عملية حول العناية بالزي والحفاظ على المظهر الاحترافي</li>
-                <li className="mb-2">مسابقات وحوافز للمتدربين الملتزمين بأعلى معايير المظهر</li>
-              </ol>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات وحلول</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">التحديات الاقتصادية والإدارية</h3>
-              <p className="mb-4">
-                صعوبات إدارة منظومة الزي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">ارتفاع تكلفة توفير زي عالي الجودة لعدد كبير من المتدربين</li>
-                <li className="mb-2">تحديات إدارة المخزون وتوفير مقاسات متنوعة لجميع المتدربين</li>
-                <li className="mb-2">التعامل مع التلف السريع بسبب الاستخدام المكثف في بيئة التدريب</li>
-                <li className="mb-2">موازنة الميزانية بين جودة الزي ومتطلبات أخرى للبرامج التدريبية</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">الحلول المبتكرة والممارسات الناجحة</h3>
-              <p className="mb-4">
-                استراتيجيات للتغلب على التحديات:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">شراكات مع مصنعي الأزياء المحليين لتوفير الزي بتكلفة مناسبة</li>
-                <li className="mb-2">نظام مختلط بين توفير بعض القطع الأساسية وتحميل المتدرب تكلفة قطع أخرى</li>
-                <li className="mb-2">استحداث نظام إعادة تدوير الزي بين الدفعات المختلفة مع ضمان الجودة</li>
-                <li className="mb-2">الاستفادة من التكنولوجيا في إدارة المخزون ونظام القياسات</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين التقاليد والاحتياجات الجديدة</h3>
-              <p className="mb-4">
-                مواكبة التغيرات:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">مواءمة تصميم الزي مع التطورات في صناعة الطيران العالمية</li>
-                <li className="mb-2">تكييف الزي لاستيعاب المتغيرات الاجتماعية مثل زيادة مشاركة المرأة</li>
-                <li className="mb-2">تطوير الزي ليواكب تقنيات التدريب الحديثة والمحاكاة المتطورة</li>
-                <li className="mb-2">تحديث منتظم للزي يحافظ على التوازن بين الهوية التقليدية والتطور المعاصر</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">نماذج ناجحة في أكاديميات الطيران السعودية</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">أكاديمية أوكسفورد للطيران - السعودية</h3>
-              <p className="mb-4">
-                تجربة متميزة في زي التدريب:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تصميم زي يجمع بين المعايير البريطانية العريقة والخصوصية السعودية</li>
-                <li className="mb-2">نظام متكامل للزي يتدرج مع تقدم المتدرب في المستويات المختلفة</li>
-                <li className="mb-2">استخدام شارات ورموز مميزة تعكس التحالف الأكاديمي الدولي</li>
-                <li className="mb-2">نظام فعال لإدارة الزي وضمان الالتزام بأعلى المعايير</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">أكاديمية الخطوط السعودية للطيران</h3>
-              <p className="mb-4">
-                الهوية الوطنية في التدريب:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">زي تدريبي مستوحى مباشرة من الزي الرسمي للخطوط السعودية</li>
-                <li className="mb-2">تمييز واضح بين المراحل التدريبية المختلفة عبر تغييرات محددة في الزي</li>
-                <li className="mb-2">نظام متكامل يشمل القاعات الدراسية، المحاكيات، والتدريب العملي</li>
-                <li className="mb-2">تصميم متطور يعكس التوجه المستقبلي لتحديث أسطول وخدمات الخطوط السعودية</li>
-              </ol>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">كلية الأمير سلطان للطيران</h3>
-              <p className="mb-4">
-                الجمع بين العسكري والمدني:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">زي يعكس الترابط بين الطيران المدني والخلفية العسكرية للكلية</li>
-                <li className="mb-2">نظام زي متكامل يعتمد على الانضباط والدقة العسكرية</li>
-                <li className="mb-2">استخدام العناصر التراثية السعودية في بعض مكونات الزي التدريبي</li>
-                <li className="mb-2">تصميم يراعي احتياجات الخريجين للعمل في مختلف قطاعات الطيران بالمملكة</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">مستقبل الزي في أكاديميات الطيران السعودية</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">تأثير رؤية 2030 على تطوير زي التدريب</h3>
-              <p className="mb-4">
-                الزي كعنصر في تحقيق الرؤية:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">زي يعكس طموح المملكة لتكون مركزاً عالمياً للطيران والنقل الجوي</li>
-                <li className="mb-2">تصاميم تعكس القيم الأصيلة مع الانفتاح على التطور العالمي</li>
-                <li className="mb-2">توطين صناعة أزياء الطيران التدريبية لدعم الاقتصاد المحلي</li>
-                <li className="mb-2">تطوير الزي بما يواكب الاستثمارات الضخمة في قطاع الطيران السعودي</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">التقنيات الحديثة في تصميم وإدارة الزي</h3>
-              <p className="mb-4">
-                الابتكارات التكنولوجية:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">استخدام تقنيات المسح ثلاثي الأبعاد لتوفير مقاسات دقيقة ومخصصة</li>
-                <li className="mb-2">أقمشة ذكية تتكيف مع حرارة الجسم والظروف المحيطة</li>
-                <li className="mb-2">أنظمة رقمية متطورة لإدارة مخزون الزي وصيانته</li>
-                <li className="mb-2">التصنيع حسب الطلب باستخدام التقنيات الحديثة لتقليل الهدر وخفض التكلفة</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">التكامل بين برامج التدريب وتصميم الزي</h3>
-              <p className="mb-4">
-                الزي كجزء من المنظومة التعليمية:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تطوير زي يتكامل مع تقنيات التدريب المتقدمة والواقع المعزز</li>
-                <li className="mb-2">تصميم عناصر في الزي تتفاعل مع أنظمة المحاكاة لتحسين تجربة التدريب</li>
-                <li className="mb-2">زي متعدد الوظائف يتكيف مع مختلف سيناريوهات التدريب</li>
-                <li className="mb-2">تطوير نظام تعليمي متكامل يشمل الزي كعنصر أساسي في بناء المهارات</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-              <p className="mb-4">
-                يمثل الزي الموحد لطواقم التدريب والمحاكاة في أكاديميات الطيران السعودية عنصراً أساسياً في إعداد جيل جديد من المهنيين في قطاع الطيران. فهو ليس مجرد ملابس يرتديها المتدربون، بل هو أداة تعليمية قوية تسهم في تعزيز الواقعية والمهنية، وتغرس قيم الانضباط والدقة، وتهيئ المتدربين نفسياً وسلوكياً للدخول إلى عالم الطيران الحقيقي.
-              </p>
-              <p className="mb-4">
-                مع نمو وتطور قطاع الطيران في المملكة العربية السعودية تماشياً مع رؤية 2030، تبرز أهمية تطوير منظومة الزي التدريبي لتواكب هذا النمو وتسهم في تحقيق أهدافه. ويتطلب ذلك تحقيق توازن دقيق بين المعايير العالمية والهوية المحلية، والجمع بين الأصالة والمعاصرة، وتوظيف التقنيات الحديثة مع الحفاظ على القيم المهنية الراسخة.
-              </p>
-              <p className="mb-4">
-                إن الاستثمار في تطوير زي تدريبي متميز لأكاديميات الطيران السعودية سيسهم حتماً في تعزيز جودة التدريب، ورفع مستوى الخريجين، وتحسين الصورة العامة لقطاع الطيران السعودي محلياً وعالمياً. وستظل هذه الأزياء شاهدة على رحلة التحول والتطور التي تمر بها المملكة في مختلف المجالات، ومن بينها صناعة الطيران التي تعد من الركائز الأساسية للاقتصاد المستقبلي.
-              </p>
+              </div>
             </section>
           </article>
         </div>

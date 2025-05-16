@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "دور أوشحة ولفحات الرقبة في استكمال زي مضيفات الطيران",
       description: "استكشاف أهمية الأوشحة ولفحات الرقبة في زي مضيفات الطيران، تاريخها، تصاميمها، وكيفية اختيارها بشكل يعكس هوية شركة الطيران",
-      image: "/images/flight_crew/aviation_scarves.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-6",
       date: "٢٣ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "الراحة والسلامة في أزياء طاقم الطيران",
       description: "كيفية تحقيق التوازن بين الراحة والسلامة في تصميم أزياء طاقم الطيران، مع مراعاة متطلبات العمل وظروف الطيران المختلفة",
-      image: "/images/flight_crew/comfort_safety_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/flight-crew/comfort-safety-airline-uniforms",
       date: "١٨ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
       description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="دليل شامل حول متطلبات ومعايير السلامة والأمان الواجب توافرها في تصميم ملابس طاقم الطائرة وفقاً للمعايير العالمية وتشريعات الطيران المدني"
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/safety_requirements.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="٢٥ مايو ٢٠٢٤"
       readTime="١٣ دقيقة للقراءة"
       authorName="فريق يونيفورم"
@@ -73,7 +73,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/cabin_crew_safety_demo.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="طاقم الطائرة أثناء عرض إجراءات السلامة"
           caption="يرتدي طاقم الطائرة ملابس مصممة لتلبية متطلبات السلامة الصارمة في بيئة الطيران"
           source="الاتحاد الدولي للنقل الجوي (IATA)"

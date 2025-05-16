@@ -6,6 +6,9 @@ export const metadata = {
   description: 'نظرة استشرافية على مستقبل معايير أزياء الطيران في 2025، من التقنيات المتطورة والمواد المستدامة إلى المتطلبات التنظيمية الجديدة والتوجهات التصميمية.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/aviation_uniform_2025.jpeg';
   const title = 'معايير أزياء الطيران 2025: أحدث التوجهات والمواصفات';

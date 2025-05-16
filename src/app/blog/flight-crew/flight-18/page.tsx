@@ -1,358 +1,458 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'الفرق بين زي الطيران للرحلات الداخلية والدولية',
-  description: 'تحليل مقارن للفروق بين زي طاقم الطيران في الرحلات الداخلية والدولية من حيث التصميم والوظيفة والمتطلبات',
+  title: 'الإكسسوارات المكملة لزي طاقم الطيران',
+  description: 'دليل شامل للإكسسوارات المكملة لزي طاقم الطائرة، من الشارات والأوشحة إلى الحقائب والأحذية، ودورها في تعزيز المظهر المهني وإكمال الهوية البصرية.',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/cabin_crew_uniforms.jpeg';
-  const title = 'الفرق بين زي الطيران للرحلات الداخلية والدولية';
+  const imageSrc = '/images/flight_crew/flight_crew_scarves.jpeg';
+  const title = 'الإكسسوارات المكملة لزي طاقم الطيران';
+  const readingTime = '7 دقائق';
+  const datePublished = '٣٠ يوليو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'badges-pins', title: 'الشارات والدبابيس الرسمية' },
+    { id: 'scarves-ties', title: 'الأوشحة وربطات العنق' },
+    { id: 'footwear', title: 'الأحذية المهنية' },
+    { id: 'bags-luggage', title: 'الحقائب وأمتعة السفر' },
+    { id: 'watches-jewelry', title: 'الساعات والمجوهرات المسموح بها' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            عندما نتحدث عن زي طاقم الطيران، غالباً ما يتجه الاهتمام نحو البدلات والقمصان والتنانير، لكن هناك عنصراً لا يقل أهمية وهو الإكسسوارات المكملة للزي. فالحقائب والأحذية والساعات وغيرها من القطع الصغيرة ليست مجرد إضافات جمالية، بل هي أدوات عملية ضرورية تسهم في تكوين المظهر الاحترافي المتكامل لطاقم الطيران.
-          </p>
-          <p className="mb-4">
-            تلعب هذه الإكسسوارات دوراً مزدوجاً: فهي تعزز الهوية البصرية لشركة الطيران وتعكس علامتها التجارية، كما أنها توفر الراحة والوظيفية اللازمة لطاقم يعمل ساعات طويلة في ظروف متغيرة. والأهم من ذلك، أن هذه الإكسسوارات قد تكون حاسمة في المواقف المتعلقة بالسلامة والأمان على متن الطائرة.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستكشف الإكسسوارات الأساسية لزي طاقم الطيران، ابتداءً من الأحذية التي يجب أن تجمع بين الأناقة والراحة، مروراً بالحقائب العملية التي تحمل المستلزمات الضرورية، وصولاً إلى الساعات والمجوهرات التي تخضع لمعايير صارمة. كما نتناول التحديات المرتبطة باختيار هذه الإكسسوارات والعوامل التي تؤثر في تصميمها، والاتجاهات المستقبلية في هذا المجال المتطور باستمرار.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-8" className="text-sm hover:text-blue-600 block">
+                    دور الأزياء في تعزيز الحضور المهني لطاقم الطائرة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-17" className="text-sm hover:text-blue-600 block">
+                    الصيانة والعناية الصحيحة بزي طاقم الطائرة
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="إكسسوارات مكملة لزي طاقم الطيران"
+                caption="الإكسسوارات المختلفة التي تكمل زي طاقم الطيران وتعزز الهوية المؤسسية"
+              />
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                عندما نفكر في زي طاقم الطائرة، غالباً ما يتبادر إلى أذهاننا البدلات الأنيقة والتنانير المصممة بعناية والقمصان ذات الألوان المميزة. لكن ما يغيب عن الأنظار أحياناً هو الدور الحاسم الذي تلعبه الإكسسوارات في إكمال هذا المظهر المهني وتعزيز الهوية البصرية لشركات الطيران.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                الإكسسوارات ليست مجرد إضافات ثانوية للزي، بل هي عناصر أساسية تحمل دلالات وظيفية ورمزية، وتسهم بشكل كبير في تحديد الرتب والمسؤوليات، وتضفي لمسة من التميز والأناقة، وتعكس هوية العلامة التجارية لشركة الطيران. من الشارات والدبابيس التي تشير إلى سنوات الخبرة والتخصص، إلى الأوشحة وربطات العنق التي تعزز الألوان الرسمية للشركة، وصولاً إلى الأحذية والحقائب والساعات التي تكمل المظهر المهني المتكامل.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستكشف عالم الإكسسوارات المكملة لزي طاقم الطائرة، ونتعرف على أنواعها المختلفة ووظائفها العملية ودلالاتها الرمزية. كما نلقي الضوء على معايير اختيارها، والتوازن بين الجانب الجمالي والجانب الوظيفي، والتحديات التي تواجه تصميمها وتطويرها في عالم الطيران المعاصر. ونستعرض أيضاً كيف تختلف هذه الإكسسوارات بين شركات الطيران المختلفة، وكيف تعكس هوية وثقافة كل شركة.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الأحذية: حيث تلتقي الراحة بالأناقة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير اختيار أحذية طاقم الطيران</h3>
-          <p className="mb-4">
-            خصائص أساسية لا يمكن التنازل عنها:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الراحة: قدرة على تحمل الوقوف والمشي لساعات طويلة</li>
-            <li className="mb-2">الثبات: تصميم يمنع الانزلاق على الأسطح المختلفة</li>
-            <li className="mb-2">الوزن الخفيف: لتقليل الإجهاد خلال نوبات العمل الطويلة</li>
-            <li className="mb-2">التهوية: للتعامل مع تغير الضغط الجوي وطول فترة الارتداء</li>
-            <li className="mb-2">المتانة: القدرة على تحمل الاستخدام المكثف والمستمر</li>
+            <section id="badges-pins" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الشارات والدبابيس الرسمية</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="شارات ودبابيس طاقم الطيران"
+                caption="الشارات والدبابيس تعكس الرتبة والخبرة والإنجازات المهنية"
+              />
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">رموز الهوية والمكانة</h3>
+                <p className="mb-2 font-medium text-blue-700">الوظائف الأساسية للشارات في الطيران:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>تحديد الرتبة والمنصب ضمن التسلسل الهرمي للطاقم (كابتن، طيار مساعد، كبير المضيفين)</li>
+                  <li>عرض الخبرة ومدة الخدمة من خلال علامات أو نجوم تشير إلى سنوات العمل</li>
+                  <li>تعريف المسافرين بهوية أفراد الطاقم وأدوارهم الوظيفية</li>
+                  <li>تمثيل هوية شركة الطيران من خلال الشعار الرسمي وألوان العلامة التجارية</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">فروقات أحذية المضيفين والمضيفات</h3>
-          <p className="mb-4">
-            تصاميم تراعي الاحتياجات المختلفة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أحذية المضيفات: عادة تكون بكعب متوسط (٢-٥ سم) مع تصميم مغلق</li>
-            <li className="mb-2">أحذية المضيفين: غالباً ما تكون كلاسيكية مسطحة ذات رباط</li>
-            <li className="mb-2">الخيارات المتزايدة للأحذية المسطحة للمضيفات في بعض شركات الطيران</li>
-            <li className="mb-2">مواصفات طبية خاصة للحد من مشكلات الدورة الدموية خلال الرحلات الطويلة</li>
-            <li className="mb-2">تباين المعايير بين الرحلات القصيرة والطويلة المدى</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد والتقنيات الحديثة في صناعة الأحذية</h3>
-          <p className="mb-4">
-            ابتكارات لتحسين الأداء والراحة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">نعال مبطنة بتقنية امتصاص الصدمات (Memory Foam) لراحة قصوى</li>
-            <li className="mb-2">جلود قابلة للتنفس مع معالجات مضادة للبكتيريا</li>
-            <li className="mb-2">تقنيات تثبيت الكاحل مع الحفاظ على خفة الوزن</li>
-            <li className="mb-2">مواد مرنة تتكيف مع حركة القدم وتغير حجمها خلال الرحلة</li>
-            <li className="mb-2">معالجات مقاومة للماء والبقع تسهل العناية بالأحذية</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">أنواع الشارات في الطيران</h3>
+                  <p className="mb-2 text-gray-700">تصنيف بحسب الوظيفة والموقع:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>شارات الكتف (أشرطة الأكتاف): تشير إلى رتبة الطيارين وكبار الطاقم</li>
+                    <li>شارات الصدر: تحمل الاسم والمنصب وشعار الشركة</li>
+                    <li>دبابيس الخدمة: تمثل سنوات الخبرة أو الإنجازات الاستثنائية</li>
+                    <li>شارات الجناح: ترمز للطيارين والمضيفين، غالباً ما تكون مصنوعة من المعدن</li>
           </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">المواد والتصاميم</h3>
+                  <p className="mb-2 text-gray-700">جودة الصنع والمظهر:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>المعادن الفاخرة: الفضة، النحاس المطلي بالذهب، النيكل كروم للشارات الدائمة</li>
+                    <li>المينا (Enamel): لإضافة ألوان زاهية وتفاصيل دقيقة إلى الشعارات</li>
+                    <li>التطريز الدقيق: للشارات القماشية على الأكتاف والأكمام</li>
+                    <li>تقنيات النقش والحفر: لإضافة الأسماء والتواريخ والتفاصيل الشخصية</li>
+                  </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير السلامة والأمان</h3>
-          <p className="mb-4">
-            الجوانب الوظيفية الحاسمة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نعال مقاومة للانزلاق لضمان الثبات أثناء الاضطرابات الجوية</li>
-            <li className="mb-2">ارتفاع كعب محدد لتوفير التوازن في حالات الطوارئ</li>
-            <li className="mb-2">تجنب المعادن الثقيلة لتسهيل إجراءات الأمن والتفتيش</li>
-            <li className="mb-2">مواصفات خاصة لعمليات الإخلاء في حالات الطوارئ</li>
-            <li className="mb-2">قدرة على الحماية من الحرارة والمواد المنسكبة</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاختلافات بين شركات الطيران</h3>
+                <p className="mb-2 text-gray-700">تنوع ثقافي وتمييز تجاري:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تصاميم مستوحاة من التراث: استخدام رموز ثقافية محلية (مثل الصقر في الخليج العربي)</li>
+                  <li>نظام الألوان: استخدام الألوان الوطنية أو ألوان العلامة التجارية في الشارات</li>
+                  <li>التفاصيل التقليدية مقابل المعاصرة: تعكس موقع الشركة على طيف التقليد والحداثة</li>
+                  <li>مستوى الفخامة: شارات أكثر تفصيلاً وثراءً في شركات الطيران الفاخرة</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الحقائب: الجمع بين الوظيفة والهوية البصرية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">أنواع الحقائب الضرورية لطاقم الطيران</h3>
-          <p className="mb-4">
-            الحقائب المختلفة ووظائفها:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">حقيبة الملابس (Garment Bag): لحمل الزي الرسمي وحمايته من التجعد</li>
-            <li className="mb-2">حقيبة السحب (Trolley): لحمل المتعلقات الشخصية خلال الرحلات</li>
-            <li className="mb-2">حقيبة الطاقم الصغيرة (Crew Bag): لحمل الأدوات الضرورية أثناء الخدمة</li>
-            <li className="mb-2">محفظة المستندات (Document Wallet): لحمل الوثائق الرسمية وأوراق الرحلة</li>
-            <li className="mb-2">حقيبة الطوارئ الشخصية (Emergency Kit): لبعض أفراد الطاقم حسب دورهم</li>
+            <section id="scarves-ties" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأوشحة وربطات العنق</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أوشحة وربطات عنق لطاقم الطيران"
+                caption="الأوشحة وربطات العنق تضيف لمسة من الأناقة واللون للزي الرسمي"
+              />
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">رمز الأناقة والهوية البصرية</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">الدور الاستراتيجي في الزي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تمثل نقطة تركيز بصرية تلفت الانتباه وتستخدم لإبراز ألوان الشركة</li>
+                    <li>تضفي لمسة من الأناقة والاكتمال على المظهر العام للزي</li>
+                    <li>تعزز تمييز الهوية البصرية للشركة من خلال النقوش والتصاميم الحصرية</li>
+                    <li>تتيح تنويعاً موسمياً أو ربطاً بمناسبات خاصة دون تغيير الزي الأساسي بالكامل</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المعايير التصميمية للحقائب المهنية</h3>
-          <p className="mb-4">
-            خصائص تميز حقائب الطاقم:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">المتانة العالية لتحمل الاستخدام المكثف ونقل الأمتعة المتكرر</li>
-            <li className="mb-2">التنظيم الداخلي المدروس مع جيوب متخصصة للمعدات المختلفة</li>
-            <li className="mb-2">خفة الوزن مع حجم يتوافق مع قيود المقصورة وحدود الوزن</li>
-            <li className="mb-2">عناصر الهوية البصرية المميزة (الألوان، الشعارات) لشركة الطيران</li>
-            <li className="mb-2">أنظمة حماية وأمان متطورة (أقفال TSA، مواد مقاومة للسرقة)</li>
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">النسيج والتصميم</h3>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">خصائص وميزات الاختيار:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>الحرير الطبيعي: يستخدم للأوشحة الفاخرة وربطات العنق الرسمية لمظهره الراقي</li>
+                  <li>الأقمشة الاصطناعية: تتميز بسهولة العناية والمتانة والمقاومة للتجعد في الرحلات الطويلة</li>
+                  <li>تقنيات الطباعة المتقدمة: تسمح بتصاميم معقدة ونقوش دقيقة تعكس رموز الشركة</li>
+                  <li>معالجات خاصة: مثل المقاومة للبقع والرطوبة لتناسب ظروف العمل على متن الطائرات</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الابتكارات التكنولوجية في حقائب الطاقم</h3>
-          <p className="mb-4">
-            التطورات الحديثة في تصميم الحقائب:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">مواد خفيفة فائقة المتانة مثل البوليكربونات والألياف الكربونية</li>
-            <li className="mb-2">أنظمة تتبع مدمجة تعمل بتقنية GPS لمنع فقدان الحقائب</li>
-            <li className="mb-2">منافذ شحن USB مدمجة لأجهزة الطاقم الإلكترونية</li>
-            <li className="mb-2">عجلات صامتة وسلسة الحركة ذات اتجاهات متعددة (360 درجة)</li>
-            <li className="mb-2">تقنيات مقاومة للماء والبقع وسهلة التنظيف بعد الرحلات</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاتجاهات الحديثة</h3>
+                <p className="mb-2 text-gray-700">تطورات معاصرة في التصميم:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>التعاون مع مصممي الأزياء: إبداعات حصرية من مصممين عالميين لبعض شركات الطيران الكبرى</li>
+                  <li>التركيز على القابلية للتبديل: مجموعات متنوعة من الأوشحة وربطات العنق يمكن تغييرها حسب المناسبة</li>
+                  <li>استخدام التقنيات التقليدية المحلية: مثل التطريز اليدوي لإبراز الهوية الثقافية</li>
+                  <li>أوشحة متعددة الاستخدامات: تصاميم مبتكرة يمكن ارتداؤها بطرق مختلفة للتنويع في المظهر</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">حقائب الطاقم كعنصر تسويقي</h3>
-          <p className="mb-4">
-            استغلال الحقائب في تعزيز العلامة التجارية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم حقائب تعكس هوية الشركة وتجذب انتباه المسافرين</li>
-            <li className="mb-2">شراكات مع علامات تجارية مرموقة لتصميم حقائب خاصة</li>
-            <li className="mb-2">إعادة تدوير مواد الطائرات القديمة في صناعة حقائب الطاقم</li>
-            <li className="mb-2">إصدارات محدودة للحقائب تحمل رموزاً مميزة (مثل الذكرى السنوية للشركة)</li>
-            <li className="mb-2">استخدام حقائب الطاقم في المواد الترويجية والإعلانية</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">أوشحة المضيفات</h3>
+                  <p className="mb-2 text-gray-700">عنصر مميز في الزي النسائي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تنوع طرق الارتداء: حول الرقبة، على الكتف، كحزام، أو كإضافة للسترة</li>
+                    <li>أحجام مختلفة: من الأوشحة الصغيرة إلى الشالات الكبيرة حسب التصميم والغرض</li>
+                    <li>رموز خاصة: نقوش وزخارف تحمل معاني ثقافية أو تاريخية مرتبطة بالشركة</li>
+                    <li>دور في تمييز الرتب: اختلافات في النقش أو اللون قد تشير إلى المستويات الوظيفية</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">ربطات العنق للطاقم الذكور</h3>
+                  <p className="mb-2 text-gray-700">تطور التصميم الكلاسيكي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أنماط الربط: تحديد ربطة العنق الرسمية أو الإتاحة للطاقم حرية اختيار طريقة الربط</li>
+                    <li>ربطات العنق الجاهزة: توفير البدائل العملية سهلة الارتداء للاستخدام اليومي</li>
+                    <li>العروات المغناطيسية أو القابلة للفصل: لأسباب تتعلق بالسلامة في بعض شركات الطيران</li>
+                    <li>التحول نحو التصاميم النحيفة: اعتماد ربطات العنق الأضيق تماشياً مع الاتجاهات المعاصرة</li>
           </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الساعات: دقة التوقيت وأناقة المظهر</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">أهمية الساعات في عمل طاقم الطيران</h3>
-          <p className="mb-4">
-            الدور الوظيفي للساعات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ضبط توقيت تقديم الوجبات والخدمات على متن الرحلة</li>
-            <li className="mb-2">متابعة أوقات الراحة والمناوبة للطاقم وفق لوائح السلامة</li>
-            <li className="mb-2">مزامنة العمليات بين أفراد الطاقم خلال الرحلة</li>
-            <li className="mb-2">التعامل مع اختلاف المناطق الزمنية والتوقيت العالمي المنسق</li>
-            <li className="mb-2">قياس فترات الطوارئ والإخلاء بدقة عند الحاجة</li>
+            <section id="footwear" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأحذية المهنية</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أحذية وحقائب طاقم الطيران"
+                caption="الأحذية والحقائب المصممة خصيصاً لتناسب احتياجات طاقم الطيران"
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التوازن بين الراحة والأناقة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">متطلبات أساسية:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تصميم يتحمل الوقوف والمشي لساعات طويلة دون التسبب بالإرهاق أو الألم</li>
+                      <li>دعم قوسي مناسب للقدم لمنع مشاكل الظهر والمفاصل على المدى الطويل</li>
+                      <li>خفة الوزن مع الحفاظ على المتانة والمظهر الأنيق</li>
+                      <li>سهولة التنظيف والعناية لضمان مظهر احترافي متواصل</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مواصفات الساعات المناسبة للطاقم</h3>
-          <p className="mb-4">
-            معايير اختيار ساعات الطيران:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">وضوح قراءة الوقت حتى في ظروف الإضاءة المنخفضة</li>
-            <li className="mb-2">القدرة على عرض توقيتين أو أكثر (GMT function)</li>
-            <li className="mb-2">متانة عالية تتحمل تغيرات الضغط الجوي والرطوبة</li>
-            <li className="mb-2">مقاومة للماء والسوائل المنسكبة أثناء الخدمة</li>
-            <li className="mb-2">حزام مريح قابل للتعديل وآمن أثناء الرحلة</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">معايير السلامة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">اشتراطات إلزامية:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>نعال غير قابلة للانزلاق للتعامل مع الحالات الطارئة وأسطح الطائرة المختلفة</li>
+                      <li>ارتفاع كعب معتدل (عادة أقل من 5 سم) للمضيفات لضمان الثبات والقدرة على الحركة السريعة</li>
+                      <li>تصميم يسمح بالخلع السريع في حالات الطوارئ المائية</li>
+                      <li>مواد مقاومة للحرارة والاشتعال في بعض الحالات لمتطلبات السلامة</li>
           </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">موازنة المعايير الجمالية والوظيفية</h3>
-          <p className="mb-4">
-            الجمع بين المظهر والأداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم أنيقة تتناسب مع الزي الرسمي دون أن تكون صارخة</li>
-            <li className="mb-2">الحجم المناسب: ساعات وسطية لا كبيرة جداً ولا صغيرة للغاية</li>
-            <li className="mb-2">ألوان محايدة (أسود، فضي، ذهبي) تتماشى مع مختلف عناصر الزي</li>
-            <li className="mb-2">درجة اللمعان: متوازنة بين الأناقة والمظهر المهني</li>
-            <li className="mb-2">سياسات شركات الطيران المختلفة حول تصميم الساعات المسموح به</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">أنواع الأحذية حسب الوظيفة</h3>
+                <p className="mb-2 text-gray-700">تصميمات متخصصة للأدوار المختلفة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>أحذية الطيارين: عادة تكون أحذية جلدية سوداء ذات رباط، تجمع بين الأناقة الرسمية والراحة</li>
+                  <li>أحذية المضيفات: أنيقة ذات كعب معتدل، متناغمة مع ألوان الزي، وغالباً ما تكون من الجلد الناعم</li>
+                  <li>أحذية المضيفين الذكور: أحذية رسمية كلاسيكية سهلة التلميع، مصممة للتنقل المستمر</li>
+                  <li>أحذية طاقم العمليات الأرضية: أكثر متانة ومقاومة للعوامل الجوية، مع وجود خيارات للحماية من الصدمات</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الساعات الذكية والتقنيات الجديدة</h3>
-          <p className="mb-4">
-            الاتجاه المتزايد نحو التكنولوجيا القابلة للارتداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تبني بعض شركات الطيران للساعات الذكية كجزء من معدات الطاقم</li>
-            <li className="mb-2">مزايا تتبع صحة الطاقم (نبض القلب، مستويات الأكسجين) في الارتفاعات العالية</li>
-            <li className="mb-2">تطبيقات خاصة بالطيران للساعات الذكية (تنبيهات الجدول، التواصل)</li>
-            <li className="mb-2">توازن بين فوائد الساعات الذكية ومخاوف الخصوصية والأمان</li>
-            <li className="mb-2">سياسات مختلفة بين شركات الطيران حول استخدام الساعات الذكية</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التكنولوجيا والابتكارات</h3>
+                <p className="mb-2 text-gray-700">تطورات حديثة في تصميم الأحذية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تقنيات تخفيف الصدمات: نعال مزودة بوسائد هوائية أو جل للتقليل من ضغط الوقوف الطويل</li>
+                  <li>مواد متطورة: استخدام البوليمرات الخفيفة وألياف الكربون لتقليل الوزن وزيادة المتانة</li>
+                  <li>بطانات مضادة للبكتيريا: تقليل الروائح وتعزيز النظافة خلال ساعات العمل الطويلة</li>
+                  <li>تصاميم قابلة للتهوية: للحفاظ على درجة حرارة القدم وتجنب التعرق المفرط</li>
+                  <li>نعال قابلة للتبديل: لتخصيص مستوى الدعم حسب احتياجات كل فرد</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">إكسسوارات أخرى ضرورية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الشارات والشعارات التعريفية</h3>
-          <p className="mb-4">
-            عناصر الهوية والرتبة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">بطاقات الهوية وشارات الاسم: تصميمها وموقعها على الزي</li>
-            <li className="mb-2">شارات الرتبة: التمييز بين مستويات الطاقم وأدوارهم</li>
-            <li className="mb-2">شعارات الخبرة والمهارات (مثل إتقان اللغات، الإسعافات الأولية)</li>
-            <li className="mb-2">دبابيس وشارات خاصة بالمناسبات أو الحملات التسويقية</li>
-            <li className="mb-2">تكنولوجيا NFC في بطاقات الهوية للوصول الآمن والتعريف</li>
+            <section id="bags-luggage" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الحقائب وأمتعة السفر</h2>
+              
+              <div className="overflow-hidden rounded-lg mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">الوظيفة والتصميم</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">الحقائب المهنية للطاقم:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>حقائب الطاقم الرسمية: مصممة بألوان وشعارات الشركة، تعزز الهوية المرئية الموحدة</li>
+                    <li>حقائب الوثائق والمستندات: لحفظ الأوراق الضرورية وأدلة السلامة والقوائم التشغيلية</li>
+                    <li>حقائب المعدات الشخصية: تحتوي على المستلزمات الضرورية للرحلات الطويلة والرحلات المتعددة</li>
+                    <li>حقائب الزي الرسمي: مصممة خصيصاً لحمل بدلات وأزياء الطاقم مع تقليل التجعد والطي</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">قطع الزي التكميلية</h3>
-          <p className="mb-4">
-            العناصر المكملة للمظهر الرسمي:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الوشاحات وربطات العنق: ألوانها ونقوشها ومعانيها</li>
-            <li className="mb-2">القفازات: متى تستخدم وأنواعها المختلفة</li>
-            <li className="mb-2">القبعات والطواقي: تصاميمها ودلالاتها الرمزية</li>
-            <li className="mb-2">الأحزمة: مواصفاتها من حيث العرض والمواد والألوان</li>
-            <li className="mb-2">الجوارب والكولونات: معايير اختيارها وألوانها المناسبة</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">خصائص ومتطلبات</h3>
+                <p className="mb-2 text-gray-700">مواصفات الجودة والمتانة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>مواد عالية التحمل: تقاوم الاستخدام المكثف والشحن المتكرر والتعامل القاسي</li>
+                  <li>عجلات فائقة الصلابة: تتحمل الحركة المستمرة على أسطح مختلفة</li>
+                  <li>مقابض قوية ومريحة: تسهل الحمل والسحب خلال التنقلات المتعددة</li>
+                  <li>تنظيم داخلي ذكي: حجرات وجيوب متخصصة للأغراض المختلفة</li>
+                  <li>أوزان خفيفة: لتسهيل التنقل مع متطلبات أمتعة الطاقم الدقيقة</li>
+                </ul>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">مميزات الحقائب الرسمية</h3>
+                  <p className="mb-2 text-gray-700">عناصر التصميم المميزة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>ألوان موحدة تعكس هوية الشركة وتناسق الزي الرسمي</li>
+                    <li>شعارات بارزة للعلامة التجارية تعزز التعريف بالهوية المؤسسية</li>
+                    <li>تفاصيل متناسقة مع الإكسسوارات الأخرى (مثل الأحزمة والأحذية)</li>
+                    <li>تصميم مميز يسهل التعرف عليها في المطارات المزدحمة والفنادق</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">أمثلة من شركات طيران عالمية</h3>
+                  <p className="mb-2 text-gray-700">تصاميم فريدة وموجهة للعلامة التجارية:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>الخطوط الإماراتية: حقائب جلدية فاخرة باللون البيج مع تفاصيل حمراء تعكس فخامة العلامة</li>
+                    <li>الخطوط البريطانية: حقائب كلاسيكية أنيقة بتصميم بريطاني محافظ وشعار الشركة البارز</li>
+                    <li>الخطوط السنغافورية: حقائب أنيقة بتفاصيل مستوحاة من نقوش الساري التقليدي</li>
+                    <li>الخطوط القطرية: حقائب عصرية ذات جودة عالية بلمسات من التصميم الشرقي المعاصر</li>
+          </ul>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاتجاهات الحديثة والابتكارات</h3>
+                <p className="mb-2 font-medium text-blue-700">تطورات في عالم حقائب الطاقم:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>حقائب ذكية مزودة بتقنية تعقب GPS لتجنب الضياع في المطارات المزدحمة</li>
+                  <li>شواحن مدمجة وموصلات USB للأجهزة الإلكترونية أثناء التنقل</li>
+                  <li>مواد مستدامة وصديقة للبيئة تعكس التزام شركات الطيران بالمسؤولية البيئية</li>
+                  <li>تصاميم مدمجة توفر أقصى مساحة تخزين مع الالتزام بقيود الحجم والوزن الصارمة</li>
+                  <li>تعاونات مع علامات تجارية فاخرة في مجال الحقائب لتعزيز الصورة الراقية للشركة</li>
+          </ul>
+              </div>
+        </section>
+
+            <section id="watches-jewelry" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الساعات والمجوهرات المسموح بها</h2>
+              
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">معايير وضوابط</h3>
+                <p className="mb-2 text-gray-700">سياسات شركات الطيران للإكسسوارات الشخصية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>سياسات صارمة للحد من المجوهرات البارزة التي قد تعيق العمل أو تشكل خطراً للسلامة</li>
+                  <li>توجيهات محددة للحجم والشكل والكمية المسموح بها من المجوهرات أثناء الخدمة</li>
+                  <li>توازن بين السماح بالتعبير الشخصي والحفاظ على المظهر المهني الموحد</li>
+                  <li>مراعاة الاختلافات الثقافية والجندرية في سياسات المجوهرات</li>
+          </ul>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الساعات المهنية</h3>
+                  <p className="mb-2 text-gray-700">أكثر من مجرد أداة لمعرفة الوقت:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>وظيفية ضرورية للطاقم لتتبع أوقات الرحلة وجداول الخدمة وفترات الراحة</li>
+                    <li>تفضيل الساعات ذات القدرة على عرض مناطق زمنية متعددة للرحلات الدولية</li>
+                    <li>متطلبات متانة عالية للتعامل مع الاستخدام المكثف والضغط الجوي المتغير</li>
+                    <li>ميل لاختيار تصاميم كلاسيكية أنيقة تناسب مختلف المواقف الرسمية</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">النظارات والإكسسوارات البصرية</h3>
-          <p className="mb-4">
-            قواعد ومعايير الإكسسوارات البصرية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ضوابط شكل وحجم النظارات الطبية المسموح بها</li>
-            <li className="mb-2">النظارات الشمسية: متى وكيف يمكن ارتداؤها</li>
-            <li className="mb-2">خيارات العدسات اللاصقة وسياسات استخدامها</li>
-            <li className="mb-2">ميزات حماية العين من الجفاف والأشعة الضارة أثناء الطيران</li>
-            <li className="mb-2">توازن بين الاحتياجات الطبية والمظهر المهني</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الإرشادات الخاصة بالمجوهرات</h3>
+                  <p className="mb-2 text-gray-700">قواعد متبعة في معظم شركات الطيران:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>الأقراط: عادة يسمح بقرط واحد أو زوج صغير غير متدلٍ في كل أذن</li>
+                    <li>الخواتم: غالباً ما يسمح بواحد أو اثنين كحد أقصى، مع تفضيل التصاميم البسيطة</li>
+                    <li>الأساور والقلادات: محدودة جداً أو غير مسموح بها لاعتبارات السلامة</li>
+                    <li>دبابيس الزينة: تقتصر عادة على الدبابيس الرسمية المرتبطة بالشركة أو الخدمة</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المجوهرات والإكسسوارات الشخصية</h3>
-          <p className="mb-4">
-            القيود والضوابط المهنية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">سياسات محددة حول الأقراط والخواتم والأساور المسموح بها</li>
-            <li className="mb-2">قيود على حجم وشكل المجوهرات لأسباب تتعلق بالسلامة</li>
-            <li className="mb-2">تنظيم استخدام العطور ومستحضرات التجميل مع مراعاة حساسيات الركاب</li>
-            <li className="mb-2">الاختلافات الثقافية في النظرة للمجوهرات بين شركات الطيران</li>
-            <li className="mb-2">التوازن بين التعبير الشخصي والالتزام بمعايير الشركة</li>
+              <div className="overflow-hidden rounded-lg mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">المجوهرات كرموز مهنية</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">الدلالات غير المرئية للإكسسوارات:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>دبابيس سنوات الخدمة: تمنح للاحتفاء بسنوات العمل في الشركة (5، 10، 25 سنة)</li>
+                    <li>دبابيس التميز: تكريم للأداء الاستثنائي أو الإنجازات الخاصة</li>
+                    <li>رموز العضوية: تشير إلى الانتماء لمجموعات أو تخصصات معينة داخل الشركة</li>
+                    <li>مجوهرات تحمل شعار الشركة: ممنوحة كهدايا للطاقم في المناسبات الخاصة</li>
           </ul>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">اعتبارات خاصة</h3>
+                <p className="mb-2 text-gray-700">توازنات في السياسات والممارسات:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>الاعتبارات الثقافية والدينية: مراعاة المجوهرات ذات الأهمية الدينية مثل الصلبان أو الخواتم الزواجية</li>
+                  <li>المجوهرات الطبية: استثناءات للأساور أو القلادات الطبية التي تحمل معلومات صحية ضرورية</li>
+                  <li>الأناقة المحافظة: تفضيل المجوهرات البسيطة من المعادن الثمينة (الذهب، الفضة، البلاتين) على التصاميم الملفتة</li>
+                  <li>التنوع العالمي: سياسات متوازنة تراعي اختلاف المعايير الثقافية في المسارات الدولية المختلفة</li>
+          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات في اختيار وتصميم الإكسسوارات</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الموازنة بين الراحة والمظهر المهني</h3>
-          <p className="mb-4">
-            تحديات تحقيق أقصى أداء وظيفي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم أحذية أنيقة مع توفير راحة كافية لساعات العمل الطويلة</li>
-            <li className="mb-2">حقائب تجمع بين المتانة والوزن الخفيف والمظهر الأنيق</li>
-            <li className="mb-2">إكسسوارات تتحمل الاستخدام المكثف مع الحفاظ على مظهرها</li>
-            <li className="mb-2">المرونة في التصميم للتكيف مع الاحتياجات المختلفة للموظفين</li>
-            <li className="mb-2">مواءمة المصنوعات اليدوية التقليدية مع متطلبات التصنيع الحديث</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">متطلبات السلامة والتشريعات</h3>
-          <p className="mb-4">
-            القيود التنظيمية والأمنية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">معايير سلامة صارمة للإكسسوارات أثناء حالات الطوارئ</li>
-            <li className="mb-2">قيود على المواد المستخدمة (مثل تجنب المعادن الثقيلة)</li>
-            <li className="mb-2">مواصفات خاصة للأحذية تتعلق بالتأريض وتفريغ الكهرباء الساكنة</li>
-            <li className="mb-2">معايير مقاومة الحريق للإكسسوارات وحقائب الطاقم</li>
-            <li className="mb-2">لوائح أمنية متغيرة بين الدول والمطارات المختلفة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التكلفة والميزانية</h3>
-          <p className="mb-4">
-            الاعتبارات الاقتصادية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحدي توفير إكسسوارات عالية الجودة ضمن ميزانيات محدودة</li>
-            <li className="mb-2">التوازن بين الاستثمار في منتجات معمرة والتكلفة الأولية</li>
-            <li className="mb-2">سياسات شركات الطيران حول توفير الإكسسوارات أو تمويلها</li>
-            <li className="mb-2">تأثير إنتاج كميات كبيرة على جودة الإكسسوارات</li>
-            <li className="mb-2">فترات استبدال الإكسسوارات وتأثيرها على الميزانية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاستدامة البيئية</h3>
-          <p className="mb-4">
-            التحول نحو ممارسات أكثر استدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام مواد معاد تدويرها في صناعة حقائب وإكسسوارات الطاقم</li>
-            <li className="mb-2">تصميم قطع قابلة للإصلاح والتجديد بدلاً من الاستبدال</li>
-            <li className="mb-2">برامج إعادة تدوير للإكسسوارات القديمة والمستهلكة</li>
-            <li className="mb-2">تقليل استخدام المواد البلاستيكية والضارة بالبيئة</li>
-            <li className="mb-2">شهادات الاستدامة والمسؤولية الاجتماعية للموردين والمصنعين</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">اتجاهات مستقبلية في إكسسوارات طاقم الطيران</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تقنيات مبتكرة قيد التطوير</h3>
-          <p className="mb-4">
-            التطورات القادمة في مجال الإكسسوارات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أحذية ذكية تتكيف مع حركة القدم وتقدم بيانات حول النشاط والإجهاد</li>
-            <li className="mb-2">حقائب مزودة بتقنيات شحن لاسلكي وأنظمة تتبع متقدمة</li>
-            <li className="mb-2">أقمشة قابلة للبرمجة تغير لونها أو خصائصها حسب الظروف</li>
-            <li className="mb-2">إكسسوارات مدمجة بوظائف صحية (مراقبة معدل ضربات القلب، الأكسجين)</li>
-            <li className="mb-2">مجوهرات ذكية تتيح التواصل السريع بين أفراد الطاقم</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تخصيص الإكسسوارات والتفضيلات الشخصية</h3>
-          <p className="mb-4">
-            توجه متزايد نحو التفريد:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم إكسسوارات تراعي التنوع الثقافي والديني للطاقم</li>
-            <li className="mb-2">خيارات متعددة ضمن إطار موحد تسمح بالتعبير الشخصي</li>
-            <li className="mb-2">أنظمة قياس رقمية توفر مقاسات دقيقة لكل فرد</li>
-            <li className="mb-2">منصات رقمية تمكن الموظفين من اختيار الإكسسوارات المفضلة</li>
-            <li className="mb-2">توازن جديد بين توحيد الهوية البصرية واحترام الفروق الفردية</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين الهوية الرقمية والتقليدية</h3>
-          <p className="mb-4">
-            مستقبل الإكسسوارات في عصر التحول الرقمي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">دمج الإكسسوارات التقليدية مع وظائف رقمية (شارات هوية ذكية)</li>
-            <li className="mb-2">منظومة رقمية متكاملة للإكسسوارات تتيح جمع وتحليل البيانات</li>
-            <li className="mb-2">معايير الخصوصية والأمان للإكسسوارات المتصلة بالإنترنت</li>
-            <li className="mb-2">تأثير تقنيات الواقع المعزز والافتراضي على إكسسوارات الطاقم</li>
-            <li className="mb-2">مستقبل الهوية البصرية للطاقم في عصر الخدمة الشخصية المخصصة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            تمثل الإكسسوارات جزءاً لا يتجزأ من زي طاقم الطيران، وهي ليست مجرد إضافات جمالية، بل عناصر وظيفية تسهم في تسهيل المهام وضمان السلامة وتعزيز الهوية المؤسسية. وكما رأينا، فإن اختيار وتصميم هذه الإكسسوارات يخضع لمعايير دقيقة تراعي التوازن بين المظهر الاحترافي والراحة والوظيفة.
-          </p>
-          <p className="mb-4">
-            مع تطور صناعة الطيران، تشهد الإكسسوارات تحولاً نحو مزيد من الابتكار والاستدامة والشخصنة. وتلعب التكنولوجيا دوراً متزايداً في تعزيز وظائف هذه الإكسسوارات وجعلها أكثر ذكاءً وتكيفاً مع احتياجات الطاقم والمسافرين على حد سواء.
-          </p>
-          <p className="mb-4">
-            في المستقبل، من المتوقع أن تصبح إكسسوارات طاقم الطيران أكثر تكاملاً مع الأنظمة الرقمية، وأكثر مراعاة للتنوع والاستدامة، مع الحفاظ على الهوية المميزة لكل شركة طيران. وسيظل التحدي الأساسي هو تحقيق التوازن الأمثل بين المظهر والوظيفة والراحة، لدعم طاقم الطيران في تقديم أفضل تجربة ممكنة للمسافرين.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تلعب الإكسسوارات دوراً محورياً في تشكيل الهوية المرئية المتكاملة لطاقم الطائرة وتعزيز الاحترافية والتميز في المظهر العام. هذه العناصر ليست مجرد إضافات تجميلية، بل تحمل دلالات وظيفية وثقافية عميقة، وتسهم في ترسيخ الانتماء المؤسسي وتمييز الرتب والمسؤوليات وتسهيل التواصل البصري مع المسافرين.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                ما يميز إكسسوارات الطيران عن غيرها هو ذلك التوازن الدقيق بين الوظيفية والأناقة، فهي مصممة لتلبية متطلبات بيئة عمل فريدة تجمع بين الضرورات العملية واعتبارات السلامة والحاجة إلى مظهر أنيق يعكس مستوى الخدمة الراقية. من الشارات والدبابيس التي تحمل رموز المكانة والخبرة، إلى الأوشحة وربطات العنق التي تعزز الهوية البصرية، وصولاً إلى الأحذية والحقائب والساعات المصممة خصيصاً لتحمل متطلبات الحياة المهنية للطاقم.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                مع تطور صناعة الطيران، تستمر إكسسوارات طاقم الطائرة في التطور والابتكار، مستفيدة من التقنيات الجديدة والمواد المتطورة والمفاهيم التصميمية المعاصرة. وتتجه الاتجاهات المستقبلية نحو مزيد من التخصيص والاستدامة والوظائف الذكية، مع الحفاظ على العناصر الكلاسيكية التي تميز هذه المهنة العريقة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، تبقى الإكسسوارات المكملة لزي طاقم الطائرة شاهداً على الاهتمام بالتفاصيل والالتزام بمعايير الاحترافية العالية التي تميز صناعة الطيران. فهي ليست مجرد تفاصيل صغيرة، بل هي جزء أساسي من اللغة البصرية التي تتواصل بها شركات الطيران مع عملائها، وتعبر من خلالها عن قيمها وهويتها في سماء عالمي متنوع ومتنافس.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

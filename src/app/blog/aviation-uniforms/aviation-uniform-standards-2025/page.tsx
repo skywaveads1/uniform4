@@ -20,11 +20,14 @@ export const metadata = {
   description: 'استكشاف معايير ومواصفات أزياء الطيران المتوقعة لعام 2025، مع التركيز على الابتكارات التكنولوجية والاستدامة والراحة والأمان',
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/aviation-uniforms/flight_crew_uniform_design.jpeg';
-  const title = 'معايير أزياء الطيران 2025: أحدث التوجهات والمواصفات';
-  const readingTime = '١٢ دقائق';
-  const datePublished = '٥ مايو ٢٠٢٤';
+// صورة الهيدر للمقال
+const heroImage = '/images/aviation_uniforms/header_airline_uniform.jpeg';
+
+export default function AviationUniformStandards2025() {
+  const imageSrc = '/images/aviation_uniforms/aviation_uniform_standards.jpeg';
+  const title = 'معايير زي الطيران لعام 2025: المواصفات الحديثة والتوجهات العالمية';
+  const readingTime = '7 دقائق للقراءة';
+  const datePublished = '٢٠ مايو ٢٠٢٤';
 
   // أقسام المقال للتنقل السريع
   const sections = [
@@ -39,7 +42,7 @@ export default function ArticlePage() {
     {
       title: "أساسيات تصميم أزياء الطيران",
       description: "دليل شامل للمبادئ والأسس التي تحكم تصميم أزياء الطيران الحديثة",
-      image: "/images/flight_crew/aviation_design_basics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/aviation",
       date: "١٥ مارس ٢٠٢٤",
       category: "أزياء الطيران"
@@ -47,7 +50,7 @@ export default function ArticlePage() {
     {
       title: "الابتكار في تصميم أزياء الطيران",
       description: "استكشاف أحدث التوجهات والابتكارات في عالم تصميم أزياء الطيران",
-      image: "/images/flight_crew/innovative_crew_design.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation",
       date: "٢٠ مارس ٢٠٢٤",
       category: "أزياء الطيران"
@@ -55,7 +58,7 @@ export default function ArticlePage() {
     {
       title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
       description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
       date: "١٠ أبريل ٢٠٢٤",
       category: "أزياء الطيران"
@@ -155,7 +158,7 @@ export default function ArticlePage() {
         
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/smart_aviation_uniforms.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="أزياء الطيران الذكية لعام 2025"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -228,7 +231,7 @@ export default function ArticlePage() {
         
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/sustainable_aviation_uniforms.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="أزياء الطيران المستدامة"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -276,7 +279,7 @@ export default function ArticlePage() {
         
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/ergonomic_aviation_uniforms.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تصميم أزياء الطيران الإرجونومية"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -321,7 +324,7 @@ export default function ArticlePage() {
         
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/safety_aviation_uniforms.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="أزياء الطيران ذات معايير السلامة المتقدمة"
                   fill
                   style={{ objectFit: 'cover' }}

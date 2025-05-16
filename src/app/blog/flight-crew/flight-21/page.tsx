@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشاف متطلبات وخصائص الزي الخاص بطواقم الطائرات الخاصة وطيران رجال الأعمال، والتوازن الفريد بين الفخامة والعملية والخصوصية في هذا القطاع المتميز',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniform_design.jpeg';
   const title = 'زي خاص بطواقم الطائرات الخاصة ورجال الأعمال';

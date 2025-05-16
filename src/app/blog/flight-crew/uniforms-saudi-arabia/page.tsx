@@ -1,277 +1,308 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'أزياء الطيران في المملكة السعودية: التطور والتميز',
-  description: 'تعرف على مراحل تطور أزياء الطيران في المملكة العربية السعودية، والخصائص التي تميزها عن غيرها من أزياء الطيران العالمية، وكيف تعكس الهوية الوطنية والثقافية.',
+  title: 'أزياء الطيران في المملكة العربية السعودية',
+  description: 'نظرة شاملة على تطور أزياء الطيران في المملكة العربية السعودية، والتراث والابتكار في تصميم زي طاقم الطائرة السعودي.',
 };
 
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
-  const title = 'أزياء الطيران في المملكة السعودية: التطور والتميز';
+  const title = 'أزياء الطيران في المملكة العربية السعودية';
+  const readingTime = '12 دقائق';
+  const datePublished = '١٢ مايو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'history', title: 'تاريخ أزياء الطيران السعودية' },
+    { id: 'cultural-elements', title: 'العناصر الثقافية في التصميم' },
+    { id: 'modern-designs', title: 'التصاميم الحديثة للخطوط السعودية' },
+    { id: 'challenges', title: 'التحديات والاعتبارات الخاصة' },
+    { id: 'future', title: 'مستقبل أزياء الطيران في المملكة' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            تعتبر أزياء الطيران مرآة تعكس هوية وثقافة وتاريخ أي دولة، وفي المملكة العربية السعودية، تمثل هذه الأزياء قصة متميزة من التطور المستمر والتوازن بين الأصالة والحداثة. ففي ظل التحولات الاقتصادية والاجتماعية الكبرى التي تشهدها المملكة ضمن رؤية 2030، باتت أزياء الطيران السعودية تعكس هذه النهضة الشاملة وتجسد طموحات المملكة نحو المستقبل.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستعرض مسيرة تطور أزياء الطيران في المملكة العربية السعودية منذ تأسيس أول خطوط جوية سعودية وحتى يومنا هذا، مسلطين الضوء على العناصر المميزة التي تجمع بين التراث السعودي العريق والتصاميم المعاصرة، والتحديات التي واجهت هذا التطور، والإنجازات التي تحققت، ونظرة استشرافية للمستقبل في ظل الطموحات الكبرى لصناعة الطيران السعودية.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/aviation-uniforms/design-uniform" className="text-sm hover:text-blue-600 block">
+                    مبادئ تصميم زي الطيران: دليل شامل
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-crew-uniform-design" className="text-sm hover:text-blue-600 block">
+                    معايير الجودة العالمية في تصميم زي الطيران
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/aviation-uniforms/in-design-uniform-aviation-Saudi" className="text-sm hover:text-blue-600 block">
+                    تصميم أزياء الطيران في المملكة العربية السعودية
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تعتبر أزياء الطيران في المملكة العربية السعودية جزءاً مهماً من هوية قطاع الطيران السعودي، حيث تعكس التراث الثقافي العريق والتقدم الحضاري للمملكة. تمثل هذه الأزياء واجهة حضارية للمملكة أمام العالم، وتجسد التوازن بين الأصالة والمعاصرة الذي يميز الرؤية السعودية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض رحلة تطور أزياء الطيران السعودية منذ تأسيس الخطوط الجوية السعودية وحتى يومنا هذا، مع تسليط الضوء على العناصر الثقافية والتصميمية المميزة، والتحديات الخاصة بتصميم أزياء تناسب البيئة السعودية، والتوجهات المستقبلية في ظل التحولات الكبرى التي تشهدها المملكة ضمن رؤية 2030.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التطور التاريخي لأزياء الطيران السعودية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">البدايات المتواضعة (1945-1960)</h3>
-          <p className="mb-4">
-            مرحلة التأسيس وتشكل الهوية الأولى:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسيس شركة الخطوط الجوية السعودية عام 1945 بعد هدية الطائرات من الرئيس الأمريكي روزفلت للملك عبد العزيز</li>
-            <li className="mb-2">تأثر التصاميم الأولى بالطابع العسكري البريطاني والأمريكي مع إضافة عناصر محدودة من الهوية السعودية</li>
-            <li className="mb-2">بساطة الزي واقتصاره على اللونين الأبيض والبني الداكن</li>
-            <li className="mb-2">اقتصار الطاقم على الرجال فقط مع زي مستوحى من الزي التقليدي السعودي مع لمسات عسكرية</li>
+            <section id="history" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تاريخ أزياء الطيران السعودية</h2>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="أزياء الخطوط السعودية التاريخية"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  أزياء طاقم الخطوط السعودية في سبعينيات القرن الماضي | المصدر: أرشيف الخطوط السعودية
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">بدايات متواضعة (1945-1970)</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                بدأت أزياء الطيران السعودية مع تأسيس الخطوط الجوية السعودية عام 1945، حيث كانت التصاميم الأولى متأثرة بالطابع العسكري الذي ساد أزياء الطيران العالمية في تلك الفترة. تميزت الأزياء الرجالية بالبساطة والطابع الرسمي، بينما كانت أزياء المضيفات تعكس توجهات الموضة العالمية مع مراعاة خصوصية المجتمع السعودي.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">فترة التأسيس والتطور (1970-2000)</h3>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">المراحل الرئيسية في تطور الزي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>السبعينيات: تبني هوية بصرية مميزة مع دمج ألوان العلم السعودي (الأخضر والأبيض)</li>
+                  <li>الثمانينيات: تطوير تصاميم جديدة تجمع بين العناصر التقليدية والأناقة العالمية</li>
+                  <li>التسعينيات: إضافة لمسات من الزخارف العربية والإسلامية على أزياء الطاقم</li>
+                  <li>مطلع الألفية: تحديث شامل للأزياء مع التركيز على الراحة والعملية</li>
           </ul>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التحديث والتطوير (2000-الآن)</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                شهدت الفترة من 2000 وحتى الآن تطوراً كبيراً في أزياء الطيران السعودية، مع التركيز على إبراز الهوية الوطنية بشكل معاصر. أطلقت الخطوط السعودية عدة تحديثات للزي، كان أبرزها عام 2016 مع تغيير الشعار، وعام 2021 مع إطلاق تصميم جديد يعكس رؤية المملكة 2030 وتوجهاتها المستقبلية.
+              </p>
+        </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">عصر النهضة النفطية (1960-1980)</h3>
-          <p className="mb-4">
-            تطور ملحوظ مع الطفرة الاقتصادية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">دخول اللون الأخضر كرمز للهوية السعودية في أزياء الطيران</li>
-            <li className="mb-2">توسع أسطول الطائرات وافتتاح خطوط دولية جديدة استدعى تطوير الزي ليعكس المكانة المتنامية</li>
-            <li className="mb-2">ظهور شعار النخلة والسيفين كعناصر أساسية في تصميم الشعارات والإكسسوارات</li>
-            <li className="mb-2">انضمام أول مضيفات (غير سعوديات) للعمل على الرحلات الدولية مع أزياء تحترم الخصوصية الثقافية</li>
+            <section id="cultural-elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الثقافية في التصميم</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الألوان ودلالاتها</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>اللون الأخضر: يرمز للعلم السعودي والإسلام والنماء</li>
+                    <li>اللون الأبيض: يرمز للنقاء والصفاء والسلام</li>
+                    <li>الذهبي: يستخدم للتفاصيل لإضفاء لمسة من الفخامة</li>
+                    <li>البيج والرملي: يستوحى من لون الصحراء السعودية</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الزخارف والأنماط</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>النقوش الهندسية المستوحاة من الفن الإسلامي</li>
+                    <li>زخارف النخيل والصحراء في تصاميم الإكسسوارات</li>
+                    <li>خط الثلث العربي في شعارات وشارات الطاقم</li>
+                    <li>العقال والغترة كرمز للهوية السعودية في شعار الشركة</li>
+          </ul>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">توازن الأصالة والمعاصرة</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                تسعى تصاميم أزياء الطيران السعودية إلى تحقيق توازن دقيق بين العناصر التراثية والتصميم العصري. يتجلى ذلك في الحفاظ على بعض العناصر التقليدية مثل شكل الياقة المستوحى من الثوب السعودي، مع تقديمها بأسلوب عصري وأنيق يتوافق مع معايير الطيران العالمية.
+              </p>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">أمثلة على العناصر الثقافية في الزي الحالي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>وشاح المضيفات المزين بنقوش مستوحاة من الفن الإسلامي</li>
+                  <li>دبوس شعار الشركة المستوحى من النخلة السعودية</li>
+                  <li>ألوان الزي المستوحاة من ألوان العلم السعودي والبيئة الصحراوية</li>
+                  <li>تصميم الأزرار والتفاصيل بشكل يحاكي الحرف التقليدية السعودية</li>
+          </ul>
+              </div>
+        </section>
+
+            <section id="modern-designs" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التصاميم الحديثة للخطوط السعودية</h2>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="التصميم الحديث لزي الخطوط السعودية"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  التصميم الحديث لزي طاقم الخطوط السعودية | المصدر: الخطوط الجوية العربية السعودية
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">زي مضيفي ومضيفات الخطوط السعودية</h3>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">السمات الرئيسية للتصميم الحالي</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">زي المضيفين:</span> بدلة رسمية باللون الأخضر الداكن مع قميص أبيض وربطة عنق بنقوش سعودية تقليدية. تتميز البدلة بقصة عصرية مع لمسات من التراث السعودي في التفاصيل والشارات.</li>
+                    <li><span className="font-medium">زي المضيفات:</span> فستان/تايور بألوان تدرج من الأخضر الفاتح إلى الداكن، مع وشاح مزين بنقوش إسلامية. يراعي التصميم الحشمة مع الحفاظ على الأناقة والعملية.</li>
+                    <li><span className="font-medium">الإكسسوارات:</span> شارات وأزرار تحمل شعار الشركة، دبابيس مستوحاة من العناصر السعودية التقليدية، وحقائب عملية بتصميم أنيق.</li>
+                    <li><span className="font-medium">الأحذية:</span> مصممة خصيصاً لتوفير الراحة خلال ساعات العمل الطويلة مع الحفاظ على المظهر الرسمي.</li>
+          </ul>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الابتكارات التقنية في التصميم الحديث</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                تتميز التصاميم الحديثة بالاعتماد على أحدث التقنيات في صناعة الأقمشة والملابس:
+              </p>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">التقنيات المستخدمة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>أقمشة ذكية تتكيف مع درجات الحرارة المختلفة، مناسبة للبيئة الحارة في المملكة والمقصورة المكيفة</li>
+                  <li>معالجات مضادة للميكروبات والبقع لضمان نظافة الزي طوال فترة الخدمة</li>
+                  <li>تقنيات خياطة متطورة توفر المرونة والراحة مع الحفاظ على الشكل الرسمي</li>
+                  <li>تصاميم معيارية تسمح بالتعديل حسب احتياجات الموسم والمناسبات الخاصة</li>
+          </ul>
+              </div>
+        </section>
+
+            <section id="challenges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التحديات والاعتبارات الخاصة</h2>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التكيف مع المناخ السعودي</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                يمثل المناخ الحار في المملكة تحدياً خاصاً لمصممي أزياء الطيران، حيث يتطلب توازناً بين المظهر الرسمي الأنيق والراحة في درجات الحرارة المرتفعة. تستخدم الخطوط السعودية أقمشة خاصة ذات قدرة عالية على التنفس وتنظيم الحرارة، مع تصاميم تسمح بتدفق الهواء مع الحفاظ على المظهر المهني.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مراعاة الخصوصية الثقافية</h3>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <p className="mb-2 text-gray-700">
+                  يراعي تصميم أزياء الطيران السعودية الخصوصية الثقافية والدينية للمملكة، مع تحقيق التوازن بين هذه الاعتبارات والمعايير العالمية لأزياء الطيران. تتميز أزياء المضيفات بالحشمة والأناقة، مع توفير خيارات متنوعة تتناسب مع تفضيلات مختلف الموظفات، بما في ذلك خيارات للحجاب وأطوال مختلفة للأكمام والتنانير.
+                </p>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التنوع الثقافي في الطاقم</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                تضم الخطوط السعودية طاقماً متنوعاً من جنسيات مختلفة، مما يتطلب تصاميم تناسب مختلف الثقافات والأجسام، مع الحفاظ على هوية موحدة. يتم تصميم الزي بمقاسات وقصات متنوعة، مع مراعاة الملاءمة لمختلف أنواع الجسم والاحتياجات الفردية.
+              </p>
+        </section>
+
+            <section id="future" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مستقبل أزياء الطيران في المملكة</h2>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">تأثير رؤية 2030</h3>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">انعكاس الرؤية على تصميم الأزياء:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>دمج عناصر من المشاريع السياحية الكبرى مثل نيوم والقدية في تصاميم الأزياء المستقبلية</li>
+                  <li>تعزيز دور المصممين السعوديين الشباب في تطوير أزياء الطيران الوطنية</li>
+                  <li>الاستثمار في تقنيات مستدامة وصديقة للبيئة تماشياً مع أهداف الاستدامة في الرؤية</li>
+                  <li>تطوير أزياء تعكس التنوع الثقافي والجغرافي للمملكة</li>
+          </ul>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الاتجاهات المستقبلية</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                من المتوقع أن تشهد أزياء الطيران السعودية تطورات كبيرة في السنوات القادمة، مع التركيز على:
+              </p>
+              <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700 mb-4">
+                <li>التكامل مع التقنيات الذكية مثل أجهزة الاستشعار لمراقبة صحة الطاقم وتحسين راحتهم</li>
+                <li>تطوير أقمشة فائقة الأداء تتناسب مع البيئة السعودية وتحديات العمل في مجال الطيران</li>
+                <li>تصاميم قابلة للتخصيص تسمح بتعديلات بسيطة حسب الموسم والوجهة</li>
+                <li>دمج تقنيات الواقع المعزز في تدريب الطاقم على ارتداء الزي والعناية به</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مرحلة التحديث والتطوير (1980-2000)</h3>
-          <p className="mb-4">
-            خطوات نحو الحداثة مع الحفاظ على الأصالة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير هوية بصرية متكاملة للخطوط السعودية تشمل تصاميم أزياء موحدة</li>
-            <li className="mb-2">التعاون مع مصممين عالميين لتطوير أزياء تجمع بين الراحة والأناقة</li>
-            <li className="mb-2">تحديث مستمر يواكب تطور أسطول الطائرات وتوسع الخدمات</li>
-            <li className="mb-2">إدخال تقنيات جديدة في الأقمشة تناسب المناخ الحار للمملكة والرحلات الطويلة</li>
-          </ul>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">عصر التحول: أزياء الطيران في ظل رؤية 2030</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الهوية البصرية الجديدة</h3>
-          <p className="mb-4">
-            إعادة تشكيل الصورة العالمية للطيران السعودي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">إطلاق هوية بصرية جديدة للخطوط السعودية في 2015 مع تحديث شامل للأزياء</li>
-            <li className="mb-2">التركيز على مفهوم "السعودية: وجهة العالم" وانعكاسه على تصاميم الأزياء</li>
-            <li className="mb-2">الاستلهام من التراث السعودي الغني مع تقديمه بأسلوب عصري أنيق</li>
-            <li className="mb-2">استخدام درجات متنوعة من اللون الأخضر مع لمسات ذهبية تعكس الضيافة السعودية الفاخرة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تعدد الشركات وتنوع الأزياء</h3>
-          <p className="mb-4">
-            تنوع الخيارات مع وحدة الهوية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">إطلاق طيران أديل كناقل اقتصادي بهوية شبابية تنعكس في أزياء طاقمه</li>
-            <li className="mb-2">تأسيس طيران السعودية الخليجية بأزياء تجمع بين الهوية السعودية والطابع الخليجي</li>
-            <li className="mb-2">شركة فلاي ناس وأزياؤها التي تستهدف فئة رجال الأعمال مع الحفاظ على التكلفة المعقولة</li>
-            <li className="mb-2">الطيران الخاص السعودي وتصاميمه الفاخرة التي تستهدف النخبة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تمكين المرأة السعودية في قطاع الطيران</h3>
-          <p className="mb-4">
-            إنجازات المرأة وانعكاسها على الأزياء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">انضمام أول مضيفات جويات سعوديات للعمل على متن الطائرات السعودية</li>
-            <li className="mb-2">تصميم أزياء تجمع بين احترام الهوية الإسلامية والأناقة العصرية</li>
-            <li className="mb-2">مشاركة مصممات سعوديات في تطوير أزياء تناسب احتياجات المرأة العاملة في الطيران</li>
-            <li className="mb-2">تخصيص زي للطيارات السعوديات بعد دخولهن لهذا المجال مؤخراً</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">العناصر المميزة في تصميم أزياء الطيران السعودية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الرموز الوطنية والثقافية</h3>
-          <p className="mb-4">
-            عناصر تعكس الهوية السعودية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">النخلة والسيفان: رمزان أساسيان في الشعار الوطني ويظهران في الشارات والإكسسوارات</li>
-            <li className="mb-2">اللون الأخضر: بدرجاته المختلفة كلون رئيسي يعكس العلم السعودي</li>
-            <li className="mb-2">نقوش السدو والزخارف الإسلامية في تصميم الأوشحة والإكسسوارات</li>
-            <li className="mb-2">عناصر مستوحاة من البيئة الصحراوية والخليجية في النقوش والتفاصيل</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة والمواد المتطورة</h3>
-          <p className="mb-4">
-            تقنيات تلبي احتياجات البيئة المحلية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة خاصة معالجة لتتحمل درجات الحرارة المرتفعة في المملكة</li>
-            <li className="mb-2">خامات تتمتع بخاصية التنفس مع الحفاظ على الشكل الرسمي</li>
-            <li className="mb-2">مواد مقاومة للتجعد للحفاظ على المظهر الأنيق خلال الرحلات الطويلة</li>
-            <li className="mb-2">أقمشة سهلة العناية تتحمل الاستخدام المتكرر في ظروف العمل المختلفة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">القصات والتصاميم المميزة</h3>
-          <p className="mb-4">
-            أساليب تجمع بين الراحة والأناقة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قصات محتشمة وأنيقة تحترم القيم الإسلامية مع الحفاظ على العملية</li>
-            <li className="mb-2">تصاميم متعددة الطبقات للتكيف مع تغيرات درجات الحرارة</li>
-            <li className="mb-2">خيارات متنوعة للحجاب وغطاء الرأس للمضيفات المسلمات</li>
-            <li className="mb-2">إكسسوارات مميزة مثل الدبابيس والشارات التي تعكس رتب الطاقم وخبراتهم</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">دراسات حالة لأزياء شركات الطيران السعودية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط السعودية: التوازن بين التراث والعصرنة</h3>
-          <p className="mb-4">
-            رحلة تطور الناقل الوطني الرئيسي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التحول من الزي الكلاسيكي الصارم إلى تصاميم أكثر عصرية وراحة</li>
-            <li className="mb-2">تنوع الأزياء حسب درجات السفر (الأولى، رجال الأعمال، الضيافة)</li>
-            <li className="mb-2">الاهتمام بالتفاصيل الدقيقة في الإكسسوارات والشارات التي تعكس خبرة الطاقم</li>
-            <li className="mb-2">تطوير أزياء خاصة بمواسم الحج والعمرة لتلبية احتياجات هذه الرحلات المميزة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">طيران أديل: الشباب والحيوية</h3>
-          <p className="mb-4">
-            الهوية الشبابية للناقل منخفض التكلفة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">ألوان زاهية تعكس الروح الشبابية مع الحفاظ على اللون الأخضر كعنصر هوية</li>
-            <li className="mb-2">تصاميم بسيطة وعملية تتناسب مع فلسفة الخطوط منخفضة التكلفة</li>
-            <li className="mb-2">استخدام قطع متعددة الاستخدامات لتقليل التكلفة وزيادة العملية</li>
-            <li className="mb-2">أزياء تعكس الاستدامة والوعي البيئي الذي يميز الجيل الجديد</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الطيران الخاص السعودي: الفخامة والتميز</h3>
-          <p className="mb-4">
-            الرقي كعنصر أساسي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام أفخم أنواع الأقمشة مثل الصوف الممتاز والحرير الطبيعي</li>
-            <li className="mb-2">تصاميم مخصصة تركز على الخدمة الشخصية للعملاء من رجال الأعمال والشخصيات الهامة</li>
-            <li className="mb-2">تفاصيل مصنوعة يدوياً تعكس الحرفية السعودية التقليدية</li>
-            <li className="mb-2">لمسات ذهبية ورموز السلطة والأصالة في التصاميم</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الابتكار والاستدامة في أزياء الطيران السعودية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التكنولوجيا في خدمة الراحة والأداء</h3>
-          <p className="mb-4">
-            حلول تقنية لتحديات بيئة العمل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية تتكيف مع درجات الحرارة المتغيرة بين المطارات والطائرة</li>
-            <li className="mb-2">تقنيات النانو في معالجة الأقمشة لتحقيق مقاومة البقع والحماية الميكروبية</li>
-            <li className="mb-2">ابتكار أحذية طبية متطورة تناسب ساعات الوقوف الطويلة</li>
-            <li className="mb-2">تطبيق تقنيات القص بالليزر للدقة في تفاصيل الزخارف التراثية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مبادرات الاستدامة البيئية</h3>
-          <p className="mb-4">
-            التوجه نحو مستقبل أكثر وعياً بالبيئة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام البوليستر المعاد تدويره في صناعة بعض قطع الزي الموحد</li>
-            <li className="mb-2">التعاون مع مصنعين محليين لتقليل البصمة الكربونية للنقل</li>
-            <li className="mb-2">برامج إعادة تدوير الأزياء المستعملة ضمن برامج المسؤولية الاجتماعية</li>
-            <li className="mb-2">التحول التدريجي نحو أساليب إنتاج أكثر استدامة واستهلاكاً أقل للموارد</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">المصممون السعوديون ودورهم</h3>
-          <p className="mb-4">
-            المواهب المحلية تقود التطوير:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">إشراك مصممين سعوديين معروفين عالمياً في تطوير الأزياء الوطنية للطيران</li>
-            <li className="mb-2">برامج لدعم المواهب الشابة في مجال تصميم أزياء الطيران</li>
-            <li className="mb-2">التعاون بين الجامعات السعودية وشركات الطيران لتطوير حلول مبتكرة</li>
-            <li className="mb-2">مبادرات لتوطين صناعة الأزياء والنسيج لدعم المحتوى المحلي</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات وآفاق مستقبلية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التحديات الرئيسية</h3>
-          <p className="mb-4">
-            عقبات في طريق التطور:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الموازنة بين متطلبات العمل العالمية والخصوصية الثقافية السعودية</li>
-            <li className="mb-2">تطوير صناعة نسيج محلية متكاملة لدعم إنتاج الأزياء داخل المملكة</li>
-            <li className="mb-2">الجمع بين معايير الراحة والجودة العالية مع تحديات المناخ القاسي</li>
-            <li className="mb-2">منافسة التصاميم العالمية مع الحفاظ على الهوية الفريدة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الفرص المستقبلية</h3>
-          <p className="mb-4">
-            آفاق واعدة للتطوير:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الاستفادة من التوسع الهائل في قطاع الطيران السعودي مع مشاريع المطارات الجديدة</li>
-            <li className="mb-2">توظيف التقنيات المتقدمة مثل الواقع المعزز في تصميم وتجربة الأزياء</li>
-            <li className="mb-2">تطوير أكاديميات متخصصة في تصميم أزياء الطيران ضمن رؤية تنمية المواهب</li>
-            <li className="mb-2">استثمار التراث الثقافي الغني للمملكة كميزة تنافسية عالمية</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">رؤية مستقبلية لأزياء الطيران السعودية</h3>
-          <p className="mb-4">
-            ملامح المستقبل في ظل رؤية 2030:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير مركز إقليمي متخصص في تصميم وإنتاج أزياء الطيران</li>
-            <li className="mb-2">إطلاق علامة تجارية سعودية عالمية متخصصة في أزياء الطيران والضيافة</li>
-            <li className="mb-2">التكامل مع مبادرات السياحة لتعزيز تجربة الزائر من المطار إلى الوجهة</li>
-            <li className="mb-2">تصاميم ثورية تجمع بين التراث السعودي الأصيل والتكنولوجيا المتقدمة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            تمثل أزياء الطيران في المملكة العربية السعودية رحلة مثيرة من التطور والنمو تعكس مسيرة المملكة ذاتها. من البدايات المتواضعة إلى الطموحات العالمية الحالية، استطاعت هذه الأزياء أن تحافظ على توازن رائع بين الأصالة والمعاصرة، بين العراقة والابتكار، وبين الهوية المحلية والمعايير العالمية.
-          </p>
-          <p className="mb-4">
-            وفي ظل رؤية 2030 وما تتضمنه من تحول اقتصادي واجتماعي شامل، يبدو مستقبل أزياء الطيران السعودية واعداً ومشرقاً. فمع توسع قطاع الطيران والسياحة، وتطور الصناعات المحلية، وتمكين المواهب الوطنية، ستستمر هذه الأزياء في التطور لتصبح ليس فقط واجهة حضارية للمملكة، بل مصدر إلهام وابتكار على المستوى العالمي.
-          </p>
-          <p className="mb-4">
-            إن أزياء الطيران السعودية ليست مجرد ملابس يرتديها طاقم الطائرة، بل هي سفراء صامتون يحملون رسالة المملكة إلى العالم، ويجسدون كرم الضيافة السعودية الأصيلة، ويعكسون صورة الحداثة والتقدم التي تطمح إليها المملكة في مستقبلها المشرق. ومع استمرار مسيرة التطوير والابتكار، ستظل هذه الأزياء شاهدة على قصة نجاح سعودية متجددة تتطلع دوماً نحو الأفق.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تمثل أزياء الطيران في المملكة العربية السعودية حكاية نجاح في دمج التراث الثقافي مع متطلبات العصر الحديث. فمن البدايات المتواضعة إلى التصاميم المعاصرة الفاخرة، عكست هذه الأزياء مسيرة تطور المملكة ورؤيتها للعالم.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                مع استمرار التحولات الكبرى في المملكة ضمن رؤية 2030، ستظل أزياء الطيران السعودية سفيراً ثقافياً يعبر عن الهوية الوطنية بلغة عالمية. التحدي المستمر سيكون في الحفاظ على هذا التوازن الدقيق بين الأصالة والحداثة، والتراث والابتكار، بما يعكس الصورة المشرقة للمملكة العربية السعودية في المشهد العالمي.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، تبقى أزياء الطيران السعودية أكثر من مجرد ملابس عمل، فهي تمثل رسالة حضارية وثقافية، وجزءاً لا يتجزأ من الهوية البصرية للمملكة التي تجمع بين عراقة الماضي وطموحات المستقبل.
           </p>
         </section>
+
+            {/* قسم التعليقات */}
+            <div className="border-t pt-10 mt-10">
+              <h3 className="text-xl font-bold mb-6">التعليقات</h3>
+              <div className="bg-blue-50 p-6 rounded-lg text-center">
+                <p className="text-gray-700 mb-4">شاركنا رأيك حول هذا المقال</p>
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  إضافة تعليق
+                </button>
+              </div>
+            </div>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

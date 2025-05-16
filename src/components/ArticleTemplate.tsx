@@ -28,7 +28,7 @@ export default function ArticleTemplate() {
     {
       title: "عنوان المقال الأول ذو الصلة",
       description: "وصف موجز للمقال الأول ذو الصلة بهذا المقال",
-      image: "/images/category/article-image.jpg",
+      image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
       url: "/blog/category/article-slug",
       date: "١ مايو ٢٠٢٤",
       category: "اسم الفئة"
@@ -36,7 +36,7 @@ export default function ArticleTemplate() {
     {
       title: "عنوان المقال الثاني ذو الصلة",
       description: "وصف موجز للمقال الثاني ذو الصلة بهذا المقال",
-      image: "/images/category/article-image-2.jpg",
+      image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
       url: "/blog/category/article-slug-2",
       date: "٥ مايو ٢٠٢٤",
       category: "اسم الفئة"
@@ -44,7 +44,7 @@ export default function ArticleTemplate() {
     {
       title: "عنوان المقال الثالث ذو الصلة",
       description: "وصف موجز للمقال الثالث ذو الصلة بهذا المقال",
-      image: "/images/category/article-image-3.jpg",
+      image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
       url: "/blog/category/article-slug-3",
       date: "١٠ مايو ٢٠٢٤",
       category: "اسم الفئة"
@@ -60,11 +60,11 @@ export default function ArticleTemplate() {
       description="وصف موجز للمقال يظهر تحت العنوان الرئيسي"
       category="اسم الفئة"
       categoryUrl="/blog/category"
-      heroImage="/images/category/hero-image.jpg"
+      heroImage="/images/flight_crew/crew_uniform_visual_identity.jpeg"
       publishDate="١ مايو ٢٠٢٤"
       readTime="١٠ دقائق للقراءة"
       authorName="اسم الكاتب"
-      authorImage="/images/author/author-image.jpg"
+      authorImage="/images/author/team.jpg"
       authorTitle="الوصف الوظيفي للكاتب"
       backUrl="/blog/category"
       tags={tags}
@@ -104,7 +104,7 @@ export default function ArticleTemplate() {
 
       {/* صورة توضيحية */}
       <ArticleImage 
-        src="/images/category/image-name.jpg"
+        src="/images/flight_crew/crew_uniform_visual_identity.jpeg"
         alt="وصف الصورة"
         caption="وصف توضيحي للصورة يظهر أسفلها"
         source="المصدر"

@@ -2,7 +2,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.yarn/install-state.gz
 
 # testing
 /coverage
@@ -34,20 +33,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# editor directories and files
+# IDE
 .idea
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
-# backup files
-*.backup
-*~
-
-# windows specific
-Thumbs.db
-ehthumbs.db
-Desktop.ini 
+# generated optimization files
+/public/optimized_images 

@@ -6,6 +6,9 @@ export const metadata = {
   description: 'دليل شامل حول معايير وعناصر تصميم زي طاقم الطائرة، يغطي الجوانب الوظيفية، الأمنية، والجمالية للأزياء في قطاع الطيران.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_crew_uniform_design.jpeg';
   const title = 'تصميم زي طاقم الطائرة: دليل شامل للمعايير والعناصر الأساسية';

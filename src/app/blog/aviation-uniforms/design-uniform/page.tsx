@@ -1,275 +1,367 @@
 import React from 'react';
-import BlogArticle from '@/components/BlogArticle';
-import { 
-  Section, 
-  Paragraph, 
-  BulletList, 
-  ListItem, 
-  Quote, 
-  HighlightBox, 
-  KeyPointsBox,
-  ArticleImage
-} from '@/components/ArabicContentElements';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
+import { AuthorBio } from '@/components/AuthorBio';
+import { RelatedPosts } from '@/components/RelatedPosts';
 
 export const metadata = {
   title: 'مبادئ تصميم زي الطيران: دليل شامل',
   description: 'استعراض المبادئ الأساسية والمعايير المهنية في تصميم أزياء الطيران وكيفية تحقيق التوازن بين الوظيفة والأناقة',
 };
 
-export default function Page() {
-  const relatedArticles = [
-    {
-      title: "تصميم أزياء الطيران في المملكة العربية السعودية",
-      description: "نظرة شاملة على عالم تصميم أزياء الطيران في المملكة وكيف تجمع بين الهوية الوطنية والمعايير العالمية",
-      image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg",
-      url: "/blog/aviation-uniforms/in-design-uniform-aviation-Saudi",
-      date: "٥ مايو ٢٠٢٤",
-      category: "أزياء الطيران"
-    },
-    {
-      title: "اعتبارات تصميم زي شركات الطيران",
-      description: "استعراض لأهم الاعتبارات التي يجب مراعاتها عند تصميم زي موظفي شركات الطيران",
-      image: "/images/flight_crew/airline_design_considerations.jpg",
-      url: "/blog/aviation-uniforms/airline-uniform-design-considerations",
-      date: "١٠ مايو ٢٠٢٤",
-      category: "أزياء الطيران"
-    },
-    {
-      title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
-      description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
-      url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
-      date: "١٥ مايو ٢٠٢٤",
-      category: "أزياء الطيران"
-    }
+export default function ArticlePage() {
+  const imageSrc = '/images/flight_crew/flight_crew_uniform_design.jpeg';
+  const title = 'مبادئ تصميم زي الطيران: دليل شامل';
+  const readingTime = '14 دقائق';
+  const datePublished = '٨ مايو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة في مبادئ تصميم زي الطيران' },
+    { id: 'basic-principles', title: 'المبادئ الأساسية في تصميم زي الطيران' },
+    { id: 'essential-elements', title: 'العناصر الأساسية في تصميم زي الطيران' },
+    { id: 'materials-colors', title: 'اعتبارات المواد والألوان في تصميم زي الطيران' },
+    { id: 'design-cycle', title: 'دورة تصميم زي الطيران: من الفكرة إلى التنفيذ' },
+    { id: 'successful-examples', title: 'أمثلة ناجحة في تصميم زي الطيران' },
+    { id: 'future-trends', title: 'اتجاهات مستقبلية في تصميم زي الطيران' },
+    { id: 'conclusion', title: 'الخلاصة' },
   ];
 
-  const tags = ["تصميم زي الطيران", "أزياء الطيران", "مبادئ التصميم", "يونيفورم طاقم الطائرة", "أناقة زي المضيفين"];
-
   return (
-    <BlogArticle
-      title="مبادئ تصميم زي الطيران: دليل شامل"
-      description="استعراض المبادئ الأساسية والمعايير المهنية في تصميم أزياء الطيران وكيفية تحقيق التوازن بين الوظيفة والأناقة"
-      category="أزياء الطيران"
-      categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/flight_crew_uniform_design.jpeg"
-      publishDate="٨ مايو ٢٠٢٤"
-      readTime="١٤ دقيقة للقراءة"
-      authorName="فريق يونيفورم"
-      authorImage="/images/author/team.jpg"
-      authorTitle="خبراء تصميم الأزياء الموحدة"
-      backUrl="/blog/aviation"
-      tags={tags}
-      relatedArticles={relatedArticles}
-    >
-      {/* المقدمة */}
-      <Section id="intro" title="مقدمة في مبادئ تصميم زي الطيران">
-        <Paragraph isLead={true}>
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/aviation-uniforms/in-design-uniform-aviation-Saudi" className="text-sm hover:text-blue-600 block">
+                    تصميم أزياء الطيران في المملكة العربية السعودية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/aviation-uniforms/airline-corporate-identity-uniforms" className="text-sm hover:text-blue-600 block">
+                    أزياء شركات الطيران كعنصر في الهوية المؤسسية
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة في مبادئ تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يعتبر تصميم زي الطيران من المجالات المتخصصة التي تجمع بين علم التصميم والوظيفية العملية والهوية المؤسسية. ويتطلب هذا المجال فهماً عميقاً للتوازن الدقيق بين الجمال والراحة والمتانة، مع مراعاة متطلبات السلامة والأمان الخاصة بصناعة الطيران.
-        </Paragraph>
-        <Paragraph>
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
           في هذا المقال، نستعرض المبادئ الأساسية التي يجب مراعاتها عند تصميم زي الطيران، والعناصر التي تميز التصاميم الناجحة، مع تقديم نماذج وأمثلة من شركات طيران مختلفة حول العالم. يهدف هذا الدليل إلى توفير رؤية شاملة للمصممين والمهتمين بهذا المجال المتخصص.
-        </Paragraph>
-      </Section>
+              </p>
+            </section>
 
-      {/* المبادئ الأساسية في تصميم زي الطيران */}
-      <Section id="basic-principles" title="المبادئ الأساسية في تصميم زي الطيران">
-        <Paragraph>
+            <section id="basic-principles" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المبادئ الأساسية في تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يقوم تصميم زي الطيران الناجح على مجموعة من المبادئ الأساسية التي تضمن تحقيق جميع الأهداف المرجوة منه.
-        </Paragraph>
+              </p>
         
-        <ArticleImage 
-          src="/images/flight_crew/uniform_design_principles.jpg"
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مبادئ تصميم زي الطيران"
-          caption="المبادئ الأساسية التي تحكم عملية تصميم زي الطيران"
-          source="مجلة تصميم الأزياء المهنية"
-        />
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  المبادئ الأساسية التي تحكم عملية تصميم زي الطيران | المصدر: مجلة تصميم الأزياء المهنية
+                </div>
+              </div>
         
-        <BulletList>
-          <ListItem title="التوازن بين الوظيفة والجمال">
-            في قلب تصميم زي الطيران يكمن التحدي الأكبر: كيف نصمم زياً وظيفياً يلبي متطلبات العمل المتنوعة، ويوفر في الوقت نفسه مظهراً أنيقاً يعكس احترافية الطاقم وهوية الشركة؟ يتطلب تحقيق هذا التوازن دراسة متأنية للمهام اليومية التي يقوم بها طاقم الطائرة، والعوامل التي تؤثر على أدائهم وراحتهم.
-          </ListItem>
-          <ListItem title="الملاءمة للهوية المؤسسية">
-            يعتبر زي الطيران امتداداً مرئياً لهوية شركة الطيران وقيمها. لذلك، يجب أن يعكس التصميم شخصية العلامة التجارية من خلال استخدام الألوان والرموز والأشكال التي تتوافق مع الهوية البصرية للشركة، مع مراعاة القيم التي تريد الشركة إيصالها.
-          </ListItem>
-          <ListItem title="مراعاة التنوع والشمولية">
-            من المبادئ الحديثة التي أصبحت ضرورية في تصميم أزياء الطيران مراعاة التنوع في أشكال وأحجام وثقافات أفراد الطاقم. ويتطلب ذلك تصميمات تناسب مختلف الأجسام والإثنيات، وتحترم الخصوصيات الثقافية والدينية للموظفين.
-          </ListItem>
-          <ListItem title="الاستجابة للتحديات البيئية">
-            نظراً لأن طاقم الطائرة يعمل في بيئات متنوعة ومتغيرة، يجب أن يستجيب التصميم للاحتياجات المختلفة في ظروف مختلفة: من الحرارة الشديدة في المطارات الاستوائية إلى البرودة في المقصورة المكيفة، ومن التحرك بحرية أثناء تقديم الخدمة إلى الجلوس لفترات طويلة.
-          </ListItem>
-        </BulletList>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">المبادئ الأساسية لتصميم زي الطيران</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">التوازن بين الوظيفة والجمال:</span> في قلب تصميم زي الطيران يكمن التحدي الأكبر: كيف نصمم زياً وظيفياً يلبي متطلبات العمل المتنوعة، ويوفر في الوقت نفسه مظهراً أنيقاً يعكس احترافية الطاقم وهوية الشركة؟ يتطلب تحقيق هذا التوازن دراسة متأنية للمهام اليومية التي يقوم بها طاقم الطائرة، والعوامل التي تؤثر على أدائهم وراحتهم.</li>
+                    <li><span className="font-medium">الملاءمة للهوية المؤسسية:</span> يعتبر زي الطيران امتداداً مرئياً لهوية شركة الطيران وقيمها. لذلك، يجب أن يعكس التصميم شخصية العلامة التجارية من خلال استخدام الألوان والرموز والأشكال التي تتوافق مع الهوية البصرية للشركة، مع مراعاة القيم التي تريد الشركة إيصالها.</li>
+                    <li><span className="font-medium">مراعاة التنوع والشمولية:</span> من المبادئ الحديثة التي أصبحت ضرورية في تصميم أزياء الطيران مراعاة التنوع في أشكال وأحجام وثقافات أفراد الطاقم. ويتطلب ذلك تصميمات تناسب مختلف الأجسام والإثنيات، وتحترم الخصوصيات الثقافية والدينية للموظفين.</li>
+                    <li><span className="font-medium">الاستجابة للتحديات البيئية:</span> نظراً لأن طاقم الطائرة يعمل في بيئات متنوعة ومتغيرة، يجب أن يستجيب التصميم للاحتياجات المختلفة في ظروف مختلفة: من الحرارة الشديدة في المطارات الاستوائية إلى البرودة في المقصورة المكيفة، ومن التحرك بحرية أثناء تقديم الخدمة إلى الجلوس لفترات طويلة.</li>
+                  </ul>
+                </div>
+              </div>
 
-        <HighlightBox title="حقيقة مثيرة للاهتمام" color="blue">
-          <Paragraph>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">حقيقة مثيرة للاهتمام</h3>
+                <p className="leading-7 text-gray-700">
             وفقاً لدراسة أجرتها منظمة النقل الجوي الدولية (IATA)، فإن شركات الطيران التي تستثمر في تصميم أزياء تلبي متطلبات الراحة والوظيفية بشكل متوازن تسجل مستويات رضا وظيفي أعلى لدى طاقم الطائرة بنسبة 23%، مما ينعكس إيجاباً على جودة الخدمة المقدمة للركاب.
-          </Paragraph>
-        </HighlightBox>
-      </Section>
+                </p>
+              </div>
+            </section>
 
-      {/* العناصر الأساسية في تصميم زي الطيران */}
-      <Section id="essential-elements" title="العناصر الأساسية في تصميم زي الطيران">
-        <Paragraph>
+            <section id="essential-elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الأساسية في تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يتكون زي الطيران من مجموعة من العناصر الأساسية التي تشكل معاً المظهر الكامل للطاقم، ولكل منها اعتبارات تصميمية خاصة.
-        </Paragraph>
+              </p>
 
-        <KeyPointsBox 
-          title="عناصر زي الطيران الأساسية"
-          points={[
-            "البدلة أو الجاكيت (للطيارين والمضيفين): تمثل العنصر الأكثر رسمية وتحمل عادة شارات الرتبة والهوية",
-            "القميص/البلوزة: يوفر الراحة ويعكس ألوان الشركة، مع متطلبات عملية مثل مقاومة التجعد",
-            "البنطلون/التنورة: يجب أن تسمح بحرية الحركة مع الحفاظ على المظهر الأنيق",
-            "الإكسسوارات: مثل ربطات العنق، الأوشحة، القبعات، والشارات التي تكمل المظهر وتعزز الهوية",
-            "الأحذية: عنصر أساسي يجمع بين الأناقة والراحة، مع مراعاة احتياجات السلامة",
-            "الملابس الخارجية: معاطف ومعاطف واقية من المطر للحماية في مختلف الظروف الجوية"
-          ]}
-        />
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">عناصر زي الطيران الأساسية</h3>
+                <p className="mb-2 font-medium text-blue-700">المكونات الرئيسية للزي المتكامل:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>البدلة أو الجاكيت (للطيارين والمضيفين): تمثل العنصر الأكثر رسمية وتحمل عادة شارات الرتبة والهوية</li>
+                  <li>القميص/البلوزة: يوفر الراحة ويعكس ألوان الشركة، مع متطلبات عملية مثل مقاومة التجعد</li>
+                  <li>البنطلون/التنورة: يجب أن تسمح بحرية الحركة مع الحفاظ على المظهر الأنيق</li>
+                  <li>الإكسسوارات: مثل ربطات العنق، الأوشحة، القبعات، والشارات التي تكمل المظهر وتعزز الهوية</li>
+                  <li>الأحذية: عنصر أساسي يجمع بين الأناقة والراحة، مع مراعاة احتياجات السلامة</li>
+                  <li>الملابس الخارجية: معاطف ومعاطف واقية من المطر للحماية في مختلف الظروف الجوية</li>
+                </ul>
+              </div>
 
-        <Paragraph>
+              <p className="mb-4 leading-7 text-gray-700">
           يجب أن تتكامل هذه العناصر معاً لتشكل مظهراً متناسقاً يعكس الصورة المهنية المطلوبة. وتختلف التفاصيل بين شركات الطيران المختلفة، لكن المبادئ العامة في التصميم تظل متشابهة.
-        </Paragraph>
-      </Section>
+              </p>
+            </section>
 
-      {/* اعتبارات المواد والألوان */}
-      <Section id="materials-colors" title="اعتبارات المواد والألوان في تصميم زي الطيران">
-        <Paragraph>
+            <section id="materials-colors" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اعتبارات المواد والألوان في تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تلعب المواد والألوان دوراً حاسماً في نجاح تصميم زي الطيران، وتخضع لاعتبارات متعددة تتجاوز الجوانب الجمالية.
-        </Paragraph>
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">اختيار المواد المناسبة</h3>
+                  <p className="mb-2 text-gray-700">العوامل المؤثرة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>التوازن بين المتانة والراحة</li>
+                    <li>مقاومة التجعد والبقع</li>
+                    <li>قابلية التنفس وتنظيم الحرارة</li>
+                    <li>سهولة العناية والغسيل</li>
+                    <li>المناسبة لمختلف المناخات</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">دور الألوان ودلالاتها</h3>
+                  <p className="mb-2 text-gray-700">التأثير والاستخدام:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>التعبير عن هوية شركة الطيران</li>
+                    <li>الدلالات النفسية والثقافية للألوان</li>
+                    <li>الألوان الداكنة للقطع الرئيسية</li>
+                    <li>ألوان مميزة للإكسسوارات والتفاصيل</li>
+                  </ul>
+                </div>
+              </div>
         
-        <BulletList>
-          <ListItem title="اختيار المواد المناسبة">
-            يتطلب اختيار المواد لزي الطيران توازناً بين المتانة والراحة والمظهر. تفضل الأقمشة المقاومة للتجعد والبقع، والتي تسمح بالتنفس وتنظيم درجة حرارة الجسم. كما يجب مراعاة سهولة العناية بالملابس وإمكانية غسلها وكيها بسهولة، نظراً لجدول السفر المزدحم لطاقم الطائرة.
-          </ListItem>
-          <ListItem title="دور الألوان ودلالاتها">
-            تعتبر الألوان من أهم عناصر التعبير عن هوية شركة الطيران. تستخدم الشركات عادة الألوان الرئيسية من هويتها البصرية في تصميم الزي، مع مراعاة الدلالات الثقافية والنفسية للألوان. على سبيل المثال، تفضل العديد من شركات الطيران اللون الأزرق الداكن للإيحاء بالثقة والاحترافية، بينما تضيف بعض الشركات لمسات من ألوان زاهية لإضفاء طابع مميز.
-          </ListItem>
-          <ListItem title="تناسق الألوان وتوازنها">
-            يجب أن تشكل الألوان المختارة نظاماً متناسقاً ومتوازناً، مع تحديد واضح للألوان الأساسية والثانوية وكيفية توزيعها على عناصر الزي المختلفة. يفضل عادة استخدام الألوان الداكنة والمحايدة للقطع الرئيسية مثل البدلات والبناطيل، مع إضافة لمسات من الألوان المميزة في الإكسسوارات أو التفاصيل.
-          </ListItem>
-        </BulletList>
-        
-        <ArticleImage 
-          src="/images/flight_crew/uniform_colors_materials.jpg"
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="المواد والألوان في زي الطيران"
-          caption="تأثير اختيار المواد والألوان على المظهر النهائي لزي الطيران"
-          source="معهد تصميم الأزياء المهنية"
+                  fill
+                  style={{ objectFit: 'cover' }}
         />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  تأثير اختيار المواد والألوان على المظهر النهائي لزي الطيران | المصدر: معهد تصميم الأزياء المهنية
+                </div>
+              </div>
         
-        <Quote author="ليلى الراشد" source="مصممة أزياء طيران عالمية">
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <p className="italic text-gray-700 border-r-4 border-blue-300 pr-4 py-2 mb-4">
           "في تصميم زي الطيران، الألوان ليست مجرد عناصر جمالية، بل هي أدوات قوية للتواصل والتعبير عن هوية الشركة. اختيار اللون المناسب يتطلب فهماً عميقاً للتاريخ والثقافة والقيم التي تمثلها شركة الطيران."
-        </Quote>
-      </Section>
+                </p>
+                <p className="text-sm text-gray-600 text-left">- ليلى الراشد، مصممة أزياء طيران عالمية</p>
+              </div>
+            </section>
 
-      {/* دورة تصميم زي الطيران */}
-      <Section id="design-cycle" title="دورة تصميم زي الطيران: من الفكرة إلى التنفيذ">
-        <Paragraph>
+            <section id="design-cycle" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">دورة تصميم زي الطيران: من الفكرة إلى التنفيذ</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تمر عملية تصميم زي الطيران بسلسلة من المراحل المنظمة، تضمن الوصول إلى نتيجة تلبي جميع المتطلبات.
-        </Paragraph>
+              </p>
 
-        <BulletList>
-          <ListItem title="البحث والدراسة">
-            تبدأ العملية بدراسة معمقة لهوية شركة الطيران وقيمها، ودراسة احتياجات الطاقم والمهام التي يقومون بها. كما تشمل هذه المرحلة تحليل الاتجاهات الحالية في تصميم أزياء الطيران، ودراسة نماذج ناجحة من شركات طيران أخرى.
-          </ListItem>
-          <ListItem title="وضع المفهوم والرؤية">
-            بناءً على نتائج البحث، يتم تطوير رؤية شاملة لزي الطيران الجديد، تحدد الطابع العام والرسائل التي يجب أن ينقلها التصميم. يتم إعداد لوحات الإلهام (Mood Boards) التي تجمع الأفكار والاتجاهات البصرية المقترحة.
-          </ListItem>
-          <ListItem title="التصميم الأولي">
-            في هذه المرحلة، يبدأ المصممون بترجمة الرؤية إلى رسومات وتصاميم أولية لمختلف عناصر الزي. يتم تجريب مجموعات لونية مختلفة وأشكال وقصات متنوعة، مع التركيز على تحقيق التوازن بين الجوانب الجمالية والوظيفية.
-          </ListItem>
-          <ListItem title="النماذج الأولية والاختبارات">
-            يتم إنتاج نماذج أولية للتصاميم المختارة، واختبارها في ظروف مشابهة لبيئة العمل الحقيقية. يشارك أفراد من طاقم الطائرة في هذه الاختبارات لتقديم ملاحظات حول الراحة والعملية والمظهر.
-          </ListItem>
-          <ListItem title="التعديل والتحسين">
-            بناءً على نتائج الاختبارات والملاحظات، يتم إجراء تعديلات وتحسينات على التصاميم. قد تتكرر هذه العملية عدة مرات حتى الوصول إلى التصميم الأمثل.
-          </ListItem>
-          <ListItem title="الإنتاج والتنفيذ">
-            بعد اعتماد التصميم النهائي، تبدأ مرحلة الإنتاج على نطاق واسع. يتم وضع مواصفات تفصيلية للتصنيع، واختيار المواد النهائية، وتحديد المقاسات المختلفة.
-          </ListItem>
-          <ListItem title="التدريب والإطلاق">
-            قبل إطلاق الزي الجديد، يتم تدريب الطاقم على كيفية ارتدائه بالشكل الصحيح والعناية به. ثم يتم إطلاق الزي الجديد، غالباً مصحوباً بحملة إعلامية تبرز التصميم الجديد وفلسفته.
-          </ListItem>
-        </BulletList>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">مراحل تصميم زي الطيران</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">البحث والدراسة:</span> دراسة هوية شركة الطيران وقيمها، واحتياجات الطاقم والمهام التي يقومون بها، وتحليل الاتجاهات الحالية في تصميم أزياء الطيران.</li>
+                    <li><span className="font-medium">وضع المفهوم والرؤية:</span> تطوير رؤية شاملة للزي الجديد وإعداد لوحات الإلهام (Mood Boards) التي تجمع الأفكار والاتجاهات البصرية المقترحة.</li>
+                    <li><span className="font-medium">التصميم الأولي:</span> ترجمة الرؤية إلى رسومات وتصاميم أولية، وتجربة مجموعات لونية وقصات متنوعة للوصول إلى التوازن المطلوب.</li>
+                    <li><span className="font-medium">النماذج الأولية والاختبارات:</span> إنتاج نماذج للتصاميم المختارة واختبارها في ظروف مشابهة لبيئة العمل، مع مشاركة الطاقم في التقييم.</li>
+                    <li><span className="font-medium">التعديل والتحسين:</span> إجراء تعديلات بناءً على نتائج الاختبارات والملاحظات، والوصول إلى التصميم الأمثل.</li>
+                    <li><span className="font-medium">الإنتاج والتنفيذ:</span> وضع مواصفات تفصيلية للتصنيع واختيار المواد النهائية وتحديد المقاسات المختلفة.</li>
+                    <li><span className="font-medium">التدريب والإطلاق:</span> تدريب الطاقم على كيفية ارتداء الزي والعناية به، ثم إطلاق الزي الجديد مع حملة إعلامية مناسبة.</li>
+                  </ol>
+                </div>
+              </div>
         
-        <HighlightBox title="نصيحة من الخبراء" color="green">
-          <Paragraph>
+              <div className="bg-green-50 p-5 rounded-lg border border-green-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-green-800">نصيحة من الخبراء</h3>
+                <p className="leading-7 text-gray-700">
             من الممارسات الفضلى في مشاريع تصميم زي الطيران إشراك ممثلين من مختلف أقسام طاقم الطائرة في جميع مراحل العملية، من البحث الأولي إلى اختبار النماذج النهائية. هذا يضمن تلبية التصميم للاحتياجات العملية للطاقم، ويخلق شعوراً بالملكية والفخر بالزي الجديد.
-          </Paragraph>
-        </HighlightBox>
-      </Section>
+                </p>
+              </div>
+            </section>
 
-      {/* أمثلة ناجحة في تصميم زي الطيران */}
-      <Section id="successful-examples" title="أمثلة ناجحة في تصميم زي الطيران">
-        <Paragraph>
+            <section id="successful-examples" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">أمثلة ناجحة في تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تقدم صناعة الطيران العالمية العديد من الأمثلة الرائدة في تصميم الأزياء، حيث نجحت شركات مختلفة في إبداع تصاميم مميزة تعكس هويتها الفريدة.
-        </Paragraph>
+              </p>
         
-        <BulletList>
-          <ListItem title="طيران الإمارات: الأناقة التقليدية مع لمسة عصرية">
+              <div className="space-y-6 mb-6">
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">طيران الإمارات: الأناقة التقليدية مع لمسة عصرية</h3>
+                  <p className="mb-2 text-gray-700">
             يعتبر زي طيران الإمارات من التصاميم الأكثر تميزاً، حيث يجمع بين العناصر التقليدية الخليجية والأناقة العالمية. الزي المعروف بقبعته الحمراء المميزة ووشاح الرأس الأبيض يعكس التراث الإماراتي، بينما تضفي القصات العصرية والتفاصيل الأنيقة طابعاً دولياً.
-          </ListItem>
-          <ListItem title="الخطوط الجوية السنغافورية: البساطة والإتقان">
+                  </p>
+                </div>
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الخطوط الجوية السنغافورية: البساطة والإتقان</h3>
+                  <p className="mb-2 text-gray-700">
             اشتهرت الخطوط السنغافورية بأزيائها الأنيقة المستوحاة من الثوب التقليدي "الساري". يتميز التصميم بالبساطة والاهتمام بالتفاصيل، واستخدام أنماط وألوان متناسقة تعكس الهوية الآسيوية مع لمسة عالمية.
-          </ListItem>
-          <ListItem title="الخطوط الجوية الفرنسية: الأناقة الباريسية">
-            يعكس زي الخطوط الفرنسية الذوق الباريسي الراقي، مع استخدام اللون الأزرق الداكن كلون أساسي والأحمر كلون مكمل. التصميم البسيط والأنيق يركز على القصات المتقنة والتفاصيل الدقيقة التي تميز الأزياء الفرنسية.
-          </ListItem>
-          <ListItem title="الخطوط الجوية السعودية: التراث والمعاصرة">
+                  </p>
+                </div>
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الخطوط الجوية السعودية: التراث والمعاصرة</h3>
+                  <p className="mb-2 text-gray-700">
             قدمت الخطوط السعودية نموذجاً ناجحاً في دمج العناصر التراثية السعودية مع التصميم العصري. يتميز الزي الجديد باستخدام ألوان العلم السعودي بطريقة أنيقة، مع إدخال عناصر من الزخارف التقليدية في التفاصيل.
-          </ListItem>
-        </BulletList>
+                  </p>
+                </div>
+              </div>
 
-        <Paragraph>
+              <p className="mb-4 leading-7 text-gray-700">
           تظهر هذه الأمثلة كيف يمكن للتصميم الناجح أن يعكس الهوية الثقافية للشركة مع تلبية المتطلبات العملية، وكيف يمكن للتفاصيل الصغيرة أن تخلق تأثيراً كبيراً في المظهر العام.
-        </Paragraph>
-      </Section>
+              </p>
+            </section>
 
-      {/* اتجاهات مستقبلية في تصميم زي الطيران */}
-      <Section id="future-trends" title="اتجاهات مستقبلية في تصميم زي الطيران">
-        <Paragraph>
+            <section id="future-trends" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اتجاهات مستقبلية في تصميم زي الطيران</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يشهد مجال تصميم زي الطيران تطورات مستمرة، مدفوعة بالتغيرات في صناعة الطيران والتكنولوجيا والاتجاهات الاجتماعية.
-        </Paragraph>
+              </p>
         
-        <ArticleImage 
-          src="/images/flight_crew/future_aviation_uniforms.jpg"
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مستقبل أزياء الطيران"
-          caption="تصور لاتجاهات مستقبلية في تصميم زي الطيران"
-          source="معرض الابتكار في صناعة الطيران 2024"
-        />
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  تصور لاتجاهات مستقبلية في تصميم زي الطيران | المصدر: معرض الابتكار في صناعة الطيران 2024
+                </div>
+              </div>
         
-        <BulletList>
-          <ListItem title="تكنولوجيا المنسوجات الذكية">
-            تتجه صناعة أزياء الطيران نحو استخدام متزايد للأقمشة الذكية التي توفر خصائص متقدمة: أقمشة تنظم درجة الحرارة تلقائياً، أقمشة مقاومة للميكروبات تظل نظيفة لفترات أطول، وأقمشة قادرة على التكيف مع تغيرات البيئة المحيطة.
-          </ListItem>
-          <ListItem title="الاستدامة والمسؤولية البيئية">
-            مع تزايد الاهتمام العالمي بقضايا البيئة، تتجه شركات الطيران نحو استخدام مواد مستدامة في تصنيع الأزياء: أقمشة من مواد معاد تدويرها، أو مواد طبيعية يتم إنتاجها بطرق مستدامة، وعمليات تصنيع أقل تأثيراً على البيئة.
-          </ListItem>
-          <ListItem title="التخصيص والتنوع">
-            هناك اتجاه متزايد نحو توفير خيارات أكثر تنوعاً في زي الطيران، تراعي الاختلافات الفردية والثقافية. بدلاً من فرض تصميم موحد بالكامل، توفر بعض الشركات مجموعة من الخيارات ضمن إطار موحد، مما يسمح للطاقم باختيار ما يناسبهم أكثر.
-          </ListItem>
-          <ListItem title="التصميم المتكامل الوظائف">
-            تطوير أزياء متعددة الوظائف يمكن تعديلها بسهولة لتلائم الظروف المختلفة، مثل قطع قابلة للفك والتركيب، أو تصاميم يمكن ارتداؤها بطرق متعددة، مما يقلل من الحاجة لحمل قطع متعددة أثناء الرحلات.
-          </ListItem>
-        </BulletList>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">اتجاهات تصميم زي الطيران المستقبلية</h3>
+                <p className="mb-2 font-medium text-blue-700">التطورات المتوقعة في المستقبل القريب:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>تكنولوجيا المنسوجات الذكية: أقمشة تنظم الحرارة، مقاومة للميكروبات، قادرة على التكيف مع البيئة</li>
+                  <li>الاستدامة والمسؤولية البيئية: مواد معاد تدويرها، مواد طبيعية مستدامة، عمليات إنتاج صديقة للبيئة</li>
+                  <li>التخصيص والتنوع: خيارات متنوعة تراعي الاختلافات الفردية والثقافية ضمن إطار موحد</li>
+                  <li>التصميم المتكامل الوظائف: قطع متعددة الوظائف، قابلة للتعديل، يمكن ارتداؤها بطرق متعددة</li>
+                </ul>
+              </div>
+            </section>
         
-        <HighlightBox title="ابتكار مستقبلي" color="blue">
-          <Paragraph>
-            تعمل بعض شركات التكنولوجيا على تطوير أقمشة "تفاعلية" يمكنها تغيير خصائصها (مثل اللون أو السماكة) استجابة للظروف المحيطة أو بناءً على تفضيلات المستخدم. تخيل زياً للطيران يمكنه التكيف تلقائياً مع درجة حرارة المقصورة أو تعديل سماكته حسب نشاط الطاقم!
-          </Paragraph>
-        </HighlightBox>
-      </Section>
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعد تصميم زي الطيران مجالاً متخصصاً يتطلب الموازنة بين اعتبارات متعددة، من الهوية المؤسسية والأناقة إلى الراحة والوظيفية والمتانة. ويتطلب النجاح في هذا المجال فهماً عميقاً لطبيعة عمل طاقم الطائرة ومتطلباتهم، مع إلمام بتقنيات التصميم واتجاهات الموضة العالمية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                مع التطور المستمر في تقنيات صناعة الأقمشة والاهتمام المتزايد بالاستدامة والشمولية، يشهد مجال تصميم زي الطيران تحولات مهمة تفتح آفاقاً جديدة للإبداع والابتكار. ويبقى التحدي الأكبر هو تحقيق التوازن الأمثل بين جميع العناصر، للوصول إلى تصميم يعزز صورة الشركة ويوفر تجربة إيجابية لكل من الطاقم والمسافرين.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، يمكن القول إن الزي الناجح ليس مجرد ملابس أنيقة، بل هو تعبير بصري عن هوية شركة الطيران، وأداة وظيفية تؤثر على أداء الطاقم وراحتهم، وعنصر أساسي من عناصر تجربة السفر الجوي المتكاملة.
+              </p>
+            </section>
 
-      {/* الخلاصة */}
-      <Section id="conclusion" title="الخلاصة">
-        <Paragraph>
-          تصميم زي الطيران هو فن يجمع بين الجمال والوظيفة، وعلم يعتمد على فهم عميق لاحتياجات الطاقم ومتطلبات العمل في بيئة الطيران الفريدة. نجاح التصميم يعتمد على التوازن الدقيق بين العديد من العوامل المتداخلة: الهوية المؤسسية، الراحة، المتانة، الأناقة، والعملية.
-        </Paragraph>
-        <Paragraph>
-          مع استمرار تطور صناعة الطيران وظهور تقنيات جديدة في عالم النسيج والتصميم، ستظهر فرص متزايدة للابتكار والإبداع في هذا المجال. المصممون الناجحون سيكونون قادرين على الجمع بين احترام تقاليد وقيم شركات الطيران والاستفادة من الإمكانات التي توفرها التكنولوجيا الحديثة والاتجاهات المعاصرة.
-        </Paragraph>
-        <Paragraph>
-          في النهاية، يبقى الهدف الأسمى لتصميم زي الطيران هو تمكين الطاقم من تقديم أفضل خدمة للمسافرين، وذلك من خلال زي يشعرون فيه بالراحة والفخر والثقة، ويعكس صورة إيجابية ومميزة عن شركة الطيران التي يمثلونها.
-        </Paragraph>
-      </Section>
-    </BlogArticle>
+            {/* Author Bio Section */}
+            <div className="mb-12">
+              <AuthorBio 
+                author="محمد القحطاني" 
+                image="/images/author/mohammed_al_qahtani.jpg" 
+                title="خبير في تصميم أزياء الطيران والأزياء المهنية"
+              />
+            </div>
+
+            {/* Related Posts Section */}
+            <div className="mb-10">
+              <RelatedPosts 
+                currentCategory="aviation-uniforms" 
+                currentSlug="design-uniform"
+              />
+            </div>
+
+            {/* قسم التعليقات */}
+            <div className="border-t pt-10 mt-10">
+              <h3 className="text-xl font-bold mb-6">التعليقات</h3>
+              <div className="bg-blue-50 p-6 rounded-lg text-center">
+                <p className="text-gray-700 mb-4">شاركنا رأيك حول هذا المقال</p>
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  إضافة تعليق
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 } 

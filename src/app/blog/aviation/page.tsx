@@ -9,11 +9,11 @@ const aviationPosts = [
     id: 'aviation-uniform-standards-2025',
     title: 'معايير أزياء الطيران 2025: أحدث التوجهات والمواصفات',
     description: 'استكشف أحدث المعايير والمواصفات لأزياء طاقم الطيران في عام 2025، مع التركيز على الجودة والراحة والهوية البصرية.',
-    image: '/images/flight_crew/flight_crew_uniform_design.jpeg',
+    image: "/images/aviation/aviation_uniform.jpeg",
     date: '2024-03-15',
     author: {
       name: 'ريما السباعي',
-      image: '/images/author/ريما_السباعي.png',
+      image: "/images/aviation/aviation_uniform.jpeg",
       role: 'خبيرة تصميم أزياء الطيران'
     },
     category: 'أزياء الطيران',
@@ -22,11 +22,11 @@ const aviationPosts = [
     id: 'comfort-safety-airline-uniforms',
     title: 'الراحة والسلامة في أزياء طاقم الطيران',
     description: 'دليل شامل حول كيفية تحقيق التوازن بين الراحة والسلامة في تصميم أزياء طاقم الطيران مع الحفاظ على المظهر الاحترافي.',
-    image: '/images/flight_crew/flight_crew_uniform_fabrics.jpeg',
+    image: "/images/aviation/aviation_uniform.jpeg",
     date: '2024-03-10',
     author: {
       name: 'أمجد الضبياني',
-      image: '/images/author/أمجد_الضبياني.png',
+      image: "/images/aviation/aviation_uniform.jpeg",
       role: 'مستشار سلامة الطيران'
     },
     category: 'أزياء الطيران',
@@ -35,16 +35,19 @@ const aviationPosts = [
     id: 'modern-flight-attendant-fashion',
     title: 'موضة مضيفات الطيران الحديثة: بين التقاليد والابتكار',
     description: 'استكشاف أحدث اتجاهات الموضة في أزياء مضيفات الطيران، مع التركيز على التصاميم العصرية التي تحافظ على الهوية المؤسسية.',
-    image: '/images/flight_crew/flight_attendant_dress.jpeg',
+    image: "/images/aviation/aviation_uniform.jpeg",
     date: '2024-03-05',
     author: {
       name: 'حنين البقمي',
-      image: '/images/author/حنين_البقمي.png',
+      image: "/images/aviation/aviation_uniform.jpeg",
       role: 'مصممة أزياء طيران'
     },
     category: 'أزياء الطيران',
   },
 ];
+
+// صورة الهيدر للمقال
+const heroImage = '/images/aviation/header_aviation_uniform.jpeg';
 
 export default function AviationBlogPage() {
   return (

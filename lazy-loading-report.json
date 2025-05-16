@@ -1,0 +1,192 @@
+{
+  "date": "2025-05-13T15:37:07.044Z",
+  "summary": {
+    "totalComponents": 12,
+    "componentsRecommendedForLazyLoading": 4,
+    "imageTagsUpdated": 1
+  },
+  "componentsAnalysis": [
+    {
+      "file": "src\\components\\TableOfContents.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": false,
+      "lineCount": 121,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\ShareButtons.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": false,
+      "lineCount": 75,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\RelatedPosts.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": false,
+      "lineCount": 83,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\Navbar.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": false,
+      "hasDefaultExport": true,
+      "lineCount": 29,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\Footer.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": false,
+      "hasDefaultExport": true,
+      "lineCount": 36,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\BlogArticle.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": true,
+      "lineCount": 341,
+      "recommendation": "Consider lazy loading this component"
+    },
+    {
+      "file": "src\\components\\AuthorBio.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": false,
+      "hasDefaultExport": false,
+      "lineCount": 83,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\components\\ArticleTemplate.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": true,
+      "lineCount": 157,
+      "recommendation": "Consider lazy loading this component"
+    },
+    {
+      "file": "src\\components\\ArabicContentElements.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": false,
+      "hasDefaultExport": false,
+      "lineCount": 190,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\app\\components\\Navbar.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": true,
+      "lineCount": 135,
+      "recommendation": "Consider lazy loading this component"
+    },
+    {
+      "file": "src\\app\\components\\ImageWithPath.jsx",
+      "isAlreadyLazy": false,
+      "isLarge": false,
+      "hasLargeImports": false,
+      "isClientComponent": false,
+      "hasDefaultExport": true,
+      "lineCount": 32,
+      "recommendation": "No lazy loading needed"
+    },
+    {
+      "file": "src\\app\\components\\Footer.tsx",
+      "isAlreadyLazy": false,
+      "isLarge": true,
+      "hasLargeImports": false,
+      "isClientComponent": true,
+      "hasDefaultExport": true,
+      "lineCount": 112,
+      "recommendation": "Consider lazy loading this component"
+    }
+  ],
+  "imageTagUpdates": [
+    {
+      "file": "src\\components\\TableOfContents.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\ShareButtons.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\RelatedPosts.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\Navbar.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\Footer.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\BlogArticle.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\AuthorBio.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\ArticleTemplate.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\components\\ArabicContentElements.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\app\\components\\Navbar.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    },
+    {
+      "file": "src\\app\\components\\ImageWithPath.jsx",
+      "status": "updated",
+      "updatedTags": 1
+    },
+    {
+      "file": "src\\app\\components\\Footer.tsx",
+      "status": "skipped",
+      "reason": "No eligible <img> tags found"
+    }
+  ]
+}

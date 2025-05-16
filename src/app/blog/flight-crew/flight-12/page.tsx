@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استعراض تاريخي لتطور أزياء مضيفات الطيران منذ بدايات الطيران التجاري وحتى يومنا هذا، مع تحليل للتغييرات في التصاميم والأنماط والتأثيرات الثقافية',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/flight_attendant_dress.jpeg';
   const title = 'تطور أزياء مضيفات الطيران عبر العصور';

@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشف كيف تؤثر الثقافة المحلية والهوية الوطنية على تصميم أزياء شركات الطيران، وكيف تعكس الرموز والألوان والعناصر التقليدية تراث البلدان المختلفة.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
   const title = 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران';

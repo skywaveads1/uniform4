@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "أزياء الطيران النسائية: تطورها وخصائصها الحديثة",
       description: "استكشاف شامل لتاريخ تطور أزياء الطيران النسائية وأحدث خصائصها ومميزاتها في عصرنا الحالي",
-      image: "/images/flight_crew/women_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-3",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "تطور تصميم أزياء شركات الطيران: رحلة عبر الزمن",
       description: "استعراض شامل لرحلة تطور تصميم أزياء شركات الطيران منذ بدايات الطيران التجاري وحتى يومنا هذا",
-      image: "/images/flight_crew/airline_uniform_evolution.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/airline-uniform-design-evolution",
       date: "١٠ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "معايير أزياء الطيران 2025: أحدث التوجهات والمواصفات",
       description: "استكشاف معايير ومواصفات أزياء الطيران المتوقعة لعام 2025",
-      image: "/images/flight_crew/aviation_uniforms_2025.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/aviation-uniform-standards-2025",
       date: "٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="دليل شامل حول مواصفات الزي الرسمي لطياري وقائدي الطائرات، ورموز الرتب والشارات، وتطوره التاريخي ومعاييره المعاصرة"
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/pilot_uniforms.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="١٧ مايو ٢٠٢٤"
       readTime="١١ دقيقة للقراءة"
       authorName="فريق يونيفورم"
@@ -73,7 +73,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/pilots_uniform_lineup.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مجموعة من الطيارين في الزي الرسمي المميز"
           caption="تشكيلة من الأزياء الرسمية للطيارين تعكس التنوع والوحدة في التصميم العالمي"
           source="الاتحاد الدولي للنقل الجوي (IATA)"
@@ -126,7 +126,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/pilot_uniform_evolution.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تطور الزي الرسمي للطيارين عبر العقود"
           caption="من السترات الجلدية إلى الزي الرسمي المعاصر: لقطات توثق تطور زي الطيارين عبر القرن الماضي"
           source="المتحف الوطني للطيران والفضاء"
@@ -188,7 +188,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/pilot_uniform_components.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مكونات الزي الرسمي للطيارين"
           caption="العناصر الأساسية للزي الرسمي للطيارين مع التفاصيل الدقيقة لكل قطعة"
           source="أكاديمية تدريب الطيارين الدولية"
@@ -242,7 +242,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/pilot_rank_insignia.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="شارات رتب الطيارين المختلفة"
           caption="دليل بصري للشرائط الذهبية وشارات الرتب المختلفة للطيارين من مختلف المستويات"
           source="المركز الدولي لتدريب الطيارين"

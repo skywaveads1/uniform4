@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'تأثير ألوان زي الطيران على انطباعات المسافرين',
@@ -7,300 +10,276 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/crew_uniform_visual_identity.jpeg';
+  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
   const title = 'تأثير ألوان زي الطيران على انطباعات المسافرين';
+  const readingTime = '8 دقائق';
+  const datePublished = '١٥ مايو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'environmental-impact', title: 'فهم تأثير يونيفورم الطيران على البيئة' },
+    { id: 'sustainable-materials', title: 'المواد المستدامة في تصميم أزياء الطيران' },
+    { id: 'global-initiatives', title: 'مبادرات رائدة من شركات الطيران العالمية' },
+    { id: 'circular-design', title: 'تصميم دائري للأزياء: ما بعد الاستدامة' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-9" className="text-sm hover:text-blue-600 block">
+                    تطور أزياء طاقم الطيران عبر التاريخ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-15" className="text-sm hover:text-blue-600 block">
+                    الاتجاهات الحديثة في تصميم أزياء طاقم الطيران
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
             في عصر يتزايد فيه الوعي البيئي والمسؤولية المجتمعية، تواجه صناعة الطيران تحدياً كبيراً للموازنة بين متطلبات النمو الاقتصادي والالتزام بممارسات أكثر استدامة. وبينما تركز معظم الجهود على تقليل انبعاثات الكربون وتحسين كفاءة استهلاك الوقود، هناك جانب آخر من جوانب الاستدامة يكتسب اهتماماً متزايداً: يونيفورم طاقم الطيران.
           </p>
-          <p className="mb-4">
+              <p className="mb-4 leading-7 text-gray-700">
             لطالما كانت أزياء الطيران رمزاً للأناقة والاحترافية، وعنصراً أساسياً في هوية شركات الطيران. ومع ذلك، فإن التحديات البيئية الناجمة عن دورة حياة هذه الأزياء - من استخراج المواد الخام وتصنيعها، إلى استخدامها والتخلص منها - تدفع نحو إعادة التفكير في الممارسات التقليدية وتبني نهج أكثر استدامة.
           </p>
-          <p className="mb-4">
+              <p className="mb-4 leading-7 text-gray-700">
             في هذا المقال، نستكشف الاتجاهات المتنامية نحو يونيفورم طيران أكثر استدامة، ونسلط الضوء على المبادرات الرائدة التي تقودها شركات الطيران العالمية والمحلية. كما نتناول التحديات التي تواجه هذا التحول، والفرص التي يقدمها للصناعة وللبيئة على حد سواء. سنستعرض أيضاً كيف يمكن للمواد والتقنيات المبتكرة أن تسهم في تقليل البصمة البيئية للأزياء مع الحفاظ على معايير الجودة والأناقة المتوقعة في هذا القطاع.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">فهم تأثير يونيفورم الطيران على البيئة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">دورة حياة يونيفورم الطيران والبصمة البيئية</h3>
-          <p className="mb-4">
-            تقييم التأثير البيئي للزي عبر مراحله المختلفة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخراج المواد الخام: استهلاك الموارد الطبيعية والطاقة لإنتاج الألياف</li>
-            <li className="mb-2">التصنيع: استخدام المواد الكيميائية والمياه في عمليات الصباغة والمعالجة</li>
-            <li className="mb-2">النقل والتوزيع: انبعاثات الكربون المرتبطة بنقل المنتجات عبر سلاسل التوريد العالمية</li>
-            <li className="mb-2">الاستخدام: استهلاك الطاقة والمياه والمنظفات في عمليات الغسيل والكي المتكررة</li>
-            <li className="mb-2">نهاية الاستخدام: النفايات الناتجة عن التخلص من الأزياء المستهلكة</li>
+            <section id="environmental-impact" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">فهم تأثير يونيفورم الطيران على البيئة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">دورة حياة يونيفورم الطيران والبصمة البيئية</h3>
+                <p className="mb-2 font-medium text-blue-700">تقييم التأثير البيئي للزي عبر مراحله المختلفة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استخراج المواد الخام: استهلاك الموارد الطبيعية والطاقة لإنتاج الألياف</li>
+                  <li>التصنيع: استخدام المواد الكيميائية والمياه في عمليات الصباغة والمعالجة</li>
+                  <li>النقل والتوزيع: انبعاثات الكربون المرتبطة بنقل المنتجات عبر سلاسل التوريد العالمية</li>
+                  <li>الاستخدام: استهلاك الطاقة والمياه والمنظفات في عمليات الغسيل والكي المتكررة</li>
+                  <li>نهاية الاستخدام: النفايات الناتجة عن التخلص من الأزياء المستهلكة</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">إحصائيات وأرقام حول الأثر البيئي لصناعة الملابس</h3>
-          <p className="mb-4">
-            حقائق مقلقة عن الصناعة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تمثل صناعة الأزياء ثاني أكبر ملوث للمياه على مستوى العالم</li>
-            <li className="mb-2">تستهلك إنتاج القطن التقليدي كميات هائلة من المياه والمبيدات الحشرية</li>
-            <li className="mb-2">تسهم الألياف الاصطناعية في مشكلة الميكروبلاستيك في المحيطات</li>
-            <li className="mb-2">تنتج شركات الطيران الكبرى مئات الآلاف من قطع اليونيفورم سنوياً</li>
-            <li className="mb-2">تقدر المدة المتوسطة لاستخدام زي الطيران بين 18-24 شهراً قبل استبداله</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">إحصائيات وأرقام حول الأثر البيئي</h3>
+                  <p className="mb-2 text-gray-700">حقائق مقلقة عن الصناعة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>صناعة الأزياء ثاني أكبر ملوث للمياه على مستوى العالم</li>
+                    <li>استهلاك القطن التقليدي كميات هائلة من المياه والمبيدات</li>
+                    <li>مساهمة الألياف الاصطناعية في مشكلة الميكروبلاستيك</li>
+                    <li>إنتاج مئات الآلاف من قطع اليونيفورم سنوياً</li>
+                    <li>متوسط استخدام زي الطيران بين 18-24 شهراً قبل استبداله</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الضغوط المتزايدة نحو الممارسات المستدامة</h3>
-          <p className="mb-4">
-            العوامل الدافعة للتغيير:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تزايد الوعي البيئي بين المسافرين واهتمامهم بسياسات الشركات البيئية</li>
-            <li className="mb-2">اللوائح والتشريعات المتطورة التي تفرض معايير أكثر صرامة</li>
-            <li className="mb-2">توجه المستثمرين نحو الشركات التي تتبنى معايير ESG (البيئة، المجتمع، الحوكمة)</li>
-            <li className="mb-2">المبادرات الطوعية داخل صناعة الطيران لتحسين الأداء البيئي</li>
-            <li className="mb-2">ضغوط المنافسة مع إعلان المزيد من شركات الطيران عن مبادرات الاستدامة</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الضغوط نحو الممارسات المستدامة</h3>
+                  <p className="mb-2 text-gray-700">العوامل الدافعة للتغيير:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تزايد الوعي البيئي بين المسافرين</li>
+                    <li>اللوائح والتشريعات البيئية المتطورة</li>
+                    <li>توجه المستثمرين نحو معايير ESG</li>
+                    <li>المبادرات الطوعية داخل صناعة الطيران</li>
+                    <li>ضغوط المنافسة مع إعلان مبادرات الاستدامة</li>
           </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">المواد المستدامة في تصميم أزياء الطيران</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الألياف الطبيعية المستدامة</h3>
-          <p className="mb-4">
-            بدائل صديقة للبيئة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">القطن العضوي: مزروع بدون مبيدات حشرية أو أسمدة كيميائية</li>
-            <li className="mb-2">الكتان: يتطلب مياهاً وموارد أقل بكثير من القطن</li>
-            <li className="mb-2">الحرير العضوي: إنتاج أكثر إنسانية مع تأثير بيئي أقل</li>
-            <li className="mb-2">الصوف المسؤول: من مزارع تطبق معايير الرفق بالحيوان والإدارة البيئية</li>
-            <li className="mb-2">الخيزران: ينمو بسرعة ويتطلب القليل من المدخلات الزراعية</li>
+            <section id="sustainable-materials" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد المستدامة في تصميم أزياء الطيران</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">الألياف الطبيعية المستدامة</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">بدائل صديقة للبيئة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>القطن العضوي: مزروع بدون مبيدات حشرية أو أسمدة كيميائية</li>
+                    <li>الكتان: يتطلب مياهاً وموارد أقل بكثير من القطن</li>
+                    <li>الحرير العضوي: إنتاج أكثر إنسانية مع تأثير بيئي أقل</li>
+                    <li>الصوف المسؤول: من مزارع تطبق معايير الرفق بالحيوان</li>
+                    <li>الخيزران: ينمو بسرعة ويتطلب القليل من المدخلات الزراعية</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الألياف المعاد تدويرها والمبتكرة</h3>
-          <p className="mb-4">
-            الابتكارات في إعادة استخدام الموارد:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">البوليستر المعاد تدويره (rPET): مصنوع من زجاجات البلاستيك المستعملة</li>
-            <li className="mb-2">النايلون المستصلح: مستخرج من شباك الصيد المهجورة والنفايات البلاستيكية</li>
-            <li className="mb-2">مواد من ألياف القهوة: تستخدم بقايا القهوة لإنتاج أقمشة ذات خصائص مضادة للروائح</li>
-            <li className="mb-2">أقمشة من نفايات الأناناس (Piñatex): بديل نباتي للجلد</li>
-            <li className="mb-2">السليلوز المعاد تجديده: مستخرج من لب الأشجار المدارة بشكل مستدام</li>
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الألياف المعاد تدويرها والمبتكرة</h3>
+              <div className="border-r-2 border-blue-500 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">الابتكارات في إعادة استخدام الموارد:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>البوليستر المعاد تدويره (rPET): مصنوع من زجاجات البلاستيك</li>
+                  <li>النايلون المستصلح: مستخرج من شباك الصيد المهجورة</li>
+                  <li>مواد من ألياف القهوة: تستخدم بقايا القهوة لإنتاج أقمشة</li>
+                  <li>أقمشة من نفايات الأناناس (Piñatex): بديل نباتي للجلد</li>
+                  <li>السليلوز المعاد تجديده: مستخرج من لب الأشجار المستدامة</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد التقنية المتطورة</h3>
-          <p className="mb-4">
-            ابتكارات تجمع بين الأداء والاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة قابلة للتحلل البيولوجي: تتفكك طبيعياً بعد انتهاء عمرها الافتراضي</li>
-            <li className="mb-2">مواد ذكية تقلل الحاجة للغسيل المتكرر (مقاومة للبقع والروائح)</li>
-            <li className="mb-2">ألياف مركبة تجمع بين متانة المواد الاصطناعية وتجددية المواد الطبيعية</li>
-            <li className="mb-2">أقمشة معالجة بتقنيات متقدمة لتقليل استهلاك الطاقة في المراحل اللاحقة</li>
-            <li className="mb-2">مواد مصممة للفصل السهل في نهاية العمر لتسهيل إعادة التدوير</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">المواد التقنية المتطورة</h3>
+                <p className="mb-2 text-gray-700">ابتكارات تجمع بين الأداء والاستدامة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>أقمشة قابلة للتحلل البيولوجي بعد انتهاء عمرها</li>
+                  <li>مواد ذكية تقلل الحاجة للغسيل المتكرر</li>
+                  <li>ألياف مركبة تجمع بين المتانة والتجددية</li>
+                  <li>أقمشة معالجة لتقليل استهلاك الطاقة</li>
+                  <li>مواد مصممة للفصل السهل لتسهيل إعادة التدوير</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير وشهادات الاستدامة</h3>
-          <p className="mb-4">
-            ضمان الالتزام بالمعايير البيئية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">شهادة GOTS (المعيار العالمي للمنسوجات العضوية)</li>
-            <li className="mb-2">معيار Oeko-Tex للمنسوجات الخالية من المواد الضارة</li>
-            <li className="mb-2">شهادة Bluesign للإنتاج المستدام للمنسوجات</li>
-            <li className="mb-2">معيار Cradle to Cradle للتصميم الدائري</li>
-            <li className="mb-2">شهادة Fair Trade للممارسات التجارية العادلة في سلسلة التوريد</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مبادرات رائدة من شركات الطيران العالمية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تجارب شركات طيران عالمية</h3>
-          <p className="mb-4">
-            نماذج ملهمة للاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط الجوية الاسكندنافية (SAS): زي مصنوع من مواد معاد تدويرها بنسبة 100%</li>
-            <li className="mb-2">يونايتد إيرلاينز: شراكة مع TracyReese لتصميم يونيفورم من مواد مستدامة</li>
-            <li className="mb-2">طيران نيوزيلندا: استخدام خيوط مستخرجة من زجاجات البلاستيك المعاد تدويرها</li>
-            <li className="mb-2">كانتاس الأسترالية: برنامج شامل لإعادة تدوير اليونيفورم القديم</li>
-            <li className="mb-2">الخطوط الجوية الفنلندية: استخدام مواد من المحيط في تصنيع قطع معينة من الزي</li>
+            <section id="global-initiatives" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مبادرات رائدة من شركات الطيران العالمية</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تجارب شركات طيران عالمية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">نماذج ملهمة للاستدامة:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>الخطوط الجوية الاسكندنافية: زي من مواد معاد تدويرها 100%</li>
+                      <li>يونايتد إيرلاينز: شراكة مع TracyReese لتصميم يونيفورم مستدام</li>
+                      <li>طيران نيوزيلندا: استخدام خيوط من زجاجات بلاستيكية معاد تدويرها</li>
+                      <li>كانتاس الأسترالية: برنامج شامل لإعادة تدوير اليونيفورم القديم</li>
+                      <li>الخطوط الجوية الفنلندية: استخدام مواد من المحيط في الزي</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">خطوات نحو الاستدامة في شركات الطيران العربية</h3>
-          <p className="mb-4">
-            مبادرات محلية وإقليمية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">طيران الإمارات: تجربة استخدام أقمشة من مصادر مستدامة في بعض قطع الزي</li>
-            <li className="mb-2">الخطوط السعودية: خطط لتطوير زي يتضمن مواد معاد تدويرها ضمن مبادرات الاستدامة</li>
-            <li className="mb-2">الاتحاد للطيران: برنامج لإعادة استخدام عناصر من الزي القديم في منتجات أخرى</li>
-            <li className="mb-2">الخطوط الملكية الأردنية: التحول التدريجي نحو مواد أكثر استدامة في الإكسسوارات</li>
-            <li className="mb-2">طيران الخليج: شراكات مع موردين ملتزمين بمعايير الإنتاج المستدام</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">خطوات نحو الاستدامة في شركات الطيران العربية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">مبادرات محلية وإقليمية:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>طيران الإمارات: تجربة استخدام أقمشة من مصادر مستدامة</li>
+                      <li>الخطوط السعودية: خطط لتطوير زي يتضمن مواد معاد تدويرها</li>
+                      <li>الاتحاد للطيران: برنامج لإعادة استخدام عناصر من الزي القديم</li>
+                      <li>الخطوط الملكية الأردنية: التحول نحو مواد أكثر استدامة</li>
+                      <li>طيران الخليج: شراكات مع موردين ملتزمين بالإنتاج المستدام</li>
           </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">شراكات مع مصممين ومصنعين ملتزمين بالاستدامة</h3>
-          <p className="mb-4">
-            التعاون لتحقيق أهداف الاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تعاون الخطوط البريطانية مع مصممة الأزياء المستدامة ستيلا مكارتني</li>
-            <li className="mb-2">شراكة دلتا إيرلاينز مع Lands' End لتصميم زي من مواد معاد تدويرها</li>
-            <li className="mb-2">تعاون الخطوط الفرنسية مع شركات نسيج تستخدم تقنيات توفير المياه</li>
-            <li className="mb-2">استعانة شركات طيران بمصممين محليين يركزون على الحرف التقليدية المستدامة</li>
-            <li className="mb-2">شراكات مع مختبرات الابتكار لتطوير مواد جديدة صديقة للبيئة</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">دراسات حالة: نتائج وتأثير المبادرات</h3>
+                <p className="mb-2 font-medium text-blue-700">قياس نجاح مشاريع الاستدامة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>الخطوط الاسكندنافية: تقليل البصمة الكربونية للزي بنسبة 45%</li>
+                  <li>كانتاس: تحويل أكثر من 10,000 قطعة زي من مكب النفايات</li>
+                  <li>يونايتد: توفير 231,000 لتر من المياه سنوياً من خلال تقنيات صباغة متطورة</li>
+                  <li>الخطوط الفنلندية: تحويل 13 طن من البلاستيك إلى إكسسوارات للزي</li>
+                  <li>طيران نيوزيلندا: تحسن في رضا الموظفين بنسبة 32% بعد اعتماد زي أكثر استدامة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">دراسات حالة: نتائج وتأثير المبادرات</h3>
-          <p className="mb-4">
-            قياس نجاح مشاريع الاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط الاسكندنافية: تقليل البصمة الكربونية للزي بنسبة 45% مقارنة بالتصميم السابق</li>
-            <li className="mb-2">كانتاس: تحويل أكثر من 10,000 قطعة زي من مكب النفايات من خلال برنامج إعادة التدوير</li>
-            <li className="mb-2">يونايتد: توفير 231,000 لتر من المياه سنوياً من خلال اعتماد تقنيات صباغة متطورة</li>
-            <li className="mb-2">الخطوط الفنلندية: تحويل 13 طن من البلاستيك إلى إكسسوارات للزي الرسمي</li>
-            <li className="mb-2">طيران نيوزيلندا: تحسن في رضا الموظفين بنسبة 32% بعد اعتماد زي أكثر استدامة وراحة</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تصميم دائري للأزياء: ما بعد الاستدامة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">مفهوم الاقتصاد الدائري في الأزياء</h3>
-          <p className="mb-4">
-            إعادة تعريف دورة حياة المنتج:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم المنتجات منذ البداية لإعادة الاستخدام وإعادة التدوير</li>
-            <li className="mb-2">القضاء على مفهوم "النفايات" من خلال تحويلها إلى موارد جديدة</li>
-            <li className="mb-2">الحفاظ على المواد في الاستخدام لأطول فترة ممكنة</li>
-            <li className="mb-2">تجديد النظم الطبيعية من خلال اختيار مواد خام متجددة</li>
-            <li className="mb-2">الانتقال من نموذج "الاستخدام والتخلص" إلى "الاستخدام وإعادة الاستخدام"</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">نماذج مبتكرة لإطالة عمر يونيفورم الطيران</h3>
-          <p className="mb-4">
-            ممارسات تقلل من النفايات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">برامج إعادة تأهيل اليونيفورم وإعادة صيانته بدل استبداله بالكامل</li>
-            <li className="mb-2">تصميم زي قابل للتعديل يتكيف مع التغيرات في مقاسات الجسم</li>
-            <li className="mb-2">تطوير أنظمة تأجير وتبادل بين الموظفين بدل التملك الفردي</li>
-            <li className="mb-2">إنشاء "بنوك للزي" تسمح بإعادة توزيع القطع غير المستخدمة</li>
-            <li className="mb-2">تصميم قطع متعددة الاستخدامات تقلل من عدد المكونات المطلوبة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">استراتيجيات إعادة التدوير وإعادة الاستخدام</h3>
-          <p className="mb-4">
-            حلول لنهاية دورة الحياة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تفكيك اليونيفورم القديم لاستخلاص الألياف وإعادة غزلها</li>
-            <li className="mb-2">تحويل الأزياء غير الصالحة للاستخدام إلى منتجات أخرى (حقائب، إكسسوارات)</li>
-            <li className="mb-2">تطوير برامج للتبرع بالزي المستعمل لمدارس الطيران والمؤسسات التعليمية</li>
-            <li className="mb-2">استخدام تقنيات متقدمة لفصل المكونات المختلفة وإعادة تدويرها</li>
-            <li className="mb-2">تصميم نظام تتبع رقمي لمراقبة دورة حياة كل قطعة وضمان إعادة تدويرها</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">دور التكنولوجيا في تحقيق الدائرية</h3>
-          <p className="mb-4">
-            الابتكارات التقنية المساعدة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تقنيات البلوكتشين لتتبع مصدر المواد ومسار إعادة التدوير</li>
-            <li className="mb-2">الذكاء الاصطناعي لتحسين إدارة المخزون وتقليل الهدر</li>
-            <li className="mb-2">تقنيات فصل المواد المختلطة لتسهيل إعادة التدوير</li>
-            <li className="mb-2">أنظمة رقمية لإدارة تداول الزي بين الموظفين</li>
-            <li className="mb-2">تطبيقات تقدم إرشادات للعناية المثلى بالزي لإطالة عمره</li>
-          </ul>
+            <section id="circular-design" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تصميم دائري للأزياء: ما بعد الاستدامة</h2>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="تصميم دائري لأزياء الطيران"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  نموذج للتصميم الدائري في صناعة أزياء الطيران | المصدر: مؤتمر الاستدامة في صناعة الطيران 2023
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مفهوم الاقتصاد الدائري في الأزياء</h3>
+              <p className="mb-4 leading-7 text-gray-700">
+                يتجاوز التصميم الدائري مفهوم الاستدامة التقليدي ليعيد تعريف دورة حياة المنتج بالكامل. في هذا النموذج، تُصمم الأزياء منذ البداية بحيث يمكن إعادة استخدامها وتدويرها وتجديدها بسهولة، مما يلغي مفهوم "النفايات" تماماً. يعتمد هذا النهج على الحفاظ على المواد في الاستخدام لأطول فترة ممكنة، وتجديد النظم الطبيعية، والانتقال من نموذج "الاستخدام والتخلص" إلى "الاستخدام وإعادة الاستخدام".
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في سياق أزياء الطيران، يمكن تطبيق هذا المفهوم من خلال تصميم قطع قابلة للتفكيك بسهولة، واستخدام مواد أحادية يمكن إعادة تدويرها دون فقدان جودتها، وإنشاء أنظمة لاستعادة الأزياء المستعملة وإعادة تدويرها أو تحويلها إلى منتجات جديدة. هذا النهج لا يقلل فقط من الأثر البيئي، بل يمكن أن يخلق أيضاً فرصاً اقتصادية جديدة وقيمة مضافة للشركات.
+              </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات وحلول نحو يونيفورم طيران أكثر استدامة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التحديات الاقتصادية والعملية</h3>
-          <p className="mb-4">
-            عوائق التحول نحو الاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ارتفاع تكلفة المواد المستدامة مقارنة بالمواد التقليدية</li>
-            <li className="mb-2">صعوبة تلبية متطلبات المتانة والأداء مع الحفاظ على معايير الاستدامة</li>
-            <li className="mb-2">تعقيد سلاسل التوريد العالمية وصعوبة ضمان الممارسات المستدامة في جميع المراحل</li>
-            <li className="mb-2">الحاجة لتحديث البنية التحتية للتصنيع والتوزيع</li>
-            <li className="mb-2">قصور في نظم جمع وإعادة تدوير الزي في نهاية دورة حياته</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">حلول مبتكرة للتغلب على التحديات</h3>
-          <p className="mb-4">
-            استراتيجيات لتجاوز العقبات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير نماذج أعمال جديدة تقلل من التكلفة الأولية للاستثمار في الاستدامة</li>
-            <li className="mb-2">تشكيل تحالفات صناعية لتطوير معايير موحدة وتوسيع نطاق الحلول</li>
-            <li className="mb-2">الاستفادة من الحوافز الحكومية والدعم للممارسات المستدامة</li>
-            <li className="mb-2">توعية المساهمين والمسافرين بالقيمة طويلة الأمد للاستثمار في الاستدامة</li>
-            <li className="mb-2">التنفيذ التدريجي للتغييرات بدءاً من العناصر ذات التأثير الأكبر</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">دور الموظفين والمسافرين في دعم المبادرات</h3>
-          <p className="mb-4">
-            إشراك أصحاب المصلحة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تثقيف الطاقم حول أهمية الاستدامة وكيفية المساهمة فيها</li>
-            <li className="mb-2">إشراك الموظفين في تصميم وتطوير الزي المستدام</li>
-            <li className="mb-2">تشجيع المسافرين على تقديم ملاحظات حول مبادرات الاستدامة</li>
-            <li className="mb-2">برامج تحفيز للموظفين للعناية بالزي وإطالة عمره الافتراضي</li>
-            <li className="mb-2">توظيف الزي المستدام في التواصل مع المسافرين حول التزام الشركة بالاستدامة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">المستقبل والاتجاهات طويلة المدى</h3>
-          <p className="mb-4">
-            رؤية طموحة لقطاع الأزياء في الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التحول نحو نموذج "الأزياء كخدمة" بدلاً من المنتج التقليدي</li>
-            <li className="mb-2">تطوير أزياء "صفر نفايات" بتصميم دائري كامل</li>
-            <li className="mb-2">استخدام مواد حيوية مبتكرة (من الفطريات، البكتيريا، الطحالب)</li>
-            <li className="mb-2">أزياء ذكية تتكيف مع الظروف وتقلل الحاجة لقطع متعددة</li>
-            <li className="mb-2">تكامل كامل بين الأزياء وأهداف الكربون الصفري لشركات الطيران</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            إن التحول نحو يونيفورم طيران أكثر استدامة ليس مجرد اتجاه عابر، بل أصبح ضرورة استراتيجية لشركات الطيران التي تسعى للبقاء والمنافسة في عصر يتزايد فيه الوعي البيئي. كما رأينا في هذا المقال، هناك العديد من المبادرات الواعدة والابتكارات المشجعة التي تظهر إمكانية تحقيق توازن بين الأداء الوظيفي والأناقة والاستدامة في تصميم أزياء الطيران.
-          </p>
-          <p className="mb-4">
-            من المواد المستدامة إلى نماذج الاقتصاد الدائري، تمتلك شركات الطيران اليوم مجموعة متنوعة من الخيارات لتقليل البصمة البيئية لأزيائها. وعلى الرغم من التحديات الاقتصادية والعملية، فإن الفوائد طويلة المدى - من تحسين صورة العلامة التجارية إلى تقليل التكاليف وزيادة رضا الموظفين - تقدم مبرراً قوياً لمواصلة الاستثمار في هذا المجال.
-          </p>
-          <p className="mb-4">
-            مع تطور التقنيات وزيادة الضغوط التنظيمية والمجتمعية، من المتوقع أن تصبح الاستدامة معياراً أساسياً وليس ميزة تنافسية في صناعة أزياء الطيران. والشركات التي تبادر بتبني هذا التوجه مبكراً ستكون في وضع أفضل للتكيف مع المتطلبات المستقبلية وقيادة التغيير في الصناعة. وفي النهاية، فإن الرحلة نحو يونيفورم أكثر استدامة هي جزء لا يتجزأ من التحول الأوسع نحو مستقبل أكثر استدامة لصناعة الطيران بأكملها.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يمثل التحول نحو أزياء طيران أكثر استدامة فرصة مهمة لشركات الطيران لتقليل بصمتها البيئية وتعزيز صورتها كمؤسسات مسؤولة بيئياً واجتماعياً. من خلال اعتماد المواد المستدامة، وتبني تقنيات التصنيع الصديقة للبيئة، وتطبيق مبادئ التصميم الدائري، يمكن لشركات الطيران أن تحقق توازناً بين الأناقة والوظيفية والاستدامة في أزياء طاقم الطيران.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                مع استمرار تطور التقنيات والمواد المستدامة، وتزايد الوعي البيئي بين المستهلكين والمستثمرين، سيصبح هذا التحول ليس فقط خياراً أخلاقياً، بل ضرورة تنافسية أيضاً. الشركات التي تبادر بتبني هذه الممارسات ستكون في موقع أفضل للاستفادة من الفرص الناشئة في اقتصاد أكثر استدامة، وستساهم في تشكيل مستقبل أكثر خضرة لصناعة الطيران.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، يتطلب تحقيق الاستدامة الحقيقية في أزياء الطيران تعاوناً وثيقاً بين شركات الطيران، ومصممي الأزياء، ومصنعي المنسوجات، والباحثين، والهيئات التنظيمية. من خلال هذا الجهد المشترك، يمكن تحويل تحدي الاستدامة إلى فرصة للابتكار والتميز في صناعة تسعى باستمرار للتطور والتحسين.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

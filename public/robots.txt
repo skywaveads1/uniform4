@@ -1,0 +1,26 @@
+# https://www.yourdomain.com robots.txt
+User-agent: *
+Allow: /
+
+# Disallow specific internal or private paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /cdn-cgi/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Crawl delay directive for specific bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.yourdomain.com/sitemap.xml 

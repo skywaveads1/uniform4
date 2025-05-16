@@ -20,11 +20,14 @@ export const metadata = {
   description: 'استكشاف أحدث التوجهات والابتكارات في عالم تصميم أزياء الطيران والمضيفين على مستوى العالم والمنطقة',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/aviation_uniforms/header_airline_uniform.jpeg';
+
 export default function ArticlePage() {
-  const imageSrc = '/images/aviation-uniforms/flight_crew_uniform_design.jpeg';
-  const title = 'تصميم الزي الموحد في الطيران';
-  const readingTime = '١١ دقائق';
-  const datePublished = '١٢ مايو ٢٠٢٤';
+  const imageSrc = '/images/aviation_uniforms/in_design_uniform_aviation.jpeg';
+  const title = 'الابتكار في تصميم أزياء الطيران: التوازن بين الوظيفة والأناقة';
+  const readingTime = '8 دقائق للقراءة';
+  const datePublished = '١٥ مايو ٢٠٢٤';
 
   // أقسام المقال للتنقل السريع
   const sections = [
@@ -38,7 +41,7 @@ export default function ArticlePage() {
     {
       title: "تصميم أزياء الطيران في المملكة العربية السعودية",
       description: "نظرة شاملة على عالم تصميم أزياء الطيران في المملكة وكيف تجمع بين الهوية الوطنية والمعايير العالمية",
-      image: "/images/flight_crew/flight_crew_uniforms_riyadh.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/in-design-uniform-aviation-Saudi",
       date: "٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -46,7 +49,7 @@ export default function ArticlePage() {
     {
       title: "أساسيات تصميم أزياء الطيران",
       description: "دليل شامل للمبادئ والأسس المهمة في تصميم أزياء الطيران",
-      image: "/images/flight_crew/aviation_design_basics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/aviation",
       date: "٧ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -54,7 +57,7 @@ export default function ArticlePage() {
     {
       title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
       description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -165,7 +168,7 @@ export default function ArticlePage() {
         
               <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/aviation-uniforms/uniform_evolution.jpg"
+                  src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تطور أزياء الطيران عبر العصور"
                   fill
                   style={{ objectFit: 'cover' }}

@@ -18,7 +18,7 @@ export default function ClothingFacilitiesInDammam() {
     {
       title: "ملابس العمل: أنواعها ومواصفاتها وأهميتها",
       description: "دليل شامل حول أنواع ملابس العمل المختلفة ومواصفاتها وفوائدها في تحسين بيئة العمل",
-      image: "/images/workwear/workwear_types.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/clothing",
       date: "٨ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -26,7 +26,7 @@ export default function ClothingFacilitiesInDammam() {
     {
       title: "أحذية السلامة للعمال: مواصفاتها ودورها",
       description: "دليل شامل حول أنواع أحذية السلامة ومواصفاتها ودورها في حماية العمال من مخاطر بيئة العمل",
-      image: "/images/workwear/safety_shoes.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/safety-shoes-from-uniform-workers-facilities",
       date: "١٢ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -34,7 +34,7 @@ export default function ClothingFacilitiesInDammam() {
     {
       title: "تصميم وصيانة الزي الموحد للشركات",
       description: "دليل متكامل حول كيفية تصميم الزي الموحد للشركات وطرق صيانته للحفاظ على مظهره الاحترافي",
-      image: "/images/workwear/design_maintenance.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/design-uniform-maintenance",
       date: "١٥ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -49,11 +49,11 @@ export default function ClothingFacilitiesInDammam() {
       description="استعراض تفصيلي لأبرز منشآت تصنيع وتوريد ملابس العمل والزي الموحد في مدينة الدمام، مع توضيح الخدمات والمميزات التي تقدمها"
       category="ملابس العمل"
       categoryUrl="/blog/workwear"
-      heroImage="/images/utility_services/maintenance_technician_clothing.jpeg"
+      heroImage="/images/workwear/workwear_maintenance.jpeg"
       publishDate="١٧ مايو ٢٠٢٤"
       readTime="٨ دقائق للقراءة"
       authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
+      authorImage="/images/author/team.jpg"
       authorTitle="خبراء ملابس العمل"
       backUrl="/blog/workwear"
       tags={tags}
@@ -90,7 +90,7 @@ export default function ClothingFacilitiesInDammam() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/dammam_industrial.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="القطاع الصناعي في الدمام"
         caption="يعد القطاع الصناعي المزدهر في الدمام محركاً رئيسياً لنمو سوق ملابس العمل والزي الموحد"
       />
@@ -174,7 +174,7 @@ export default function ClothingFacilitiesInDammam() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/dammam_production.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="تصنيع ملابس العمل في الدمام"
         caption="منشآت تصنيع ملابس العمل في الدمام تستخدم تقنيات حديثة تلبي المعايير العالمية"
       />
@@ -281,7 +281,7 @@ export default function ClothingFacilitiesInDammam() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/dammam_choice.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="اختيار منشأة ملابس العمل المناسبة"
         caption="اختيار المنشأة المناسبة لملابس العمل يتطلب دراسة متأنية لضمان الحصول على منتجات عالية الجودة"
       />

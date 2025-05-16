@@ -1,6 +1,8 @@
-'use client';
-
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 import BlogArticle from '@/components/BlogArticle';
 import { 
   Section, 
@@ -13,240 +15,381 @@ import {
   ArticleImage
 } from '@/components/ArabicContentElements';
 
-export default function Uniform() {
+export const metadata = {
+  title: 'الزي الموحد: أهميته وتأثيره على بيئة العمل',
+  description: 'تحليل شامل لأهمية الزي الموحد وتأثيره الإيجابي على بيئة العمل وهوية الشركة والإنتاجية وسلوك الموظفين',
+};
+
+export default function UniformImportance() {
+  const imageSrc = '/images/workwear/uniform_importance.jpeg';
+  const title = 'الزي الموحد: أهميته وتأثيره على بيئة العمل';
+  const readingTime = '6 دقائق للقراءة';
+  const datePublished = '٤ مايو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'corporate-identity', title: 'تعزيز الهوية المؤسسية' },
+    { id: 'employee-psychology', title: 'التأثير النفسي على الموظفين' },
+    { id: 'customer-perception', title: 'إدراك العملاء والثقة' },
+    { id: 'productivity', title: 'تحسين الإنتاجية والكفاءة' },
+    { id: 'implementation', title: 'استراتيجيات فعالة للتنفيذ' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
+
   const relatedArticles = [
     {
-      title: "الزي الموحد في السعودية: الهوية والتصميم والتطبيق المؤسسي",
-      description: "دراسة متعمقة للزي الموحد في المؤسسات السعودية، كيفية تصميمه وتطويره ليعكس الهوية الوطنية والمؤسسية",
-      image: "/images/workwear/saudi_uniform.jpeg",
-      url: "/blog/workwear/uniform-in-Saudi",
-      date: "٢٥ مايو ٢٠٢٤",
+      title: "متطلبات الزي الموحد لعمال الصيانة والتشغيل",
+      description: "دليل متكامل حول المتطلبات الأساسية للزي الموحد لعمال الصيانة والتشغيل",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/maintenance-worker-uniform-requirements",
+      date: "٥ مايو ٢٠٢٤",
       category: "ملابس العمل"
     },
     {
-      title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
-      description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
-      image: "/images/chef-uniforms/saudi_catering_uniform.jpeg",
-      url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
-      date: "٢٠ يونيو ٢٠٢٤",
-      category: "أزياء الطهاة"
+      title: "معايير الزي الموحد لشركات الخدمات والمرافق",
+      description: "استعراض شامل للمعايير الأساسية التي يجب اتباعها عند اختيار وتصميم الزي الموحد",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/utility-services-uniform-standards",
+      date: "٢ مايو ٢٠٢٤",
+      category: "ملابس العمل"
     },
     {
-      title: "العناية بملابس العمل: دليل شامل للحفاظ على جودتها وإطالة عمرها",
-      description: "إرشادات مفصلة حول طرق العناية بملابس العمل والزي الموحد للحفاظ على مظهرها وأدائها",
-      image: "/images/workwear/maintenance.jpeg",
-      url: "/blog/workwear/maintenance",
-      date: "١٨ مايو ٢٠٢٤",
+      title: "ملابس فنيي الخدمة الميدانية: المتطلبات والمواصفات",
+      description: "دليل شامل حول متطلبات ومواصفات ملابس العمل المناسبة لفنيي الخدمة الميدانية",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/field-service-technician-workwear",
+      date: "٣ مايو ٢٠٢٤",
       category: "ملابس العمل"
     }
   ];
 
-  const tags = ["الزي الموحد", "ملابس العمل", "الهوية المؤسسية", "بيئة العمل", "الإنتاجية", "صورة الشركة"];
+  const tags = ["الزي الموحد", "هوية الشركة", "بيئة العمل", "إنتاجية الموظفين", "علم نفس الملابس", "ثقافة مؤسسية"];
 
   return (
-    <BlogArticle
-      title="الزي الموحد: استثمار استراتيجي للمؤسسات الناجحة"
-      description="نظرة شاملة على أهمية الزي الموحد للمؤسسات والشركات، وكيف يساهم في تعزيز الهوية المؤسسية وتحسين الأداء وتعزيز صورة العلامة التجارية"
-      category="ملابس العمل"
-      categoryUrl="/blog/workwear"
-      heroImage="/images/utility_services/utility_uniforms.jpeg"
-      publishDate="٢٢ يونيو ٢٠٢٤"
-      readTime="٦ دقائق للقراءة"
-      authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
-      authorTitle="خبراء ملابس العمل"
-      backUrl="/blog/workwear"
-      tags={tags}
-      relatedArticles={relatedArticles}
-    >
-      <Section id="intro" title="مقدمة">
-        <Paragraph isLead={true}>
-          يتجاوز الزي الموحد في الشركات والمؤسسات كونه مجرد ملابس يرتديها الموظفون؛ فهو أداة استراتيجية متعددة الأبعاد تؤثر بشكل كبير في العديد من جوانب الأداء المؤسسي. من بناء الهوية المميزة إلى تعزيز روح الفريق وتحسين تجربة العملاء، أصبح الزي الموحد ركيزة أساسية في استراتيجيات المؤسسات الناجحة.
-        </Paragraph>
-        <Paragraph>
-          في هذا المقال، نستكشف الأبعاد المختلفة للزي الموحد وأهميته الاستراتيجية للمؤسسات، ونقدم رؤية متكاملة حول كيفية تصميم واختيار وإدارة الزي الموحد بطريقة تعظم قيمته كاستثمار استراتيجي يدعم أهداف المؤسسة.
-        </Paragraph>
-      </Section>
-
-      <Section id="strategic-importance" title="الأهمية الاستراتيجية للزي الموحد">
-        <Paragraph>
-          يمثل الزي الموحد عنصراً استراتيجياً متعدد القيمة للمؤسسات، يتجاوز في تأثيره المظهر الخارجي ليشمل جوانب متعددة من الأداء المؤسسي:
-        </Paragraph>
-        
-        <HighlightBox title="الأبعاد الاستراتيجية للزي الموحد" color="blue">
-          <BulletList>
-            <ListItem title="تعزيز الهوية المؤسسية والعلامة التجارية">
-              يمثل الزي الموحد تجسيداً مرئياً لهوية المؤسسة وقيمها وثقافتها. يعمل كسفير متنقل للعلامة التجارية، يحملها الموظفون أينما ذهبوا، مما يعزز الوعي بالعلامة ويخلق انطباعاً موحداً ومتسقاً عنها. الألوان والتصاميم والشعارات المستخدمة في الزي الموحد تنقل رسائل محددة عن المؤسسة وتساهم في تمييزها عن منافسيها.
-            </ListItem>
-            <ListItem title="تحسين تجربة العملاء">
-              يسهل الزي الموحد على العملاء تمييز موظفي المؤسسة، مما يحسن تجربة الخدمة ويقلل من إحباط العملاء. يعزز الزي الموحد الأنيق والمهني ثقة العملاء في المؤسسة ويولد انطباعاً بالاحترافية والجودة. كما يساعد تمييز الموظفين حسب أدوارهم في توجيه العملاء للشخص المناسب لمساعدتهم.
-            </ListItem>
-            <ListItem title="تعزيز الانتماء المؤسسي وروح الفريق">
-              يساهم الزي الموحد في خلق شعور بالانتماء والوحدة بين الموظفين، مما يعزز التماسك المؤسسي وروح الفريق. يقلل من الفوارق الاجتماعية والطبقية بين الموظفين، ويخلق بيئة عمل أكثر توازناً وتركيزاً على الكفاءة والأداء. هذا الشعور بالانتماء يترجم إلى ولاء أكبر للمؤسسة ومشاركة أعمق في تحقيق أهدافها.
-            </ListItem>
-            <ListItem title="تحسين الإنتاجية والكفاءة">
-              يوفر الزي الموحد العملي والمريح بيئة عمل أفضل تنعكس إيجاباً على إنتاجية الموظفين. يقلل من الوقت والجهد المستهلك في اختيار الملابس المناسبة يومياً، ويقلل من التشتت المرتبط بالمظهر والملابس في بيئة العمل، مما يسمح بالتركيز على المهام الأساسية.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <Quote author="سلمان المالكي" source="مستشار التطوير المؤسسي">
-          الزي الموحد يتجاوز كونه مجرد عنصر من عناصر صورة المؤسسة الخارجية؛ إنه استثمار استراتيجي في ثقافتها الداخلية وعلامتها التجارية وتجربة عملائها. المؤسسات التي تنظر للزي الموحد بهذه الرؤية الشمولية تحقق قيمة مضافة تتجاوز بكثير التكلفة المباشرة لتصميمه وتوفيره.
-        </Quote>
-      </Section>
-
-      <ArticleImage 
-        src="/images/workwear/corporate_identity_uniform.jpeg"
-        alt="الزي الموحد وتعزيز الهوية المؤسسية"
-        caption="الزي الموحد كأداة استراتيجية لتعزيز الهوية المؤسسية وتجسيد قيم العلامة التجارية"
-      />
-
-      <Section id="design-principles" title="مبادئ تصميم الزي الموحد الفعال">
-        <Paragraph>
-          يتطلب تصميم الزي الموحد الفعال موازنة دقيقة بين عدة اعتبارات أساسية تضمن تحقيق أهدافه المتعددة:
-        </Paragraph>
-
-        <HighlightBox title="مبادئ أساسية في تصميم الزي الموحد" color="green">
-          <BulletList>
-            <ListItem title="التوافق مع هوية العلامة التجارية">
-              يجب أن يعكس الزي الموحد هوية العلامة التجارية بشكل دقيق ومتسق. يتضمن ذلك استخدام ألوان العلامة التجارية وشعارها بطريقة مدروسة، والتأكد من أن التصميم يجسد قيم المؤسسة وثقافتها وموضعها في السوق. على سبيل المثال، مؤسسة مالية محافظة قد تختار تصميماً كلاسيكياً أنيقاً، بينما قد تختار شركة تكنولوجية ناشئة تصميماً أكثر عصرية وابتكاراً.
-            </ListItem>
-            <ListItem title="الوظيفة والراحة">
-              يجب أن يكون الزي الموحد مناسباً لطبيعة العمل وظروفه، ويوفر الراحة والحرية الكافية للموظفين لأداء مهامهم بكفاءة. يشمل ذلك اختيار الأقمشة المناسبة لبيئة العمل (مثل الأقمشة المقاومة للماء للعمل الخارجي)، وتصميم قصات ملائمة لطبيعة الحركة المطلوبة في العمل، مع مراعاة الظروف المناخية وساعات العمل الطويلة.
-            </ListItem>
-            <ListItem title="التميز والتفرد">
-              يجب أن يتميز الزي الموحد بعناصر فريدة تميز المؤسسة عن منافسيها وتجعلها سهلة التعرف عليها. يمكن تحقيق ذلك من خلال تفاصيل تصميمية مميزة، أو استخدام عناصر مستوحاة من تاريخ المؤسسة أو قيمها، أو تطوير قطع فريدة خاصة بالمؤسسة.
-            </ListItem>
-            <ListItem title="الشمولية والتنوع">
-              يجب أن يراعي تصميم الزي الموحد تنوع الموظفين من حيث الأجسام والثقافات والاحتياجات. يشمل ذلك توفير خيارات متنوعة تناسب مختلف الأجسام، واحترام الاعتبارات الثقافية والدينية، وتوفير تعديلات للموظفين ذوي الاحتياجات الخاصة.
-            </ListItem>
-            <ListItem title="الاستدامة والجودة">
-              يجب اختيار مواد ذات جودة عالية تتحمل الاستخدام المتكرر والغسيل المنتظم مع الحفاظ على مظهرها. تتجه المؤسسات المعاصرة نحو اختيار مواد مستدامة وصديقة للبيئة، مما يعكس التزامها بالمسؤولية البيئية ويتماشى مع توقعات العملاء والموظفين المتزايدة في هذا المجال.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <KeyPointsBox 
-          title="أخطاء شائعة في تصميم الزي الموحد"
-          points={[
-            "التركيز على المظهر فقط وإهمال جانب الراحة والوظيفة، مما يؤدي إلى استياء الموظفين وتأثير سلبي على الأداء",
-            "عدم مراعاة تنوع أجسام الموظفين، مما يخلق تحديات في المقاسات والملاءمة ويؤثر على المظهر العام",
-            "اختيار مواد منخفضة الجودة لتوفير التكلفة، مما يؤدي إلى تدهور سريع في المظهر وتكاليف استبدال متكررة",
-            "تصميم زي معقد يصعب صيانته وتنظيفه، مما يزيد من التكاليف التشغيلية ويؤثر على الاستدامة"
-          ]}
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
         />
-      </Section>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Section id="implementation" title="استراتيجيات التنفيذ الناجح لبرنامج الزي الموحد">
-        <Paragraph>
-          يتطلب تنفيذ برنامج زي موحد ناجح تخطيطاً دقيقاً وإدارة محكمة لضمان تحقيق أهدافه وقبوله من الموظفين:
-        </Paragraph>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
 
-        <HighlightBox title="خطوات تنفيذ برنامج الزي الموحد" color="amber">
-          <BulletList>
-            <ListItem title="إشراك الموظفين في العملية">
-              تعزيز قبول وتبني الزي الموحد من خلال إشراك الموظفين في عملية التصميم والاختيار. يمكن تحقيق ذلك من خلال استطلاعات الرأي، ومجموعات التركيز، وتجربة النماذج الأولية من قبل ممثلين من مختلف الإدارات. هذه المشاركة تخلق شعوراً بالملكية وتقلل المقاومة المحتملة للتغيير.
-            </ListItem>
-            <ListItem title="التواصل الفعال">
-              شرح أهداف برنامج الزي الموحد وفوائده للموظفين بشكل واضح، مع التركيز على كيفية مساهمته في تحقيق أهداف المؤسسة وتحسين بيئة العمل. يجب أن يتضمن التواصل تعليمات واضحة حول كيفية ارتداء الزي والعناية به، وكذلك الإجابة على الأسئلة والمخاوف الشائعة.
-            </ListItem>
-            <ListItem title="التدرج في التنفيذ">
-              اعتماد نهج تدريجي في تنفيذ برنامج الزي الموحد، بدءاً من إدارات أو فروع محددة كتجربة أولية، ثم التوسع بناءً على الدروس المستفادة. هذا النهج يسمح بتعديل التصميم أو السياسات قبل التنفيذ الكامل، ويقلل من التحديات اللوجستية.
-            </ListItem>
-            <ListItem title="دعم الإدارة العليا">
-              ضمان التزام ودعم الإدارة العليا لبرنامج الزي الموحد، مع المشاركة الفعالة من القيادات في ارتداء وتعزيز أهمية الزي. قد يتضمن ذلك تخصيص الميزانية الكافية، ومشاركة المديرين في فعاليات إطلاق الزي، وإظهار الالتزام الشخصي بسياسات الزي الموحد.
-            </ListItem>
-            <ListItem title="سياسات مرنة وعادلة">
-              وضع سياسات واضحة ومرنة تضمن الالتزام بالزي الموحد مع مراعاة الظروف الفردية والاحتياجات الخاصة. يجب أن تكون هذه السياسات عادلة ومتسقة، مع إجراءات واضحة للاستثناءات والتعديلات عند الضرورة، وطرق للتعامل مع عدم الالتزام بشكل بناء.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                {relatedArticles.map((article, index) => (
+                  <li key={index}>
+                    <Link href={article.url} className="text-sm hover:text-blue-600 block">
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
-        <Quote author="نورة الشمري" source="مديرة الموارد البشرية في شركة خدمات كبرى">
-          وجدنا أن نجاح برنامج الزي الموحد لدينا كان مرتبطاً بشكل مباشر بمستوى إشراك الموظفين في العملية. عندما شعر الموظفون أن آراءهم مسموعة وأن احتياجاتهم مُلبّاة في التصميم النهائي، تحول الزي الموحد من مجرد متطلب وظيفي إلى مصدر فخر وهوية مشتركة يحرصون على تمثيلها بأفضل صورة.
-        </Quote>
-      </Section>
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعتبر الزي الموحد أحد العناصر المهمة في بيئة العمل المؤسسي، إذ يتجاوز دوره الوظيفة الأساسية للملابس ليصبح أداة إستراتيجية تؤثر على العديد من جوانب بيئة العمل والعلامة التجارية. فالزي الموحد ليس مجرد قطع ملابس متشابهة يرتديها الموظفون، بل هو تعبير بصري عن هوية المؤسسة وقيمها وثقافتها.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في عالم الأعمال المعاصر، أصبحت المؤسسات تدرك بشكل متزايد القيمة الاستراتيجية للزي الموحد وتأثيره الإيجابي على مستويات متعددة، من تحسين صورة العلامة التجارية إلى تعزيز الانتماء المؤسسي وزيادة الإنتاجية، وصولاً إلى تحسين تجربة العملاء.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، سنستكشف أهمية الزي الموحد وتأثيره المتعدد الأبعاد على بيئة العمل، مع تسليط الضوء على الفوائد الملموسة وغير الملموسة التي يمكن أن تجنيها المؤسسات من خلال التصميم والتنفيذ الفعال لسياسة الزي الموحد.
+              </p>
+            </section>
 
-      <ArticleImage 
-        src="/images/workwear/uniform_implementation.jpeg"
-        alt="تنفيذ برنامج الزي الموحد في المؤسسات"
-        caption="خطوات تنفيذ برنامج زي موحد ناجح يحقق أهداف المؤسسة ويلقى قبول الموظفين"
-      />
+            <section id="corporate-identity" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تعزيز الهوية المؤسسية</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التمثيل البصري للعلامة التجارية</h3>
+                <p className="mb-2 text-gray-700">يسهم الزي الموحد في تعزيز الهوية المؤسسية من خلال:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>ترسيخ الهوية البصرية للمؤسسة عبر استخدام ألوان وشعارات العلامة التجارية</li>
+                  <li>خلق صورة متناسقة ومتماسكة للمؤسسة أمام العملاء والجمهور</li>
+                  <li>التمييز البصري عن المنافسين وزيادة القدرة على التعرف على العلامة التجارية</li>
+                  <li>تجسيد قيم وثقافة المؤسسة من خلال التصميم واختيار المواد</li>
+                </ul>
+              </div>
 
-      <Section id="roi" title="العائد على الاستثمار في الزي الموحد">
-        <Paragraph>
-          يمثل الزي الموحد استثماراً ذا عائد متعدد الأبعاد للمؤسسات، يتجاوز التكلفة المباشرة للتصميم والإنتاج:
-        </Paragraph>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تطابق مع رسالة المؤسسة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>يعكس الزي الموحد مستوى الاحترافية والجدية في المؤسسة</li>
+                    <li>يساعد في تواصل القيم الأساسية والتوجهات العامة</li>
+                    <li>يعزز المصداقية والثقة لدى العملاء والشركاء</li>
+                    <li>يوحد صورة المؤسسة عبر فروعها ومواقعها المختلفة</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تعزيز الانتماء المؤسسي</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>يخلق شعوراً بالانتماء للفريق والمؤسسة</li>
+                    <li>يقلل من الفوارق الاجتماعية والطبقية بين الموظفين</li>
+                    <li>يعزز روح الفريق والعمل الجماعي</li>
+                    <li>ينمي فخر الموظفين بالانتساب للمؤسسة</li>
+                  </ul>
+                </div>
+              </div>
 
-        <HighlightBox title="قياس عائد الاستثمار في الزي الموحد" color="red">
-          <BulletList>
-            <ListItem title="تأثير العلامة التجارية والتسويق">
-              يعمل الزي الموحد كأداة تسويقية متنقلة تزيد من ظهور العلامة التجارية ووعي الجمهور بها. يمكن قياس هذا التأثير من خلال مؤشرات مثل تحسن الوعي بالعلامة التجارية، وزيادة التعرف عليها، وتعزيز صورتها الإيجابية في استطلاعات رأي العملاء. المؤسسات التي تطبق برامج زي موحد مدروسة تشهد غالباً تحسناً في مؤشرات قيمة العلامة التجارية بنسبة تتراوح بين 10-15%.
-            </ListItem>
-            <ListItem title="تأثير تجربة العملاء">
-              يحسن الزي الموحد تجربة العملاء من خلال تسهيل التواصل وتعزيز الثقة والمهنية. يمكن قياس هذا التأثير من خلال مؤشرات رضا العملاء، وتقييمات الخدمة، ومعدلات العملاء المتكررين. تشير الدراسات إلى أن المؤسسات التي تطبق برامج زي موحد تشهد تحسناً في مؤشرات رضا العملاء بنسبة تتراوح بين 8-12%.
-            </ListItem>
-            <ListItem title="تأثير بيئة العمل والإنتاجية">
-              يعزز الزي الموحد الانتماء والروح المعنوية والتركيز في بيئة العمل، مما ينعكس إيجاباً على الإنتاجية. يمكن قياس هذا التأثير من خلال مؤشرات رضا الموظفين، ومعدلات الغياب، ودوران العمالة، ومؤشرات الإنتاجية. تظهر الإحصاءات تحسناً في مؤشرات الانتماء المؤسسي بنسبة تتراوح بين 15-20% في المؤسسات التي تطبق برامج زي موحد مدروسة بشكل جيد.
-            </ListItem>
-            <ListItem title="تأثير التوفير المالي">
-              على المدى الطويل، يمكن أن يحقق برنامج الزي الموحد توفيراً مالياً من خلال المشتريات بكميات كبيرة، وتوحيد العمليات اللوجستية، وتقليل تكاليف الموارد البشرية المرتبطة بتنفيذ سياسات الملابس. كما يساهم في تقليل تكاليف تعيين موظفين جدد نتيجة انخفاض معدل دوران العمالة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+        src="/images/workwear/workwear_maintenance.jpeg"
+                  alt="تعزيز الهوية المؤسسية من خلال الزي الموحد"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  الزي الموحد يعكس هوية المؤسسة ويساهم في بناء صورة متناسقة أمام العملاء والجمهور
+                </div>
+              </div>
+            </section>
 
-        <KeyPointsBox 
-          title="مؤشرات أداء رئيسية لبرنامج الزي الموحد"
-          points={[
-            "تحسن في درجة ولاء العملاء ومعدلات تكرار الزيارة (يمكن قياسه من خلال بطاقات الولاء وبيانات المبيعات)",
-            "انخفاض في معدل دوران الموظفين وتحسن في مؤشرات الرضا الوظيفي (يمكن قياسه من خلال استبيانات الموظفين)",
-            "زيادة في معدلات التعرف على العلامة التجارية واستدعائها في أذهان العملاء (يمكن قياسه من خلال أبحاث السوق)",
-            "تحسن في مؤشرات الامتثال للمعايير والسلامة في القطاعات التي تتطلب ذلك (يمكن قياسه من خلال تقارير الحوادث والمخالفات)"
-          ]}
-        />
-      </Section>
+            <section id="employee-psychology" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التأثير النفسي على الموظفين</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">علم نفس الملابس في بيئة العمل</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">التأثيرات النفسية للزي الموحد على سلوك الموظفين:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>ظاهرة "التفكير المرتبط بالملابس" (Enclothed Cognition): تأثير الملابس على العمليات النفسية والسلوكية للأفراد</li>
+                    <li>تعزيز الشعور بالمهنية والكفاءة الذاتية عند ارتداء زي مرتبط بالدور الوظيفي</li>
+                    <li>تقليل القلق المرتبط باختيار الملابس المناسبة يومياً (Decision Fatigue)</li>
+                    <li>خلق "تبديل ذهني" بين الحياة الشخصية والمهنية عند ارتداء وخلع الزي الموحد</li>
+                  </ul>
+                </div>
+              </div>
 
-      <Section id="trends" title="اتجاهات حديثة في تصميم الزي الموحد">
-        <Paragraph>
-          يشهد مجال تصميم الزي الموحد تطورات مستمرة تعكس التحولات في عالم الأعمال والتكنولوجيا والتصميم:
-        </Paragraph>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير الزي على السلوك المهني</h3>
+                <p className="mb-2 text-gray-700">كيف يؤثر الزي الموحد على سلوكيات الموظفين:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">تعزيز الالتزام بالقواعد:</span> ارتباط المظهر الموحد بالالتزام بالإجراءات والمعايير</li>
+                  <li><span className="font-medium">تقليل السلوك غير المرغوب:</span> زيادة الوعي الذاتي والمسؤولية عند تمثيل المؤسسة بشكل مرئي</li>
+                  <li><span className="font-medium">تحسين التواصل:</span> تسهيل التعرف على الأدوار والمسؤوليات داخل الفريق</li>
+                  <li><span className="font-medium">زيادة الثقة:</span> تعزيز الثقة بالنفس عند التعامل مع العملاء والمواقف المختلفة</li>
+                </ul>
+              </div>
 
-        <HighlightBox title="اتجاهات معاصرة في الزي الموحد" color="blue">
-          <BulletList>
-            <ListItem title="الاستدامة والمسؤولية البيئية">
-              تتجه المؤسسات المعاصرة نحو اختيار أزياء موحدة تعكس التزامها بالاستدامة والمسؤولية البيئية. يشمل ذلك استخدام مواد معاد تدويرها أو عضوية، وعمليات إنتاج منخفضة الأثر البيئي، وتبني مبادئ الاقتصاد الدائري في إدارة دورة حياة الزي. تُظهر الدراسات أن 65% من الموظفين يشعرون بفخر أكبر عند ارتداء زي صديق للبيئة يعكس قيم الاستدامة.
-            </ListItem>
-            <ListItem title="التخصيص والمرونة">
-              يتجه التصميم المعاصر للزي الموحد نحو توفير مرونة أكبر وخيارات تخصيص ضمن إطار متسق. تقدم المؤسسات مجموعات متنوعة من القطع التي يمكن مزجها ومطابقتها، مع الحفاظ على الهوية العامة. يسمح هذا النهج للموظفين بالتعبير عن شخصيتهم ضمن إطار الهوية المؤسسية، مما يزيد من قبولهم للزي والتزامهم به.
-            </ListItem>
-            <ListItem title="التقنيات الذكية والأقمشة المتطورة">
-              تدمج التصاميم الحديثة للزي الموحد تقنيات متطورة مثل الأقمشة المقاومة للبقع والماء، والأقمشة المضادة للبكتيريا، والأقمشة القادرة على تنظيم حرارة الجسم. في بعض القطاعات، بدأ دمج تقنيات إنترنت الأشياء في الزي الموحد لتعزيز السلامة والتواصل وجمع البيانات التشغيلية.
-            </ListItem>
-            <ListItem title="التصميم الشامل والمتنوع">
-              اتجاه متزايد نحو تبني مبادئ التصميم الشامل في الزي الموحد، بما يراعي تنوع الموظفين من حيث الأجسام والثقافات والاحتياجات. يشمل ذلك توفير خيارات ملائمة ثقافياً، وتصاميم تناسب مختلف أنواع الأجسام، وتعديلات للموظفين ذوي الاحتياجات الخاصة، مما يعزز الشمولية والتنوع في بيئة العمل.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">أظهرت دراسة أجريت على 1,200 موظف أن 73% منهم يشعرون بمزيد من الثقة والاحترافية عند ارتداء الزي الموحد، وأن 61% يرون أن الزي يساعدهم على التركيز بشكل أفضل على مهامهم الوظيفية.</p>
+                  <footer className="text-sm text-gray-600">— معهد أبحاث علم النفس المهني، 2023</footer>
+                </blockquote>
+              </div>
+            </section>
 
-        <Quote author="م. خالد العنزي" source="مصمم أزياء موحدة متخصص">
-          نشهد تحولاً نوعياً في مفهوم الزي الموحد، من مجرد أداة لتوحيد المظهر إلى منصة للتعبير عن قيم المؤسسة وثقافتها المعاصرة. المؤسسات الرائدة اليوم تنظر إلى زيها الموحد كوسيلة للتواصل مع عملائها وموظفيها حول قضايا الاستدامة والتنوع والابتكار، ولم يعد الزي الموحد مجرد متطلب وظيفي بل أصبح بياناً استراتيجياً عن هوية المؤسسة ورؤيتها.
-        </Quote>
-      </Section>
+            <section id="customer-perception" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">إدراك العملاء والثقة</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يلعب الزي الموحد دوراً محورياً في تشكيل انطباعات العملاء وتصوراتهم عن المؤسسة ومستوى خدماتها. فالمظهر المهني والمتناسق للموظفين يؤثر بشكل مباشر على ثقة العملاء وتجربتهم الشاملة.
+              </p>
 
-      <ArticleImage 
-        src="/images/workwear/modern_uniform_trends.jpeg"
-        alt="اتجاهات حديثة في تصميم الزي الموحد"
-        caption="اتجاهات معاصرة في تصميم الزي الموحد تجمع بين الاستدامة والتكنولوجيا والشمولية"
-      />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تعزيز المصداقية والثقة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>زيادة الثقة في مهارات وكفاءة الموظفين</li>
+                    <li>تعزيز الانطباع بالاحترافية والالتزام بالمعايير</li>
+                    <li>زيادة الشعور بالأمان عند التعامل مع المؤسسة</li>
+                    <li>تحسين تصور العملاء لجودة المنتجات والخدمات</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تسهيل التواصل مع العملاء</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>سهولة تحديد الموظفين وطلب المساعدة</li>
+                    <li>توضيح الأدوار والتخصصات المختلفة للموظفين</li>
+                    <li>تقليل الحواجز النفسية للتواصل مع ممثلي الخدمة</li>
+                    <li>خلق انطباع بالتنظيم والهيكلية داخل المؤسسة</li>
+                  </ul>
+                </div>
+              </div>
 
-      <Section id="conclusion" title="خاتمة">
-        <Paragraph>
-          يمثل الزي الموحد استثماراً استراتيجياً متعدد القيمة للمؤسسات الناجحة، يتجاوز تأثيره المظهر الخارجي ليشمل تعزيز الهوية المؤسسية، وتحسين تجربة العملاء، وتعزيز روح الفريق والإنتاجية. من خلال تبني نهج استراتيجي في تصميم وتنفيذ وإدارة برنامج الزي الموحد، يمكن للمؤسسات تحقيق عائد استثمار ملموس على المدى القصير والطويل.
-        </Paragraph>
-        <Paragraph>
-          مع استمرار تطور عالم الأعمال والتكنولوجيا، ستستمر اتجاهات تصميم الزي الموحد في التطور لتعكس القيم المعاصرة مثل الاستدامة والشمولية والابتكار. المؤسسات التي تدرك القيمة الاستراتيجية للزي الموحد وتستثمر في تطويره بشكل مدروس ستتمتع بميزة تنافسية في بناء هويتها وتعزيز صورتها وتحقيق أهدافها المؤسسية.
-        </Paragraph>
-      </Section>
-    </BlogArticle>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/workwear/workwear_maintenance.jpeg"
+                  alt="تأثير الزي الموحد على إدراك العملاء"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  الزي الموحد المناسب يعزز ثقة العملاء ويحسن تجربتهم مع المؤسسة
+                </div>
+              </div>
+            </section>
+
+            <section id="productivity" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تحسين الإنتاجية والكفاءة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">توفير الوقت والجهد</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>تقليل الوقت المستغرق في اختيار الملابس اليومية</li>
+                  <li>تخفيف العبء المالي المرتبط بشراء ملابس متنوعة للعمل</li>
+                  <li>تقليل المنافسة غير الصحية على المظهر بين الموظفين</li>
+                  <li>توجيه التركيز نحو الأداء والإنتاجية بدلاً من المظهر</li>
+                </ul>
+              </div>
+
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">تعزيز الكفاءة التشغيلية</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">مساهمة الزي الموحد في تحسين العمليات:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تسهيل التعرف على الموظفين ومجالات تخصصهم</li>
+                    <li>تحسين التواصل والتنسيق بين أعضاء الفريق</li>
+                    <li>تقليل الوقت المستغرق في تحديد المسؤوليات والأدوار</li>
+                    <li>تسهيل إدارة الأمن والسلامة داخل بيئة العمل</li>
+                    <li>توحيد معايير اللباس بما يتناسب مع متطلبات الوظيفة</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="implementation" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">استراتيجيات فعالة للتنفيذ</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تصميم الزي الموحد</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>مراعاة راحة الموظفين وطبيعة عملهم</li>
+                    <li>الاهتمام بالجودة والمتانة لضمان الاستدامة</li>
+                    <li>تضمين هوية العلامة التجارية بشكل أنيق</li>
+                    <li>توفير خيارات متنوعة تناسب مختلف المناخات</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">سياسات الزي الموحد</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>وضع توجيهات واضحة ومرنة</li>
+                    <li>إشراك الموظفين في عملية التصميم والاختيار</li>
+                    <li>توفير بدائل للحالات الخاصة والاحتياجات الفردية</li>
+                    <li>مراجعة وتحديث السياسات بشكل دوري</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التطبيق الناجح</h3>
+                <p className="mb-2 text-gray-700">خطوات لضمان تنفيذ فعال لسياسة الزي الموحد:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">التواصل الفعال:</span> شرح أهداف وفوائد الزي الموحد للموظفين</li>
+                  <li><span className="font-medium">التدريج في التطبيق:</span> تنفيذ السياسة على مراحل لتسهيل التكيف</li>
+                  <li><span className="font-medium">النماذج القيادية:</span> التزام القيادة والإدارة العليا بالزي الموحد</li>
+                  <li><span className="font-medium">التغذية الراجعة:</span> الاستماع لملاحظات الموظفين والعملاء للتحسين المستمر</li>
+                  <li><span className="font-medium">التحفيز:</span> تقديم حوافز للالتزام والحفاظ على مستوى عالٍ من المظهر المهني</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يتضح مما سبق أن أهمية الزي الموحد تتجاوز كونه مجرد عنصر مظهري ليصبح أداة استراتيجية متعددة الفوائد للمؤسسات والموظفين على حد سواء. فمن تعزيز الهوية المؤسسية وروح الفريق، إلى تحسين إدراك العملاء وثقتهم، وصولاً إلى تعزيز الإنتاجية والكفاءة التشغيلية، يقدم الزي الموحد قيمة مضافة حقيقية لبيئة العمل.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                لتحقيق أقصى استفادة من الزي الموحد، يجب على المؤسسات اتباع نهج متوازن يراعي احتياجات الموظفين ومتطلبات العمل وهوية العلامة التجارية. كما ينبغي إدراك أن فعالية الزي الموحد ترتبط بشكل وثيق بالثقافة المؤسسية الشاملة والقيم التي تتبناها المنظمة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، يمكن القول إن الاستثمار في زي موحد مصمم بعناية وتنفيذ سياسة فعالة للزي هو استثمار في صورة المؤسسة وأداء موظفيها ورضا عملائها، وهي عناصر أساسية لنجاح واستدامة أي مؤسسة في بيئة الأعمال التنافسية المعاصرة.
+              </p>
+            </section>
+
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-10">
+              <h2 className="text-xl font-semibold mb-3">الكلمات المفتاحية</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 mt-10 pt-6">
+              <h2 className="text-xl font-semibold mb-4">مقالات ذات صلة</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {relatedArticles.map((article, index) => (
+                  <div key={index} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold mb-2 text-blue-900 hover:text-blue-700">
+                        <Link href={article.url}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                      <p className="text-sm text-gray-700 line-clamp-2">{article.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 } 

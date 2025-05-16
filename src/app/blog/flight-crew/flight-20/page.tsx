@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استعراض تاريخي لتطور الزي الرسمي للخطوط الجوية السعودية منذ تأسيسها وحتى اليوم، مع تحليل للتغييرات التصميمية وارتباطها بتطور الشركة',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
   const title = 'تاريخ تطور زي الخطوط الجوية السعودية';

@@ -1,277 +1,430 @@
-'use client';
-
 import React from 'react';
-import BlogArticle from '../../../../components/BlogArticle';
-import { 
-  Section, 
-  Paragraph, 
-  BulletList, 
-  ListItem, 
-  Quote, 
-  HighlightBox, 
-  KeyPointsBox,
-  ArticleImage
-} from '../../../../components/ArabicContentElements';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
-export default function CulinaryApparelStandards() {
+export const metadata = {
+  title: 'الملابس المهنية للطهاة: المعايير والمواصفات العالمية',
+  description: 'دليل شامل للمعايير والمواصفات العالمية لملابس الطهاة المهنية مع التركيز على الجودة والسلامة والأداء',
+};
+
+export default function CulinaryApparel17() {
+  const imageSrc = '/images/chef_uniforms/culinary_standards.jpeg';
+  const title = 'الملابس المهنية للطهاة: المعايير والمواصفات العالمية';
+  const readingTime = '٨ دقائق للقراءة';
+  const datePublished = '٥ يونيو ٢٠٢٤';
+
   const relatedArticles = [
     {
       title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
       description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
-      image: "/images/chef-uniforms/saudi_catering_uniform.jpeg",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
       url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
       date: "٢٠ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
     },
     {
-      title: "اتجاهات تصميم ملابس الطهاة لعام 2025",
-      description: "استعراض لأحدث اتجاهات تصميم ملابس الطهاة المتوقعة في عام 2025",
-      image: "/images/chef-uniforms/chef_design_2025.jpeg",
-      url: "/blog/chef-uniforms/in-design-clothing-chef-2025",
-      date: "١٠ يونيو ٢٠٢٤",
+      title: "تصميم أزياء الطهاة في المملكة العربية السعودية",
+      description: "نظرة عميقة على اتجاهات وابتكارات تصميم أزياء الطهاة في المملكة العربية السعودية",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
+      url: "/blog/chef-uniforms/design-in-Saudi",
+      date: "١٥ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
     },
     {
-      title: "تصميم أزياء الطهاة في المملكة العربية السعودية",
-      description: "نظرة عميقة على اتجاهات وابتكارات تصميم أزياء الطهاة في المملكة العربية السعودية",
-      image: "/images/chef-uniforms/chef_design_saudi.jpeg",
-      url: "/blog/chef-uniforms/design-in-Saudi",
-      date: "١٥ يونيو ٢٠٢٤",
+      title: "اتجاهات تصميم ملابس الطهاة لعام 2025",
+      description: "استعراض لأحدث اتجاهات تصميم ملابس الطهاة المتوقعة في عام 2025",
+      image: "/images/culinary_apparel/chef_uniforms.jpeg",
+      url: "/blog/chef-uniforms/in-design-clothing-chef-2025",
+      date: "١٠ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
     }
   ];
 
-  const tags = ["أزياء الطهاة", "المعايير العالمية", "السلامة الغذائية", "المواصفات المهنية", "ملابس المطبخ", "جودة الأقمشة"];
+  const tags = ["المعايير العالمية لملابس الطهاة", "السلامة في زي الطهاة", "أقمشة ملابس الطهاة", "مواصفات الجودة", "سترات الطهاة", "معايير المطاعم"];
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'global-standards', title: 'المعايير العالمية لملابس الطهاة' },
+    { id: 'fabric-specs', title: 'مواصفات الأقمشة والمواد' },
+    { id: 'safety-requirements', title: 'متطلبات السلامة والصحة المهنية' },
+    { id: 'culinary-jackets', title: 'مواصفات سترات الطهاة الاحترافية' },
+    { id: 'pants-accessories', title: 'البناطيل والإكسسوارات المكملة' },
+    { id: 'certifications', title: 'الشهادات والاعتمادات العالمية' },
+  ];
 
   return (
-    <BlogArticle
-      title="الملابس المهنية للطهاة: المعايير والمواصفات العالمية"
-      description="دليل شامل للمعايير والمواصفات العالمية لملابس الطهاة المهنية، مع التركيز على متطلبات السلامة والجودة والوظائف المختلفة لكل قطعة من زي الطاهي الاحترافي"
-      category="أزياء الطهاة"
-      categoryUrl="/blog/chef-uniforms"
-      heroImage="/images/culinary_apparel/modern_traditional_chef_wear.jpeg"
-      publishDate="٥ يونيو ٢٠٢٤"
-      readTime="٨ دقائق للقراءة"
-      authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
-      authorTitle="خبراء ملابس العمل"
-      backUrl="/blog/chef-uniforms"
-      tags={tags}
-      relatedArticles={relatedArticles}
-    >
-      <Section id="intro" title="مقدمة">
-        <Paragraph isLead={true}>
-          تمثل ملابس الطهاة المهنية أكثر من مجرد زي تقليدي؛ إنها منظومة متكاملة مصممة وفق معايير عالمية صارمة لتلبية متطلبات بيئة المطبخ الاحترافي من حيث السلامة والنظافة والوظيفة العملية. تطورت هذه المعايير عبر عقود من الخبرة العملية والأبحاث العلمية لضمان أعلى مستويات الأداء والحماية للطهاة في مختلف ظروف العمل.
-        </Paragraph>
-        <Paragraph>
-          في هذا المقال، نستعرض المعايير والمواصفات العالمية الرئيسية لملابس الطهاة المهنية، ونتعمق في متطلبات كل قطعة من زي الطاهي المحترف، مع توضيح الوظائف المختلفة والمواد المستخدمة وفقاً للمعايير المعتمدة عالمياً.
-        </Paragraph>
-      </Section>
-
-      <Section id="global-standards" title="المؤسسات والمعايير العالمية لملابس الطهاة">
-        <Paragraph>
-          تخضع ملابس الطهاة المهنية لمجموعة من المعايير والمواصفات التي تضعها مؤسسات وهيئات متخصصة حول العالم:
-        </Paragraph>
-        
-        <HighlightBox title="أبرز المؤسسات والمعايير العالمية" color="blue">
-          <BulletList>
-            <ListItem title="إدارة الغذاء والدواء الأمريكية (FDA)">
-              تضع إرشادات للأقمشة والمواد المسموح باستخدامها في بيئات تحضير الطعام، مع التركيز على منع التلوث الغذائي والحفاظ على السلامة الصحية. تشمل متطلبات FDA مواصفات للأقمشة المقاومة للبقع وسهلة التنظيف والمواد غير السامة التي يمكن أن تلامس الطعام.
-            </ListItem>
-            <ListItem title="المعهد الوطني للسلامة والصحة المهنية (NIOSH)">
-              يحدد معايير الوقاية من الحروق والإصابات في بيئة المطبخ، مع توصيات محددة لخصائص أقمشة ملابس الطهاة من حيث مقاومة اللهب والحرارة. تركز معايير NIOSH على تقليل المخاطر المهنية المرتبطة بالمطابخ عالية الحرارة.
-            </ListItem>
-            <ListItem title="الجمعية العالمية للطهاة (World Association of Chefs)">
-              تضع إرشادات للزي المهني للطهاة مع التركيز على الجوانب العملية والاحترافية. توفر الجمعية مواصفات مفصلة لكل قطعة من زي الطاهي المحترف بناءً على الخبرة التراكمية لآلاف الطهاة حول العالم.
-            </ListItem>
-            <ListItem title="المنظمة الدولية للمعايير (ISO)">
-              تقدم معايير للأقمشة والمنسوجات المستخدمة في الملابس المهنية، بما في ذلك معايير ISO 13688 الخاصة بالملابس الواقية، والتي تنطبق على جوانب معينة من ملابس الطهاة، خاصة تلك المتعلقة بالوقاية من المخاطر.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <Quote author="جان-بيير دوبوا" source="رئيس سابق للاتحاد العالمي لجمعيات الطهاة">
-          معايير ملابس الطهاة ليست مجرد قواعد جامدة، بل هي نتاج سنوات من الخبرة المتراكمة والتطوير المستمر. تطورت هذه المعايير لتوازن بين التقاليد العريقة لمهنة الطهي والمتطلبات الحديثة للسلامة والكفاءة في المطابخ المعاصرة.
-        </Quote>
-      </Section>
-
-      <ArticleImage 
-        src="/images/chef-uniforms/global_chef_standards.jpeg"
-        alt="المعايير العالمية لملابس الطهاة"
-        caption="المؤسسات والهيئات العالمية التي تضع معايير ومواصفات ملابس الطهاة المهنية"
-      />
-
-      <Section id="chef-coat" title="سترة الطاهي: المواصفات والمعايير">
-        <Paragraph>
-          تعتبر سترة الطاهي (Chef's Jacket) القطعة الأساسية والأكثر تميزاً في زي الطهاة المهني، وتخضع لمجموعة من المعايير الصارمة:
-        </Paragraph>
-
-        <HighlightBox title="المعايير العالمية لسترة الطاهي" color="green">
-          <BulletList>
-            <ListItem title="مواصفات القماش">
-              وفقاً للمعايير العالمية، يجب أن تكون سترة الطاهي مصنوعة من قماش قطني بنسبة 100% أو خليط قطن-بوليستر (على ألا تقل نسبة القطن عن 65%). يوصى بوزن نسيج بين 190-280 غرام/متر مربع لضمان المتانة والراحة. تشترط المعايير قدرة القماش على تحمل الغسيل المتكرر بدرجات حرارة عالية (حتى 90 درجة مئوية) للتعقيم.
-            </ListItem>
-            <ListItem title="التصميم الوظيفي">
-              يتطلب التصميم القياسي لسترة الطاهي صفين من الأزرار الأمامية (تصميم مزدوج الصدر) للسماح بعكس الجانب عند اتساخ الواجهة. الطية المزدوجة في الصدر توفر طبقة إضافية من الحماية من الحرارة والتناثر. تنص المعايير على ضرورة وجود أكمام طويلة مع أصفاد قابلة للطي لحماية الذراعين مع إمكانية تعديلها حسب ظروف العمل.
-            </ListItem>
-            <ListItem title="خصائص الأمان">
-              تشمل معايير السلامة مقاومة النسيج للاشتعال، خاصة في المطابخ التي تستخدم اللهب المفتوح. تتطلب معايير NFPA في أمريكا معالجة أقمشة سترات الطهاة في المطابخ عالية المخاطر بمواد مقاومة للهب، مع اجتياز اختبارات الاشتعال المحددة.
-            </ListItem>
-            <ListItem title="معايير النظافة">
-              تشترط معايير FDA وإدارات الصحة العالمية أن تكون سترة الطاهي سهلة التنظيف والتعقيم، مع أقمشة مقاومة للبقع والزيوت. توصي المعايير الحديثة بمعالجة الأقمشة بتقنيات مضادة للبكتيريا، خاصة في المطاعم والفنادق عالية التصنيف.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <KeyPointsBox 
-          title="اختبارات الجودة لسترة الطاهي المهنية"
-          points={[
-            "اختبار ثبات الأبعاد بعد الغسيل المتكرر (يجب ألا يتجاوز التقلص 3%)",
-            "اختبار مقاومة التمزق والاحتكاك (قوة شد لا تقل عن 45 نيوتن)",
-            "اختبار مقاومة الاشتعال وسرعة الاحتراق (وفق معيار ISO 15025)",
-            "اختبار إمكانية التنظيف وإزالة البقع المختلفة بعد عدة دورات غسيل"
-          ]}
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
         />
-      </Section>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Section id="chef-pants" title="بنطال الطاهي: المتطلبات والخصائص القياسية">
-        <Paragraph>
-          يخضع بنطال الطاهي (Chef Pants) لمجموعة من المواصفات المهنية التي تضمن الراحة والوظيفة والأمان:
-        </Paragraph>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
 
-        <HighlightBox title="المعايير القياسية لبنطال الطاهي" color="amber">
-          <BulletList>
-            <ListItem title="النسيج والمواد">
-              تنص المعايير العالمية على استخدام نسيج قطني 100% أو خليط قطن-بوليستر مع طبعات محددة (مثل نقش قدم البط أو المربعات) التي تساعد على إخفاء البقع. يوصى بأوزان نسيج بين 170-240 غرام/متر مربع لتوفير توازن بين المتانة والراحة الحرارية في بيئات المطبخ الساخنة.
-            </ListItem>
-            <ListItem title="التصميم الوظيفي">
-              تتطلب المعايير تصميماً فضفاضاً يسمح بحرية الحركة، مع خصر مطاطي وحبل تثبيت قابل للتعديل. يجب تضمين جيوب عملية (عادة ما لا تقل عن جيبين) مع مراعاة وضعيتها بطريقة لا تعيق الحركة أو تشكل مخاطر أثناء العمل قرب اللهب.
-            </ListItem>
-            <ListItem title="اعتبارات السلامة">
-              يجب أن يكون طول البنطال مناسباً لتغطية الساق بالكامل للحماية من التناثر والانسكاب، مع تجنب الأطوال الزائدة التي قد تسبب التعثر. تشمل معايير السلامة أيضاً خلو التصميم من الزخارف البارزة أو الأجزاء المتدلية التي قد تعلق بمعدات المطبخ.
-            </ListItem>
-            <ListItem title="سهولة العناية">
-              تتطلب المعايير الدولية قدرة البنطال على تحمل الغسيل المتكرر بدرجات حرارة عالية (75-90 درجة مئوية) دون فقدان الشكل أو اللون. يوصى بمعالجات مقاومة للتجعد للحفاظ على المظهر المهني طوال نوبة العمل الطويلة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                {relatedArticles.map((article, index) => (
+                  <li key={index}>
+                    <Link href={article.url} className="text-sm hover:text-blue-600 block">
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
-        <Quote author="ميشيل روكس" source="مدير مدرسة الطهي الدولية في لندن">
-          تكمن أهمية بنطال الطاهي المصمم وفق المعايير المهنية في قدرته على توفير الراحة خلال ساعات العمل الطويلة في المطبخ. نصمم البنطال ليس فقط ليقاوم بيئة المطبخ القاسية، بل ليكون حليفاً للطاهي في رحلة العمل الشاقة.
-        </Quote>
-      </Section>
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تمثل الملابس المهنية للطهاة أكثر من مجرد زي موحد؛ إنها أدوات عمل أساسية تجمع بين الوظيفة والسلامة والهوية المهنية. على مدار تاريخها الطويل، تطورت هذه الملابس لتلبي متطلبات بيئة المطبخ الصعبة مع الحفاظ على التقاليد المهنية العريقة للطهي.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض المعايير والمواصفات العالمية لملابس الطهاة المهنية، ونسلط الضوء على الجوانب الأساسية التي يجب مراعاتها عند اختيار أو تصميم هذه الملابس. يقدم هذا الدليل رؤى مفصلة للمصنعين والمشغلين والطهاة المهتمين بفهم أفضل الممارسات العالمية في هذا المجال.
+              </p>
+            </section>
 
-      <ArticleImage 
-        src="/images/chef-uniforms/professional_chef_outfit.jpeg"
-        alt="زي الطاهي المهني المطابق للمعايير"
-        caption="مكونات زي الطاهي المهني المطابق للمعايير العالمية من حيث المواد والتصميم والوظائف"
-      />
+            <section id="global-standards" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المعايير العالمية لملابس الطهاة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الهيئات المعيارية الرئيسية</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">المنظمة الدولية للمعايير (ISO):</span> تضع معايير الجودة العامة للمنسوجات المستخدمة في الملابس المهنية، بما في ذلك معايير ISO 13688 الخاصة بالملابس الواقية.</li>
+                  <li><span className="font-medium">رابطة المطاعم الوطنية (NRA):</span> تقدم إرشادات حول ملابس الطهاة المناسبة لضمان السلامة الغذائية والنظافة.</li>
+                  <li><span className="font-medium">إدارة السلامة والصحة المهنية (OSHA):</span> تحدد متطلبات السلامة للملابس المستخدمة في بيئات المطبخ التجارية.</li>
+                  <li><span className="font-medium">الاتحاد العالمي لجمعيات الطهاة (WACS):</span> يوفر إرشادات حول الزي التقليدي والمهني للطهاة.</li>
+                </ul>
+              </div>
 
-      <Section id="chef-hats" title="قبعة الطاهي: الرمزية والمواصفات القياسية">
-        <Paragraph>
-          تمثل قبعة الطاهي (Toque Blanche) رمزاً للمهنة وللمكانة في تسلسل المطبخ الهرمي، كما تخضع لمواصفات وظيفية محددة:
-        </Paragraph>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="معايير الزي العالمية للطهاة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  طهاة يرتدون ملابس مهنية تتوافق مع المعايير العالمية في مطبخ حديث
+                </div>
+              </div>
 
-        <KeyPointsBox 
-          title="المعايير الدولية لقبعة الطاهي"
-          points={[
-            "استخدام قماش قطني 100% بوزن نسيج بين 150-200 غرام/متر مربع لضمان خفة الوزن والتهوية الجيدة",
-            "ارتفاع القبعة التقليدية يتراوح بين 20-30 سم، مع عدد طيات يشير تقليدياً إلى خبرة الطاهي (100 طية للطاهي الرئيسي)",
-            "تضمين نظام تعديل للحجم (شريط مطاطي أو فيلكرو) لضمان الملاءمة الآمنة دون الضغط على الرأس",
-            "قابلية الغسيل بدرجات حرارة عالية (75-90 درجة مئوية) للتعقيم دون فقدان الشكل أو اللون"
-          ]}
-        />
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">المعايير العالمية ليست قيوداً على الإبداع في تصميم ملابس الطهاة، بل هي إطار يضمن تحقيق الوظيفة الأساسية من حيث السلامة والأداء، مع إتاحة مساحة للتعبير عن الهوية المهنية والثقافية للطاهي والمؤسسة.</p>
+                  <footer className="text-sm text-gray-600">— الشيف توماس كيلر، حائز على نجوم ميشلان</footer>
+                </blockquote>
+              </div>
+            </section>
 
-        <Paragraph>
-          بالإضافة إلى القبعة التقليدية، تعترف المعايير الدولية بأشكال بديلة مثل قبعات الشبكة (Skull Cap) والمناديل، شريطة أن تلبي وظيفة احتواء الشعر بشكل كامل وتمتص العرق أثناء العمل في بيئة المطبخ الساخنة.
-        </Paragraph>
-      </Section>
+            <section id="fabric-specs" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مواصفات الأقمشة والمواد</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تعتبر الأقمشة والمواد المستخدمة في ملابس الطهاة من أهم العوامل التي تحدد أداءها وراحتها ومتانتها:
+              </p>
 
-      <Section id="accessories" title="الإكسسوارات التكميلية: المآزر والمناديل وأغطية الأحذية">
-        <Paragraph>
-          تكتمل منظومة زي الطاهي المهني بمجموعة من الإكسسوارات التكميلية التي تخضع لمعايير خاصة:
-        </Paragraph>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الأقمشة الموصى بها</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>قطن مصري بنسبة 100% للراحة والتنفس</li>
+                    <li>خلطات القطن والبوليستر (65/35) للمتانة وسهولة العناية</li>
+                    <li>تويل مزدوج الطبقة لمقاومة الحرارة</li>
+                    <li>جاباردين للبناطيل لمقاومة التآكل والمتانة</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">خصائص الأداء المطلوبة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>مقاومة للحرارة حتى 200 درجة مئوية</li>
+                    <li>مقاومة للاحتكاك بمعدل 30,000 دورة مارتنديل</li>
+                    <li>ثبات الأبعاد بعد الغسيل (تقلص أقل من 3%)</li>
+                    <li>مقاومة البقع والسوائل مع قابلية التنفس</li>
+                  </ul>
+                </div>
+              </div>
 
-        <HighlightBox title="معايير الإكسسوارات التكميلية" color="red">
-          <BulletList>
-            <ListItem title="المآزر (Aprons)">
-              تتطلب المعايير العالمية للمآزر المهنية للطهاة استخدام أقمشة قطنية متينة بوزن نسيج لا يقل عن 240 غرام/متر مربع، مع معالجة مقاومة للماء والزيوت. يجب أن يوفر المئزر تغطية من منتصف الصدر حتى منتصف الساق، مع نظام تثبيت مريح وآمن على الرقبة والخصر يتحمل الحركة المستمرة. تفضل المعايير الحديثة المآزر المقسمة (Split Aprons) التي توفر حرية حركة أكبر.
-            </ListItem>
-            <ListItem title="مناديل الطاهي (Side Towels)">
-              تخضع مناديل الطاهي لمعايير صارمة من حيث قدرتها على امتصاص السوائل (معدل امتصاص لا يقل عن 250%) وتحمل الحرارة العالية. يوصى باستخدام قطن عالي الجودة بنسبة 100%، مع نسج خاص يوفر قوة تحمل للاستخدام المكثف والغسيل المتكرر. تنص المعايير على أبعاد قياسية (40×60 سم تقريباً) لضمان تعدد الاستخدامات.
-            </ListItem>
-            <ListItem title="أغطية الأحذية وأحذية المطبخ">
-              تشترط معايير السلامة المهنية استخدام أحذية مغلقة مقاومة للانزلاق مع تصنيف مقاومة انزلاق لا يقل عن SRC وفق المعيار الأوروبي EN ISO 20345. يجب أن توفر أحذية المطبخ حماية للقدم من الصدمات والتسربات، مع مواد سهلة التنظيف ومقاومة للماء والزيوت. تتطلب بعض المعايير الأمريكية (مثل ASTM F2413) تعزيزاً للمقدمة لحماية الأصابع.
-            </ListItem>
-            <ListItem title="قفازات المطبخ المتخصصة">
-              تخضع قفازات المطبخ المتخصصة (مثل قفازات مقاومة الحرارة والقطع) لمعايير مثل EN 407 للحماية من الحرارة وEN 388 للحماية من المخاطر الميكانيكية. يجب أن توفر هذه القفازات توازناً بين الحماية ودقة الحركة، مع مواد آمنة للاستخدام في بيئة تحضير الطعام.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-      </Section>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="أقمشة ملابس الطهاة عالية الأداء"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  عينات من الأقمشة عالية الأداء المستخدمة في تصنيع ملابس الطهاة المهنية
+                </div>
+              </div>
 
-      <Section id="fabric-standards" title="معايير الأقمشة لملابس الطهاة: الجودة والمتانة والأداء">
-        <Paragraph>
-          تخضع الأقمشة المستخدمة في ملابس الطهاة المهنية لمجموعة من المعايير الصارمة التي تضمن الأداء المثالي في بيئة المطبخ القاسية:
-        </Paragraph>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">اختبارات جودة الأقمشة</h3>
+                <p className="mb-2 text-gray-700">معايير الاختبار العالمية للأقمشة المستخدمة في ملابس الطهاة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>اختبار مقاومة الاشتعال (EN ISO 14116)</li>
+                  <li>اختبار نفاذية الهواء (ASTM D737)</li>
+                  <li>اختبار ثبات الألوان (ISO 105)</li>
+                  <li>اختبار مقاومة التمزق والشد (ISO 13934)</li>
+                  <li>اختبار امتصاص الماء والحرارة (BS 3424)</li>
+                </ul>
+              </div>
+            </section>
 
-        <KeyPointsBox 
-          title="المعايير العالمية لأقمشة ملابس الطهاة"
-          points={[
-            "مقاومة الانكماش: يجب ألا يتجاوز معدل الانكماش 3% بعد 5 دورات غسيل على درجة حرارة 90 مئوية (وفق معيار ISO 5077)",
-            "مقاومة الاحتكاك: قدرة على تحمل 20,000 دورة احتكاك كحد أدنى وفق اختبار مارتنديل (EN ISO 12947-2)",
-            "ثبات اللون: معدل ثبات لون لا يقل عن درجة 4 على مقياس اللون الرمادي (1-5) بعد الغسيل المتكرر (ISO 105-C06)",
-            "امتصاص العرق وتبخره: معدل نقل الرطوبة من الجسم للهواء الخارجي لا يقل عن 4 (على مقياس 1-5) وفق معيار AATCC 195",
-            "مقاومة البقع: معالجة لمقاومة البقع تحافظ على فعاليتها لما لا يقل عن 30 دورة غسيل (AATCC 130)"
-          ]}
-        />
+            <section id="safety-requirements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">متطلبات السلامة والصحة المهنية</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تحدد متطلبات السلامة والصحة المهنية الخصائص الأساسية التي يجب توافرها في ملابس الطهاة لحماية مرتديها في بيئة المطبخ:
+              </p>
 
-        <Quote author="د. سارة المطيري" source="متخصصة في تكنولوجيا النسيج للملابس المهنية">
-          تطور معايير الأقمشة لملابس الطهاة يعكس تحول هذه الصناعة من مجرد التركيز على المظهر التقليدي إلى الاهتمام بالأداء التقني المتطور. اليوم، تخضع هذه الأقمشة لاختبارات أكثر صرامة من بعض الملابس الرياضية عالية الأداء، مما يعكس الظروف القاسية التي يعمل فيها الطهاة المحترفون.
-        </Quote>
-      </Section>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">معايير السلامة الأساسية</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">مقاومة اللهب:</span> يجب أن تكون الأقمشة مقاومة للاشتعال أو ذاتية الانطفاء، خاصة في المطابخ التي تستخدم اللهب المفتوح.</li>
+                    <li><span className="font-medium">الحماية من الرذاذ الساخن:</span> سماكة كافية ومعالجات خاصة لمنع وصول السوائل الساخنة للجلد بشكل فوري.</li>
+                    <li><span className="font-medium">منع الانزلاق:</span> أحذية بنعل مقاوم للانزلاق مصممة خصيصاً لبيئات المطابخ.</li>
+                    <li><span className="font-medium">تصميم آمن:</span> خلو الملابس من الأجزاء المتدلية أو الأزرار غير المثبتة جيداً التي قد تعلق بالمعدات.</li>
+                  </ul>
+                </div>
+              </div>
 
-      <ArticleImage 
-        src="/images/chef-uniforms/fabric_testing_chef.jpeg"
-        alt="اختبارات الأقمشة لملابس الطهاة"
-        caption="اختبارات الجودة والأداء للأقمشة المستخدمة في صناعة ملابس الطهاة المهنية وفق المعايير العالمية"
-      />
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="ملابس الطهاة الواقية"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  ملابس طهاة مصممة مع التركيز على عناصر السلامة والحماية في بيئة المطبخ
+                </div>
+              </div>
+            </section>
 
-      <Section id="certification" title="شهادات الجودة والامتثال لملابس الطهاة">
-        <Paragraph>
-          للتأكد من مطابقة ملابس الطهاة للمعايير العالمية، تخضع المنتجات لعملية تقييم واعتماد من قبل هيئات متخصصة، مما يؤدي إلى منح شهادات تؤكد الامتثال:
-        </Paragraph>
+            <section id="culinary-jackets" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مواصفات سترات الطهاة الاحترافية</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تعد سترة الطاهي القطعة الأكثر تميزاً في زي الطهاة، وتخضع لمواصفات دقيقة تجمع بين الوظيفة والتقاليد المهنية:
+              </p>
 
-        <HighlightBox title="شهادات الجودة الرئيسية لملابس الطهاة" color="blue">
-          <BulletList>
-            <ListItem title="شهادة OEKO-TEX Standard 100">
-              شهادة عالمية تؤكد خلو المنتج من المواد الضارة والسامة، وهي ضرورية لملابس الطهاة نظراً لتعاملهم المباشر مع الأطعمة. تغطي هذه الشهادة جميع المكونات بما في ذلك الخيوط والأزرار والملحقات.
-            </ListItem>
-            <ListItem title="شهادة HACCP Textile">
-              شهادة متخصصة لملابس العاملين في مجال الأغذية، تؤكد أن المنتج تم تصميمه وتصنيعه بطرق تمنع مخاطر التلوث الغذائي. تتضمن معايير صارمة حول مقاومة البكتيريا وسهولة التنظيف.
-            </ListItem>
-            <ListItem title="شهادات الاستدامة (GOTS, BCI)">
-              للملابس المصنوعة من مواد مستدامة، تعتبر شهادة المعيار العالمي للمنسوجات العضوية (GOTS) ومبادرة القطن الأفضل (BCI) من المعايير المعترف بها عالمياً لتأكيد الممارسات المستدامة في إنتاج المواد الخام والتصنيع.
-            </ListItem>
-            <ListItem title="علامات المطابقة الإقليمية">
-              تختلف من منطقة لأخرى، مثل علامة CE في الاتحاد الأوروبي التي تؤكد مطابقة المنتج للمتطلبات الأوروبية، وعلامة ASTM في الولايات المتحدة. في المنطقة العربية، تعتبر شهادة SASO من الهيئة السعودية للمواصفات والمقاييس علامة مهمة للمطابقة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">المواصفات الهيكلية</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>طبقة مزدوجة من القماش في الجزء الأمامي للحماية المضاعفة</li>
+                      <li>أكمام تتحمل درجات حرارة عالية مع قابلية الطي للتحكم في الطول</li>
+                      <li>أزرار من مواد متينة غير قابلة للانصهار (مثل القرص أو النيلون المقوى)</li>
+                      <li>جيوب استراتيجية للأدوات الصغيرة بتصميم يمنع تراكم بقايا الطعام</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">أنواع التصميمات المعتمدة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>التصميم الكلاسيكي بصف مزدوج من الأزرار (Double-breasted)</li>
+                      <li>التصميم الاسكندنافي بياقة عالية وطية أمامية واحدة</li>
+                      <li>التصميم الفرنسي التقليدي بأكمام طويلة وخط كتف خلفي منخفض</li>
+                      <li>التصميم المعاصر خفيف الوزن بأكمام قصيرة ونسيج تقني للمطابخ الحديثة</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-        <Paragraph>
-          تساعد هذه الشهادات المطاعم والمؤسسات في اختيار ملابس طهاة ذات جودة عالية تلبي المتطلبات القانونية والتنظيمية، كما تضمن للطهاة الحصول على منتجات آمنة وفعالة تساعدهم في أداء عملهم بكفاءة.
-        </Paragraph>
-      </Section>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="سترات الطهاة بالمواصفات العالمية"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  مجموعة من سترات الطهاة المصممة وفق المعايير العالمية بمختلف التصاميم
+                </div>
+              </div>
+            </section>
 
-      <Section id="conclusion" title="خاتمة: أهمية الالتزام بالمعايير العالمية">
-        <Paragraph>
-          تمثل المعايير العالمية لملابس الطهاة المهنية ركيزة أساسية لضمان السلامة والأداء والنظافة في بيئات المطابخ الاحترافية. لا يقتصر دور هذه المعايير على تحديد المواصفات التقنية للمنتجات، بل يمتد ليشمل تعزيز الثقافة المهنية وضمان جودة الخدمة في قطاع الضيافة والطعام.
-        </Paragraph>
-        <Paragraph>
-          مع تزايد الوعي العالمي بأهمية جودة وسلامة الغذاء، أصبح الالتزام بالمعايير الدولية لملابس الطهاة ضرورة استراتيجية للمؤسسات التي تطمح للتميز وتلبية توقعات العملاء والجهات التنظيمية. وبينما تستمر هذه المعايير في التطور لمواكبة التحديات الجديدة والتقنيات الناشئة، يظل الهدف الأساسي ثابتاً: دعم الطهاة للقيام بعملهم بكفاءة وأمان وراحة، مما ينعكس إيجاباً على جودة الطعام وتجربة الضيافة ككل.
-        </Paragraph>
-      </Section>
-    </BlogArticle>
+            <section id="pants-accessories" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">البناطيل والإكسسوارات المكملة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">مواصفات بناطيل الطهاة</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">النمط الكلاسيكي Houndstooth:</span> نمط "عظمة السمكة" أو "قدم الدجاج" التقليدي يخفي البقع ويعكس التقاليد المهنية.</li>
+                  <li><span className="font-medium">نسيج متين:</span> أقمشة بوزن 7-9 أونصات تتحمل الاستخدام المتكرر والغسيل المستمر.</li>
+                  <li><span className="font-medium">خصر مرن:</span> حزام مطاطي مع رباط قابل للتعديل للراحة خلال الحركة المستمرة.</li>
+                  <li><span className="font-medium">جيوب عملية:</span> تصميم الجيوب بشكل لا يعيق الحركة مع متانة كافية لحمل الأدوات الصغيرة.</li>
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الإكسسوارات المعيارية</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">قبعة الطاهي (Toque)</h4>
+                    <ul className="list-disc list-inside space-y-1 mr-3 text-gray-700 text-sm">
+                      <li>ارتفاع 8-12 بوصة للشيف التنفيذي</li>
+                      <li>تصميم يسمح بتدوير الهواء فوق الرأس</li>
+                      <li>قماش قطني 100% قابل للتنفس</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">منديل العنق (Neckerchief)</h4>
+                    <ul className="list-disc list-inside space-y-1 mr-3 text-gray-700 text-sm">
+                      <li>قماش خفيف ماص للعرق</li>
+                      <li>طول 90 سم × عرض 60 سم</li>
+                      <li>سهولة الطي والتثبيت</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">المريول (Apron)</h4>
+                    <ul className="list-disc list-inside space-y-1 mr-3 text-gray-700 text-sm">
+                      <li>مقاومة للماء والبقع</li>
+                      <li>جيوب متعددة للأدوات الصغيرة</li>
+                      <li>رباط قابل للتعديل لراحة العنق</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-800 mb-2">أحذية المطبخ</h4>
+                    <ul className="list-disc list-inside space-y-1 mr-3 text-gray-700 text-sm">
+                      <li>نعل مقاوم للانزلاق</li>
+                      <li>مقدمة مقواة لحماية الأصابع</li>
+                      <li>مقاومة للماء والزيوت</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="إكسسوارات الطهاة المكملة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  مناديل العنق وقبعات الطهاة التقليدية المصممة وفق المعايير المهنية
+                </div>
+              </div>
+            </section>
+
+            <section id="certifications" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الشهادات والاعتمادات العالمية</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تعتبر الشهادات والاعتمادات ضمانة للالتزام بالمعايير العالمية في تصنيع ملابس الطهاة:
+              </p>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">أهم الشهادات العالمية</h3>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">STANDARD 100 by OEKO-TEX®:</span> شهادة تضمن خلو المنسوجات من المواد الضارة</li>
+                  <li><span className="font-medium">STeP by OEKO-TEX®:</span> شهادة للإنتاج المستدام والصديق للبيئة</li>
+                  <li><span className="font-medium">ISO 9001:</span> نظام إدارة الجودة في التصنيع</li>
+                  <li><span className="font-medium">ISO 14001:</span> نظام الإدارة البيئية</li>
+                  <li><span className="font-medium">ASTM F1506:</span> معيار مقاومة الحريق للملابس</li>
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">عند اختيار ملابس الطهاة، تعتبر الشهادات والاعتمادات الدولية أكثر من مجرد ملصقات؛ إنها ضمان للجودة والسلامة التي لا يمكن المساومة عليها في بيئة المطبخ الاحترافية. في عالمنا المعاصر، أصبحت المعايير البيئية جزءاً لا يتجزأ من هذه الشهادات، مما يعكس التزاماً مزدوجاً بسلامة الطهاة وكوكبنا.</p>
+                  <footer className="text-sm text-gray-600">— ماريا روسي، مديرة معهد أبحاث المنسوجات الصناعية</footer>
+                </blockquote>
+              </div>
+            </section>
+            
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-10">
+              <h2 className="text-xl font-semibold mb-3">الكلمات المفتاحية</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 mt-10 pt-6">
+              <h2 className="text-xl font-semibold mb-4">مقالات ذات صلة</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {relatedArticles.map((article, index) => (
+                  <div key={index} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold mb-2 text-blue-900 hover:text-blue-700">
+                        <Link href={article.url}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                      <p className="text-sm text-gray-700 line-clamp-2">{article.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 } 

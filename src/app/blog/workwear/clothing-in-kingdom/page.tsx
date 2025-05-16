@@ -18,7 +18,7 @@ export default function ClothingInKingdom() {
     {
       title: "ملابس العمل: أنواعها ومواصفاتها وأهميتها",
       description: "دليل شامل حول أنواع ملابس العمل المختلفة ومواصفاتها وفوائدها في تحسين بيئة العمل",
-      image: "/images/workwear/workwear_types.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/clothing",
       date: "٨ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -26,7 +26,7 @@ export default function ClothingInKingdom() {
     {
       title: "كيفية اختيار ملابس العمل المناسبة",
       description: "دليل شامل لاختيار ملابس العمل المناسبة للمهن المختلفة مع مراعاة عوامل السلامة والراحة",
-      image: "/images/workwear/choosing_workwear.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/how-to-choosing",
       date: "١٠ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -34,7 +34,7 @@ export default function ClothingInKingdom() {
     {
       title: "الزي الموحد في القطاعات المختلفة: خصائصه ومميزاته ومتطلباته",
       description: "استعراض شامل للزي الموحد في مختلف القطاعات الصناعية والخدمية والتعليمية",
-      image: "/images/workwear/uniform_sectors.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/uniform-in",
       date: "٢١ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -49,11 +49,11 @@ export default function ClothingInKingdom() {
       description="نظرة شاملة على صناعة ملابس العمل في المملكة العربية السعودية، تطورها، المعايير المعتمدة، والتوجهات المستقبلية في ظل رؤية 2030"
       category="ملابس العمل"
       categoryUrl="/blog/workwear"
-      heroImage="/images/utility_services/maintenance_technician_clothing.jpeg"
+      heroImage="/images/workwear/workwear_maintenance.jpeg"
       publishDate="٢٣ مايو ٢٠٢٤"
       readTime="١٠ دقائق للقراءة"
       authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
+      authorImage="/images/author/team.jpg"
       authorTitle="خبراء ملابس العمل"
       backUrl="/blog/workwear"
       tags={tags}
@@ -96,7 +96,7 @@ export default function ClothingInKingdom() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/saudi_workwear_history.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="تطور ملابس العمل في المملكة عبر العقود"
         caption="تطور ملابس العمل في المملكة العربية السعودية من الأزياء البسيطة إلى الملابس المتخصصة عالية الأداء"
       />
@@ -218,7 +218,7 @@ export default function ClothingInKingdom() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/saudi_manufacturer.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="مصنع سعودي لملابس العمل"
         caption="أحد المصانع السعودية المتخصصة في إنتاج ملابس العمل المتطورة وفق المعايير العالمية"
       />

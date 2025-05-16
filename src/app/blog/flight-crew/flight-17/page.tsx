@@ -1,318 +1,374 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'أنواع الأقمشة المستخدمة في تصنيع أزياء الطيران',
-  description: 'استعراض شامل لأنواع الأقمشة المستخدمة في تصنيع أزياء طاقم الطيران، خصائصها، ميزاتها والمعايير المعتمدة في اختيارها',
+  title: 'الصيانة والعناية الصحيحة بزي طاقم الطائرة',
+  description: 'دليل شامل لأفضل ممارسات العناية بزي طاقم الطائرة وصيانته، من غسيل وتخزين وإصلاح، لضمان الحفاظ على مظهره الاحترافي وإطالة عمره الافتراضي.',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_uniform_fabrics.jpeg';
-  const title = 'أنواع الأقمشة المستخدمة في تصنيع أزياء الطيران';
+  const imageSrc = '/images/uniform_care/uniform_maintenance.jpg';
+  const title = 'الصيانة والعناية الصحيحة بزي طاقم الطائرة';
+  const readingTime = '6 دقائق';
+  const datePublished = '٢٠ يوليو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'washing', title: 'الغسيل والتنظيف المناسب' },
+    { id: 'ironing', title: 'الكي والتخزين الصحيح' },
+    { id: 'maintenance', title: 'الصيانة الدورية والإصلاحات' },
+    { id: 'travel-care', title: 'العناية بالزي أثناء السفر' },
+    { id: 'professional-tips', title: 'نصائح احترافية من الخبراء' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            في عالم يزداد عولمة وانفتاحاً، أصبحت شركات الطيران تمثل بيئة عمل فريدة تجمع أفراداً من خلفيات ثقافية متنوعة وجنسيات مختلفة تحت مظلة واحدة. وبينما تعتبر هذه التعددية مصدر قوة وتميز، فإنها تطرح تحديات غير تقليدية عندما يتعلق الأمر بتصميم زي موحد يناسب الجميع ويحترم خصوصياتهم في الوقت نفسه.
-          </p>
-          <p className="mb-4">
-            لم يعد الزي الموحد لطاقم الطيران مجرد قطع ملابس وظيفية، بل أصبح يمثل هوية الشركة وثقافتها وقيمها، كما يعكس احترامها للتنوع والشمولية. ومن هنا، تبرز أهمية إيجاد التوازن الدقيق بين الحفاظ على صورة موحدة ومتناسقة للشركة وبين مراعاة الاختلافات الثقافية والدينية والجسدية بين أفراد الطاقم.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستعرض أبرز التحديات التي تواجه مصممي أزياء الطيران عند تصميم زي لطواقم متنوعة الجنسيات، والحلول المبتكرة التي تتبعها شركات الطيران الرائدة للتغلب على هذه التحديات. كما نتطرق إلى دور التكنولوجيا والابتكار في تطوير أزياء أكثر شمولية، ونستشرف مستقبل تصميم الزي الموحد في عالم يتجه نحو مزيد من التنوع والاندماج.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-15" className="text-sm hover:text-blue-600 block">
+                    الاتجاهات الحديثة في تصميم زي طاقم الطائرة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-18" className="text-sm hover:text-blue-600 block">
+                    الإكسسوارات المكملة لزي طاقم الطيران
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="العناية الصحيحة بزي طاقم الطائرة"
+                caption="الصيانة الدورية للزي تحافظ على مظهره الاحترافي وتطيل عمره"
+              />
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يعد زي طاقم الطائرة أحد أهم عناصر الانطباع الأول الذي يحمله المسافر عن شركة الطيران ومستوى خدماتها. فالمظهر الأنيق والمرتب للطاقم لا يعكس فقط الاحترافية الشخصية، بل يعزز أيضاً صورة الشركة ويرفع من مستوى الثقة في خدماتها.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                لكن الحفاظ على المظهر المثالي للزي يمثل تحدياً كبيراً نظراً لطبيعة العمل في قطاع الطيران، والتي تتضمن ساعات عمل طويلة، وتنقلات متعددة، وتغيرات في المناخ والبيئة، مما يضع ضغطاً كبيراً على الزي الرسمي ويتطلب عناية خاصة للحفاظ على جودته ومظهره.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نقدم دليلاً شاملاً لأفضل ممارسات العناية بزي طاقم الطائرة وصيانته، بدءاً من طرق الغسيل المناسبة، مروراً بتقنيات الكي والتخزين الصحيح، وصولاً إلى الصيانة الدورية والإصلاحات الضرورية. كما نستعرض نصائح خاصة للعناية بالزي أثناء السفر والتنقل، وأفضل الممارسات من خبراء الصناعة لإطالة عمر الزي والحفاظ على مظهره الاحترافي لأطول فترة ممكنة.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات الثقافية والدينية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تنوع المعتقدات والممارسات الدينية</h3>
-          <p className="mb-4">
-            يمثل احترام المعتقدات الدينية تحدياً أساسياً:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">متطلبات الحجاب واللباس المحتشم للمسلمات في طاقم الضيافة</li>
-            <li className="mb-2">قيود معينة على طول الملابس أو تغطية أجزاء من الجسم لبعض المعتقدات</li>
-            <li className="mb-2">السماح بارتداء رموز دينية معينة (صليب، خاتم زواج، سوار) مع الزي الرسمي</li>
-            <li className="mb-2">احترام فترات الصيام والأعياد الدينية المختلفة وتأثيرها على متطلبات الزي</li>
-            <li className="mb-2">تعارض بعض المواد أو الألوان مع معتقدات دينية محددة</li>
+            <section id="washing" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الغسيل والتنظيف المناسب</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="غسيل وتنظيف زي طاقم الطائرة"
+                caption="الطرق الصحيحة لغسيل مختلف أنواع أقمشة زي الطيران"
+              />
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">فهم تعليمات العناية بالأقمشة</h3>
+                <p className="mb-2 font-medium text-blue-700">الخطوة الأولى في العناية السليمة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>قراءة بطاقات العناية الملصقة على كل قطعة من الزي واتباع التعليمات بدقة</li>
+                  <li>التعرف على نوع القماش وخصائصه قبل اختيار طريقة التنظيف المناسبة</li>
+                  <li>فهم معاني الرموز المختلفة على بطاقات العناية (درجة الحرارة، نوع الغسيل، التجفيف)</li>
+                  <li>التمييز بين القطع التي تتطلب تنظيفاً جافاً وتلك التي يمكن غسلها في المنزل</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الاختلافات في المفاهيم الجمالية والأناقة</h3>
-          <p className="mb-4">
-            تباين معايير الأناقة بين الثقافات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ما يعتبر أنيقاً في ثقافة قد يكون غير مناسب في ثقافة أخرى</li>
-            <li className="mb-2">اختلاف تفضيلات الألوان ودلالاتها بين الثقافات المختلفة</li>
-            <li className="mb-2">تباين مفاهيم الحشمة والإثارة بين المجتمعات الشرقية والغربية</li>
-            <li className="mb-2">اختلاف المعايير الخاصة بالمكياج والإكسسوارات بين الثقافات</li>
-            <li className="mb-2">تنوع أساليب تصفيف الشعر المقبولة ثقافياً في بيئة العمل</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الغسيل المنزلي الصحيح</h3>
+                  <p className="mb-2 text-gray-700">تقنيات للعناية بالقطع القابلة للغسل:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>فرز الملابس حسب اللون والقماش قبل الغسيل لتجنب تداخل الألوان</li>
+                    <li>استخدام ماء بارد أو فاتر مع منظف لطيف للقصان والبلوزات</li>
+                    <li>تجنب المنظفات القوية والمبيضات التي قد تضر بالأقمشة أو تغير ألوانها</li>
+                    <li>اختيار دورة غسيل لطيفة واستخدام أكياس غسيل خاصة للقطع الحساسة</li>
+                  </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التنظيف الجاف الاحترافي</h3>
+                  <p className="mb-2 text-gray-700">متى تلجأ إليه وكيف تختار المغسلة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>اختيار مغسلة متخصصة ذات خبرة في التعامل مع الأزياء الرسمية</li>
+                    <li>السترات والبناطيل والتنانير الرسمية تتطلب عادة تنظيفاً جافاً</li>
+                    <li>توضيح أي بقع أو مناطق تحتاج لعناية خاصة للعاملين في المغسلة</li>
+                    <li>التأكد من إزالة الشارات والإكسسوارات القابلة للفك قبل التنظيف الجاف</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">القيود القانونية والتنظيمية بين الدول</h3>
-          <p className="mb-4">
-            تأثير التشريعات المحلية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">اختلاف قوانين العمل المتعلقة بالزي الرسمي بين الدول</li>
-            <li className="mb-2">قيود استيراد وتصدير بعض المواد أو القطع في بعض البلدان</li>
-            <li className="mb-2">تشريعات مكافحة التمييز وتأثيرها على تصميم الزي الموحد</li>
-            <li className="mb-2">لوائح السلامة المختلفة بين الهيئات التنظيمية للطيران المدني</li>
-            <li className="mb-2">قوانين حماية الخصوصية الثقافية في بعض الدول</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التعامل مع البقع الشائعة</h3>
+                <p className="mb-2 text-gray-700">حلول سريعة للطوارئ:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>بقع القهوة والشاي: معالجة فورية بالماء البارد ثم محلول خفيف من الخل الأبيض</li>
+                  <li>بقع الزيت والطعام: رش طبقة من بودرة التلك أو نشا الذرة لامتصاص الزيت قبل الغسيل</li>
+                  <li>بقع العرق: مزيج من الماء وعصير الليمون أو محلول خفيف من صودا الخبز</li>
+                  <li>بقع الحبر: كحول الأيزوبروبيل للبقع الطازجة مع وضع منشفة تحت القماش للامتصاص</li>
+                  <li>احتفظ دائماً بمزيل بقع محمول سريع المفعول في حقيبتك للطوارئ</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">استراتيجيات للتوفيق بين التنوع الثقافي والهوية الموحدة</h3>
-          <p className="mb-4">
-            نهج متوازن يحترم التنوع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير قاعدة تصميم موحدة مع خيارات متعددة تراعي الاختلافات الثقافية</li>
-            <li className="mb-2">إشراك ممثلين من خلفيات ثقافية متنوعة في عملية التصميم</li>
-            <li className="mb-2">التركيز على العناصر المشتركة التي تتجاوز الحدود الثقافية</li>
-            <li className="mb-2">تبني نهج "الوحدة في التنوع" بدلاً من التوحيد القسري</li>
-            <li className="mb-2">استلهام عناصر من ثقافات متعددة وإدماجها في تصميم مبتكر</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات الجسدية والفسيولوجية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">اختلاف أنماط الجسم بين الأعراق المختلفة</h3>
-          <p className="mb-4">
-            مراعاة التنوع الجسدي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تباين نسب الجسم ومقاساته بين المجموعات العرقية المختلفة</li>
-            <li className="mb-2">اختلاف متوسط الطول والوزن بين الجنسيات المختلفة</li>
-            <li className="mb-2">تنوع أشكال الجسم (كمثري، تفاحي، مستطيل) بين الأعراق والجنسيات</li>
-            <li className="mb-2">تحدي توفير مقاسات تناسب التنوع الواسع في هيكل العظام</li>
-            <li className="mb-2">صعوبة تصميم زي يبدو مثالياً على جميع أنماط الجسم</li>
+            <section id="ironing" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الكي والتخزين الصحيح</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="الكي والتخزين الصحيح لزي طاقم الطائرة"
+                caption="أساليب الكي المثالية والتخزين الصحيح لزي طاقم الطائرة"
+              />
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">تقنيات الكي المثالية</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">خطوات الكي الاحترافي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>ضبط درجة حرارة المكواة حسب نوع القماش (منخفضة للأقمشة الصناعية، متوسطة للحرير والصوف، عالية للقطن)</li>
+                    <li>استخدام المكواة البخارية للقضاء على التجاعيد العنيدة دون الضغط الزائد</li>
+                    <li>البدء بأجزاء صغيرة مثل الياقة والأكمام ثم الانتقال إلى المساحات الأكبر</li>
+                    <li>استخدام قماش حماية عند كي الأزرار والزخارف والشعارات لمنع تلفها</li>
+                    <li>كي القصان والبلوزات وهي معلقة لتجنب ظهور علامات في أماكن غير مرغوبة</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تكييف الزي مع المتطلبات المناخية المختلفة</h3>
-          <p className="mb-4">
-            التأقلم مع تنوع البيئات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تباين تحمل درجات الحرارة بين الأشخاص من أصول جغرافية مختلفة</li>
-            <li className="mb-2">حساسية مختلفة للبرودة أو الحرارة بين المجموعات العرقية</li>
-            <li className="mb-2">الحاجة لتصميم طبقات يمكن إضافتها أو إزالتها حسب الحاجة</li>
-            <li className="mb-2">اختلاف درجة التعرق والتكيف مع الرطوبة بين الجنسيات</li>
-            <li className="mb-2">تصميم زي يناسب الانتقال السريع بين بيئات مناخية متناقضة</li>
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التخزين الأمثل في المنزل</h3>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">حماية الزي عند عدم الاستخدام:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استخدام علاقات ملابس عريضة ومبطنة للسترات والمعاطف للحفاظ على شكل الأكتاف</li>
+                  <li>تعليق البناطيل والتنانير من الخصر باستخدام مشابك خاصة لمنع علامات الطي</li>
+                  <li>تخزين القصان والبلوزات معلقة مع ترك مسافة كافية بينها للسماح بتدوير الهواء</li>
+                  <li>استخدام أكياس قماشية متنفسة (وليس بلاستيكية) لحماية الزي من الغبار والحشرات</li>
+                  <li>تخزين القطع في مكان جاف بعيد عن أشعة الشمس المباشرة لمنع بهتان الألوان</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">متطلبات الراحة والحركة أثناء العمل</h3>
-          <p className="mb-4">
-            تحقيق التوازن بين الشكل والوظيفة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">ضمان حرية الحركة لجميع الموظفين رغم اختلاف أنماط الجسم</li>
-            <li className="mb-2">تصميم أزياء تناسب ساعات العمل الطويلة لجميع الأجسام</li>
-            <li className="mb-2">مراعاة اختلاف نقاط الضغط والراحة بين الأجسام المتنوعة</li>
-            <li className="mb-2">توفير حلول لمشاكل خاصة (كالحساسية، التهاب المفاصل) مع الحفاظ على التوحيد</li>
-            <li className="mb-2">تطوير أنظمة قياس شاملة تراعي تنوع أبعاد الجسم الثلاثية</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">حلول عملية للتخزين أثناء السفر</h3>
+                <p className="mb-2 text-gray-700">تقنيات لحماية الزي في الحقائب:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>استخدام حقائب معلقة خاصة (garment bags) للرحلات القصيرة للحفاظ على الزي معلقاً</li>
+                  <li>طي السترات والبناطيل بطريقة احترافية لتقليل التجاعيد (قلب السترة للداخل وطي الأكتاف)</li>
+                  <li>وضع ورق التغليف الحريري بين طبقات الملابس المطوية لمنع الاحتكاك والتجاعيد</li>
+                  <li>وضع الملابس الثقيلة في قاع الحقيبة والخفيفة في الأعلى لتقليل الضغط</li>
+                  <li>الاحتفاظ بالإكسسوارات الصغيرة في علب خاصة أو أكياس منفصلة لمنع الضياع أو التلف</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">حلول تقنية للتغلب على تحديات التنوع الجسدي</h3>
-          <p className="mb-4">
-            الابتكارات في مجال التصميم الشامل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام تقنيات المسح ثلاثي الأبعاد لإنشاء نماذج تناسب مختلف الأجسام</li>
-            <li className="mb-2">تطوير أقمشة ذكية تتكيف مع متغيرات الجسم والبيئة</li>
-            <li className="mb-2">أنظمة تعديل متطورة تسمح بتكييف الزي حسب احتياجات الفرد</li>
-            <li className="mb-2">مقاسات مدروسة وفق معايير عالمية تراعي الاختلافات بين الأعراق</li>
-            <li className="mb-2">أقمشة مركبة تجمع بين الخصائص المطلوبة لمختلف البيئات</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات النوع الاجتماعي والهوية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تطور مفهوم الأزياء المحددة للجنسين</h3>
-          <p className="mb-4">
-            تجاوز الأدوار التقليدية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تغير النظرة التقليدية للزي النسائي والرجالي في صناعة الطيران</li>
-            <li className="mb-2">التحول من التصميمات النمطية (تنورة للنساء، بنطال للرجال) إلى خيارات أكثر مرونة</li>
-            <li className="mb-2">تحدي الموازنة بين احترام الثقافات المحافظة والتطور في مفاهيم النوع الاجتماعي</li>
-            <li className="mb-2">إشكالية الزي "المؤنث" المبالغ فيه والقائم على الجاذبية في بعض شركات الطيران</li>
-            <li className="mb-2">تخطي القوالب النمطية مع الحفاظ على الهوية المميزة للشركة</li>
+            <section id="maintenance" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الصيانة الدورية والإصلاحات</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="الصيانة الدورية للزي تحافظ على مظهره الاحترافي وتطيل عمره"
+                caption="الصيانة الدورية للزي تحافظ على مظهره الاحترافي وتطيل عمره"
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الفحص الدوري</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">روتين للحفاظ على جودة الزي:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تخصيص وقت أسبوعي لفحص جميع قطع الزي بحثاً عن علامات التلف المبكرة</li>
+                      <li>التحقق من الأزرار المرخية أو الخياطات المفكوكة أو البقع غير الملحوظة</li>
+                      <li>فحص البطانات والحواف والمناطق المعرضة للاحتكاك المستمر</li>
+                      <li>مراقبة الألوان للكشف عن أي بهتان أو تغير خاصة في المناطق المعرضة للشمس</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تصميم أزياء خالية من التمييز</h3>
-          <p className="mb-4">
-            نحو زي أكثر إنصافاً:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير زي لا يفرض معايير جمالية تمييزية على النساء</li>
-            <li className="mb-2">تقليل الفجوة بين متطلبات الزي للرجال والنساء</li>
-            <li className="mb-2">تصميم قطع متشابهة وظيفياً مع مراعاة الاختلافات الجسدية</li>
-            <li className="mb-2">توفير خيارات بديلة متساوية في الراحة والأناقة لجميع أفراد الطاقم</li>
-            <li className="mb-2">تطبيق معايير موحدة للمظهر المهني بغض النظر عن النوع الاجتماعي</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الإصلاحات البسيطة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">مهارات أساسية للصيانة الذاتية:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تعلم كيفية خياطة الأزرار بشكل صحيح وإصلاح الغرز المفكوكة فوراً</li>
+                      <li>استخدام لاصق القماش للإصلاحات الطارئة للبطانات والحواف</li>
+                      <li>معرفة كيفية إزالة الوبر والخيوط العالقة دون الإضرار بالقماش</li>
+                      <li>الاحتفاظ بأزرار احتياطية وخيوط مطابقة لإجراء الإصلاحات الفورية</li>
           </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التعامل مع الهويات غير الثنائية</h3>
-          <p className="mb-4">
-            شمولية أكبر في التصميم:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">توفير خيارات زي تناسب الأشخاص ذوي الهويات غير الثنائية</li>
-            <li className="mb-2">تصميم قطع محايدة جندرياً ضمن مجموعة الزي الرسمي</li>
-            <li className="mb-2">سياسات مرنة تسمح للموظفين باختيار الزي الذي يتناسب مع هويتهم</li>
-            <li className="mb-2">إيجاد توازن بين احترام الهويات المتنوعة واحترام الثقافات المحافظة</li>
-            <li className="mb-2">تطوير لغة تسويقية وإدارية شاملة عند التعامل مع الزي الموحد</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">متى تلجأ إلى الاحتراف</h3>
+                <p className="mb-2 text-gray-700">الإصلاحات التي تتطلب خبرة مهنية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تعديلات القياس الأساسية للحصول على مظهر مخصص ومناسب تماماً</li>
+                  <li>إصلاح البطانات المتهالكة أو استبدالها بالكامل</li>
+                  <li>ترميم المناطق البالية في الأكواع أو الأماكن المعرضة للاحتكاك</li>
+                  <li>إصلاح السحابات المعطلة أو تبديلها بشكل كامل</li>
+                  <li>معالجة مشاكل الأقمشة المعقدة مثل التمزق أو الحرق أو البقع المستعصية</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">نماذج ناجحة من شركات طيران رائدة</h3>
-          <p className="mb-4">
-            تجارب ملهمة في مجال التنوع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط الجوية البريطانية: إلغاء قواعد التمييز بين الجنسين في الزي</li>
-            <li className="mb-2">طيران نيوزيلندا: دمج الوشم التقليدي الماوري (تا موكو) ضمن سياسة الزي</li>
-            <li className="mb-2">الخطوط السكندنافية: خيارات معتدلة تجمع بين العملية والمساواة الجندرية</li>
-            <li className="mb-2">الخطوط اليابانية: تصميم زي يحترم التنوع مع الحفاظ على الهوية الثقافية</li>
-            <li className="mb-2">الخطوط السعودية: توفير خيارات متنوعة ضمن إطار يحترم الثقافة المحلية</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات التواصل والتدريب</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الحواجز اللغوية في تعليمات الزي الموحد</h3>
-          <p className="mb-4">
-            تجاوز عوائق اللغة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">صعوبة ضمان فهم متساوٍ لتعليمات وقواعد الزي بين مختلف الجنسيات</li>
-            <li className="mb-2">تحدي ترجمة المصطلحات التقنية المتعلقة بالأزياء بشكل دقيق</li>
-            <li className="mb-2">اختلاف تفسير التعليمات غير المباشرة أو الضمنية بين الثقافات</li>
-            <li className="mb-2">وضع أدلة إرشادية بصرية تتجاوز العوائق اللغوية</li>
-            <li className="mb-2">تدريب المشرفين على التواصل الفعال عبر الثقافات فيما يخص الزي</li>
+            <section id="travel-care" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناية بالزي أثناء السفر</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="العناية بالزي أثناء السفر"
+                caption="العناية بالزي أثناء السفر"
+              />
+              
+              <div className="overflow-hidden rounded-lg mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">حقيبة طوارئ العناية بالزي</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">مستلزمات أساسية للاحتفاظ بها أثناء العمل:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>مزيل بقع محمول سريع المفعول للتعامل مع الانسكابات الطارئة</li>
+                    <li>بخاخ إنعاش للقضاء على التجاعيد الخفيفة والروائح</li>
+                    <li>فرشاة ملابس صغيرة لإزالة الشعر والغبار والوبر</li>
+                    <li>مجموعة خياطة صغيرة تتضمن إبراً، وخيوطاً بالألوان الأساسية، وأزراراً احتياطية</li>
+                    <li>شريط لاصق خاص بالملابس للإصلاحات الطارئة</li>
+                    <li>قلم إزالة البقع للتعامل مع البقع الصغيرة المفاجئة</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تدريب فرق متنوعة على معايير الزي</h3>
-          <p className="mb-4">
-            بناء فهم مشترك:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">مراعاة الاختلافات الثقافية في أساليب التعلم والتدريب</li>
-            <li className="mb-2">تطوير برامج تدريب متعددة اللغات حول الزي وقواعده</li>
-            <li className="mb-2">استخدام التقنيات الرقمية (الواقع المعزز) لتوضيح معايير ارتداء الزي</li>
-            <li className="mb-2">نظام التوجيه الثنائي (Buddy System) بين الموظفين من خلفيات مختلفة</li>
-            <li className="mb-2">ورش عمل تشاركية حول التنوع الثقافي وتأثيره على الزي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">إدارة التوقعات والرضا الوظيفي</h3>
-          <p className="mb-4">
-            تعزيز القبول والالتزام:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التواصل المبكر والواضح حول فلسفة الزي وتصميمه</li>
-            <li className="mb-2">إشراك الموظفين من مختلف الجنسيات في عملية اختيار وتقييم الزي</li>
-            <li className="mb-2">قياس مستوى الرضا عن الزي بين المجموعات الثقافية المختلفة</li>
-            <li className="mb-2">توفير منصات للتغذية الراجعة تحترم الاختلافات الثقافية في التعبير</li>
-            <li className="mb-2">الاستفادة من ملاحظات الموظفين في عمليات تطوير الزي المستقبلية</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تقنيات سريعة للعناية اليومية</h3>
+                <p className="mb-2 text-gray-700">حلول للحفاظ على المظهر خلال يوم العمل:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>استخدام بخاخ الإنعاش بين الرحلات لتجديد مظهر الزي وإزالة الروائح</li>
+                  <li>تعليق الزي في الحمام أثناء الاستحمام للاستفادة من البخار في إزالة التجاعيد</li>
+                  <li>استخدام المكواة المسطحة المحمولة للحالات الضرورية خلال الرحلات الطويلة</li>
+                  <li>تدوير قطع الزي المتعددة بشكل متوازن لتقليل التآكل وإعطاء فرصة للتهوية</li>
+                  <li>الاحتفاظ بنسخة احتياطية من القطع الأساسية (قميص/بلوزة) للطوارئ</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">تنمية الكفاءة الثقافية في مجال الأزياء</h3>
-          <p className="mb-4">
-            تعزيز الفهم المتبادل:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">برامج توعية بالحساسيات الثقافية المتعلقة بالملابس والمظهر</li>
-            <li className="mb-2">تدريب فرق التصميم على أسس الأزياء في مختلف الثقافات</li>
-            <li className="mb-2">بناء مكتبة معرفية حول المعتقدات والممارسات المرتبطة بالزي</li>
-            <li className="mb-2">تشجيع التبادل الثقافي بين الموظفين فيما يتعلق بملابس العمل</li>
-            <li className="mb-2">الاستعانة بخبراء في التنوع الثقافي خلال مرحلة تصميم الزي</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التعامل مع التحديات البيئية</h3>
+                <p className="mb-2 text-gray-700">حماية الزي من العوامل المختلفة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>المناخات الرطبة: استخدام مجففات الرطوبة الصغيرة في خزانة الملابس بالفندق</li>
+                  <li>المناخات الجافة: رش الزي برذاذ الماء الخفيف قبل الكي لتسهيل إزالة التجاعيد</li>
+                  <li>الأماكن الحارة: اختيار القطع الأخف وزناً والأكثر تهوية مع الحفاظ على المظهر الرسمي</li>
+                  <li>تقلبات درجات الحرارة: ارتداء طبقات يمكن إضافتها أو إزالتها بسهولة</li>
+                  <li>السفر عبر مناطق زمنية متعددة: تحضير الزي للرحلة التالية مباشرة بعد انتهاء الرحلة الحالية</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">حلول مبتكرة ورؤى مستقبلية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">نظام الوحدات والتخصيص المرن</h3>
-          <p className="mb-4">
-            نهج أكثر مرونة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم مجموعة أساسية موحدة مع عناصر تكميلية قابلة للاختيار</li>
-            <li className="mb-2">نظام "القطع المتبادلة" يتيح تكوين تشكيلات مختلفة ضمن هوية موحدة</li>
-            <li className="mb-2">خيارات متنوعة ضمن نفس اللوحة اللونية والطابع العام</li>
-            <li className="mb-2">مستويات مختلفة من التغطية والحشمة مع الحفاظ على التناسق العام</li>
-            <li className="mb-2">نظام تخصيص رقمي يسمح للموظفين باختيار القطع المناسبة ضمن إطار محدد</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التكنولوجيا وتصميم الأزياء الشاملة</h3>
-          <p className="mb-4">
-            الابتكارات التقنية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام الذكاء الاصطناعي في تصميم أزياء تناسب مجموعة واسعة من الأجسام</li>
-            <li className="mb-2">تقنيات المسح ثلاثي الأبعاد لإنتاج زي بمقاسات دقيقة لكل موظف</li>
-            <li className="mb-2">أقمشة ذكية تتكيف مع درجات الحرارة والرطوبة المختلفة</li>
-            <li className="mb-2">نظم توريد رقمية تتيح إنتاج قطع مخصصة بشكل سريع وكفء</li>
-            <li className="mb-2">تقنيات الواقع المعزز لتجربة الزي افتراضياً قبل الإنتاج</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التصميم المشترك والتشاركي</h3>
-          <p className="mb-4">
-            إشراك الطاقم في العملية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">منهجيات استشارية تشرك الموظفين من مختلف الثقافات في التصميم</li>
-            <li className="mb-2">لجان متنوعة ثقافياً ودينياً وجندرياً لمراجعة مقترحات الزي</li>
-            <li className="mb-2">منصات رقمية لجمع الملاحظات والأفكار من مختلف المجموعات</li>
-            <li className="mb-2">اختبارات ميدانية للزي تمثل فيها جميع الفئات قبل التعميم</li>
-            <li className="mb-2">نهج متطور للتصميم يبدأ من احتياجات المستخدمين المتنوعين</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مستقبل الزي الموحد في عالم متنوع</h3>
-          <p className="mb-4">
-            رؤية استشرافية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التحول من مفهوم "الزي الموحد" إلى "نظام الزي المتناغم"</li>
-            <li className="mb-2">تطوير أزياء تعكس هوية الشركة مع احترام التعددية الثقافية</li>
-            <li className="mb-2">أنظمة زي ذكية تتكيف مع احتياجات الفرد والظروف المحيطة</li>
-            <li className="mb-2">تبني مبادئ التصميم الشامل الذي يستوعب أقصى تنوع ممكن</li>
-            <li className="mb-2">تحويل التنوع من تحدٍ إلى فرصة للتميز والإبداع في صناعة الطيران</li>
-          </ul>
+            <section id="professional-tips" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">نصائح احترافية من الخبراء</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                قدم خبراء العناية بالملابس المهنية في قطاع الطيران مجموعة من النصائح القيمة بناءً على سنوات خبرتهم في هذا المجال:
+              </p>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تمديد العمر الافتراضي للزي</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  "المفتاح الأساسي لإطالة عمر الزي هو الصيانة الوقائية وليس التصحيحية،" يقول محمد السيد، مدير قسم العناية بالأزياء في إحدى شركات الطيران الكبرى. "أنصح بشراء نسختين من كل قطعة أساسية والتناوب بينهما، مما يقلل الضغط والتآكل على كل قطعة. كما أوصي بإجراء فحص شامل للزي كل ثلاثة أشهر لدى خياط محترف لمعالجة أي مشاكل محتملة قبل تفاقمها."
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الاستثمار في أدوات العناية عالية الجودة</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  توصي لينا أحمد، خبيرة الأزياء المهنية، بالاستثمار في أدوات عناية جيدة: "مكواة بخارية عالية الجودة، فرشاة ملابس بشعيرات طبيعية، وعلاقات ملابس مبطنة جيدة، هي استثمارات تستحق كل ريال. كما أن استخدام منظفات معتدلة وخاصة بالأقمشة الفاخرة يحافظ على جودة القماش ويمنع تدهوره السريع. لا تبخل على زيك باستخدام منتجات عالية الجودة، فهو استثمار في مظهرك المهني."
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تنظيم روتين العناية بالزي</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  يقترح خالد العمري، مدرب في مجال آداب المظهر لطواقم الطائرات، تنظيم روتين ثابت: "خصص 15 دقيقة في نهاية كل يوم عمل للعناية بزيك: تنظيف سريع، فحص البقع والتلف، وتحضير الزي لليوم التالي. وخصص ساعة أسبوعياً للعناية الشاملة. هذا الروتين البسيط سيوفر عليك ساعات من الإصلاحات والتنظيف العميق لاحقاً، وسيضمن أنك دائماً جاهز بمظهر مثالي."
+                </p>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            إن تصميم زي موحد لطواقم طيران متنوعة الجنسيات ليس مجرد تحد تقني أو إداري، بل هو انعكاس لقيم الشركة وثقافتها ومدى انفتاحها على التنوع العالمي. من خلال استعراضنا للتحديات المختلفة والحلول المبتكرة، يتضح أن النجاح في هذا المجال يتطلب توازناً دقيقاً بين الحفاظ على صورة موحدة ومهنية للشركة وبين احترام الخصوصيات الثقافية والدينية والجسدية للأفراد.
-          </p>
-          <p className="mb-4">
-            تشير التجارب الناجحة لشركات الطيران الرائدة إلى أن مستقبل تصميم الزي الموحد يتجه نحو مزيد من المرونة والشمولية، مع الاستفادة من التكنولوجيا والابتكار في تطوير حلول أكثر تكيفاً مع التنوع البشري. وبدلاً من رؤية التنوع كمشكلة تحتاج للتعامل معها، يمكن تحويله إلى مصدر إثراء وتميز يعكس الطبيعة العالمية لصناعة الطيران.
-          </p>
-          <p className="mb-4">
-            في النهاية، فإن شركات الطيران التي ستنجح في المستقبل هي تلك التي ستتمكن من تصميم زي يحقق التوازن المثالي: زي يوحد دون أن يطمس الهويات، يعكس تراث الشركة مع استيعاب التنوع العالمي، ويجمع بين الوظيفة والأناقة مع مراعاة التعددية الثقافية. وهذا ليس فقط انعكاساً لتطور صناعة الأزياء، بل هو تعبير عن تطور المجتمعات نحو عالم أكثر تقبلاً للتنوع واحتراماً للاختلاف.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                إن العناية المثلى بزي طاقم الطائرة ليست مجرد مسألة جمالية، بل هي استثمار مهني يعكس الاحترافية والالتزام بمعايير الخدمة العالية. من خلال اتباع الممارسات الصحيحة في الغسيل والتخزين والصيانة، يمكن لأفراد الطاقم الحفاظ على المظهر المثالي للزي لفترة أطول، مما يوفر الوقت والجهد والتكلفة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                الاستثمار في المعرفة والأدوات اللازمة للعناية بالزي، وتخصيص وقت منتظم للصيانة الوقائية، وتطوير مهارات أساسية في الإصلاحات البسيطة، كلها عوامل تسهم في تمديد العمر الافتراضي للزي والحفاظ على مظهره الأنيق. كما أن الاستعداد الجيد للتحديات التي تفرضها طبيعة العمل في مجال الطيران من خلال حقيبة طوارئ وتقنيات سريعة، يضمن القدرة على التعامل مع المواقف غير المتوقعة بكفاءة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، يجب أن نتذكر أن الزي المرتب والأنيق ليس فقط مرآة تعكس الاهتمام الشخصي بالتفاصيل، بل هو أيضاً جزء لا يتجزأ من تجربة المسافر وانطباعه عن مستوى الخدمة المقدمة. لذا، فإن العناية المثالية بالزي تعد استثماراً مزدوجاً: في المظهر الشخصي وفي صورة شركة الطيران على حد سواء.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

@@ -1,353 +1,425 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'التصميم المبتكر لملابس طاقم الطائرة',
-  description: 'استكشاف أحدث الابتكارات في تصميم ملابس طاقم الطائرة، من المواد المتطورة والتقنيات الحديثة إلى التصاميم العملية والمريحة التي تلبي احتياجات العمل في بيئة الطيران.',
+  description: 'استكشاف التصاميم المبتكرة لملابس أطقم الطائرات، والتوازن بين الأناقة والوظيفية والراحة والسلامة في صناعة الطيران الحديثة',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
-  const title = 'ملابس طاقم الطيران';
+  const imageSrc = '/images/flight_crew/air_crew_innovative_uniforms.jpeg';
+  const title = 'التصميم المبتكر لملابس طاقم الطائرة';
+  const readingTime = '9 دقائق';
+  const datePublished = '٣ مايو ٢٠٢٤';
+  const authorName = 'م. ريما السباعي';
+  const authorImage = '/images/author/ريما_السباعي.png';
+  const authorTitle = 'مستشارة في تصميم أزياء الطيران';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة عن ملابس طاقم الطائرة' },
+    { id: 'innovation-importance', title: 'أهمية الابتكار في ملابس الطاقم' },
+    { id: 'design-elements', title: 'العناصر الرئيسية في التصميم المبتكر' },
+    { id: 'materials-tech', title: 'المواد والتقنيات الحديثة' },
+    { id: 'challenges', title: 'تحديات التصميم وحلول مبتكرة' },
+    { id: 'future-trends', title: 'اتجاهات مستقبلية' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            تمثل ملابس طاقم الطائرة تحدياً فريداً في عالم تصميم الأزياء، حيث تجتمع متطلبات متعددة ومتباينة في آن واحد. فهي ليست مجرد واجهة جمالية للعلامة التجارية لشركات الطيران، بل هي أيضاً أدوات عمل وظيفية، وعناصر سلامة حيوية، ومصدر راحة لفترات عمل طويلة في بيئة متغيرة باستمرار.
-          </p>
-          <p className="mb-4">
-            في السنوات الأخيرة، شهد مجال تصميم ملابس طاقم الطائرة ثورة حقيقية في الابتكار والإبداع، مدفوعة بالتطورات في تكنولوجيا النسيج، وتغير توقعات الطاقم والمسافرين، والتحولات في فلسفة العلامات التجارية، والاهتمام المتزايد بالاستدامة والراحة والتنوع. في هذا المقال، نستكشف أحدث الابتكارات في هذا المجال المتخصص، ونلقي الضوء على التقنيات والمواد والتصاميم التي تُحدث نقلة نوعية في ملابس طواقم الطيران حول العالم.
-          </p>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+          </ul>
+              </nav>
+            </div>
+            
+            {/* Author information */}
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">الكاتب</h3>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src={authorImage}
+                    alt={authorName}
+                    width={64}
+                    height={64}
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-blue-900">{authorName}</h4>
+                  <p className="text-sm text-gray-600">{authorTitle}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/modern-flight-attendant-fashion" className="text-sm hover:text-blue-600 block">
+                    أزياء المضيفات الحديثة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/comfort-safety-airline-uniforms" className="text-sm hover:text-blue-600 block">
+                    الراحة والسلامة في أزياء شركات الطيران
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/design-uniform" className="text-sm hover:text-blue-600 block">
+                    تصميم زي طاقم الطائرة
+                  </Link>
+                </li>
+          </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة عن ملابس طاقم الطائرة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تعتبر ملابس طاقم الطائرة واجهة مرئية أساسية لشركات الطيران، حيث تجمع بين الأناقة والوظيفية في منظومة متكاملة. على مر السنين، تطورت هذه الملابس من مجرد زي موحد إلى تصاميم مبتكرة تعكس هوية العلامة التجارية وتلبي احتياجات متعددة ومتنوعة للطاقم والمسافرين على حد سواء.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في عالم الطيران المعاصر، باتت التصاميم المبتكرة لملابس طاقم الطائرة تمثل مزيجاً فريداً من الفن والهندسة وعلم الأرجونوميكس. فهي تجمع بين الجماليات المرئية والقدرة على تحمل ساعات طويلة من العمل في ظروف متغيرة، مع ضرورة الالتزام بمعايير السلامة الصارمة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستكشف كيف يدفع الابتكار في تصميم ملابس طاقم الطائرة حدود التكنولوجيا والتصميم، وكيف تساهم هذه الابتكارات في تحسين تجربة العمل للطاقم وتعزيز صورة شركات الطيران في عيون المسافرين. سنتناول أيضاً التحديات الفريدة التي تواجه المصممين والحلول المبتكرة التي يقدمونها، إضافة إلى استشراف مستقبل تصميم هذه الملابس في عصر يتسم بالتغير السريع والتقدم التكنولوجي المستمر.
+              </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات تصميم ملابس طاقم الطائرة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">المتطلبات المتعددة والمتباينة</h3>
-          <p className="mb-4">
-            التحديات الفريدة لتصميم ملابس الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الموازنة بين الأناقة والوظيفية العملية</li>
-            <li className="mb-2">توفير الراحة لساعات عمل طويلة في بيئة مغلقة</li>
-            <li className="mb-2">تلبية متطلبات السلامة الصارمة في صناعة الطيران</li>
-            <li className="mb-2">عكس هوية العلامة التجارية لشركة الطيران</li>
-            <li className="mb-2">التكيف مع البيئات والمناخات المختلفة</li>
+            <section id="innovation-importance" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">أهمية الابتكار في ملابس الطاقم</h2>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="مضيفات يرتدين أزياء طيران مبتكرة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  تصاميم مبتكرة لملابس المضيفات | المصدر: معرض أزياء الطيران العالمي
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التميز البصري والهوية المؤسسية</h3>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">يساهم الابتكار في تصميم ملابس الطاقم في:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>تعزيز صورة العلامة التجارية وتمييزها بصرياً عن المنافسين</li>
+                  <li>خلق انطباع أولي إيجابي ودائم لدى المسافرين</li>
+                  <li>تجسيد قيم ورؤية شركة الطيران من خلال عناصر التصميم</li>
+                  <li>تعزيز الشعور بالفخر والانتماء لدى أفراد الطاقم</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">البيئة التشغيلية الفريدة</h3>
-          <p className="mb-4">
-            خصائص بيئة العمل في الطيران:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">ضغط الهواء المنخفض وجفاف الأجواء داخل المقصورة</li>
-            <li className="mb-2">تغيرات كبيرة في درجات الحرارة بين مختلف الوجهات</li>
-            <li className="mb-2">العمل في مساحات ضيقة تتطلب مرونة حركة</li>
-            <li className="mb-2">التعرض المستمر للجمهور يتطلب مظهراً أنيقاً ومرتباً</li>
-            <li className="mb-2">القيام بمهام متنوعة من خدمة الطعام إلى إجراءات السلامة</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تحسين الأداء الوظيفي</h3>
+                  <p className="mb-2 text-gray-700">الابتكارات الوظيفية تؤدي إلى:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تعزيز حرية الحركة خلال أداء المهام المختلفة</li>
+                    <li>تقليل التعب والإجهاد خلال الرحلات الطويلة</li>
+                    <li>تحسين القدرة على التعامل مع حالات الطوارئ</li>
+                    <li>تكيف أفضل مع التغيرات في درجات الحرارة والضغط</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">العوامل الاقتصادية والتشغيلية</h3>
-          <p className="mb-4">
-            اعتبارات تؤثر على قرارات التصميم:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الموازنة بين تكلفة الإنتاج وجودة المواد</li>
-            <li className="mb-2">سهولة الصيانة والغسيل المتكرر</li>
-            <li className="mb-2">العمر التشغيلي الطويل للأزياء</li>
-            <li className="mb-2">تأثير التصميم على معنويات الطاقم وأدائهم</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التأثير الاقتصادي</h3>
+                  <p className="mb-2 text-gray-700">العوائد الاستثمارية للابتكار:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تقليل تكاليف الصيانة والاستبدال على المدى الطويل</li>
+                    <li>تعزيز قيمة العلامة التجارية وجاذبيتها</li>
+                    <li>تحسين رضا الموظفين وتقليل معدل دوران العمالة</li>
+                    <li>تأثير إيجابي على تجربة العملاء ومعدلات الولاء</li>
           </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الابتكارات في المواد والأقمشة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة التقنية المتقدمة</h3>
-          <p className="mb-4">
-            مواد جديدة تحدث ثورة في الأداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة Sorona® المصنوعة جزئياً من الذرة وتوفر مرونة فائقة مع متانة عالية</li>
-            <li className="mb-2">خامات Tencel™ من الألياف السليلوزية المتجددة توفر نعومة فائقة وتنظيم حراري</li>
-            <li className="mb-2">أقمشة Multi-Stretch بتقنية الألياف رباعية الاتجاهات لحرية حركة غير مسبوقة</li>
-            <li className="mb-2">مواد Outlast® المطورة لوكالة ناسا والتي تخزن الحرارة وتطلقها عند الحاجة</li>
+            <section id="design-elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الرئيسية في التصميم المبتكر</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">التوازن بين الجمال والوظيفة</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">تحقيق المعادلة الصعبة في التصميم:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>خطوط أنيقة مع مرونة كافية للحركة</li>
+                    <li>ألوان جذابة تحتفظ ببريقها رغم الاستخدام المتكرر</li>
+                    <li>تفاصيل دقيقة تعزز الأناقة دون التضحية بالراحة</li>
+                    <li>تناغم بين مختلف قطع الزي للحصول على مظهر متكامل</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">المعالجات التقنية المبتكرة</h3>
-          <p className="mb-4">
-            تقنيات تحسن أداء الأقمشة التقليدية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">معالجات HeiQ Pure مضادة للبكتيريا والروائح باستخدام جزيئات الفضة</li>
-            <li className="mb-2">تقنية Stain Defense™ لمقاومة البقع السائلة دون التأثير على تنفس القماش</li>
-            <li className="mb-2">معالجات Viral Block تقلل من استقرار الفيروسات والبكتيريا على الأسطح</li>
-            <li className="mb-2">معالجات UPF للحماية من الأشعة فوق البنفسجية للطواقم العاملة على المدارج</li>
+                </div>
+              </div>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="عناصر تصميم أزياء طاقم الطائرة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  عناصر التصميم المبتكر في أزياء طاقم الطائرة | المصدر: مركز الابتكار في تصميم الأزياء
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الارجونوميكس وهندسة الراحة</h3>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">تطبيق مبادئ علم الحركة والراحة البشرية:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>دراسة حركات الجسم الشائعة خلال أداء المهام للطاقم</li>
+                  <li>تصميم قصات تسمح بمدى حركة أوسع في المناطق الحيوية</li>
+                  <li>توزيع متوازن للوزن والضغط لتقليل الإجهاد العضلي</li>
+                  <li>حلول مبتكرة للتخزين والجيوب لتسهيل الوصول للأدوات الضرورية</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المواد المستدامة والصديقة للبيئة</h3>
-          <p className="mb-4">
-            الاستجابة للتحديات البيئية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة مصنوعة من البلاستيك المعاد تدويره من المحيطات (Econyl®)</li>
-            <li className="mb-2">خامات طبيعية متطورة مثل صوف الميرينو العضوي خفيف الوزن</li>
-            <li className="mb-2">بوليستر حيوي مشتق من قصب السكر بدلاً من البتروكيماويات</li>
-            <li className="mb-2">أقمشة قطنية معتمدة من برنامج Better Cotton Initiative تقلل استهلاك المياه</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التنوع والشمولية</h3>
+                  <p className="mb-2 text-gray-700">تصاميم تناسب مختلف الأشخاص:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>مقاسات شاملة تناسب مختلف أنماط الجسم</li>
+                    <li>خيارات متنوعة تراعي الاختلافات الثقافية والدينية</li>
+                    <li>حلول مبتكرة للاحتياجات الخاصة</li>
+                    <li>تصاميم غير نمطية تتجاوز القوالب التقليدية</li>
           </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التكيف مع البيئات المتغيرة</h3>
+                  <p className="mb-2 text-gray-700">تصاميم مرنة للظروف المختلفة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>نظام الطبقات للتكيف مع اختلاف درجات الحرارة</li>
+                    <li>قابلية التعديل حسب الوجهات والمواسم</li>
+                    <li>حلول للانتقال السلس بين البيئات المكيفة والخارجية</li>
+                    <li>تصاميم تعمل بكفاءة في ظروف الرطوبة والجفاف المختلفة</li>
+          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">ابتكارات التصميم والقصات</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التصميم الإرجونومي</h3>
-          <p className="mb-4">
-            تصاميم تراعي حركة الجسم وتحسن الأداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قصات Action Back توفر مرونة حركة للأكتاف والذراعين بدون تقييد</li>
-            <li className="mb-2">تصميم الكم Raglan المعدل للسماح بمدى حركة أكبر للذراعين</li>
-            <li className="mb-2">خصر مرتفع قليلاً للتنانير والبناطيل لمنع انكشاف الظهر أثناء الانحناء</li>
-            <li className="mb-2">تقنية Articulated Knees لتوفير راحة أكبر عند الجلوس والوقوف المتكرر</li>
+            <section id="materials-tech" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد والتقنيات الحديثة</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الأقمشة الذكية</h3>
+                  <p className="mb-2 text-gray-700">تطورات ثورية في عالم النسيج:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أقمشة تعديل الحرارة تتكيف مع درجات حرارة الجسم</li>
+                    <li>نسيج مقاوم للسوائل والبقع مع الحفاظ على النفاذية</li>
+                    <li>ألياف خفيفة فائقة المتانة</li>
+                    <li>أقمشة مضادة للميكروبات لبيئة صحية أفضل</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">نظام الطبقات المتعدد</h3>
-          <p className="mb-4">
-            تصميم يتكيف مع الظروف المتغيرة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">نظام 3-in-1 يسمح بإضافة أو إزالة طبقات حسب الحرارة والنشاط</li>
-            <li className="mb-2">طبقة أساسية من مواد مضادة للرطوبة تلامس الجسم مباشرة</li>
-            <li className="mb-2">طبقة وسطى للعزل الحراري خفيفة الوزن يمكن طيها بسهولة</li>
-            <li className="mb-2">طبقة خارجية أنيقة مقاومة للماء والبقع تعكس هوية العلامة التجارية</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تقنيات الحياكة المتقدمة</h3>
+                  <p className="mb-2 text-gray-700">أساليب مبتكرة في تصنيع الملابس:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>الحياكة ثلاثية الأبعاد للمناطق التي تتطلب دعماً إضافياً</li>
+                    <li>تقنيات لصق متقدمة بديلة عن الخياطة التقليدية</li>
+                    <li>الحياكة الذكية التي تسمح بمرونة مختلفة حسب مناطق الجسم</li>
+                    <li>الطباعة المباشرة على الأقمشة لتصاميم أكثر استدامة</li>
           </ol>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التصميم الوظيفي المتكامل</h3>
-          <p className="mb-4">
-            دمج العناصر العملية دون التضحية بالأناقة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">جيوب مخفية بتصميم ذكي لحمل الأدوات الضرورية</li>
-            <li className="mb-2">حلقات تثبيت للشارات وبطاقات الهوية سهلة الوصول</li>
-            <li className="mb-2">سحابات مزدوجة الاتجاه لسهولة الحركة والتهوية عند الحاجة</li>
-            <li className="mb-2">بطانات داخلية ملونة بألوان العلامة التجارية تظهر عند طي الأكمام</li>
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="تقنيات حديثة في صناعة ملابس الطيران"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  مواد وتقنيات حديثة في تصنيع ملابس طاقم الطائرة | المصدر: معرض الابتكار في صناعة النسيج
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الاستدامة في المواد والإنتاج</h3>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <p className="mb-2 font-medium text-blue-700">توجه عالمي نحو ممارسات أكثر استدامة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استخدام مواد معاد تدويرها من زجاجات البلاستيك والمخلفات النسيجية</li>
+                  <li>أقمشة طبيعية وعضوية بتأثير بيئي أقل</li>
+                  <li>عمليات إنتاج منخفضة استهلاك الماء والطاقة</li>
+                  <li>ألياف مستدامة جديدة مثل الليوسيل والتنسل والخيزران</li>
+                  <li>تصميم للتدوير (Design for Recycling) يسهل إعادة تدوير الملابس بعد انتهاء عمرها</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التكنولوجيا والأزياء الذكية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الأجهزة القابلة للارتداء المدمجة</h3>
-          <p className="mb-4">
-            تكامل التكنولوجيا مع الملابس:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">شارات ذكية مزودة بتقنية NFC لتتبع ساعات العمل وإدارة المهام</li>
-            <li className="mb-2">إكسسوارات تتضمن أجهزة اتصال لاسلكية صغيرة الحجم مدمجة بشكل غير ملحوظ</li>
-            <li className="mb-2">أزرار تعمل كأجهزة استشعار لمراقبة المؤشرات الحيوية للطاقم خلال الرحلات الطويلة</li>
-            <li className="mb-2">تقنيات التعرف على الحركة لتسجيل عمليات السلامة أثناء التدريب</li>
+            <section id="challenges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تحديات التصميم وحلول مبتكرة</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">تحديات فريدة في مجال الطيران</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">عقبات تواجه مصممي ملابس طاقم الطائرة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>التغيرات المفاجئة في درجات الحرارة والضغط</li>
+                    <li>ساعات عمل طويلة في مساحات محدودة</li>
+                    <li>متطلبات سلامة صارمة ومتطورة باستمرار</li>
+                    <li>الحاجة إلى التمييز البصري مع الحفاظ على الجانب العملي</li>
+                    <li>تنوع المهام من خدمة المسافرين إلى التعامل مع حالات الطوارئ</li>
           </ul>
+                </div>
+              </div>
+              
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="حلول مبتكرة لتحديات تصميم ملابس الطيران"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  حلول مبتكرة للتوفيق بين السلامة والراحة والأناقة | المصدر: مؤتمر ابتكارات صناعة الطيران
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">ابتكارات في مجال السلامة</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">مقاومة الحريق المتقدمة</h3>
+                  <p className="mb-2 text-gray-700">تطورات في مجال حماية الطاقم:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أقمشة ذاتية الإطفاء في حال تعرضها للحريق</li>
+                    <li>ألياف متطورة تتحمل درجات حرارة عالية دون الذوبان</li>
+                    <li>معالجات نانوية تعزز مقاومة الاشتعال</li>
+                    <li>تصاميم متكاملة مع معدات السلامة الشخصية</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تعزيز الرؤية والتمييز</h3>
+                  <p className="mb-2 text-gray-700">حلول لتحديد طاقم المقصورة بسرعة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>عناصر عاكسة مدمجة بأناقة في التصميم</li>
+                    <li>ألوان محددة تسهل التمييز في ظروف الإضاءة المنخفضة</li>
+                    <li>شارات وعلامات واضحة لتحديد المسؤوليات</li>
+                    <li>تقنيات الإضاءة الذاتية للاستخدام في حالات الطوارئ</li>
+          </ul>
+                </div>
+              </div>
+        </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الإضاءة والعناصر التفاعلية</h3>
-          <p className="mb-4">
-            عناصر ذكية تعزز الأداء والسلامة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خيوط مضيئة يمكن تفعيلها في حالات الطوارئ لزيادة وضوح الطاقم</li>
-            <li className="mb-2">شرائط عاكسة مدمجة بأناقة في التصميم لتحسين الرؤية في الإضاءة المنخفضة</li>
-            <li className="mb-2">أزرار وشعارات متوهجة تعمل كمصادر إضاءة صغيرة عند الحاجة</li>
-            <li className="mb-2">تقنيات تغير اللون استجابة للحرارة أو الضوء لتوفير معلومات مرئية</li>
+            <section id="future-trends" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اتجاهات مستقبلية</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التكنولوجيا القابلة للارتداء</h3>
+                <p className="mb-2 font-medium text-blue-700">دمج الأجهزة الإلكترونية في الزي الموحد:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>شارات ذكية مزودة بمستشعرات لمراقبة البيئة المحيطة</li>
+                  <li>أنظمة اتصال مدمجة في تصميم الزي</li>
+                  <li>مساعدات رقمية شخصية متكاملة لتسهيل التواصل وتسجيل البيانات</li>
+                  <li>أنظمة تتبع الصحة والسلامة لمراقبة الإجهاد وإدارة الراحة</li>
+          </ul>
+              </div>
+
+              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/flight_crew/air_crew_attire.jpeg"
+                  alt="مستقبل تصميم ملابس طاقم الطائرة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
+                  تصورات مستقبلية لأزياء طاقم الطائرة | المصدر: معرض مستقبل صناعة الطيران
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التخصيص المتقدم</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الحلول المخصصة</h3>
+                  <p className="mb-2 text-gray-700">تقنيات التخصيص الجماعي:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>مسح ثلاثي الأبعاد للجسم لتصنيع ملابس مخصصة بدقة</li>
+                    <li>أنظمة رقمية لتتبع التفضيلات الشخصية للطاقم</li>
+                    <li>منصات تسمح بدرجة من التخصيص ضمن الإطار العام للتصميم</li>
+                    <li>إنتاج مرن للقطع حسب الطلب لتقليل الفائض</li>
           </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">أنظمة التحكم في المناخ الشخصي</h3>
-          <p className="mb-4">
-            تقنيات تعزز راحة الطاقم:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">خلايا كهروحرارية صغيرة مدمجة لتوفير الدفء في المناطق الباردة من الطائرة</li>
-            <li className="mb-2">أنظمة تبريد بالتهوية النشطة مدمجة في التصميم للمناطق الحارة مثل المطبخ</li>
-            <li className="mb-2">مواد ذكية تغير خصائصها الحرارية استجابة لدرجة حرارة الجسم</li>
-            <li className="mb-2">أقمشة بتقنية PCM (Phase Change Materials) تخزن وتطلق الحرارة للحفاظ على درجة حرارة مثالية</li>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الواقع المعزز في التصميم</h3>
+                  <p className="mb-2 text-gray-700">استخدام التقنيات الرقمية المتقدمة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تطبيقات تتيح تجربة الزي افتراضياً قبل التصنيع</li>
+                    <li>أنظمة محاكاة متطورة لاختبار أداء التصاميم في بيئات مختلفة</li>
+                    <li>تقنيات ذكاء اصطناعي لتحليل حركة الجسم وتحسين القصات</li>
+                    <li>نمذجة رقمية تقلل من استهلاك الموارد في مرحلة التطوير</li>
           </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الاستدامة والمسؤولية البيئية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تصاميم قابلة لإعادة التدوير</h3>
-          <p className="mb-4">
-            نهج شامل لدورة حياة المنتج:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم أحادية المواد تسهل عملية إعادة التدوير في نهاية عمر الزي</li>
-            <li className="mb-2">استخدام أزرار وإكسسوارات قابلة للفصل والاستبدال وإعادة الاستخدام</li>
-            <li className="mb-2">أنظمة تتبع رقمية لكل قطعة تسمح بالتخطيط لنهاية دورة الحياة</li>
-            <li className="mb-2">برامج استرداد وإعادة تدوير للأزياء المستعملة تنفذها شركات الطيران</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الإنتاج المستدام والمسؤول</h3>
-          <p className="mb-4">
-            أساليب تصنيع تراعي البعد البيئي:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تقنيات الصباغة الرقمية التي تستهلك كميات أقل من المياه والكيماويات</li>
-            <li className="mb-2">عمليات إنتاج محلية تقلل من البصمة الكربونية للنقل</li>
-            <li className="mb-2">استخدام الطاقة المتجددة في تصنيع المواد والأقمشة</li>
-            <li className="mb-2">تقنيات النسج المتقدمة التي تقلل من الهدر وتزيد من متانة المنتج</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التصميمات متعددة الاستخدامات</h3>
-          <p className="mb-4">
-            تقليل الاستهلاك من خلال المرونة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قطع قابلة للتحويل يمكن ارتداؤها بطرق متعددة</li>
-            <li className="mb-2">تصاميم تناسب مختلف المواسم لتقليل حجم خزانة الملابس المطلوبة</li>
-            <li className="mb-2">إكسسوارات قابلة للتبديل لتجديد مظهر الزي دون تغيير القطع الأساسية</li>
-            <li className="mb-2">نظام موديولار يسمح بإضافة أو إزالة العناصر حسب المتطلبات الوظيفية</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التنوع والشمولية في التصميم</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">مراعاة مختلف أنماط الجسم</h3>
-          <p className="mb-4">
-            تصاميم تناسب الجميع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نظام مقاسات شامل يغطي نطاقاً واسعاً من أنماط الجسم</li>
-            <li className="mb-2">تقنيات قياس ثلاثية الأبعاد لإنتاج أزياء أكثر ملاءمة للأفراد</li>
-            <li className="mb-2">تصاميم قابلة للتعديل تتكيف مع الاختلافات الجسدية</li>
-            <li className="mb-2">خيارات متعددة للطول والعرض ضمن نفس التصميم</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">احترام الاعتبارات الثقافية والدينية</h3>
-          <p className="mb-4">
-            تصاميم تراعي التنوع الثقافي:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خيارات للحجاب وأغطية الرأس المتكاملة مع التصميم العام</li>
-            <li className="mb-2">تصاميم بأطوال مختلفة تلبي متطلبات الحشمة دون التأثير على الوظيفة</li>
-            <li className="mb-2">مراعاة القيود الدينية في استخدام بعض المواد مثل الحرير أو الجلد</li>
-            <li className="mb-2">دمج عناصر ثقافية متنوعة في التصميم لتعكس تنوع الطاقم والمسافرين</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الأزياء غير المقيدة بالنوع الاجتماعي</h3>
-          <p className="mb-4">
-            تجاوز التقسيمات التقليدية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نظام قطع متكامل متاح لجميع أفراد الطاقم بغض النظر عن الجنس</li>
-            <li className="mb-2">تصاميم متوازنة تتجنب التنميط الجندري المفرط</li>
-            <li className="mb-2">التركيز على الوظيفية والراحة كأولوية تتجاوز التقسيمات التقليدية</li>
-            <li className="mb-2">مجموعات متنوعة تسمح بالتعبير الشخصي ضمن معايير العلامة التجارية</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">دراسات حالة: شركات رائدة في ابتكار أزياء الطيران</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط الجوية السنغافورية: التراث والابتكار</h3>
-          <p className="mb-4">
-            الجمع بين الأصالة والتكنولوجيا:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير زي الساروڠ كباي التقليدي بأقمشة تقنية متطورة</li>
-            <li className="mb-2">استخدام أقمشة تنظيم الحرارة لمواجهة التغيرات المناخية بين وجهات الطيران المختلفة</li>
-            <li className="mb-2">تصاميم متعددة الطبقات تعكس طبيعة الخدمة المتميزة</li>
-            <li className="mb-2">الاستثمار في أقمشة نقوش الباتيك المستدامة والمصنوعة من مواد معاد تدويرها</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">فيرجن أتلانتيك: الجرأة والوظيفية</h3>
-          <p className="mb-4">
-            التميز من خلال التصميم المبتكر:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">التعاون مع مصممة الأزياء فيفيان ويستوود لتطوير أزياء جريئة وعملية في آن واحد</li>
-            <li className="mb-2">استخدام مواد مستدامة مثل Econyl® المصنوع من شباك الصيد المستعادة</li>
-            <li className="mb-2">منح الطاقم حرية الاختيار بين البنطلون والتنورة بغض النظر عن النوع الاجتماعي</li>
-            <li className="mb-2">إدخال عناصر من الملابس الرياضية العالية الأداء في تصميم الزي الرسمي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">طيران الإمارات: الفخامة المستدامة</h3>
-          <p className="mb-4">
-            تطوير الأناقة في ظل الوعي البيئي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">إعادة تدوير الزي القديم لتحويله إلى بطانيات وإكسسوارات للطائرات</li>
-            <li className="mb-2">تطوير مواد تقنية تحاكي الصوف والحرير التقليدي مع أداء بيئي أفضل</li>
-            <li className="mb-2">تصميم وجهات محمولة للإكسسوارات تجمع بين الأناقة وتنظيم الأدوات</li>
-            <li className="mb-2">معالجات متقدمة للأقمشة تقلل الحاجة للغسيل المتكرر وتوفر المياه</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مستقبل تصميم ملابس طاقم الطائرة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">دور الذكاء الاصطناعي</h3>
-          <p className="mb-4">
-            رؤية لتصاميم متكيفة ذكية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أنظمة تحليل بيانات ضخمة لتتبع استخدام الملابس وتوجيه التحسينات</li>
-            <li className="mb-2">برامج تصميم تعتمد على الذكاء الاصطناعي لاقتراح تعديلات ذكية على القصات</li>
-            <li className="mb-2">ملابس تكيفية تتفاعل تلقائياً مع التغيرات البيئية والوظيفية</li>
-            <li className="mb-2">أنظمة تنبؤية تحسن توزيع المقاسات وتقلل الهدر في الإنتاج</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التصنيع المستقبلي</h3>
-          <p className="mb-4">
-            تقنيات إنتاج متطورة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الطباعة ثلاثية الأبعاد المباشرة للأقمشة والإكسسوارات بناءً على قياسات دقيقة</li>
-            <li className="mb-2">تقنيات النسيج الحيوي التي تدمج الألياف النباتية المهندسة وراثياً</li>
-            <li className="mb-2">أساليب تصنيع صفرية النفايات تستغل كل قطعة من القماش</li>
-            <li className="mb-2">وحدات إنتاج متنقلة يمكن نشرها في المطارات الرئيسية لإنتاج حسب الطلب</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاتجاهات المستقبلية</h3>
-          <p className="mb-4">
-            نظرة استشرافية للسنوات القادمة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نظام متكامل يربط أزياء الطاقم بأنظمة الطائرة وينقل المعلومات في الوقت الفعلي</li>
-            <li className="mb-2">دمج تقنيات الواقع المعزز في الإكسسوارات لمساعدة الطاقم في تقديم معلومات أفضل للمسافرين</li>
-            <li className="mb-2">تصاميم منفصلة تماماً عن الجنس مع التركيز على الأداء والراحة</li>
-            <li className="mb-2">أنظمة تخصيص كاملة تسمح لكل فرد من الطاقم بتعديل الزي وفقاً لاحتياجاته ضمن معايير محددة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يمثل التصميم المبتكر لملابس طاقم الطائرة مجالاً ديناميكياً يجمع بين الفن والعلم والتكنولوجيا. في هذا المشهد المتطور، تتجاوز الابتكارات مجرد التحسين الجمالي لتحقق تقدماً ملموساً في الراحة، والأداء، والسلامة، والاستدامة. بفضل هذه الابتكارات، يمكن لطاقم الطائرة العمل بكفاءة أكبر في ظروف تشغيلية معقدة، مع الاستمتاع بمستويات غير مسبوقة من الراحة والثقة.
-          </p>
-          <p className="mb-4">
-            كما أن هذا المجال يشهد تكاملاً متزايداً مع القطاعات التكنولوجية الأخرى، من المواد المتقدمة والنسيج الذكي إلى إنترنت الأشياء والذكاء الاصطناعي. هذا التقارب بين المجالات يبشر بمستقبل تكون فيه ملابس طاقم الطائرة ليست مجرد ملابس، بل منظومات ذكية متكاملة تعزز التواصل، وتحسن الأداء، وترفع مستوى تجربة السفر للمسافرين.
-          </p>
-          <p className="mb-4">
-            في النهاية، تظل المعادلة الأساسية في تصميم ملابس طاقم الطائرة هي التوازن بين المتطلبات المتعددة - الوظيفية، والأناقة، والراحة، والسلامة، والاستدامة، والتنوع. والمصممون الذين ينجحون في تحقيق هذا التوازن من خلال الابتكار المستمر هم من سيشكلون مستقبل هذا المجال المتخصص والمثير في السنوات القادمة.
-          </p>
-        </section>
+            {/* قسم التعليقات */}
+            <div className="border-t pt-10 mt-10">
+              <h3 className="text-xl font-bold mb-6">التعليقات</h3>
+              <div className="bg-blue-50 p-6 rounded-lg text-center">
+                <p className="text-gray-700 mb-4">شاركنا رأيك حول هذا المقال</p>
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  إضافة تعليق
+                </button>
+              </div>
+            </div>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

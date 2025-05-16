@@ -9,11 +9,11 @@ const workwearPosts = [
     id: 'clothing-maintenance-work-health',
     title: 'العناية بملابس العمل وأثرها على الصحة المهنية',
     description: 'دليل شامل حول كيفية العناية بملابس العمل للحفاظ على جودتها وتأثير ذلك على صحة وسلامة الموظفين',
-    image: '/images/workwear/clothing_maintenance.jpeg',
+    image: "/images/workwear/workwear_maintenance.jpeg",
     date: '2024-05-01',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/workwear/workwear_maintenance.jpeg",
       role: 'خبراء ملابس العمل'
     },
     category: 'ملابس العمل',
@@ -22,11 +22,11 @@ const workwearPosts = [
     id: 'utility-services-uniform-standards',
     title: 'معايير الزي الموحد لشركات الخدمات والمرافق',
     description: 'استعراض شامل للمعايير الأساسية التي يجب اتباعها عند اختيار وتصميم الزي الموحد لشركات الخدمات والمرافق',
-    image: '/images/workwear/utility_services_standards.jpeg',
+    image: "/images/workwear/workwear_maintenance.jpeg",
     date: '2024-05-02',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/workwear/workwear_maintenance.jpeg",
       role: 'خبراء ملابس العمل'
     },
     category: 'ملابس العمل',
@@ -35,11 +35,11 @@ const workwearPosts = [
     id: 'field-service-technician-workwear',
     title: 'ملابس فنيي الخدمة الميدانية: المتطلبات والمواصفات',
     description: 'دليل شامل حول متطلبات ومواصفات ملابس العمل المناسبة لفنيي الخدمة الميدانية في مختلف القطاعات',
-    image: '/images/workwear/field_technician.jpeg',
+    image: "/images/workwear/workwear_maintenance.jpeg",
     date: '2024-05-03',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/workwear/workwear_maintenance.jpeg",
       role: 'خبراء ملابس العمل'
     },
     category: 'ملابس العمل',
@@ -48,11 +48,11 @@ const workwearPosts = [
     id: 'uniform',
     title: 'الزي الموحد: أهميته وتأثيره على بيئة العمل',
     description: 'تحليل شامل لأهمية الزي الموحد وتأثيره الإيجابي على بيئة العمل وهوية الشركة والإنتاجية',
-    image: '/images/workwear/uniform_importance.jpeg',
+    image: "/images/workwear/workwear_maintenance.jpeg",
     date: '2024-05-04',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/workwear/workwear_maintenance.jpeg",
       role: 'خبراء ملابس العمل'
     },
     category: 'ملابس العمل',
@@ -61,16 +61,19 @@ const workwearPosts = [
     id: 'maintenance-worker-uniform-requirements',
     title: 'متطلبات الزي الموحد لعمال الصيانة والتشغيل',
     description: 'دليل متكامل حول المتطلبات الأساسية للزي الموحد لعمال الصيانة والتشغيل بما يتوافق مع معايير السلامة',
-    image: '/images/workwear/maintenance_uniform.jpeg',
+    image: "/images/workwear/workwear_maintenance.jpeg",
     date: '2024-05-05',
     author: {
       name: 'فريق يونيفورم',
-      image: '/images/author/uniform_team.png',
+      image: "/images/workwear/workwear_maintenance.jpeg",
       role: 'خبراء ملابس العمل'
     },
     category: 'ملابس العمل',
   },
 ];
+
+// صورة الهيدر للمقال
+const heroImage = '/images/workwear/header_workwear_uniform.jpeg';
 
 export default function WorkwearBlogPage() {
   return (

@@ -1,274 +1,347 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'موردو يونيفورم الطيران المتخصصون في الشرق الأوسط',
-  description: 'دليل شامل لأبرز موردي أزياء الطيران المتخصصين في منطقة الشرق الأوسط، مع التركيز على الشركات الرائدة في السعودية والإمارات وقطر',
+  title: 'تطور أزياء طاقم الطائرة عبر التاريخ',
+  description: 'رحلة عبر تاريخ تطور أزياء طاقم الطائرة من بدايات الطيران التجاري وحتى عصرنا الحالي، مع استعراض التغيرات والمؤثرات التي شكلت هذا التطور.',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_uniform_manufacturer.jpeg';
-  const title = 'موردو يونيفورم الطيران المتخصصون في الشرق الأوسط';
+  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
+  const title = 'تطور أزياء طاقم الطائرة عبر التاريخ';
+  const readingTime = '8 دقائق';
+  const datePublished = '٢٥ يونيو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'early-days', title: 'بدايات أزياء الطيران (1930-1950)' },
+    { id: 'golden-age', title: 'العصر الذهبي للطيران (1950-1970)' },
+    { id: 'modern-era', title: 'العصر الحديث (1970-2000)' },
+    { id: 'contemporary', title: 'الاتجاهات المعاصرة (2000-الآن)' },
+    { id: 'cultural-influences', title: 'التأثيرات الثقافية والإقليمية' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            تشهد صناعة الطيران في منطقة الشرق الأوسط نمواً متسارعاً ومكانة مرموقة على المستوى العالمي، مع احتلال شركات مثل الخطوط السعودية وطيران الإمارات والخطوط القطرية مراكز متقدمة في قائمة أفضل شركات الطيران العالمية. وتُعد أزياء الطيران عنصراً أساسياً في هوية هذه الشركات، حيث تعكس كل تفصيلة فيها الثقافة المحلية والتراث، مع الالتزام بأعلى معايير الأناقة والجودة العالمية.
-          </p>
-          <p className="mb-4">
-            مع هذا النمو المتزايد، ظهرت في المنطقة مجموعة متميزة من موردي يونيفورم الطيران المتخصصين، الذين يجمعون بين الفهم العميق لمتطلبات قطاع الطيران واحتياجاته الخاصة، مع الالتزام بتقديم منتجات تعكس الهوية الثقافية للمنطقة. هؤلاء الموردون يلعبون دوراً محورياً في دعم شركات الطيران المحلية والإقليمية بتصاميم مبتكرة وحلول متكاملة لأزياء الطاقم.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستعرض أبرز موردي يونيفورم الطيران المتخصصين في منطقة الشرق الأوسط، مع التركيز على الشركات الرائدة في المملكة العربية السعودية ودول الخليج المجاورة. سنتناول خدماتهم ومميزاتهم وإنجازاتهم، وكيف يساهمون في رفع مستوى صناعة أزياء الطيران في المنطقة. كما سنسلط الضوء على التحديات التي تواجههم، والاتجاهات المستقبلية في هذا القطاع الحيوي.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-1" className="text-sm hover:text-blue-600 block">
+                    اعتبارات تصميم زي شركات الطيران
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-3" className="text-sm hover:text-blue-600 block">
+                    أزياء الطيران النسائية: تطورها وخصائصها الحديثة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-8" className="text-sm hover:text-blue-600 block">
+                    دور الأزياء في تعزيز الحضور المهني لطاقم الطائرة
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                منذ انطلاق أولى الرحلات التجارية في أوائل القرن العشرين، شهدت أزياء طاقم الطائرة تطوراً ملحوظاً يعكس التغيرات في صناعة الطيران، والأدوار المتنامية لأفراد الطاقم، والتحولات الثقافية والاجتماعية عبر العقود. ليست أزياء الطيران مجرد ملابس عمل وظيفية، بل هي سجل مرئي للتاريخ الاجتماعي والاقتصادي، ومرآة تعكس تطور دور المرأة في مجال العمل، وتحول صناعة الطيران من رفاهية للنخبة إلى وسيلة نقل جماهيرية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض رحلة تطور أزياء طاقم الطائرة منذ الثلاثينيات وحتى يومنا هذا، مسلطين الضوء على المراحل الأساسية والتحولات الكبرى التي شهدتها، والعوامل المؤثرة في تصميمها، من الاعتبارات العملية إلى الاتجاهات الفنية والثقافية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                كما نستكشف كيف تعكس هذه الأزياء هوية شركات الطيران والقيم الثقافية للبلدان التي تمثلها، وكيف استطاعت أن توازن بين متطلبات الوظيفة والأناقة والراحة، وصولاً إلى الاتجاهات المعاصرة التي تدمج بين التقاليد والابتكار، والأصالة والحداثة، في عصر يشهد تحولات عميقة في مفاهيم الهوية والتنوع والاستدامة.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">أبرز موردي أزياء الطيران في المملكة العربية السعودية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">شركة اليونيفورم السعودية المتحدة</h3>
-          <p className="mb-4">
-            تعد من رواد توريد أزياء الطيران في المملكة، وتتميز بما يلي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست عام 1998 ومقرها الرياض، مع فروع في جدة والدمام</li>
-            <li className="mb-2">متخصصة في تصميم وتصنيع وتوريد الزي الرسمي لشركات الطيران المحلية والإقليمية</li>
-            <li className="mb-2">تمتلك مصنعاً متطوراً بمساحة 10,000 متر مربع ومجهز بأحدث تقنيات التصنيع</li>
-            <li className="mb-2">حاصلة على شهادة الجودة ISO 9001 وشهادة الامتثال البيئي ISO 14001</li>
-            <li className="mb-2">من أبرز عملائها: الخطوط السعودية، وطيران أديل، وطيران ناس</li>
+            <section id="early-days" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">بدايات أزياء الطيران (1930-1950)</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أزياء طاقم الطائرة في بدايات الطيران التجاري"
+                caption="أزياء طاقم الطائرة المستوحاة من الزي العسكري في ثلاثينيات القرن العشرين"
+              />
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">إلهام من الحقبة العسكرية</h3>
+                <p className="mb-2 font-medium text-blue-700">التأثيرات العسكرية في أزياء الطيران المبكرة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استلهام التصاميم الأولى من الزي العسكري نظراً لكون معظم الطيارين من خلفيات عسكرية</li>
+                  <li>اعتماد البدلات الرسمية ذات الأزرار والرتب المميزة للطيارين</li>
+                  <li>تصميم الأزياء الأولى للمضيفات بما يشبه زي الممرضات، مع التركيز على الرعاية والخدمة</li>
+                  <li>هيمنة الألوان الداكنة (الأزرق البحري، الأسود) والتصاميم المحافظة</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">مجموعة الأزياء المهنية العربية</h3>
-          <p className="mb-4">
-            تمتلك سجلاً حافلاً في مجال توريد أزياء الطيران والضيافة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تعمل في السوق السعودي منذ عام 2003، ومقرها الرئيسي في مدينة جدة</li>
-            <li className="mb-2">تقدم حلولاً متكاملة بدءاً من التصميم مروراً بالتصنيع وصولاً إلى التوزيع</li>
-            <li className="mb-2">تتميز بمزج العناصر التراثية السعودية مع متطلبات الأزياء العصرية</li>
-            <li className="mb-2">تستخدم أقمشة متطورة مستوردة من أوروبا وآسيا، مع معالجات خاصة تناسب البيئة المحلية</li>
-            <li className="mb-2">توفر خدمات التصميم المخصص والخياطة حسب المقاس لطواقم الطيران</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الدور الوظيفي المبكر للمضيفات</h3>
+                  <p className="mb-2 text-gray-700">متطلبات المضيفات في بدايات الطيران التجاري:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>كانت المضيفات ممرضات مسجلات في الأصل للعناية بالمسافرين</li>
+                    <li>تصميم زي يعكس الاحترافية الطبية مع مسحة من الأناقة المحافظة</li>
+                    <li>اعتماد التنانير الطويلة والسترات المصممة بأناقة وبساطة</li>
+                    <li>إضافة القبعات كعنصر أساسي يعكس الطابع الرسمي والمهني</li>
+                  </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">البدايات التجارية والرفاهية المحدودة</h3>
+                  <p className="mb-2 text-gray-700">خصائص مرحلة الرفاهية المبكرة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>كان السفر جواً في الثلاثينيات والأربعينيات امتيازاً للنخبة والأثرياء</li>
+                    <li>تصميم الزي ليعكس فخامة التجربة وحصريتها للطبقات المقتدرة</li>
+                    <li>التركيز على الاحترافية والرسمية في التعامل وأسلوب الخدمة</li>
+                    <li>ظهور العلامة التجارية المميزة لكل شركة طيران من خلال تفاصيل الزي</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الشركة الوطنية للأزياء الموحدة</h3>
-          <p className="mb-4">
-            مورد متخصص في الزي الموحد لمختلف القطاعات، مع تركيز قوي على قطاع الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست عام 2010 في مدينة الرياض، واستطاعت بناء سمعة قوية في سوق الزي الموحد</li>
-            <li className="mb-2">تتميز بقدرتها على تلبية الطلبيات الكبيرة في وقت قياسي مع الحفاظ على الجودة</li>
-            <li className="mb-2">تقدم خدمات الصيانة والإصلاح للأزياء، مما يطيل من عمرها الافتراضي</li>
-            <li className="mb-2">تستثمر في أحدث تقنيات الحياكة والتفصيل، مع فريق تصميم مكون من خبراء محليين ودوليين</li>
-            <li className="mb-2">توفر أنظمة إدارة مخزون متطورة لضمان توفر المقاسات والنماذج المختلفة</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">موردو أزياء الطيران في دول الخليج</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">شركة الخليج لليونيفورم (الإمارات)</h3>
-          <p className="mb-4">
-            شركة إماراتية رائدة في مجال تصنيع وتوريد أزياء الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست عام 1995 في دبي، وتوسعت لتشمل فروعاً في أبو ظبي والشارقة</li>
-            <li className="mb-2">من أبرز عملائها: طيران الإمارات، وفلاي دبي، والاتحاد للطيران</li>
-            <li className="mb-2">تتميز بتصاميمها المبتكرة التي تمزج بين الأناقة العالمية والطابع الخليجي</li>
-            <li className="mb-2">حائزة على العديد من الجوائز العالمية في مجال تصميم وتصنيع يونيفورم الطيران</li>
-            <li className="mb-2">تستثمر بكثافة في الأبحاث والتطوير لابتكار أقمشة عالية الأداء تناسب بيئة الطيران</li>
+            <section id="golden-age" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العصر الذهبي للطيران (1950-1970)</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أزياء طاقم الطائرة في العصر الذهبي للطيران"
+                caption="تصاميم مصممي الأزياء العالميين لزي المضيفات في ستينيات القرن العشرين"
+              />
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">ثورة التصميم والأناقة</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">تحول جذري في فلسفة التصميم:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>دخول مصممي الأزياء العالميين لعالم أزياء الطيران مثل كريستيان ديور وإيميليو بوتشي</li>
+                    <li>تحول الزي من الطابع العملي البسيط إلى مظهر عصري يعكس اتجاهات الموضة</li>
+                    <li>ظهور التنانير القصيرة والقصات المميزة والألوان الزاهية في الستينيات</li>
+                    <li>استخدام الأقمشة الفاخرة والإكسسوارات المميزة كعلامة على الترف والرفاهية</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">مؤسسة القطرية للأزياء المهنية (قطر)</h3>
-          <p className="mb-4">
-            مورد رئيسي للخطوط الجوية القطرية وشركات الطيران الإقليمية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست عام 2004 في الدوحة، وأصبحت من أهم موردي أزياء الطيران في المنطقة</li>
-            <li className="mb-2">تعاونت مع مصممين عالميين لتطوير تصاميم فريدة للخطوط القطرية</li>
-            <li className="mb-2">تقدم خدمات متكاملة من التصميم إلى التصنيع والتوريد والصيانة</li>
-            <li className="mb-2">تستخدم أحدث التقنيات في تصنيع الأزياء، مع التركيز على الراحة والمتانة</li>
-            <li className="mb-2">توفر خدمات مخصصة للطيران الخاص ورجال الأعمال</li>
-          </ul>
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الهوية البصرية لشركات الطيران</h3>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">تطور الهوية المرئية من خلال الأزياء:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>اعتماد ألوان وأنماط مميزة لكل شركة طيران كجزء من هويتها التجارية</li>
+                  <li>استخدام الزي كأداة تسويقية رئيسية في إعلانات ومواد الدعاية</li>
+                  <li>إطلاق مجموعات أزياء كاملة مع تغيير مواسم الطيران أو إطلاق خطوط جديدة</li>
+                  <li>ظهور "شخصية" مميزة لكل شركة طيران من خلال طاقمها وزيهم المميز</li>
+                </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">مجموعة الأزياء المتحدة (الكويت)</h3>
-          <p className="mb-4">
-            مورد معتمد للخطوط الكويتية وعدد من شركات الطيران الخليجية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تعمل في السوق الكويتي منذ عام 2000، مع خبرة تمتد لأكثر من عقدين</li>
-            <li className="mb-2">تركز على توفير أزياء طيران تجمع بين الأناقة والراحة والمتانة</li>
-            <li className="mb-2">تتميز بمعرفتها العميقة باحتياجات شركات الطيران الخليجية</li>
-            <li className="mb-2">تستورد أفضل الأقمشة من أوروبا وآسيا، مع معالجات خاصة للمناخ الحار</li>
-            <li className="mb-2">توفر خدمات متابعة ما بعد البيع لضمان رضا العملاء</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">إعادة تعريف دور المضيفة</h3>
+                <p className="mb-2 text-gray-700">تطور الصورة والدور الوظيفي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تحول دور المضيفة من نطاق الرعاية الصحية إلى رمز للضيافة والخدمة الراقية</li>
+                  <li>التركيز على الجاذبية والأناقة في معايير اختيار وتوظيف المضيفات</li>
+                  <li>ظهور المضيفة كرمز ثقافي للحرية والسفر والعصرية في وسائل الإعلام</li>
+                  <li>تعزيز الصورة النمطية للمضيفة من خلال الإعلانات التي تركز على جمالها وأناقتها</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الشركات العالمية العاملة في الشرق الأوسط</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">مجموعة يونيويرلد إنترناشيونال</h3>
-          <p className="mb-4">
-            شركة عالمية متخصصة في أزياء الطيران، مع حضور قوي في الشرق الأوسط:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست في بريطانيا عام 1985، وافتتحت مكتبها الإقليمي في دبي عام 2008</li>
-            <li className="mb-2">تعمل مع أكثر من 20 شركة طيران في منطقة الشرق الأوسط وشمال أفريقيا</li>
-            <li className="mb-2">تقدم تصاميم عالمية المستوى مع تكييفها لتناسب الثقافة واحتياجات المنطقة</li>
-            <li className="mb-2">تعتمد على أحدث التقنيات في التصميم والتصنيع، مع الالتزام بمعايير الاستدامة</li>
-            <li className="mb-2">تمتلك مصانع في مصر والأردن لخدمة أسواق المنطقة بشكل أفضل</li>
+            <section id="modern-era" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العصر الحديث (1970-2000)</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أزياء طاقم الطائرة في العصر الحديث"
+                caption="التنوع والوظيفية في تصاميم أزياء الطيران في الثمانينيات والتسعينيات"
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التحرر وتغير المفاهيم</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">تطورات في ظل الحركات النسوية:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تراجع القيود المفروضة على مظهر المضيفات مع تنامي الحركات النسوية</li>
+                      <li>إضافة خيار البنطلون للمضيفات كبديل للتنانير التقليدية</li>
+                      <li>تخفيف قواعد المظهر الصارمة المتعلقة بالوزن والطول ومقاييس الجسم</li>
+                      <li>دخول الرجال لمهنة مضيف الطيران بشكل متزايد وتصميم أزياء خاصة بهم</li>
           </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التحول نحو الوظيفية والراحة</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">الاهتمام بالجوانب العملية:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>تصميم أزياء أكثر ملاءمة لساعات العمل الطويلة والمهام المتنوعة</li>
+                      <li>استخدام أقمشة مرنة ومقاومة للتجعد تناسب الرحلات الطويلة</li>
+                      <li>إضافة جيوب وتفاصيل عملية لتسهيل حمل المعدات والأدوات الضرورية</li>
+                      <li>تبني تصاميم قابلة للتغيير والتنويع بين المواسم والرحلات المختلفة</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">شركة سكاي إليجانس</h3>
-          <p className="mb-4">
-            شركة فرنسية رائدة في تصميم وتصنيع أزياء الطيران، مع فرع في الشرق الأوسط:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أسست مكتبها الإقليمي في أبو ظبي عام 2012 لخدمة عملائها في المنطقة</li>
-            <li className="mb-2">تشتهر بتصاميمها الفرنسية الأنيقة مع لمسات تناسب الذوق العربي</li>
-            <li className="mb-2">تقدم خدمات استشارية متكاملة في مجال تطوير هوية شركات الطيران من خلال الأزياء</li>
-            <li className="mb-2">تستخدم أقمشة مبتكرة بتقنيات متطورة لمقاومة التجعد والبقع والاشتعال</li>
-            <li className="mb-2">تعاونت مع مصممين عالميين لتقديم مجموعات حصرية لشركات الطيران الخليجية</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تطور اعتبارات السلامة</h3>
+                <p className="mb-2 text-gray-700">دمج معايير السلامة في التصميم:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تطوير أقمشة مقاومة للحريق واللهب تلبي معايير السلامة المتزايدة</li>
+                  <li>تصميم أحذية عملية تسمح بالحركة السريعة في حالات الطوارئ</li>
+                  <li>إضافة عناصر عاكسة أو مضيئة للأزياء المستخدمة في عمليات الإخلاء</li>
+                  <li>تخفيف الإكسسوارات التي قد تعيق الحركة أو تشكل خطراً في المواقف الطارئة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">شركة إير ستايل العالمية</h3>
-          <p className="mb-4">
-            شركة آسيوية متخصصة في يونيفورم الطيران، مع وجود فعال في الشرق الأوسط:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تأسست في هونج كونج، وافتتحت مكتبها في الرياض عام 2015</li>
-            <li className="mb-2">تقدم أسعاراً تنافسية مع الحفاظ على معايير الجودة العالمية</li>
-            <li className="mb-2">تتميز بالإنتاج السريع للطلبيات الكبيرة دون المساس بالجودة</li>
-            <li className="mb-2">تستخدم نظام قياسات متطور لضمان ملاءمة الزي لمختلف أنماط الجسم</li>
-            <li className="mb-2">توفر خدمات التخصيص والتعديل حسب احتياجات كل شركة طيران</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الخدمات المتخصصة التي يقدمها موردو أزياء الطيران</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التصميم المخصص وتطوير الهوية البصرية</h3>
-          <p className="mb-4">
-            خدمات متكاملة في تصميم وتطوير هوية بصرية متميزة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم مجموعات كاملة من الأزياء تعكس هوية وقيم شركة الطيران</li>
-            <li className="mb-2">دراسة ألوان وشعارات الشركة ودمجها بشكل أنيق في التصاميم</li>
-            <li className="mb-2">تطوير إكسسوارات وشارات ورموز خاصة تعزز الهوية المرئية</li>
-            <li className="mb-2">تقديم استشارات حول اتجاهات الموضة مع الحفاظ على الطابع المهني</li>
-            <li className="mb-2">إنشاء نماذج أولية واختبارها قبل الإنتاج الشامل</li>
+            <section id="contemporary" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاتجاهات المعاصرة (2000-الآن)</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="الاتجاهات المعاصرة في أزياء طاقم الطائرة"
+                caption="أزياء طاقم الطائرة المعاصرة: مزيج من الهوية والتكنولوجيا والاستدامة"
+              />
+              
+              <div className="overflow-hidden rounded-lg mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">العودة إلى الهوية والأصالة</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">إحياء التراث مع لمسة معاصرة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>عودة الاهتمام بتصاميم تعكس التراث الثقافي والهوية الوطنية لشركات الطيران</li>
+                    <li>إعادة تفسير العناصر التقليدية بأسلوب معاصر يجمع بين الأصالة والحداثة</li>
+                    <li>استخدام الحرف اليدوية والتطريزات التقليدية في تصاميم بعض شركات الطيران الإقليمية</li>
+                    <li>توظيف المصممين المحليين البارزين لإضفاء لمسة ثقافية أصيلة</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الإنتاج والتصنيع عالي الجودة</h3>
-          <p className="mb-4">
-            عمليات تصنيع متطورة تضمن أعلى مستويات الجودة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام أقمشة عالية الجودة مستوردة من أفضل المصادر العالمية</li>
-            <li className="mb-2">تقنيات خياطة متطورة تضمن المتانة وطول العمر الافتراضي</li>
-            <li className="mb-2">اختبارات جودة صارمة لكل مرحلة من مراحل التصنيع</li>
-            <li className="mb-2">معالجات خاصة للأقمشة لمقاومة التجعد والبقع والاشتعال</li>
-            <li className="mb-2">الالتزام بمعايير السلامة والبيئة العالمية في عمليات التصنيع</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التكنولوجيا والاستدامة</h3>
+                <p className="mb-2 text-gray-700">الابتكارات التقنية والبيئية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>استخدام أقمشة ذكية مقاومة للماء والبقع ومضادة للبكتيريا</li>
+                  <li>تبني مواد مستدامة ومعاد تدويرها في إنتاج الأزياء</li>
+                  <li>تصميم قطع متعددة الاستخدامات لتقليل الحاجة لعدد كبير من القطع</li>
+                  <li>دمج التقنيات الحديثة مثل الأقمشة المنظمة للحرارة والمزودة بخاصية تعقب صحة الطاقم</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">خدمات إدارة المخزون والتوزيع</h3>
-          <p className="mb-4">
-            حلول متكاملة تضمن توفر المقاسات والنماذج المطلوبة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أنظمة إدارة مخزون متطورة تضمن توفر جميع المقاسات والنماذج</li>
-            <li className="mb-2">خدمات توصيل سريعة إلى جميع مطارات ومراكز العمليات</li>
-            <li className="mb-2">نظام تتبع متطور للطلبيات من مرحلة الإنتاج حتى التسليم</li>
-            <li className="mb-2">مخازن استراتيجية في مواقع مختلفة لضمان سرعة التوريد</li>
-            <li className="mb-2">تقارير دورية عن حالة المخزون واحتياجات التجديد</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التنوع والشمولية</h3>
+                <p className="mb-2 text-gray-700">مراعاة الاختلافات الفردية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تصميم أزياء تناسب مختلف أنماط الجسم والأحجام بدلاً من القياس الموحد</li>
+                  <li>توفير خيارات متعددة تراعي المعتقدات الدينية والثقافية (مثل الحجاب والأزياء المحتشمة)</li>
+                  <li>إزالة الفروق التقليدية بين أزياء الرجال والنساء في بعض شركات الطيران</li>
+                  <li>تصميم أزياء مناسبة لمختلف الظروف الصحية والاحتياجات الخاصة للطاقم</li>
           </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات والاتجاهات المستقبلية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التحديات التي تواجه موردي أزياء الطيران في المنطقة</h3>
-          <p className="mb-4">
-            عدة تحديات تؤثر على صناعة توريد أزياء الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">المنافسة المتزايدة من الشركات العالمية الكبرى بأسعار تنافسية</li>
-            <li className="mb-2">ارتفاع تكاليف استيراد الأقمشة عالية الجودة والمواد الخام</li>
-            <li className="mb-2">التوازن بين الالتزام بالتقاليد المحلية ومواكبة اتجاهات الموضة العالمية</li>
-            <li className="mb-2">تقلبات الطلب في قطاع الطيران خاصة في ظل الأزمات العالمية</li>
-            <li className="mb-2">الحاجة إلى استقطاب الكفاءات المحلية المتخصصة في تصميم وتصنيع الأزياء</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاتجاهات المستقبلية في سوق أزياء الطيران</h3>
-          <p className="mb-4">
-            توجهات وابتكارات تشكل مستقبل الصناعة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التوجه نحو الاستدامة واستخدام المواد الصديقة للبيئة في تصنيع الأزياء</li>
-            <li className="mb-2">دمج التكنولوجيا في الأزياء مثل الأقمشة الذكية والمقاومة للبكتيريا</li>
-            <li className="mb-2">استخدام الذكاء الاصطناعي في تصميم وتطوير الأزياء الأكثر ملاءمة للمرتدي</li>
-            <li className="mb-2">التخصيص المتزايد للأزياء حسب احتياجات كل مضيف ومضيفة (Made-to-Measure)</li>
-            <li className="mb-2">تطوير نماذج عمل جديدة مثل "الأزياء كخدمة" بدلاً من الشراء التقليدي</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">فرص النمو في سوق أزياء الطيران بالمنطقة</h3>
-          <p className="mb-4">
-            إمكانيات واعدة لنمو وتطور القطاع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التوسع في خدمة شركات الطيران الناشئة في أفريقيا والدول العربية المجاورة</li>
-            <li className="mb-2">تطوير مراكز تصنيع محلية لتقليل الاعتماد على الاستيراد</li>
-            <li className="mb-2">استقطاب المواهب والمصممين المحليين لتطوير تصاميم فريدة تعكس الثقافة العربية</li>
-            <li className="mb-2">الاستثمار في البحث والتطوير لابتكار أقمشة ومواد تناسب البيئة المحلية</li>
-            <li className="mb-2">توسيع قاعدة العملاء لتشمل قطاع الطيران الخاص والطائرات التجارية</li>
-          </ul>
+            <section id="cultural-influences" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التأثيرات الثقافية والإقليمية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تعكس أزياء طاقم الطائرة في مختلف مناطق العالم تنوعاً ثقافياً غنياً، حيث تسعى شركات الطيران لتمييز نفسها من خلال تصاميم تعبر عن هويتها الثقافية والوطنية. فيما يلي نظرة على بعض الأمثلة البارزة:
+              </p>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الشرق الأوسط</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  تمزج شركات الطيران في المنطقة العربية بين الأناقة العالمية والعناصر التقليدية، مثل استخدام الخطوط الجوية السعودية للألوان الوطنية الخضراء، وتوظيف الخطوط القطرية لعناصر من التراث المحلي في التصاميم. كما قدمت شركات مثل طيران الإمارات والاتحاد نموذجاً فريداً يجمع بين الفخامة العالمية والهوية العربية من خلال تفاصيل مثل القبعة ذات الوشاح المستوحى من غطاء الرأس التقليدي.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">شرق آسيا</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  تشتهر شركات الطيران الآسيوية بأزياء تعكس الدقة والانضباط المميزين للثقافة الآسيوية، مع لمسات من التراث التقليدي. مثال ذلك الخطوط الجوية السنغافورية واستخدامها للساري المعدل بألوان مميزة، والخطوط الجوية اليابانية وتوظيفها لعناصر من الكيمونو التقليدي في تصاميم معاصرة أنيقة.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">أفريقيا</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  تتميز شركات الطيران الأفريقية باستخدام الأقمشة النابضة بالحياة والألوان الزاهية المستوحاة من الثقافات المحلية. تبرز الخطوط الإثيوبية كمثال بارز باستخدامها للتطريزات التقليدية والأنماط الأفريقية، بينما تدمج الخطوط الكينية عناصر من فن الماساي في تصاميم أزيائها.
+                </p>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">معايير اختيار مورد أزياء الطيران المناسب</h2>
-          <p className="mb-4">
-            عند اختيار مورد متخصص لأزياء الطيران، ينبغي على شركات الطيران مراعاة المعايير التالية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخبرة والسمعة: التاريخ الموثق في خدمة شركات الطيران، والمراجع الإيجابية من العملاء السابقين</li>
-            <li className="mb-2">جودة المنتجات: استخدام أقمشة عالية الجودة، ودقة التصنيع، والالتزام بمعايير السلامة في الطيران</li>
-            <li className="mb-2">القدرات التصميمية: الإبداع في التصميم مع الحفاظ على الطابع المهني والتوافق مع هوية الشركة</li>
-            <li className="mb-2">المرونة والاستجابة: القدرة على التكيف مع المتطلبات المتغيرة وتعديل التصاميم حسب الحاجة</li>
-            <li className="mb-2">خدمة ما بعد البيع: توفير الدعم المستمر، والصيانة، وخدمات إعادة الطلب، والتعديلات اللازمة</li>
-            <li className="mb-2">الالتزام بمواعيد التسليم: القدرة على الوفاء بالمواعيد المحددة للتوريد، خاصة للطلبات الكبيرة</li>
-            <li className="mb-2">التسعير التنافسي: تقديم أسعار منصفة تتناسب مع جودة المنتجات والخدمات المقدمة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يلعب موردو يونيفورم الطيران المتخصصون في منطقة الشرق الأوسط دوراً محورياً في دعم النمو المتسارع لقطاع الطيران في المنطقة. فهم لا يقدمون مجرد ملابس موحدة، بل يساهمون في تشكيل الهوية البصرية لشركات الطيران، وتعزيز صورتها العالمية، وضمان تقديم خدمة متميزة تعكس الكرم والضيافة العربية الأصيلة.
-          </p>
-          <p className="mb-4">
-            وقد نجح العديد من الموردين المحليين في إثبات قدرتهم على المنافسة عالمياً، من خلال تقديم منتجات عالية الجودة تجمع بين الأصالة والمعاصرة، وتلبي احتياجات شركات الطيران المتنامية في المنطقة. ومع استمرار نمو قطاع الطيران الشرق أوسطي، تبرز فرص واعدة لهؤلاء الموردين للتوسع والابتكار، مع التركيز على الاستدامة والتكنولوجيا والتصاميم الفريدة.
-          </p>
-          <p className="mb-4">
-            في النهاية، يظل التعاون الوثيق بين شركات الطيران وموردي اليونيفورم المتخصصين أمراً ضرورياً لتطوير أزياء تعكس الهوية الثقافية للمنطقة، وتلبي أعلى معايير الراحة والأناقة والعملية، وتساهم في تعزيز مكانة شركات الطيران الشرق أوسطية على الخريطة العالمية.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                تمثل رحلة تطور أزياء طاقم الطائرة عبر التاريخ مرآة تعكس التغيرات الكبرى في صناعة الطيران والمجتمع على حد سواء. من الأزياء العسكرية المحافظة في الثلاثينيات، إلى تصاميم العصر الذهبي المبهرة في الستينيات، وصولاً إلى الأزياء المعاصرة التي تجمع بين الوظيفية والهوية والاستدامة - يعكس هذا التطور قصة نجاح متواصلة في التكيف مع المتغيرات وتلبية احتياجات متعددة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                اليوم، تواجه أزياء طاقم الطائرة تحديات جديدة تفرضها التطورات التكنولوجية والبيئية والاجتماعية. ويظل السؤال المحوري هو كيفية تحقيق التوازن بين الهوية المميزة والراحة الوظيفية، بين التقاليد والابتكار، وبين الجماليات ومتطلبات العمل العملية.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                ما يمكن استخلاصه من هذه الرحلة التاريخية هو أن أزياء طاقم الطائرة ستظل عنصراً أساسياً في تشكيل تجربة السفر الجوي وصورة شركات الطيران، وأنها ستواصل التطور استجابة للمتغيرات، مع الحفاظ على دورها كرمز للاحترافية والأناقة والهوية المميزة. وكما تطورت هذه الأزياء عبر القرن الماضي، فإنها ستواصل التحول والتطور لتعكس روح العصر والقيم المتجددة في عالم الطيران المستقبلي.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

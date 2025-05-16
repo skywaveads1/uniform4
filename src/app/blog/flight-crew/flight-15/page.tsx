@@ -1,322 +1,348 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
+import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'الإكسسوارات المكملة لزي طاقم الطيران',
-  description: 'استعراض شامل للإكسسوارات المكملة لزي طاقم الطيران وأهميتها في إكمال المظهر المهني وتعزيز الهوية المؤسسية',
+  title: 'الاتجاهات الحديثة في تصميم زي طاقم الطائرة',
+  description: 'استعراض لأحدث الاتجاهات والابتكارات في تصميم أزياء طاقم الطائرة، من الاستدامة والتقنيات الذكية إلى التصاميم الشاملة والهوية الثقافية.',
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_uniform_accessories.jpeg';
-  const title = 'الإكسسوارات المكملة لزي طاقم الطيران';
+  const imageSrc = '/images/flight_crew/future_flight_crew_fashion.jpeg';
+  const title = 'الاتجاهات الحديثة في تصميم زي طاقم الطائرة';
+  const readingTime = '7 دقائق';
+  const datePublished = '١٠ يوليو ٢٠٢٣';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'sustainability', title: 'الاستدامة والمواد الصديقة للبيئة' },
+    { id: 'smart-fabrics', title: 'الأقمشة الذكية والتكنولوجيا' },
+    { id: 'inclusive-design', title: 'التصميم الشامل والتنوع' },
+    { id: 'cultural-identity', title: 'الهوية الثقافية في التصميم المعاصر' },
+    { id: 'designer-collaborations', title: 'التعاون مع المصممين العالميين' },
+    { id: 'conclusion', title: 'الخلاصة' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            في صناعة الطيران التنافسية، لا تقتصر قيمة شركة الطيران على جودة خدماتها وكفاءة عملياتها فحسب، بل تمتد لتشمل هويتها البصرية وشخصيتها التسويقية. ضمن هذا السياق، يبرز الزي الرسمي لطاقم الطيران كأحد أهم عناصر الهوية البصرية التي تعكس شخصية العلامة التجارية لشركة الطيران وقيمها ورؤيتها.
-          </p>
-          <p className="mb-4">
-            إن تصميم زي الطيران ليس مجرد قرار جمالي، بل هو قرار استراتيجي بامتياز يسهم في بناء صورة الشركة في أذهان المسافرين. فعندما يتفاعل العملاء مع طاقم الطيران، يكون الزي هو أحد أول العناصر المرئية التي تكون انطباعاً عن الشركة ومستوى خدماتها وقيمها، ويشكل هذا الانطباع جزءاً من تجربة السفر الشاملة.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نتعمق في استكشاف العلاقة الوثيقة بين تصميم زي الطيران وبناء العلامة التجارية لشركة الطيران. سنبحث في كيفية استخدام عناصر التصميم المختلفة كالألوان والأشكال والخامات والإكسسوارات لنقل رسائل محددة عن شخصية العلامة التجارية. كما سنتناول أمثلة واقعية من شركات طيران عالمية ومحلية استطاعت أن تحول زي طاقمها إلى أداة تسويقية فعالة، ونستشرف اتجاهات المستقبل في هذا المجال.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
+                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-9" className="text-sm hover:text-blue-600 block">
+                    تطور أزياء طاقم الطائرة عبر التاريخ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/flight-crew/flight-8" className="text-sm hover:text-blue-600 block">
+                    دور الأزياء في تعزيز الحضور المهني لطاقم الطائرة
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="اتجاهات حديثة في تصميم زي طاقم الطائرة"
+                caption="التصاميم المعاصرة لأزياء طاقم الطائرة تجمع بين الأناقة والوظيفية والتقنيات المتطورة"
+              />
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                يشهد عالم تصميم أزياء طاقم الطائرة تطوراً مستمراً يعكس التغيرات العالمية في صناعة الأزياء، والتكنولوجيا، والوعي البيئي، والقيم الاجتماعية المتجددة. لم تعد هذه الأزياء مجرد وسيلة للتمييز المرئي أو التعبير عن الهوية المؤسسية لشركات الطيران فحسب، بل أصبحت تمثل تقاطعاً معقداً بين الوظيفية والأناقة والراحة والاستدامة والتنوع الثقافي.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في السنوات الأخيرة، بدأنا نشهد تحولات جذرية في طريقة تفكير مصممي أزياء الطيران ومقاربتهم للتحديات المعاصرة. أصبح هناك اهتمام متزايد بالمواد المستدامة، والأقمشة الذكية، والتصاميم الشاملة التي تراعي التنوع البشري، مع الحفاظ على الهوية الثقافية المميزة لكل شركة طيران.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستعرض أبرز الاتجاهات الحديثة في تصميم زي طاقم الطائرة، ونستكشف كيف تتفاعل هذه الاتجاهات مع احتياجات صناعة الطيران المتغيرة، وتوقعات المسافرين المتطورة، والتحديات البيئية والاجتماعية التي تواجه عالمنا اليوم. كما نلقي نظرة على بعض التعاونات المبتكرة بين شركات الطيران والمصممين العالميين، وكيف تسهم هذه الشراكات في إعادة تعريف مفهوم أزياء الطيران في القرن الحادي والعشرين.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">العلاقة بين الزي الرسمي والعلامة التجارية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الزي كامتداد مرئي للعلامة التجارية</h3>
-          <p className="mb-4">
-            كيف يعكس الزي هوية الشركة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تجسيد القيم الأساسية للشركة من خلال عناصر التصميم</li>
-            <li className="mb-2">ترجمة شخصية العلامة التجارية (تقليدية، عصرية، فاخرة) إلى عناصر ملموسة</li>
-            <li className="mb-2">استخدام الزي كمساحة إعلانية متحركة تنقل رسالة الشركة</li>
-            <li className="mb-2">تعزيز الاتساق بين جميع نقاط اتصال العملاء مع العلامة التجارية</li>
-            <li className="mb-2">توظيف الزي لتمييز الشركة بصرياً عن منافسيها في السوق</li>
+            <section id="sustainability" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاستدامة والمواد الصديقة للبيئة</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="زي طاقم طائرة مصمم من مواد مستدامة"
+                caption="مبادرات الاستدامة في تصميم أزياء طاقم الطائرة تستخدم مواد معاد تدويرها وصديقة للبيئة"
+              />
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تحول نحو الأقمشة المستدامة</h3>
+                <p className="mb-2 font-medium text-blue-700">اتجاهات مبتكرة في اختيار المواد:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>استخدام البوليستر المعاد تدويره (rPET) المصنوع من زجاجات البلاستيك للتقليل من النفايات</li>
+                  <li>توظيف ألياف TENCEL™ المستخرجة من لب الخشب المتجدد والقابلة للتحلل البيولوجي</li>
+                  <li>اعتماد القطن العضوي المزروع بدون مبيدات حشرية أو أسمدة كيميائية</li>
+                  <li>استكشاف مواد مبتكرة مثل الأقمشة المصنوعة من نفايات صناعة الفاكهة (مثل قشور الأناناس)</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الأبعاد النفسية والعاطفية</h3>
-          <p className="mb-4">
-            تأثير الزي على المشاعر والانطباعات:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">إثارة مشاعر محددة (الثقة، الفخامة، الراحة) من خلال تصميم معين</li>
-            <li className="mb-2">بناء ارتباط عاطفي بين المسافرين والعلامة التجارية عبر الزي المميز</li>
-            <li className="mb-2">تعزيز "الارتباط الحسي" بالعلامة التجارية من خلال الصورة البصرية</li>
-            <li className="mb-2">تأثير الانطباع الأول الإيجابي عن طاقم الطيران على تقييم الخدمة ككل</li>
-            <li className="mb-2">دور الزي في خلق "لحظات استثنائية" تبقى في ذاكرة المسافر</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">عمليات التصنيع المسؤولة</h3>
+                  <p className="mb-2 text-gray-700">تقنيات صديقة للبيئة:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>تبني تقنيات الصباغة منخفضة استهلاك المياه والطاقة</li>
+                    <li>استخدام أصباغ طبيعية وصديقة للبيئة تقلل من التلوث الكيميائي</li>
+                    <li>اعتماد نموذج الإنتاج حسب الطلب للحد من هدر المواد والمخزون الزائد</li>
+                    <li>تصميم قطع متعددة الاستخدامات تقلل من عدد القطع اللازمة لكل فرد</li>
+                  </ol>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الاقتصاد الدائري في أزياء الطيران</h3>
+                  <p className="mb-2 text-gray-700">استراتيجيات لتقليل الأثر البيئي:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>برامج إعادة تدوير الأزياء القديمة لتحويلها إلى منتجات جديدة أو مواد خام</li>
+                    <li>توسيع دورة حياة المنتج من خلال تصاميم قابلة للإصلاح والتعديل</li>
+                    <li>ابتكار برامج لإعادة استخدام الأزياء القديمة في مجالات أخرى</li>
+                    <li>اعتماد نهج "من المهد إلى المهد" بدلاً من "من المهد إلى اللحد"</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">القيمة التسويقية للزي الرسمي</h3>
-          <p className="mb-4">
-            الزي كأداة تسويقية فعالة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">توظيف الزي في الحملات الإعلانية والترويجية للشركة</li>
-            <li className="mb-2">استخدام الزي المميز كعنصر جذب في وسائل التواصل الاجتماعي</li>
-            <li className="mb-2">تعزيز القيمة المدركة للخدمة من خلال الزي الأنيق والمتقن</li>
-            <li className="mb-2">خلق "لحظات قابلة للمشاركة" تزيد من انتشار العلامة التجارية</li>
-            <li className="mb-2">دور الزي في تعزيز "قصة العلامة التجارية" ونشرها عبر وسائل مختلفة</li>
-          </ul>
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">عناصر التصميم الأساسية ودلالاتها</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الألوان ودلالاتها في صناعة الهوية</h3>
-          <p className="mb-4">
-            استخدام الألوان لنقل رسائل محددة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الأزرق: استخدامه في شركات مثل الخطوط السعودية لنقل الثقة والموثوقية والاحترافية</li>
-            <li className="mb-2">الأحمر: توظيفه في طيران الإمارات والاتحاد للتعبير عن الطاقة والحيوية والتميز</li>
-            <li className="mb-2">الألوان الترابية: استخدامها لتعكس الاتصال بالتراث والأصالة (طيران عُمان)</li>
-            <li className="mb-2">التباينات اللونية: استخدامها لتعزيز تذكر العلامة التجارية وتمييزها</li>
-            <li className="mb-2">درجات اللون الواحد: توظيفها لخلق شعور بالانسجام والتناغم في الهوية</li>
+            <section id="smart-fabrics" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأقمشة الذكية والتكنولوجيا</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="أقمشة ذكية مستخدمة في زي طاقم الطائرة"
+                caption="الأقمشة الذكية توفر ميزات متقدمة مثل تنظيم الحرارة ومقاومة البقع"
+              />
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">الأقمشة متعددة الوظائف</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">ابتكارات تعزز الأداء والراحة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أقمشة مضادة للميكروبات تمنع نمو البكتيريا والروائح خلال الرحلات الطويلة</li>
+                    <li>مواد مقاومة للبقع والماء تحافظ على نظافة الزي حتى في بيئات العمل الصعبة</li>
+                    <li>أقمشة التنظيم الحراري التي تتكيف مع درجات الحرارة المختلفة داخل وخارج الطائرة</li>
+                    <li>تقنيات حماية من الأشعة فوق البنفسجية للطواقم العاملة على المدرج</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">القصات والأنماط وارتباطها بشخصية العلامة</h3>
-          <p className="mb-4">
-            تأثير شكل الزي على الانطباع:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">القصات التقليدية: تعكس الالتزام بالقيم الأصيلة والموثوقية</li>
-            <li className="mb-2">التصاميم العصرية: ترسخ صورة الشركة كمبتكرة ومواكبة للعصر</li>
-            <li className="mb-2">خطوط التصميم الانسيابية: توحي بالكفاءة والسرعة والديناميكية</li>
-            <li className="mb-2">المزج بين العناصر التقليدية والحديثة: يعكس التوازن بين الأصالة والتجديد</li>
-            <li className="mb-2">التفاصيل الدقيقة: تنقل رسالة عن الاهتمام بأدق التفاصيل في خدمة العملاء</li>
+              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">دمج التكنولوجيا الارتدائية</h3>
+              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
+                <p className="mb-2 font-medium text-gray-700">تقنيات مدمجة في الأزياء:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>أجهزة استشعار مدمجة لمراقبة مستويات التعب وجودة الهواء في بيئة العمل</li>
+                  <li>إضاءة LED مدمجة لتحسين الرؤية في حالات الطوارئ أو الإضاءة المنخفضة</li>
+                  <li>شحن لاسلكي مدمج في الجيوب للأجهزة الإلكترونية أثناء العمل</li>
+                  <li>أزرار وشارات ذكية تعمل كبطاقات تعريف وتسهل الوصول إلى المعلومات</li>
           </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة والخامات ودورها في تعزيز الصورة</h3>
-          <p className="mb-4">
-            تأثير نوعية المواد على إدراك العلامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الأقمشة الفاخرة: ترسخ مكانة الشركة كمقدم لخدمات ممتازة</li>
-            <li className="mb-2">المواد المبتكرة والتقنية: تعكس التزام الشركة بالابتكار والتطوير</li>
-            <li className="mb-2">الخامات التقليدية: تربط العلامة التجارية بالتراث والأصالة</li>
-            <li className="mb-2">جودة التفصيل والخياطة: تنقل رسالة عن مستوى الجودة في خدمات الشركة</li>
-            <li className="mb-2">استخدام مواد مستدامة: يعزز صورة الشركة كمسؤولة بيئياً واجتماعياً</li>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تحسين الأداء والراحة</h3>
+                <p className="mb-2 text-gray-700">ابتكارات لبيئة العمل الفريدة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>أقمشة عالية المرونة تسمح بحرية الحركة الكاملة أثناء أداء المهام المختلفة</li>
+                  <li>تقنيات تقليل الضغط على أجزاء الجسم المختلفة أثناء الجلوس والوقوف لفترات طويلة</li>
+                  <li>تعزيز الدورة الدموية من خلال ضغط متدرج في أجزاء معينة من الملابس</li>
+                  <li>أنظمة تهوية مدمجة للتعامل مع التغيرات في درجات الحرارة والرطوبة</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الإكسسوارات والتفاصيل كعنصر تمييز</h3>
-          <p className="mb-4">
-            دور العناصر المكملة في بناء الهوية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الوشاح/ربطة العنق: غالباً ما تكون العنصر الأكثر تميزاً في الزي وترسخ هوية الشركة</li>
-            <li className="mb-2">الشارات والرموز: تنقل رسائل محددة عن قيم الشركة وتاريخها</li>
-            <li className="mb-2">الحقائب واكسسوارات العمل: امتداد للهوية البصرية خارج حدود الزي نفسه</li>
-            <li className="mb-2">أغطية الرأس والقبعات: غالباً ما تكون ذات أهمية رمزية وتاريخية في صناعة الطيران</li>
-            <li className="mb-2">تصميم الأحذية: يكمل الصورة المهنية ويعزز الانطباع الشامل عن الأناقة</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">دراسات حالة: نماذج ناجحة محلياً وعالمياً</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط السعودية: التوازن بين التراث والحداثة</h3>
-          <p className="mb-4">
-            تحليل لتجربة الناقل الوطني:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">توظيف اللون الأخضر كعنصر أساسي يرتبط بالهوية الوطنية السعودية</li>
-            <li className="mb-2">دمج نقوش السدو التقليدية في تصميم الوشاح بطريقة عصرية</li>
-            <li className="mb-2">تطور الزي ليعكس التحول في رؤية الشركة ضمن برنامج التحول</li>
-            <li className="mb-2">استخدام الزي كجزء من حملة "أهلاً بالعالم" لتعزيز صورة المملكة عالمياً</li>
-            <li className="mb-2">تميز زي الخطوط السعودية بعناصر فريدة تجعله قابلاً للتعرف عليه فوراً</li>
+            <section id="inclusive-design" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التصميم الشامل والتنوع</h2>
+              
+              <ArticleImage 
+                src="/images/flight_crew/air_crew_attire.jpeg"
+                alt="تصاميم شاملة متنوعة لزي طاقم الطائرة"
+                caption="التصاميم الشاملة تراعي التنوع في الثقافات والأجسام والاحتياجات"
+              />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">تصاميم تناسب كافة الأجسام</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">نهج أكثر شمولية:</p>
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>توفير مجموعة واسعة من المقاسات بما يتجاوز المقاسات القياسية التقليدية</li>
+                      <li>تصميم قصات تناسب مختلف أنماط الجسم وتظهر الطاقم بأفضل مظهر</li>
+                      <li>مرونة في الاختيارات بين القطع المختلفة (التنانير، البناطيل، الفساتين)</li>
+                      <li>استخدام أنظمة قياس متطورة لتوفير أزياء مخصصة تماماً لكل فرد</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">طيران الإمارات: الزي كأيقونة للفخامة والتميز</h3>
-          <p className="mb-4">
-            استراتيجية شركة رائدة إقليمياً:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">كيف جعلت الشركة من قبعة المضيفات وشاحها الأحمر رمزاً عالمياً مميزاً</li>
-            <li className="mb-2">استثمار الشركة في تصميمات مبتكرة من مصممين عالميين لتعزيز صورة الفخامة</li>
-            <li className="mb-2">استغلال الزي في الحملات الإعلانية وتحويله إلى عنصر جذب للمسافرين</li>
-            <li className="mb-2">كيف يعكس زي طيران الإمارات شخصية دبي المتميزة بين التقاليد والحداثة</li>
-            <li className="mb-2">تناسق الزي مع بقية عناصر تجربة المسافر الفاخرة (الدرجة الأولى، برنامج الولاء)</li>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">مراعاة التنوع الثقافي والديني</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <p className="mb-2 text-gray-700">احترام المعتقدات المختلفة:</p>
+                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                      <li>توفير خيارات حجاب مصممة خصيصاً للمضيفات المسلمات تتناسق مع باقي الزي</li>
+                      <li>تصاميم محتشمة تتناسب مع الخلفيات الثقافية المختلفة</li>
+                      <li>مراعاة المتطلبات الخاصة بغطاء الرأس في الديانات المختلفة</li>
+                      <li>تكييف الزي بما يراعي الحساسيات الثقافية في المناطق المختلفة</li>
           </ol>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الخطوط السنغافورية: الزي كرمز ثقافي عابر للقارات</h3>
-          <p className="mb-4">
-            دروس من تجربة رائدة عالمياً:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">كيف حولت الشركة "الساروغ كباية" التقليدي إلى رمز عالمي للضيافة الآسيوية</li>
-            <li className="mb-2">استمرارية تصميم الزي منذ الستينيات مع تحديثات بسيطة للحفاظ على الاستمرارية</li>
-            <li className="mb-2">توظيف ألوان محددة (الأزرق والذهبي) لترسيخ هوية بصرية قوية ومميزة</li>
-            <li className="mb-2">جعل الزي جزءاً من "قصة" العلامة التجارية وتراثها الطويل</li>
-            <li className="mb-2">استخدام الزي للتعبير عن مزيج الثقافات المتنوعة في سنغافورة</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تجاوز الثنائيات الجندرية التقليدية</h3>
+                <p className="mb-2 text-gray-700">تصاميم أكثر مرونة:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>توفير خيارات محايدة جندرياً للطاقم الذي يفضل ذلك</li>
+                  <li>تصميم أزياء موحدة تركز على الوظيفية والهوية المؤسسية بدلاً من التمييز الجندري</li>
+                  <li>إلغاء القيود التقليدية التي تحصر قطعاً معينة بجنس دون الآخر</li>
+                  <li>تمكين الطاقم من اختيار القطع التي تناسب هويتهم الشخصية بغض النظر عن الجنس</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تجارب مبتكرة من شركات طيران عالمية</h3>
-          <p className="mb-4">
-            أفكار ملهمة في توظيف الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الخطوط الجوية الفرنسية: تعاون مع مصممي أزياء فرنسيين لتعزيز الصورة الفرنسية الأنيقة</li>
-            <li className="mb-2">طيران نيوزيلندا: توظيف الزي للتعبير عن ثقافة الماوري الأصلية</li>
-            <li className="mb-2">الخطوط البريطانية: استخدام زي يعكس الأناقة البريطانية التقليدية مع لمسات عصرية</li>
-            <li className="mb-2">طيران آنا الياباني: دمج عناصر من الثقافة اليابانية في زي عصري يعكس الدقة والترتيب</li>
-            <li className="mb-2">طيران هاواي: توظيف الطباعات الاستوائية كعنصر تمييز يرتبط بالوجهة</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">عملية تصميم زي يعزز العلامة التجارية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">مراحل تطوير الزي كمشروع استراتيجي</h3>
-          <p className="mb-4">
-            خطوات تصميم زي فعال:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحليل هوية العلامة التجارية وتحديد القيم الأساسية التي يجب أن يعكسها الزي</li>
-            <li className="mb-2">دراسة الجمهور المستهدف وتوقعاته والرسائل التي تريد الشركة إيصالها له</li>
-            <li className="mb-2">تحليل المنافسين ومكانة الشركة في السوق وكيفية تمييز الزي عن المنافسين</li>
-            <li className="mb-2">التعاون مع مصممين متخصصين يفهمون صناعة الطيران وخصوصياتها</li>
-            <li className="mb-2">وضع استراتيجية شاملة للزي تشمل جميع أفراد الطاقم وتضمن الاتساق بينهم</li>
+            <section id="cultural-identity" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الهوية الثقافية في التصميم المعاصر</h2>
+              
+              <div className="overflow-hidden rounded-lg mb-6">
+                <div className="bg-blue-700 text-white p-3">
+                  <h3 className="text-xl font-medium">إحياء التراث بأسلوب معاصر</h3>
+                </div>
+                <div className="p-4 border border-blue-300 bg-white">
+                  <p className="mb-2 text-gray-700">الجمع بين الأصالة والحداثة:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>استلهام العناصر التقليدية المحلية وإعادة تفسيرها بأسلوب عصري</li>
+                    <li>دمج الزخارف والتطريزات التراثية في تصاميم عملية متطورة</li>
+                    <li>استخدام الألوان والرموز ذات الدلالات الثقافية للتعبير عن الهوية</li>
+                    <li>تطوير قطع فريدة مستوحاة من الملابس التقليدية للبلد الأم لشركة الطيران</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">فريق العمل والتخصصات المطلوبة</h3>
-          <p className="mb-4">
-            أدوار أساسية في تطوير الزي:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">مديرو العلامة التجارية: لضمان اتساق الزي مع رؤية العلامة وقيمها</li>
-            <li className="mb-2">مصممو الأزياء: لوضع التصورات الإبداعية وترجمة الهوية إلى تصاميم ملموسة</li>
-            <li className="mb-2">خبراء تسويق: لقياس تأثير الزي على تصورات العملاء وقيمة العلامة</li>
-            <li className="mb-2">ممثلون عن الطاقم: للتأكد من الجوانب العملية والوظيفية للزي</li>
-            <li className="mb-2">مختصون في المواد والأقمشة: لاختيار الخامات المناسبة وظيفياً وجمالياً</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">اختبار وتقييم تأثير الزي على العلامة التجارية</h3>
-          <p className="mb-4">
-            قياس فعالية التصميم:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استطلاعات رأي المسافرين حول انطباعاتهم عن الزي ومدى تناسقه مع توقعاتهم</li>
-            <li className="mb-2">تحليل تفاعلات وسائل التواصل الاجتماعي مع الزي الجديد</li>
-            <li className="mb-2">دراسات تتبع صورة العلامة التجارية قبل وبعد تغيير الزي</li>
-            <li className="mb-2">تقييم تأثير الزي على مؤشرات الأداء الرئيسية (رضا العملاء، التفضيل، الولاء)</li>
-            <li className="mb-2">المراجعة المستمرة وتعديل التصميم وفقاً للتغذية الراجعة والنتائج</li>
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الفن والحرف اليدوية المحلية</h3>
+                <p className="mb-2 text-gray-700">تقدير المهارات التقليدية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>التعاون مع الحرفيين المحليين لإنتاج إكسسوارات فريدة مصنوعة يدوياً</li>
+                  <li>استخدام تقنيات النسيج التقليدية في إنتاج أجزاء من الزي أو الإكسسوارات</li>
+                  <li>توظيف الفنون المحلية كمصدر إلهام للطباعات والألوان والقصات</li>
+                  <li>إبراز العناصر الثقافية الفريدة كنقطة تميز في عالم تصميم أزياء الطيران</li>
           </ul>
+              </div>
+
+              <div className="bg-white p-5 border border-gray-300 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">التوازن بين العالمية والمحلية</h3>
+                <p className="mb-2 text-gray-700">استراتيجيات للتميز العالمي مع الحفاظ على الهوية:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>تطوير تصاميم معاصرة ذات طابع عالمي مع لمسات محلية مميزة</li>
+                  <li>مزج عناصر من مختلف الثقافات التي تخدمها شركة الطيران</li>
+                  <li>تكييف التصاميم العالمية لتتناسب مع الذوق المحلي والقيم الثقافية</li>
+                  <li>استخدام الهوية الثقافية كميزة تنافسية في سوق الطيران العالمي</li>
+          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات وفرص في تصميم الزي للعلامة التجارية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين الوظيفية والجماليات</h3>
-          <p className="mb-4">
-            تحديات التصميم العملي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحقيق التوازن بين متطلبات صورة العلامة التجارية واحتياجات الطاقم العملية</li>
-            <li className="mb-2">تصميم زي يمكن ارتداؤه لساعات طويلة مع الحفاظ على المظهر الأنيق</li>
-            <li className="mb-2">مراعاة اختلاف الوظائف والمهام بين أفراد الطاقم مع الحفاظ على وحدة الهوية</li>
-            <li className="mb-2">تكييف الزي مع اختلاف الفصول والوجهات المناخية المختلفة</li>
-            <li className="mb-2">الموازنة بين تكلفة الإنتاج وجودة المواد ومتانتها</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاستدامة والمسؤولية الاجتماعية</h3>
-          <p className="mb-4">
-            الاتجاه المتنامي نحو الاستدامة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">كيف يمكن للزي أن يعكس التزام الشركة بالاستدامة والمسؤولية البيئية</li>
-            <li className="mb-2">استخدام مواد صديقة للبيئة وأساليب إنتاج مستدامة</li>
-            <li className="mb-2">تصميم زي قابل لإعادة التدوير أو التحلل في نهاية دورة حياته</li>
-            <li className="mb-2">تعزيز صورة الشركة كمسؤولة اجتماعياً من خلال اختيارات الزي</li>
-            <li className="mb-2">التوازن بين متطلبات الاستدامة والمتانة والمظهر الجمالي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التكيف مع التغيرات الثقافية والاجتماعية</h3>
-          <p className="mb-4">
-            مواكبة تطور توقعات المجتمع:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحديث الزي ليعكس التغيرات في دور المرأة والرجل في صناعة الطيران</li>
-            <li className="mb-2">مراعاة التنوع الثقافي والديني لأفراد الطاقم والمسافرين</li>
-            <li className="mb-2">تكييف الزي مع التطور في المفاهيم الاجتماعية للأناقة والحشمة</li>
-            <li className="mb-2">موازنة الاتجاهات العالمية مع القيم المحلية في تصميم الزي</li>
-            <li className="mb-2">تطوير خيارات متنوعة تلبي احتياجات مختلف أفراد الطاقم</li>
-          </ul>
+            <section id="designer-collaborations" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التعاون مع المصممين العالميين</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                شهدت السنوات الأخيرة توجهاً متزايداً نحو التعاون بين شركات الطيران والمصممين العالميين لتطوير أزياء تجمع بين الأناقة العالية والوظيفية. هذه التعاونات أضافت بعداً جديداً لتجربة السفر وعززت من القيمة التسويقية لهوية شركات الطيران:
+              </p>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">نماذج ناجحة من التعاونات العالمية</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  تعاونت الخطوط الجوية الفرنسية مع المصمم كريستيان لاكروا لإنشاء زي يجمع بين الأناقة الفرنسية الكلاسيكية والعملية. كما تعاونت الخطوط البريطانية مع تيد بيكر، والخطوط القطرية مع إنتوناكي، والخطوط الإيطالية ألبرتا فيريتي. هذه التعاونات أسهمت في تطوير أزياء أصبحت جزءاً لا يتجزأ من هوية هذه الشركات وعنصراً مميزاً في حملاتها التسويقية.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير الموضة الراقية على تصميم أزياء الطيران</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  يسهم تعاون دور الأزياء العالمية في رفع مستوى التصميم وإضفاء لمسات من الأناقة العالية على أزياء ذات متطلبات وظيفية صارمة. يستفيد المصممون من خبرتهم في معالجة الألوان والأقمشة والقصات لخلق أزياء مميزة تلبي المتطلبات العملية مع الحفاظ على مستوى عالٍ من الأناقة، وهو ما ينعكس على الصورة العامة لشركة الطيران ويعزز من قيمتها كعلامة تجارية فاخرة.
+                </p>
+              </div>
+              
+              <div className="bg-gray-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">الابتكار المشترك والتجارب المتفردة</h3>
+                <p className="mb-4 leading-7 text-gray-700">
+                  التعاون بين شركات الطيران والمصممين لا يقتصر على التصميم الجمالي فقط، بل يمتد ليشمل ابتكار حلول تقنية للتحديات التي يواجهها الطاقم. يساهم المصممون بخبراتهم في تطوير قصات مريحة ووظيفية، واختيار أقمشة متطورة، وإضافة لمسات مبتكرة تحسن من تجربة الارتداء، مما يعزز من رضا الطاقم وكفاءتهم.
+                </p>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">توجهات المستقبل: الابتكار في زي الطيران والعلامة التجارية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التقنيات الذكية والابتكارات المستقبلية</h3>
-          <p className="mb-4">
-            دمج التكنولوجيا في الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">المنسوجات الذكية التي تتكيف مع درجات الحرارة وتنظم رطوبة الجسم</li>
-            <li className="mb-2">الأزياء التفاعلية المزودة بتقنيات تسهل التواصل مع المسافرين</li>
-            <li className="mb-2">توظيف تقنيات الواقع المعزز لإضافة طبقة معلوماتية تفاعلية للزي</li>
-            <li className="mb-2">استخدام المواد القابلة للبرمجة لتغيير مظهر الزي حسب الظروف</li>
-            <li className="mb-2">دمج أجهزة قياس حيوية لمراقبة صحة الطاقم وتحسين تجربتهم</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">توظيف زي الطيران في تسويق الوجهات السياحية</h3>
-          <p className="mb-4">
-            الزي كبوابة للترويج:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصميم زي يعكس المقومات السياحية للدولة أو المنطقة</li>
-            <li className="mb-2">إصدارات محدودة من الزي للاحتفال بمناسبات ثقافية وسياحية</li>
-            <li className="mb-2">توظيف الزي في الترويج للمواسم السياحية والفعاليات الكبرى</li>
-            <li className="mb-2">التعاون مع جهات السياحة لتصميم زي يكمل الهوية السياحية</li>
-            <li className="mb-2">استخدام الزي كعنصر في التسويق المشترك بين شركة الطيران والوجهات</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الشخصنة وتجربة العلامة التجارية المتكاملة</h3>
-          <p className="mb-4">
-            ربط الزي بتجربة شاملة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تطوير "أنظمة" زي مترابطة تكمل بعضها في نقل صورة العلامة التجارية</li>
-            <li className="mb-2">إشراك المسافرين في تطوير الزي من خلال الاستفتاءات والمنصات التفاعلية</li>
-            <li className="mb-2">التناسق بين الزي وعناصر التصميم الداخلي للطائرة والمطار</li>
-            <li className="mb-2">ربط مظهر الزي بتطبيقات الهاتف وواجهات التفاعل الرقمية</li>
-            <li className="mb-2">توظيف الزي كعنصر في تقديم "خدمة شخصية" تتكيف مع المسافر</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            يتضح مما سبق أن العلاقة بين تصميم زي الطيران وصورة العلامة التجارية لشركة الطيران هي علاقة استراتيجية وليست مجرد عنصر جمالي ثانوي. فالزي الرسمي يعمل كواجهة بصرية متحركة للشركة، ينقل قيمها ورؤيتها وشخصيتها بطريقة ملموسة ومباشرة للمسافرين، ويشكل جزءاً محورياً من تجربة العملاء الشاملة.
-          </p>
-          <p className="mb-4">
-            تُظهر تجارب شركات الطيران الناجحة محلياً وعالمياً كيف يمكن لاستثمار استراتيجي في تصميم الزي أن يحقق عوائد كبيرة من حيث تعزيز قيمة العلامة التجارية، وبناء الولاء، وترسيخ التميز التنافسي. وعلى الرغم من التحديات المتعددة في تحقيق التوازن بين المتطلبات الجمالية والوظيفية، فإن الشركات التي تنجح في ذلك تكسب ميزة تسويقية قوية.
-          </p>
-          <p className="mb-4">
-            ومع تطور صناعة الطيران واشتداد المنافسة، ودخول التقنيات الجديدة والاتجاه نحو الاستدامة، ستستمر أهمية الزي في التزايد كعنصر رئيسي في استراتيجية بناء العلامة التجارية. وستحتاج شركات الطيران إلى مواصلة الابتكار في هذا المجال، مع الحفاظ على التوازن الدقيق بين التجديد والاستمرارية، لضمان أن يظل الزي محققاً لأهدافه في تعزيز القيمة المميزة للعلامة التجارية وترسيخ مكانتها في أذهان المسافرين.
+            <section id="conclusion" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                إن الاتجاهات الحديثة في تصميم زي طاقم الطائرة تعكس عالماً متغيراً يواجه تحديات بيئية واجتماعية متزايدة، وتستجيب لتطلعات متجددة من قبل المسافرين وشركات الطيران على حد سواء. التحول نحو الاستدامة، والاستفادة من التكنولوجيا، وتبني التصميم الشامل، مع الحفاظ على الهوية الثقافية المميزة، كلها اتجاهات تشكل مستقبل هذه الصناعة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                ستظل أزياء طاقم الطائرة عنصراً حيوياً في تجربة السفر الجوي وفي هوية شركات الطيران، لكنها ستستمر في التطور لتعكس قيماً جديدة وتستجيب لاحتياجات متغيرة. التوازن بين الوظيفية والأناقة والاستدامة سيظل التحدي الأكبر أمام المصممين، وسيكون الابتكار المستمر هو المفتاح لمواجهة هذا التحدي.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في النهاية، يمكن القول إن مستقبل تصميم أزياء طاقم الطائرة يتجه نحو مزيد من التخصيص والشمولية والاستدامة، مع الاستفادة المتزايدة من التكنولوجيا الذكية. وسيلعب التعاون بين شركات الطيران والمصممين والتقنيين دوراً محورياً في تطوير تصاميم مبتكرة تلبي احتياجات عصر جديد من السفر الجوي، تجمع بين التراث والابتكار، وبين الهوية المتفردة والقيم العالمية المشتركة.
           </p>
         </section>
       </article>
+        </div>
+      </div>
     </main>
   );
 } 

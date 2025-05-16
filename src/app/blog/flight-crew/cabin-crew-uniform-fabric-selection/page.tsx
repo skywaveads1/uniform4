@@ -6,6 +6,9 @@ export const metadata = {
   description: 'دليل شامل حول معايير اختيار أفضل أقمشة لزي طاقم الطائرة، مع التركيز على الجودة والمتانة والراحة والمواصفات الفنية.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/cabin_crew_fabrics.jpeg';
   const title = 'اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة';

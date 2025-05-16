@@ -15,6 +15,9 @@ export const metadata = {
   description: 'دليل شامل حول معايير ومتطلبات السلامة في تصميم أزياء طاقم الطائرة، وكيفية موازنة الجوانب الجمالية مع الاعتبارات الأمنية الضرورية في بيئة الطيران.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function PostPage({ params }: { params: { category: string; slug: string } }) {
   const post = {
     content: `<section>
@@ -245,7 +248,7 @@ export default function PostPage({ params }: { params: { category: string; slug:
       author: 'يونيفورم',
       category: 'flight-crew',
       tags: ["زي موحد","يونيفورم","flight crew"],
-      image: '/images/flight_crew/flight_crew_safety_requirements.jpeg',
+      image: "/images/flight_crew/air_crew_attire.jpeg",
       slug: 'flight-7',
       readTime: '10 دقائق للقراءة',
       authorImage: '/images/author/team.jpg',

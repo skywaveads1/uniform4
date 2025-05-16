@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
   title: 'معايير تصميم زي الطهاة العالمية',
@@ -7,355 +10,260 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/culinary_apparel/chef_uniforms.jpeg';
+  const imageSrc = '/images/culinary_apparel/header_chef_uniform.jpeg';
   const title = 'معايير تصميم زي الطهاة العالمية';
+  const readingTime = '١٥ دقيقة للقراءة';
+  const datePublished = '١٥ مايو ٢٠٢٣';
+  const authorName = "فريق يونيفورم";
+  const authorImage = "/images/author/team.jpg";
+  const authorTitle = "خبراء تصميم الأزياء الموحدة";
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'history', title: 'نظرة تاريخية على زي الطهاة' },
+    { id: 'elements', title: 'العناصر الأساسية للزي المهني للطهاة' },
+    { id: 'functions', title: 'الوظائف الأساسية لزي الطهاة' },
+    { id: 'materials', title: 'معايير المواد والأقمشة' },
+    { id: 'standards', title: 'المعايير العالمية ومتطلبات الامتثال' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            يعد زي الطهاة أحد أكثر الأزياء المهنية تميزاً وقابلية للتعرف عليها في العالم. فالسترة البيضاء ذات الصفين من الأزرار، والقبعة العالية المميزة، والمئزر الطويل، كلها عناصر أصبحت رمزاً عالمياً للاحترافية في عالم فنون الطهي. لكن وراء هذا المظهر الأنيق، تختبئ قرون من التطور والتصميم العملي الذي يخدم وظائف محددة تتجاوز مجرد المظهر الجمالي.
-          </p>
-          <p className="mb-4">
-            على مر العصور، تطور زي الطهاة ليلبي احتياجات بيئة المطبخ المتطلبة والمتغيرة، وليعكس تسلسلاً هرمياً مهنياً دقيقاً، وليوفر حماية وراحة في ظروف عمل قاسية. واليوم، أصبح هذا الزي يخضع لمعايير عالمية تحكم مختلف جوانبه، من المواد المستخدمة والتصميم إلى قواعد الارتداء والنظافة.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نستكشف المعايير العالمية لتصميم زي الطهاة، ونلقي نظرة على تاريخ هذا الزي المميز، ونحلل وظائفه المتعددة وعناصره الأساسية. كما نتناول الاتجاهات الحديثة والابتكارات في تصميم أزياء المطبخ المهنية، وكيف تتطور هذه المعايير لتلبية احتياجات صناعة الضيافة المعاصرة مع الحفاظ على التقاليد العريقة لهذه المهنة.
-          </p>
-        </section>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            {/* Author information */}
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">الكاتب</h3>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src={authorImage}
+                    alt={authorName}
+                    width={64}
+                    height={64}
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-blue-900">{authorName}</h4>
+                  <p className="text-sm text-gray-600">{authorTitle}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">نظرة تاريخية على زي الطهاة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">أصول الزي الكلاسيكي</h3>
-          <p className="mb-4">
-            جذور وتطور الزي التقليدي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الأصول الفرنسية لزي الطهاة الحديث ودور ماري-أنطوان كاريم في القرن 19</li>
-            <li className="mb-2">تأثير الطاهي الشهير أوغست إسكوفييه في ترسيخ معايير الزي المهني للطهاة</li>
-            <li className="mb-2">التطور التاريخي للسترة ذات الصفين من الأزرار والتصميم العملي وراءها</li>
-            <li className="mb-2">نشأة وتطور قبعة الطاهي (توك) من مجرد غطاء رأس إلى رمز للمكانة المهنية</li>
-          </ul>
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/blog/culinary-apparel/culinary-2" className="text-sm hover:text-blue-600 block">
+                    متطلبات زي طاقم المطبخ حسب الوظيفة والتخصص
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/chef-uniforms/design-in-Saudi" className="text-sm hover:text-blue-600 block">
+                    تصميم أزياء الطهاة في المملكة العربية السعودية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/chef-uniforms/in-design-clothing-chef-2025" className="text-sm hover:text-blue-600 block">
+                    اتجاهات تصميم ملابس الطهاة لعام 2025
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </aside>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التسلسل الهرمي والتمييز المهني</h3>
-          <p className="mb-4">
-            تقاليد تحديد المكانة في المطبخ:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">نظام المطبخ الكلاسيكي (Brigade de Cuisine) وكيفية انعكاسه على الأزياء</li>
-            <li className="mb-2">دلالات الألوان والتصاميم المختلفة وما ترمز إليه في التسلسل الهرمي</li>
-            <li className="mb-2">رموز المكانة كارتفاع القبعة وعدد طيات القماش وألوان الياقات</li>
-            <li className="mb-2">الفرق بين زي رئيس الطهاة (Chef de Cuisine) وزي باقي أعضاء الفريق</li>
-          </ul>
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعد زي الطهاة أحد أكثر الأزياء المهنية تميزاً وقابلية للتعرف عليها في العالم. فالسترة البيضاء ذات الصفين من الأزرار، والقبعة العالية المميزة، والمئزر الطويل، كلها عناصر أصبحت رمزاً عالمياً للاحترافية في عالم فنون الطهي. لكن وراء هذا المظهر الأنيق، تختبئ قرون من التطور والتصميم العملي الذي يخدم وظائف محددة تتجاوز مجرد المظهر الجمالي.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                على مر العصور، تطور زي الطهاة ليلبي احتياجات بيئة المطبخ المتطلبة والمتغيرة، وليعكس تسلسلاً هرمياً مهنياً دقيقاً، وليوفر حماية وراحة في ظروف عمل قاسية. واليوم، أصبح هذا الزي يخضع لمعايير عالمية تحكم مختلف جوانبه، من المواد المستخدمة والتصميم إلى قواعد الارتداء والنظافة.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا المقال، نستكشف المعايير العالمية لتصميم زي الطهاة، ونلقي نظرة على تاريخ هذا الزي المميز، ونحلل وظائفه المتعددة وعناصره الأساسية. كما نتناول الاتجاهات الحديثة والابتكارات في تصميم أزياء المطبخ المهنية، وكيف تتطور هذه المعايير لتلبية احتياجات صناعة الضيافة المعاصرة مع الحفاظ على التقاليد العريقة لهذه المهنة.
+              </p>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التباين الثقافي والإقليمي</h3>
-          <p className="mb-4">
-            اختلافات الزي حول العالم:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">خصائص زي الطهاة في المدارس الكلاسيكية: الفرنسية والإيطالية والآسيوية</li>
-            <li className="mb-2">التأثيرات الثقافية على تصميم الزي في مختلف المناطق العالمية</li>
-            <li className="mb-2">اقتباسات وتكييفات الزي الكلاسيكي في الثقافات المختلفة</li>
-            <li className="mb-2">مزج التقاليد والعناصر المحلية مع المعايير العالمية</li>
-          </ol>
-        </section>
+            <section id="history" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">نظرة تاريخية على زي الطهاة</h2>
+              
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">أصول الزي الكلاسيكي</h3>
+                <p className="mb-2 font-medium text-blue-700">جذور وتطور الزي التقليدي:</p>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>الأصول الفرنسية لزي الطهاة الحديث ودور ماري-أنطوان كاريم في القرن 19</li>
+                  <li>تأثير الطاهي الشهير أوغست إسكوفييه في ترسيخ معايير الزي المهني للطهاة</li>
+                  <li>التطور التاريخي للسترة ذات الصفين من الأزرار والتصميم العملي وراءها</li>
+                  <li>نشأة وتطور قبعة الطاهي (توك) من مجرد غطاء رأس إلى رمز للمكانة المهنية</li>
+                </ul>
+              </div>
+              
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/chef_uniforms.jpeg"
+                  alt="التطور التاريخي لزي الطهاة"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  التطور التاريخي لزي الطهاة عبر القرون
+                </div>
+              </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">العناصر الأساسية للزي المهني للطهاة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">سترة الطاهي (Chef's Jacket)</h3>
-          <p className="mb-4">
-            مواصفات وخصائص الجزء الأكثر تميزاً:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">التصميم ذو الصفين من الأزرار والهدف العملي والتاريخي وراءه</li>
-            <li className="mb-2">الأكمام الطويلة ودورها في حماية الذراعين من الحروق والسوائل الساخنة</li>
-            <li className="mb-2">اختيار القماش: قطن عالي الجودة، بوليستر، أو مزيج بينهما</li>
-            <li className="mb-2">خيارات الياقة: الياقة المستديرة، الياقة المفتوحة، والياقة الصينية</li>
-          </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التسلسل الهرمي والتمييز المهني</h3>
+                  <p className="mb-2 text-gray-700">تقاليد تحديد المكانة في المطبخ:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>نظام المطبخ الكلاسيكي (Brigade de Cuisine) وكيفية انعكاسه على الأزياء</li>
+                    <li>دلالات الألوان والتصاميم المختلفة وما ترمز إليه في التسلسل الهرمي</li>
+                    <li>رموز المكانة كارتفاع القبعة وعدد طيات القماش وألوان الياقات</li>
+                    <li>الفرق بين زي رئيس الطهاة (Chef de Cuisine) وزي باقي أعضاء الفريق</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">التباين الثقافي والإقليمي</h3>
+                  <p className="mb-2 text-gray-700">اختلافات الزي حول العالم:</p>
+                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                    <li>خصائص زي الطهاة في المدارس الكلاسيكية: الفرنسية والإيطالية والآسيوية</li>
+                    <li>التأثيرات الثقافية على تصميم الزي في مختلف المناطق العالمية</li>
+                    <li>اقتباسات وتكييفات الزي الكلاسيكي في الثقافات المختلفة</li>
+                    <li>مزج التقاليد والعناصر المحلية مع المعايير العالمية</li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+            
+            <section id="elements" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الأساسية للزي المهني للطهاة</h2>
+              
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">سترة الطاهي (Chef's Jacket)</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <p className="mb-2 font-medium text-blue-700">مواصفات وخصائص الجزء الأكثر تميزاً:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>التصميم ذو الصفين من الأزرار والهدف العملي والتاريخي وراءه</li>
+                    <li>الأكمام الطويلة ودورها في حماية الذراعين من الحروق والسوائل الساخنة</li>
+                    <li>اختيار القماش: قطن عالي الجودة، بوليستر، أو مزيج بينهما</li>
+                    <li>خيارات الياقة: الياقة المستديرة، الياقة المفتوحة، والياقة الصينية</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/culinary_apparel/kitchen_staff_clothing.jpeg"
+                  alt="تفاصيل سترة الطاهي"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  تفاصيل ومميزات السترة التقليدية للطهاة
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">قبعة الطاهي (Toque)</h3>
-          <p className="mb-4">
-            رمز المكانة والهوية المهنية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الارتفاع التقليدي للقبعة ودلالاته على المستوى المهني والخبرة</li>
-            <li className="mb-2">أنواع القبعات المختلفة: القبعة العالية الكلاسيكية، القبعة المنخفضة، قبعة الشبكة</li>
-            <li className="mb-2">الوظائف العملية للقبعة: منع سقوط الشعر، امتصاص العرق، تنظيم حرارة الرأس</li>
-            <li className="mb-2">البدائل المعاصرة للقبعة التقليدية وانتشارها في المطابخ الحديثة</li>
-          </ol>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">قبعة الطاهي (Toque)</h3>
+                <p className="mb-2 text-gray-700">رمز المكانة والهوية المهنية:</p>
+                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
+                  <li>الارتفاع التقليدي للقبعة ودلالاته على المستوى المهني والخبرة</li>
+                  <li>أنواع القبعات المختلفة: القبعة العالية الكلاسيكية، القبعة المنخفضة، قبعة الشبكة</li>
+                  <li>الوظائف العملية للقبعة: منع سقوط الشعر، امتصاص العرق، تنظيم حرارة الرأس</li>
+                  <li>البدائل المعاصرة للقبعة التقليدية وانتشارها في المطابخ الحديثة</li>
+                </ol>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">بنطلون الطاهي</h3>
-          <p className="mb-4">
-            المواصفات الوظيفية والعملية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">النمط الكلاسيكي: البنطلون الأسود أو المقلم (هاوندستوث) والغرض منه</li>
-            <li className="mb-2">خصائص القماش المقاوم للحرارة والبقع والسوائل</li>
-            <li className="mb-2">التصميم الفضفاض والمريح للحركة السريعة في المطبخ</li>
-            <li className="mb-2">الجيوب العملية وتوزيعها لحمل الأدوات الضرورية</li>
-          </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">بنطلون الطاهي</h3>
+                  <p className="mb-2 text-gray-700">المواصفات الوظيفية والعملية:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>النمط الكلاسيكي: البنطلون الأسود أو المقلم (هاوندستوث) والغرض منه</li>
+                    <li>خصائص القماش المقاوم للحرارة والبقع والسوائل</li>
+                    <li>التصميم الفضفاض والمريح للحركة السريعة في المطبخ</li>
+                    <li>الجيوب العملية وتوزيعها لحمل الأدوات الضرورية</li>
+                  </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">المئزر والمناديل</h3>
+                  <p className="mb-2 text-gray-700">طبقات إضافية للحماية والعملية:</p>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>أنواع المآزر: الخصر، الصدر الكامل، المآزر القصيرة، واستخداماتها المختلفة</li>
+                    <li>مناديل الرقبة (Neckerchief) ودورها في امتصاص العرق وحماية الرقبة</li>
+                    <li>الاستخدام العملي للمناديل والمآزر في أعمال المطبخ اليومية</li>
+                    <li>ألوان المآزر ودلالاتها في بعض المطابخ والمؤسسات</li>
+                  </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">المئزر والمناديل</h3>
-          <p className="mb-4">
-            طبقات إضافية للحماية والعملية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أنواع المآزر: الخصر، الصدر الكامل، المآزر القصيرة، واستخداماتها المختلفة</li>
-            <li className="mb-2">مناديل الرقبة (Neckerchief) ودورها في امتصاص العرق وحماية الرقبة</li>
-            <li className="mb-2">الاستخدام العملي للمناديل والمآزر في أعمال المطبخ اليومية</li>
-            <li className="mb-2">ألوان المآزر ودلالاتها في بعض المطابخ والمؤسسات</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الأحذية وملحقات أخرى</h3>
-          <p className="mb-4">
-            عناصر تكمل الزي المهني:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">مواصفات الأحذية المهنية: مقاومة للانزلاق، مريحة، سهلة التنظيف، مغلقة من الأمام</li>
-            <li className="mb-2">قفازات المطبخ وأنواعها المختلفة حسب الاستخدام</li>
-            <li className="mb-2">واقيات اليد والمعصم للتعامل مع درجات الحرارة العالية</li>
-            <li className="mb-2">اكسسوارات تحديد الهوية: شارات الاسم، شعارات المؤسسة، علامات التخصص</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الوظائف الأساسية لزي الطهاة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">الحماية والسلامة المهنية</h3>
-          <p className="mb-4">
-            دور الزي في توفير بيئة عمل آمنة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الحماية من الحروق والسوائل الساخنة والانسكابات</li>
-            <li className="mb-2">الوقاية من الجروح والإصابات في بيئة المطبخ الخطرة</li>
-            <li className="mb-2">عزل الجسم من الحرارة العالية قرب الأفران والمواقد</li>
-            <li className="mb-2">منع انتقال الشعر والعرق إلى الطعام وتعزيز النظافة العامة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الراحة والأداء الوظيفي</h3>
-          <p className="mb-4">
-            تصميم يدعم العمل المكثف:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">الأقمشة التي تسمح بتهوية الجسم في بيئة عالية الحرارة</li>
-            <li className="mb-2">تصاميم تسمح بالحركة السريعة والمرونة في ظروف العمل المختلفة</li>
-            <li className="mb-2">امتصاص العرق وإبقاء الجسم جافاً خلال ساعات العمل الطويلة</li>
-            <li className="mb-2">توزيع الجيوب وأماكن حمل الأدوات لتسهيل الوصول السريع</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">النظافة والمعايير الصحية</h3>
-          <p className="mb-4">
-            الامتثال لمتطلبات سلامة الغذاء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">خصائص الأقمشة المقاومة للبكتيريا وسهلة التنظيف</li>
-            <li className="mb-2">اللون الأبيض التقليدي ودوره في إظهار التلوث والاتساخ بسهولة</li>
-            <li className="mb-2">تصميم الأزرار والقبعات لمنع سقوطها في الطعام أثناء التحضير</li>
-            <li className="mb-2">معايير الغسيل والتعقيم للزي في المؤسسات الغذائية المختلفة</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الهوية والتمثيل المهني</h3>
-          <p className="mb-4">
-            الجوانب الرمزية والتسويقية للزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">دور الزي في التعريف الفوري بالمهنة وتعزيز الثقة المهنية</li>
-            <li className="mb-2">تجسيد قيم المطبخ والمؤسسة من خلال تصميم وألوان الزي</li>
-            <li className="mb-2">وظيفة الزي في تمييز المطاعم والعلامات التجارية</li>
-            <li className="mb-2">استخدام الزي كأداة تسويقية وعنصر من عناصر تجربة الزبون</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">معايير المواد والأقمشة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">خصائص القماش المثالي للطهاة</h3>
-          <p className="mb-4">
-            متطلبات الأداء العالي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">قدرة التحمل العالية والمتانة في ظروف الاستخدام المكثف</li>
-            <li className="mb-2">مقاومة الحرارة المباشرة والرذاذ الساخن</li>
-            <li className="mb-2">قابلية الغسل المتكرر دون فقدان اللون أو الشكل</li>
-            <li className="mb-2">التوازن بين الوزن الخفيف والحماية الكافية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">أنواع الأقمشة الشائعة والمواصفات</h3>
-          <p className="mb-4">
-            خيارات المواد وخصائصها:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">القطن 100%: مزايا الراحة والتهوية، عيوب التجعد وامتصاص البقع</li>
-            <li className="mb-2">مزيج القطن/البوليستر: توازن بين المتانة وراحة الارتداء</li>
-            <li className="mb-2">بوليستر عالي الأداء: مقاومة فائقة للبقع وسهولة العناية</li>
-            <li className="mb-2">الميكروفايبر والمواد المتقدمة: خفة الوزن والمرونة العالية</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">معالجات وتقنيات خاصة</h3>
-          <p className="mb-4">
-            ابتكارات لتحسين أداء الأقمشة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">المعالجات المضادة للبكتيريا والميكروبات في أقمشة المطبخ</li>
-            <li className="mb-2">طبقات مقاومة للبقع والسوائل مع الحفاظ على نفاذية الهواء</li>
-            <li className="mb-2">معالجات المقاومة للحريق والشرر للمطابخ عالية الخطورة</li>
-            <li className="mb-2">تقنيات تبريد ومعالجة حرارية مدمجة في الأقمشة الحديثة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">المعايير العالمية ومتطلبات الامتثال</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير السلامة والصحة المهنية</h3>
-          <p className="mb-4">
-            متطلبات قانونية وتنظيمية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">معايير هيئة سلامة الغذاء العالمية (FDA, HACCP) المتعلقة بأزياء المطبخ</li>
-            <li className="mb-2">متطلبات الوقاية والسلامة المهنية للملابس في بيئة المطابخ</li>
-            <li className="mb-2">قواعد النظافة الشخصية المرتبطة بالزي في المطاعم والفنادق</li>
-            <li className="mb-2">المعايير المحددة للمؤسسات ذات المخاطر العالية (المستشفيات, المنشآت العسكرية)</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">شهادات الجودة والاعتماد</h3>
-          <p className="mb-4">
-            مؤشرات الامتثال للمعايير:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">شهادات الأيزو المتعلقة بمنتجات المطبخ المهنية (ISO 22000, ISO 9001)</li>
-            <li className="mb-2">معايير ASTM الدولية لاختبار أداء أقمشة الحماية الحرارية</li>
-            <li className="mb-2">الشهادات البيئية والاستدامة في إنتاج أزياء المطبخ (Fair Trade, OEKO-TEX)</li>
-            <li className="mb-2">تصنيفات المقاومة للحريق والمعايير الوقائية المتخصصة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">مستويات الجودة والمواصفات الفنية</h3>
-          <p className="mb-4">
-            تحديد معايير الأداء:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">متطلبات تفصيلية لكثافة النسيج ومتانة الخياطة</li>
-            <li className="mb-2">اختبارات ثبات اللون بعد الغسيل المتكرر</li>
-            <li className="mb-2">معايير الراحة الحرارية وقدرة الأقمشة على التهوية</li>
-            <li className="mb-2">مواصفات الأزرار وأجزاء التثبيت لمنع الانفصال أو الذوبان</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الاتجاهات الحديثة في تصميم زي الطهاة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين التقليد والابتكار</h3>
-          <p className="mb-4">
-            تطور الزي الكلاسيكي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الحفاظ على العناصر الأيقونية مع تحديث الوظائف والأداء</li>
-            <li className="mb-2">تفسيرات عصرية للزي الكلاسيكي تجمع بين الأصالة والراحة</li>
-            <li className="mb-2">قصات أكثر ملاءمة للجسم بدلاً من التصاميم التقليدية الفضفاضة</li>
-            <li className="mb-2">إضفاء لمسات شخصية مع الحفاظ على المعايير المهنية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التكنولوجيا والأقمشة المتطورة</h3>
-          <p className="mb-4">
-            ابتكارات تغير مستقبل أزياء المطبخ:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية تعدل درجة حرارة الجسم في بيئة المطبخ الساخنة</li>
-            <li className="mb-2">تقنيات النانو المضادة للبقع والروائح ومنع نمو البكتيريا</li>
-            <li className="mb-2">أقمشة خفيفة الوزن بخصائص حماية تفوق الأقمشة التقليدية</li>
-            <li className="mb-2">تصاميم مبتكرة للتهوية الاستراتيجية في مناطق معينة من الزي</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الاستدامة والوعي البيئي</h3>
-          <p className="mb-4">
-            زي المطبخ الأخضر:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استخدام القطن العضوي ومواد قابلة للتحلل في صناعة الزي</li>
-            <li className="mb-2">تصاميم قابلة للتدوير وإعادة الاستخدام لتقليل النفايات</li>
-            <li className="mb-2">معالجات صديقة للبيئة تقلل استهلاك المياه والمواد الكيميائية</li>
-            <li className="mb-2">سلاسل توريد مستدامة وشفافة في إنتاج أزياء المطبخ</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التخصيص والهوية المميزة</h3>
-          <p className="mb-4">
-            تفريد تجربة المطعم من خلال الزي:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم فريدة تعكس فلسفة المطعم ونوع المطبخ</li>
-            <li className="mb-2">ألوان غير تقليدية تتجاوز الأبيض الكلاسيكي للسترات</li>
-            <li className="mb-2">دمج العناصر الثقافية والفنية في تصميم زي الطهاة</li>
-            <li className="mb-2">التخصيص حسب المتطلبات الفردية للطهاة وأنواع المطبخ المختلفة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">اعتبارات عملية في اختيار واستخدام زي الطهاة</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">معايير الاختيار للمؤسسات المختلفة</h3>
-          <p className="mb-4">
-            العوامل الرئيسية للقرار:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">موازنة الميزانية مع متطلبات الجودة والأداء طويل المدى</li>
-            <li className="mb-2">اختيار الزي المناسب لنوع المطبخ والمناخ السائد</li>
-            <li className="mb-2">تقييم سهولة الصيانة وتكاليف العناية على المدى الطويل</li>
-            <li className="mb-2">التوافق مع صورة العلامة التجارية والقيم المؤسسية</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">العناية والصيانة المثلى</h3>
-          <p className="mb-4">
-            إطالة عمر الزي المهني:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">بروتوكولات الغسيل المناسبة للحفاظ على الجودة والمظهر</li>
-            <li className="mb-2">إدارة نظام دوران الزي لتقليل التآكل المفرط</li>
-            <li className="mb-2">تقنيات إزالة البقع الصعبة دون إتلاف النسيج</li>
-            <li className="mb-2">تخزين الزي بشكل صحيح لمنع التجعد والتلف</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">اعتبارات الراحة والتخصيص</h3>
-          <p className="mb-4">
-            تحسين تجربة الارتداء اليومية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أهمية المقاسات المناسبة والقصات المريحة لساعات العمل الطويلة</li>
-            <li className="mb-2">التعديلات الشخصية التي يمكن السماح بها ضمن المعايير المهنية</li>
-            <li className="mb-2">اعتبارات للأجواء الحارة جداً أو الباردة أو الرطبة</li>
-            <li className="mb-2">مراعاة الفروق الفردية والثقافية في تفضيلات الزي</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            تمثل معايير تصميم زي الطهاة العالمية توليفة فريدة من التقاليد العريقة والابتكارات العملية. فعلى مدار قرون، تطور هذا الزي المميز ليلبي ليس فقط متطلبات الحماية والأمان في بيئة المطبخ المتطلبة، بل أيضاً ليعكس تسلسلاً هرمياً مهنياً دقيقاً، وهوية ثقافية غنية لعالم فنون الطهي.
-          </p>
-          <p className="mb-4">
-            في عصرنا الحالي، يشهد زي الطهاة تطوراً يجمع بين احترام العناصر التقليدية وإدخال تقنيات وابتكارات تحسن من أدائه ووظائفه. من الأقمشة الذكية والمعالجات المتقدمة إلى التصاميم المستدامة والقابلة للتخصيص، تتوسع معايير الزي لتلبي احتياجات صناعة الضيافة المتغيرة، مع الحفاظ على الجوهر الأصيل لهذا الرمز المهني.
-          </p>
-          <p className="mb-4">
-            يبقى التحدي الأكبر هو إيجاد التوازن الأمثل بين الوظيفة والشكل، بين احترام التقاليد ومواكبة الاحتياجات المعاصرة، وبين المعايير العالمية والهويات المحلية. وكما يستمر فن الطهي نفسه في التطور والابتكار، سيستمر الزي الذي يمثله في التكيف والتحول، مع الحفاظ على موقعه المميز كأحد أكثر الرموز المهنية انتشاراً وتقديراً حول العالم.
-          </p>
-        </section>
-      </article>
+              <div className="bg-amber-50 p-5 rounded-lg border border-amber-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-amber-800">الأحذية وملحقات أخرى</h3>
+                <p className="mb-2 text-gray-700">عناصر تكمل الزي المهني:</p>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li>مواصفات الأحذية المهنية: مقاومة للانزلاق، مريحة، سهلة التنظيف، مغلقة من الأمام</li>
+                  <li>قفازات المطبخ وأنواعها المختلفة حسب الاستخدام</li>
+                  <li>واقيات اليد والمعصم للتعامل مع درجات الحرارة العالية</li>
+                  <li>اكسسوارات تحديد الهوية: شارات الاسم، شعارات المؤسسة، علامات التخصص</li>
+                </ul>
+              </div>
+            </section>
+            
+            {/* سيتم استكمال باقي المحتوى في الخطوات التالية */}
+          </article>
+        </div>
+      </div>
     </main>
   );
 } 

@@ -9,7 +9,7 @@ export default function AboutPage() {
       {/* Hero Section with Image */}
       <section className="relative h-[60vh]">
         <Image
-          src="/images/flight_crew/corporate_flight_crew_uniforms.jpg"
+          src="/images/flight_crew/crew_uniform_visual_identity.jpeg"
           alt="يونيفورم - الأزياء الموحدة المتخصصة"
           fill
           className="object-cover"

@@ -1,6 +1,8 @@
-'use client';
-
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 import BlogArticle from '@/components/BlogArticle';
 import { 
   Section, 
@@ -13,309 +15,328 @@ import {
   ArticleImage
 } from '@/components/ArabicContentElements';
 
+export const metadata = {
+  title: 'الزي الموحد في السعودية: الهوية والتصميم والتطبيق المؤسسي',
+  description: 'دراسة متعمقة للزي الموحد في المؤسسات السعودية، كيفية تصميمه وتطويره ليعكس الهوية الوطنية والمؤسسية، مع استعراض لنماذج ناجحة ومعايير التميز',
+};
+
 export default function UniformInSaudi() {
-  const relatedArticles = [
-    {
-      title: "ملابس العمل في المملكة: التطور والمعايير والتوجهات الحديثة",
-      description: "نظرة شاملة على صناعة ملابس العمل في المملكة العربية السعودية، تطورها، المعايير المعتمدة، والتوجهات المستقبلية",
-      image: "/images/workwear/saudi_workwear.jpeg",
-      url: "/blog/workwear/clothing-in-kingdom",
-      date: "٢٣ مايو ٢٠٢٤",
-      category: "ملابس العمل"
-    },
-    {
-      title: "الزي الموحد في القطاعات المختلفة: خصائصه ومميزاته ومتطلباته",
-      description: "استعراض شامل للزي الموحد في مختلف القطاعات الصناعية والخدمية والتعليمية",
-      image: "/images/workwear/uniform_sectors.jpeg",
-      url: "/blog/workwear/uniform-in",
-      date: "٢١ مايو ٢٠٢٤",
-      category: "ملابس العمل"
-    },
-    {
-      title: "أهمية الزي الموحد للشركات والمؤسسات",
-      description: "تحليل شامل لدور الزي الموحد في تعزيز الهوية المؤسسية وتحسين بيئة العمل وزيادة الإنتاجية",
-      image: "/images/workwear/importance_uniform.jpeg",
-      url: "/blog/workwear/importance-from-uniform",
-      date: "٢٧ مايو ٢٠٢٤",
-      category: "ملابس العمل"
-    }
+  const imageSrc = '/images/workwear/utility_services_uniform_standards.jpeg';
+  const title = 'الزي الموحد في السعودية: الهوية والتصميم والتطبيق المؤسسي';
+  const readingTime = '٨ دقائق للقراءة';
+  const datePublished = '٢٥ مايو ٢٠٢٤';
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'history', title: 'تطور الزي الموحد في المؤسسات السعودية' },
+    { id: 'identity', title: 'الزي الموحد والهوية السعودية' },
+    { id: 'sectors', title: 'الزي الموحد في القطاعات السعودية المختلفة' },
+    { id: 'design', title: 'تصميم الزي الموحد في المؤسسات السعودية' },
+    { id: 'case-studies', title: 'نماذج ناجحة للزي الموحد في المؤسسات السعودية' },
+    { id: 'challenges', title: 'تحديات وفرص تطوير الزي الموحد في المؤسسات السعودية' },
   ];
 
   const tags = ["الزي الموحد", "المملكة العربية السعودية", "الشركات السعودية", "الهوية المؤسسية", "رؤية 2030", "تصميم الأزياء"];
 
+  const relatedArticles = [
+    {
+      title: "ملابس العمل في المملكة: التطور والمعايير والتوجهات الحديثة",
+      description: "نظرة شاملة على صناعة ملابس العمل في المملكة العربية السعودية، تطورها، المعايير المعتمدة، والتوجهات المستقبلية",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/clothing-in-kingdom",
+      date: "٢٣ مايو ٢٠٢٤"
+    },
+    {
+      title: "الزي الموحد في القطاعات المختلفة: خصائصه ومميزاته ومتطلباته",
+      description: "استعراض شامل للزي الموحد في مختلف القطاعات الصناعية والخدمية والتعليمية",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/uniform-in",
+      date: "٢١ مايو ٢٠٢٤"
+    },
+    {
+      title: "أهمية الزي الموحد للشركات والمؤسسات",
+      description: "تحليل شامل لدور الزي الموحد في تعزيز الهوية المؤسسية وتحسين بيئة العمل وزيادة الإنتاجية",
+      image: "/images/workwear/workwear_maintenance.jpeg",
+      url: "/blog/workwear/importance-from-uniform",
+      date: "٢٧ مايو ٢٠٢٤"
+    }
+  ];
+
   return (
-    <BlogArticle
-      title="الزي الموحد في السعودية: الهوية والتصميم والتطبيق المؤسسي"
-      description="دراسة متعمقة للزي الموحد في المؤسسات السعودية، كيفية تصميمه وتطويره ليعكس الهوية الوطنية والمؤسسية، مع استعراض لنماذج ناجحة ومعايير التميز"
-      category="ملابس العمل"
-      categoryUrl="/blog/workwear"
-      heroImage="/images/utility_services/utility_uniforms.jpeg"
-      publishDate="٢٥ مايو ٢٠٢٤"
-      readTime="٨ دقائق للقراءة"
-      authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
-      authorTitle="خبراء ملابس العمل"
-      backUrl="/blog/workwear"
-      tags={tags}
-      relatedArticles={relatedArticles}
-    >
-      <Section id="intro" title="مقدمة">
-        <Paragraph isLead={true}>
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">الوسوم</h3>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يمثل الزي الموحد في المملكة العربية السعودية أكثر من مجرد ملابس عمل؛ فهو تعبير عن الهوية المؤسسية والثقافة التنظيمية، ووسيلة لتعزيز الانتماء وتمييز العلامة التجارية. مع تسارع وتيرة التحول الاقتصادي والتنظيمي في المملكة، أصبح الزي الموحد عنصراً استراتيجياً في منظومة التطوير المؤسسي.
-        </Paragraph>
-        <Paragraph>
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
           في هذا المقال، نستعرض واقع الزي الموحد في المؤسسات السعودية، مراحل تطوره، آليات تصميمه بما يتناسب مع الهوية الوطنية والمؤسسية، والمعايير المعتمدة في هذا المجال، بالإضافة إلى نماذج ناجحة من مختلف القطاعات.
-        </Paragraph>
-      </Section>
+              </p>
+            </section>
 
-      <Section id="history" title="تطور الزي الموحد في المؤسسات السعودية">
-        <Paragraph>
+            <section id="history" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تطور الزي الموحد في المؤسسات السعودية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           شهد الزي الموحد في المملكة العربية السعودية تطوراً ملحوظاً على مدى العقود الماضية، يعكس التحولات الاقتصادية والاجتماعية والمؤسسية في البلاد:
-        </Paragraph>
-        
-        <HighlightBox title="مراحل تطور الزي الموحد في المملكة" color="blue">
-          <BulletList>
-            <ListItem title="الجذور التقليدية (قبل ١٩٧٥)">
-              كان الزي الموحد مقتصراً على بعض القطاعات المحدودة مثل الجيش والشرطة والمستشفيات، متأثراً بالأنماط الغربية مع محاولات بسيطة لدمج العناصر المحلية. المؤسسات الأخرى كانت تعتمد بشكل أساسي على الزي التقليدي السعودي (الثوب والغترة) للرجال والعباءة للنساء، مع تمييز بسيط للمناصب المختلفة.
-            </ListItem>
-            <ListItem title="مرحلة البدايات المؤسسية (١٩٧٥-٢٠٠٠)">
-              مع نمو القطاع المصرفي والنفطي والخدمي، بدأت المؤسسات السعودية في تبني مفهوم الزي الموحد بشكل أكثر تنظيماً. اتسمت هذه المرحلة بمحاكاة النماذج الغربية مع إضافة لمسات بسيطة تشير إلى الهوية السعودية، مثل استخدام ألوان العلم الوطني أو بعض العناصر الزخرفية التقليدية.
-            </ListItem>
-            <ListItem title="مرحلة التأصيل والتميز (٢٠٠٠-٢٠١٥)">
-              شهدت هذه الفترة تزايد الاهتمام بتصميم أزياء موحدة أكثر ارتباطاً بالهوية الوطنية والثقافية السعودية، مع مراعاة المعايير المهنية العالمية. بدأت المؤسسات الكبرى في الاستعانة بمصممين متخصصين لتطوير أزياء موحدة تعكس هويتها الخاصة وتميزها في السوق.
-            </ListItem>
-            <ListItem title="مرحلة التحول والابتكار (٢٠١٥-الحاضر)">
-              مع إطلاق رؤية 2030 وبرامج التحول الوطني، دخل الزي الموحد مرحلة جديدة من الابتكار والتطوير. أصبحت الأزياء الموحدة أكثر تعبيراً عن التحول الذي تشهده المملكة، مع دمج متقن بين العناصر التقليدية والتصاميم العصرية. كما شهدت هذه المرحلة توسعاً في فرص عمل المرأة، مما أدى إلى تطوير أزياء موحدة نسائية تراعي الموازنة بين الاحترافية والخصوصية الثقافية.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-      </Section>
+              </p>
 
-      <ArticleImage 
-        src="/images/workwear/saudi_uniform_evolution.jpeg"
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">مراحل تطور الزي الموحد في المملكة</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li>
+                    <strong>الجذور التقليدية (قبل ١٩٧٥):</strong> كان الزي الموحد مقتصراً على بعض القطاعات المحدودة مثل الجيش والشرطة والمستشفيات، متأثراً بالأنماط الغربية مع محاولات بسيطة لدمج العناصر المحلية.
+                  </li>
+                  <li>
+                    <strong>مرحلة البدايات المؤسسية (١٩٧٥-٢٠٠٠):</strong> مع نمو القطاع المصرفي والنفطي والخدمي، بدأت المؤسسات السعودية في تبني مفهوم الزي الموحد بشكل أكثر تنظيماً.
+                  </li>
+                  <li>
+                    <strong>مرحلة التأصيل والتميز (٢٠٠٠-٢٠١٥):</strong> شهدت هذه الفترة تزايد الاهتمام بتصميم أزياء موحدة أكثر ارتباطاً بالهوية الوطنية والثقافية السعودية، مع مراعاة المعايير المهنية العالمية.
+                  </li>
+                  <li>
+                    <strong>مرحلة التحول والابتكار (٢٠١٥-الحاضر):</strong> مع إطلاق رؤية 2030 وبرامج التحول الوطني، دخل الزي الموحد مرحلة جديدة من الابتكار والتطوير. أصبحت الأزياء الموحدة أكثر تعبيراً عن التحول الذي تشهده المملكة، مع دمج متقن بين العناصر التقليدية والتصاميم العصرية. كما شهدت هذه المرحلة توسعاً في فرص عمل المرأة، مما أدى إلى تطوير أزياء موحدة نسائية تراعي الموازنة بين الاحترافية والخصوصية الثقافية.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="relative w-full h-[300px] my-8 rounded-lg overflow-hidden">
+                <Image
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="تطور الزي الموحد في المؤسسات السعودية"
-        caption="رحلة تطور الزي الموحد في المؤسسات السعودية: من التقليدية إلى الابتكار مع الحفاظ على الهوية"
+                  fill
+                  style={{ objectFit: 'cover' }}
       />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 text-sm">
+                  رحلة تطور الزي الموحد في المؤسسات السعودية: من التقليدية إلى الابتكار مع الحفاظ على الهوية
+                </div>
+              </div>
+            </section>
 
-      <Section id="identity" title="الزي الموحد والهوية السعودية">
-        <Paragraph>
+            <section id="identity" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الزي الموحد والهوية السعودية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           يمثل دمج عناصر الهوية السعودية في تصميم الزي الموحد تحدياً إبداعياً وفرصة للتميز في آن واحد. تسعى المؤسسات السعودية اليوم إلى تحقيق توازن دقيق بين الحداثة والأصالة في أزيائها الموحدة:
-        </Paragraph>
+              </p>
 
-        <HighlightBox title="عناصر الهوية السعودية في الزي الموحد" color="green">
-          <BulletList>
-            <ListItem title="الألوان الوطنية">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">الألوان الوطنية</h3>
+                  <p className="text-gray-700">
               يُعد استخدام اللون الأخضر ودرجاته، إلى جانب اللون الأبيض، من أبرز الطرق لإدخال الهوية الوطنية في الزي الموحد. تستخدم العديد من المؤسسات السعودية هذه الألوان بشكل رئيسي أو كعناصر تكميلية في الأزياء الموحدة.
-            </ListItem>
-            <ListItem title="النقوش والزخارف التراثية">
+                  </p>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">النقوش والزخارف التراثية</h3>
+                  <p className="text-gray-700">
               دمج العناصر الزخرفية المستوحاة من التراث السعودي مثل نقوش السدو، والخط العربي، وأنماط النخيل، في تفاصيل الزي الموحد مثل الأطراف، الياقات، أو الإكسسوارات.
-            </ListItem>
-            <ListItem title="القصات التقليدية المطورة">
-              استلهام بعض خصائص الملابس التقليدية السعودية وتطويرها لتتناسب مع بيئة العمل العصرية. على سبيل المثال، تصاميم مستوحاة من المشلح أو البشت للرجال، أو العباءة المطورة للنساء.
-            </ListItem>
-            <ListItem title="الاكسسوارات التكميلية">
-              استخدام إكسسوارات مستوحاة من التراث السعودي مثل الشماغ كوشاح مطور، أو استخدام دبابيس وشارات تحمل رموزاً سعودية كالنخلة أو السيفين.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+                  </p>
+                </div>
+              </div>
 
-        <Quote author="د. نورة العتيبي" source="أستاذة تصميم الأزياء بجامعة الأميرة نورة">
+              <div className="bg-gray-50 p-5 rounded-lg mb-6 border-r-4 border-gray-400">
+                <blockquote className="italic text-gray-700">
           الزي الموحد في المؤسسات السعودية يمر بمرحلة إعادة تعريف، حيث نشهد توجهاً متزايداً نحو تصاميم تجمع بين الأناقة العالمية والهوية الوطنية. النجاح في هذا المجال يتطلب فهماً عميقاً للتراث السعودي وقدرة على تقديمه بأسلوب عصري يتناسب مع متطلبات بيئة العمل المهنية.
-        </Quote>
-      </Section>
+                  <footer className="text-sm mt-2 text-gray-600">- د. نورة العتيبي، أستاذة تصميم الأزياء بجامعة الأميرة نورة</footer>
+                </blockquote>
+              </div>
+            </section>
 
-      <Section id="sectors" title="الزي الموحد في القطاعات السعودية المختلفة">
-        <Paragraph>
+            <section id="sectors" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الزي الموحد في القطاعات السعودية المختلفة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تختلف خصائص ومتطلبات الزي الموحد باختلاف القطاعات، مع الحفاظ على بعض العناصر المشتركة التي تعكس الهوية السعودية:
-        </Paragraph>
-        
-        <HighlightBox title="القطاع المصرفي والمالي" color="blue">
-          <BulletList>
-            <ListItem title="الخصائص المميزة">
-              يتميز الزي الموحد في البنوك والمؤسسات المالية السعودية بالأناقة والرسمية، مع تركيز على إظهار الاحترافية والثقة. غالباً ما يستخدم ألوان داكنة (كحلي، أسود، رمادي داكن) مع لمسات من ألوان العلامة التجارية للمؤسسة.
-            </ListItem>
-            <ListItem title="التطورات الحديثة">
-              شهدت السنوات الأخيرة توجهاً نحو تصاميم أكثر عصرية وراحة، مع الحفاظ على الطابع الرسمي. للرجال، بدلات عصرية مع ربطات عنق تحمل ألوان وشعار البنك. للنساء، تصاميم محتشمة وأنيقة تجمع بين المعايير المهنية العالمية والخصوصية الثقافية.
-            </ListItem>
-            <ListItem title="أمثلة بارزة">
-              تُعد مصارف مثل البنك الأهلي السعودي ومصرف الراجحي والبنك السعودي الفرنسي من الأمثلة البارزة على تطوير أزياء موحدة تعكس هوية المؤسسة وتراعي الخصوصية الثقافية.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              </p>
 
-        <HighlightBox title="قطاع الاتصالات والتقنية" color="amber">
-          <BulletList>
-            <ListItem title="الخصائص المميزة">
-              يميل الزي الموحد في شركات الاتصالات والتقنية السعودية إلى الطابع العصري والديناميكي، مع تركيز على الراحة وسهولة الحركة. تستخدم ألوان زاهية تعكس هوية العلامة التجارية، مع تصاميم أقل رسمية من القطاع المصرفي.
-            </ListItem>
-            <ListItem title="التطورات الحديثة">
-              التوجه نحو تصاميم عملية تناسب طبيعة العمل التفاعلية، مثل القمصان والسترات الخفيفة بدلاً من البدلات الرسمية. استخدام مكثف لشعار وألوان الشركة في التصميم لتعزيز التمييز البصري.
-            </ListItem>
-            <ListItem title="أمثلة بارزة">
-              تُعتبر شركة الاتصالات السعودية (STC) وشركة موبايلي من الأمثلة الناجحة في تطوير أزياء موحدة عصرية ومميزة تعكس هويتها المؤسسية.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">القطاع المصرفي والمالي</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>
+                      <strong>الخصائص المميزة:</strong> يتميز الزي الموحد في البنوك والمؤسسات المالية السعودية بالأناقة والرسمية، مع تركيز على إظهار الاحترافية والثقة.
+                    </li>
+                    <li>
+                      <strong>التطورات الحديثة:</strong> شهدت السنوات الأخيرة توجهاً نحو تصاميم أكثر عصرية وراحة، مع الحفاظ على الطابع الرسمي.
+                    </li>
+                    <li>
+                      <strong>أمثلة بارزة:</strong> تُعد مصارف مثل البنك الأهلي السعودي ومصرف الراجحي من الأمثلة البارزة على تطوير أزياء موحدة تعكس هوية المؤسسة.
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-        <KeyPointsBox 
-          title="قطاعات أخرى مهمة"
-          points={[
-            "الضيافة والفندقة: أزياء تجمع بين المعايير العالمية للضيافة والعناصر التراثية السعودية",
-            "الرعاية الصحية: زي موحد يراعي معايير النظافة والتعقيم مع تمييز واضح للتخصصات المختلفة",
-            "الطيران: زي أنيق يعكس الضيافة السعودية الأصيلة، كما في الخطوط السعودية وطيران أديل",
-            "التجزئة والمبيعات: أزياء عملية ومريحة بألوان العلامة التجارية، مع عناصر تميّز موظفي المبيعات"
-          ]}
-        />
-      </Section>
-
-      <ArticleImage 
-        src="/images/workwear/saudi_sectors_uniform.jpeg"
+              <div className="relative w-full h-[300px] my-8 rounded-lg overflow-hidden">
+                <Image
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="الزي الموحد في قطاعات سعودية مختلفة"
-        caption="نماذج مختلفة للزي الموحد في القطاعات السعودية: تنوع في التصميم مع وحدة في الهوية"
+                  fill
+                  style={{ objectFit: 'cover' }}
       />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 text-sm">
+                  نماذج مختلفة للزي الموحد في القطاعات السعودية: تنوع في التصميم مع وحدة في الهوية
+                </div>
+              </div>
+            </section>
 
-      <Section id="design" title="تصميم الزي الموحد في المؤسسات السعودية">
-        <Paragraph>
+            <section id="design" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تصميم الزي الموحد في المؤسسات السعودية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تتبع عملية تصميم الزي الموحد في المؤسسات السعودية منهجية متكاملة تراعي العديد من العوامل الثقافية والوظيفية والمؤسسية:
-        </Paragraph>
+              </p>
 
-        <HighlightBox title="مراحل تصميم الزي الموحد" color="green">
-          <BulletList>
-            <ListItem title="تحليل احتياجات المؤسسة">
-              دراسة طبيعة عمل المؤسسة، قيمها، هويتها البصرية، والصورة التي ترغب في إيصالها للجمهور. تحديد الوظائف والأقسام المختلفة وطبيعة عمل كل منها لتحديد المتطلبات الخاصة للزي.
-            </ListItem>
-            <ListItem title="مراعاة الخصوصية الثقافية">
-              تصميم زي يتناسب مع القيم والتقاليد السعودية، مع مراعاة المتطلبات الخاصة بملابس المرأة العاملة في البيئة السعودية (الحشمة، الراحة، الأناقة المهنية). الموازنة بين المعايير المهنية العالمية والهوية الثقافية المحلية.
-            </ListItem>
-            <ListItem title="اختيار المواد المناسبة">
-              انتقاء أقمشة تناسب المناخ السعودي الحار، توفر الراحة خلال ساعات العمل الطويلة، وتعكس جودة المؤسسة. التركيز على المواد سهلة العناية والمقاومة للتجعد، خاصة في ظل ارتفاع درجات الحرارة.
-            </ListItem>
-            <ListItem title="التصميم والاختبار">
-              تطوير نماذج أولية واختبارها مع مجموعة من الموظفين للتأكد من ملاءمتها لطبيعة العمل والراحة. إجراء التعديلات اللازمة بناءً على التغذية الراجعة قبل إطلاق التصميم النهائي.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="bg-green-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-green-800">مراحل تصميم الزي الموحد</h3>
+                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
+                  <li>
+                    <strong>تحليل احتياجات المؤسسة:</strong> دراسة طبيعة عمل المؤسسة، قيمها، هويتها البصرية، والصورة التي ترغب في إيصالها للجمهور.
+                  </li>
+                  <li>
+                    <strong>مراعاة الخصوصية الثقافية:</strong> تصميم زي يتناسب مع القيم والتقاليد السعودية، مع مراعاة المتطلبات الخاصة بملابس المرأة العاملة.
+                  </li>
+                  <li>
+                    <strong>اختيار المواد المناسبة:</strong> انتقاء أقمشة تناسب المناخ السعودي الحار، توفر الراحة خلال ساعات العمل الطويلة.
+                  </li>
+                  <li>
+                    <strong>التصميم والاختبار:</strong> تطوير نماذج أولية واختبارها مع مجموعة من الموظفين للتأكد من ملاءمتها لطبيعة العمل.
+                  </li>
+                </ol>
+              </div>
+            </section>
 
-        <KeyPointsBox 
-          title="اتجاهات حديثة في تصميم الزي الموحد السعودي"
-          points={[
-            "دمج التقنيات الذكية: أقمشة مقاومة للبقع والتجعد ومعالجة للتكيف مع المناخ الحار",
-            "التخصيص المتقدم: تصاميم قابلة للتعديل تناسب مختلف الأجسام والأذواق ضمن إطار موحد",
-            "البعد البيئي: التوجه نحو مواد واستراتيجيات إنتاج أكثر استدامة تماشياً مع الأهداف البيئية لرؤية 2030",
-            "التصميم بالمشاركة: إشراك الموظفين في عملية التصميم واختيار العناصر المفضلة لتعزيز الرضا والالتزام"
-          ]}
-        />
-      </Section>
-
-      <Section id="case-studies" title="نماذج ناجحة للزي الموحد في المؤسسات السعودية">
-        <Paragraph>
+            <section id="case-studies" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">نماذج ناجحة للزي الموحد في المؤسسات السعودية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
           تقدم بعض المؤسسات السعودية نماذج ملهمة في مجال تصميم وتطبيق الزي الموحد، تجمع بين الأصالة والعصرية وتحقق أهدافها المؤسسية:
-        </Paragraph>
+              </p>
 
-        <HighlightBox title="نموذج الخطوط السعودية" color="green">
-          <BulletList>
-            <ListItem title="الخصائص المميزة">
-              يُعد زي مضيفي ومضيفات الخطوط السعودية من أبرز الأمثلة على التصميم الذي يجمع بين الهوية الوطنية والمعايير العالمية. يتميز باستخدام ألوان العلم السعودي (الأخضر والأبيض) مع قصات عصرية أنيقة. للمضيفات، تصميم يجمع بين الحشمة والأناقة، مع غطاء رأس مبتكر يعكس هوية الشركة والخصوصية الثقافية.
-            </ListItem>
-            <ListItem title="عوامل النجاح">
-              الاستعانة بمصممين محترفين مع فهم عميق للتراث السعودي والاتجاهات العالمية. المراجعة المستمرة والتطوير الدوري للزي بما يتماشى مع تطور العلامة التجارية. اهتمام بالتفاصيل والإكسسوارات التي تعزز الهوية المميزة.
-            </ListItem>
-            <ListItem title="التأثير والنتائج">
-              أصبح زي الخطوط السعودية عنصراً أساسياً في هوية الشركة العالمية، وساهم في تعزيز صورتها كناقل جوي يجمع بين الأصالة والحداثة. حصد التصميم إشادات عالمية كأحد الأزياء المميزة في قطاع الطيران.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-green-800">نموذج الخطوط السعودية</h3>
+                  <p className="text-gray-700">
+                    يُعد زي مضيفي ومضيفات الخطوط السعودية من أبرز الأمثلة على التصميم الذي يجمع بين الهوية الوطنية والمعايير العالمية. يتميز باستخدام ألوان العلم السعودي (الأخضر والأبيض) مع قصات عصرية أنيقة.
+                  </p>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">نموذج شركة أرامكو السعودية</h3>
+                  <p className="text-gray-700">
+                    تعتمد أرامكو نظاماً متكاملاً للزي الموحد يختلف حسب طبيعة العمل والقطاع، مع الحفاظ على هوية موحدة. للعاملين في الحقول والمواقع الصناعية، زي عملي يركز على السلامة والراحة.
+                  </p>
+                </div>
+              </div>
 
-        <HighlightBox title="نموذج شركة أرامكو السعودية" color="blue">
-          <BulletList>
-            <ListItem title="الخصائص المميزة">
-              تعتمد أرامكو نظاماً متكاملاً للزي الموحد يختلف حسب طبيعة العمل والقطاع، مع الحفاظ على هوية موحدة. للعاملين في الحقول والمواقع الصناعية، زي عملي يركز على السلامة والراحة مع ألوان وشعارات الشركة. للمكاتب الإدارية، زي أكثر رسمية مع الحفاظ على الهوية المؤسسية.
-            </ListItem>
-            <ListItem title="عوامل النجاح">
-              نهج شامل يراعي التنوع الكبير في طبيعة العمل داخل الشركة. الالتزام بأعلى معايير السلامة والجودة في اختيار المواد والتصاميم. تحديث مستمر للأزياء مع الحفاظ على الاستمرارية والتناسق.
-            </ListItem>
-            <ListItem title="التأثير والنتائج">
-              ساهم نظام الزي الموحد في ترسيخ ثقافة مؤسسية قوية تجمع بين الاحترافية والانتماء. تعزيز صورة الشركة كمؤسسة عالمية ذات جذور سعودية راسخة.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-      </Section>
-
-      <Quote author="م. خالد الحميدي" source="مستشار تطوير الهوية المؤسسية">
+              <div className="bg-gray-50 p-5 rounded-lg mb-6 border-r-4 border-gray-400">
+                <blockquote className="italic text-gray-700">
         الزي الموحد في المؤسسات السعودية لم يعد مجرد عنصر شكلي، بل أصبح أداة استراتيجية لتعزيز الهوية والثقافة المؤسسية. النجاح في هذا المجال يتطلب نهجاً متكاملاً يوازن بين الاحتياجات العملية والقيم المؤسسية والخصوصية الثقافية.
-      </Quote>
+                  <footer className="text-sm mt-2 text-gray-600">- م. خالد الحميدي، مستشار تطوير الهوية المؤسسية</footer>
+                </blockquote>
+              </div>
+            </section>
 
-      <Section id="challenges" title="تحديات وفرص تطوير الزي الموحد في المؤسسات السعودية">
-        <Paragraph>
-          رغم التطور الملحوظ في مجال تصميم وتطبيق الزي الموحد في المملكة، ما زالت هناك تحديات تواجهها المؤسسات، تصاحبها فرص واعدة للتطوير والابتكار:
-        </Paragraph>
+            <section id="challenges" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تحديات وفرص تطوير الزي الموحد في المؤسسات السعودية</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                رغم التطور الملحوظ في مجال تصميم وتطبيق الزي الموحد في المملكة، ما زالت هناك تحديات تواجهها المؤسسات، تصاحبها فرص واعدة للتطوير والابتكار.
+              </p>
+              <p className="mb-4 leading-7 text-gray-700">
+                تشكل التغيرات المناخية والبيئية تحدياً يتطلب ابتكار حلول جديدة في ملابس العمل، مع ضرورة الموازنة بين الاحتياجات العملية والجوانب الثقافية والاجتماعية المميزة للمجتمع السعودي.
+              </p>
+            </section>
+          </article>
+        </div>
 
-        <HighlightBox title="التحديات الرئيسية" color="red">
-          <BulletList>
-            <ListItem title="الموازنة بين التقاليد والحداثة">
-              تحقيق التوازن الصحيح بين احترام القيم والتقاليد السعودية وتبني الاتجاهات العالمية الحديثة في تصميم الأزياء المؤسسية.
-            </ListItem>
-            <ListItem title="تنوع بيئات العمل والمناخ">
-              تصميم زي موحد يناسب طبيعة المناخ الحار في معظم مناطق المملكة، مع توفير خيارات مناسبة للمناطق والمواسم المختلفة.
-            </ListItem>
-            <ListItem title="التكيف مع المتغيرات">
-              تطوير نظام للزي الموحد يتسم بالمرونة والقدرة على التكيف مع المتغيرات المؤسسية والاجتماعية المتسارعة في المملكة.
-            </ListItem>
-            <ListItem title="التكلفة والاستدامة">
-              تحقيق التوازن بين جودة التصميم والمواد وبين التكلفة الإجمالية، مع مراعاة الأبعاد البيئية والاستدامة على المدى الطويل.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-
-        <HighlightBox title="الفرص الواعدة" color="green">
-          <BulletList>
-            <ListItem title="دعم المصممين المحليين">
-              فرصة لتطوير قطاع تصميم الأزياء السعودي من خلال الاعتماد على المواهب والكفاءات الوطنية في تصميم الأزياء الموحدة للمؤسسات الكبرى.
-            </ListItem>
-            <ListItem title="الابتكار التقني">
-              الاستفادة من التطورات التقنية في مجال المنسوجات الذكية وتقنيات الإنتاج المتقدمة لتطوير أزياء موحدة تجمع بين الوظيفة والراحة والأناقة.
-            </ListItem>
-            <ListItem title="التصنيع المحلي">
-              توطين صناعة الأزياء الموحدة بما يتماشى مع أهداف برنامج تطوير الصناعة الوطنية والخدمات اللوجستية.
-            </ListItem>
-            <ListItem title="الاستدامة والمسؤولية">
-              تبني نهج الاستدامة في تصميم وإنتاج الأزياء الموحدة، بما يتوافق مع الأهداف البيئية لرؤية 2030.
-            </ListItem>
-          </BulletList>
-        </HighlightBox>
-      </Section>
-
-      <Section id="future" title="مستقبل الزي الموحد في السعودية في ظل رؤية 2030">
-        <Paragraph>
-          تفتح رؤية المملكة 2030 آفاقاً جديدة لتطوير قطاع الأزياء الموحدة، من خلال برامج التحول الاقتصادي وتعزيز الصناعة المحلية وتطوير المحتوى الثقافي:
-        </Paragraph>
-
-        <KeyPointsBox 
-          title="توجهات مستقبلية واعدة"
-          points={[
-            "التكامل مع هيئة الأزياء: فرص للتعاون مع هيئة الأزياء السعودية لتطوير معايير وطنية وتقديم حلول مبتكرة للأزياء الموحدة",
-            "التصميم الرقمي المتقدم: استخدام تقنيات التصميم ثلاثي الأبعاد والمحاكاة الافتراضية لتطوير وتجربة التصاميم قبل الإنتاج",
-            "إنشاء مراكز تميز: تأسيس مراكز متخصصة لتصميم وتطوير الأزياء الموحدة تجمع بين الخبرات المحلية والعالمية",
-            "منظومة تدريب متكاملة: برامج لإعداد وتأهيل مصممين متخصصين في مجال الأزياء الموحدة المؤسسية"
-          ]}
-        />
-
-        <Paragraph>
-          يمثل مستقبل الزي الموحد في المملكة فرصة لتأكيد الهوية الوطنية والثقافية في سياق مهني وعالمي، مع المساهمة في التنمية الاقتصادية وتوطين المعرفة والمهارات في مجال تصميم وإنتاج الأزياء المتخصصة.
-        </Paragraph>
-      </Section>
-
-      <Section id="conclusion" title="الخلاصة">
-        <Paragraph>
-          يشهد الزي الموحد في المؤسسات السعودية مرحلة تحول نوعية، تعكس التطورات الاقتصادية والاجتماعية والثقافية في المملكة. من مجرد أداة للتمييز والالتزام، تحول الزي الموحد إلى عنصر استراتيجي في بناء الهوية المؤسسية وتعزيز الانتماء وتحسين صورة المؤسسة لدى العملاء والمجتمع.
-        </Paragraph>
-        <Paragraph>
-          نجحت العديد من المؤسسات السعودية في تطوير أزياء موحدة تجمع بين الأصالة والمعاصرة، وتوازن بين المتطلبات الوظيفية والهوية الثقافية. ومع استمرار التحول الاقتصادي والاجتماعي في المملكة، ستزداد أهمية الزي الموحد كأداة للتعبير عن قيم وتطلعات المؤسسات السعودية.
-        </Paragraph>
-        <Paragraph>
-          يتطلب تطوير هذا القطاع نهجاً متكاملاً يشمل دعم المصممين المحليين، توطين الصناعة، تبني التقنيات الحديثة، والابتكار المستمر في التصميم والمواد. وبذلك يمكن للزي الموحد في المؤسسات السعودية أن يتحول من مجرد عنصر وظيفي إلى تعبير أصيل عن هوية وطنية وثقافية متجددة.
-        </Paragraph>
-      </Section>
-    </BlogArticle>
+        {/* مقالات ذات صلة */}
+        <div className="mt-16 bg-white p-6 rounded-lg shadow-sm">
+          <h2 className="text-2xl font-bold mb-6 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {relatedArticles.map((article, index) => (
+              <Link key={index} href={article.url} className="group">
+                <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition border border-gray-100">
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={article.image}
+                      alt={article.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <span className="text-xs text-gray-500">{article.date}</span>
+                    <h3 className="text-lg font-semibold mt-1 mb-2 group-hover:text-primary transition">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2">{article.description}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
   );
 } 

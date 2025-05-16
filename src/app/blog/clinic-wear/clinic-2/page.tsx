@@ -1,320 +1,410 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaClock } from 'react-icons/fa';
+import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'اللوائح التنظيمية للزي الطبي في المنشآت الصحية السعودية',
-  description: 'دليل شامل حول اللوائح والأنظمة المتعلقة بالزي الطبي في المستشفيات والمراكز الصحية بالمملكة العربية السعودية، والإرشادات الرسمية من وزارة الصحة والهيئات التنظيمية',
+  title: 'معايير اختيار الزي الطبي للعيادات الخاصة',
+  description: 'دليل شامل لمعايير اختيار الزي الطبي المناسب للعيادات الخاصة بما يتوافق مع المتطلبات العملية والمهنية والتسويقية',
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/clinic_wear/clinic_staff_uniforms.jpg';
-  const title = 'معايير اختيار الملابس الطبية حسب متطلبات وزارة الصحة';
+export default function ClinicWear2() {
+  const imageSrc = '/images/clinic_wear/clinic_clothing.jpeg';
+  const title = 'معايير اختيار الزي الطبي للعيادات الخاصة';
+  const readingTime = '٦ دقائق للقراءة';
+  const datePublished = '١٢ يونيو ٢٠٢٤';
+
+  const relatedArticles = [
+    {
+      title: "الزي الطبي الحديث: مزايا وتطورات ملابس العيادات",
+      description: "استعراض شامل للتطورات الحديثة في تصميم الزي الطبي للعيادات وأهميته في تعزيز الصورة المهنية",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/clinic-wear/clinic-1",
+      date: "١٨ يونيو ٢٠٢٤",
+      category: "الزي الطبي"
+    },
+    {
+      title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
+      description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
+      date: "٢٠ يونيو ٢٠٢٤",
+      category: "أزياء الطهاة"
+    },
+    {
+      title: "اتجاهات تصميم ملابس الطهاة لعام 2025",
+      description: "استعراض لأحدث اتجاهات تصميم ملابس الطهاة المتوقعة في عام 2025",
+      image: "/images/clinic_wear/medical_wear.jpeg",
+      url: "/blog/chef-uniforms/in-design-clothing-chef-2025",
+      date: "١٠ يونيو ٢٠٢٤",
+      category: "أزياء الطهاة"
+    }
+  ];
+
+  const tags = ["معايير الزي الطبي", "ملابس العيادات الخاصة", "يونيفورم طبي", "اختيار الزي الطبي", "زي الأطباء", "الهوية البصرية للعيادات"];
+
+  // أقسام المقال للتنقل السريع
+  const sections = [
+    { id: 'intro', title: 'مقدمة' },
+    { id: 'professional-image', title: 'الصورة المهنية والهوية البصرية' },
+    { id: 'quality-standards', title: 'معايير الجودة والمتانة' },
+    { id: 'comfort-functionality', title: 'الراحة والوظائف العملية' },
+    { id: 'hygiene-safety', title: 'النظافة والسلامة' },
+    { id: 'clinic-types', title: 'اختيار الزي حسب نوع العيادة' },
+    { id: 'supplier-selection', title: 'معايير اختيار مورد الزي الطبي' },
+  ];
 
   return (
-    <main className="container mx-auto px-4 py-8 rtl">
-      <article className="prose prose-lg max-w-none">
-        <h1 className="text-3xl font-bold mb-6">{title}</h1>
-        
-        {imageSrc && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+    <main className="bg-gray-50 rtl">
+      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
+      <div className="relative w-full h-[60vh] mb-8">
             <Image
               src={imageSrc}
               alt={title}
               fill
+          priority
               style={{ objectFit: 'cover' }}
-              priority
-            />
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+          <div className="container mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
+            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
+              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
+              <span>{datePublished}</span>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-          <p className="mb-4">
-            يشكل الزي الطبي عنصراً أساسياً في منظومة الرعاية الصحية، حيث يتجاوز دوره الوظيفة العملية ليصبح جزءاً من هوية القطاع الصحي وصورته المهنية. وفي المملكة العربية السعودية، تولي الجهات التنظيمية والمؤسسات الصحية اهتماماً خاصاً بلوائح وسياسات الزي الطبي، نظراً لارتباطه المباشر بعدة جوانب حيوية كمكافحة العدوى، تمييز الكوادر الطبية، الحفاظ على الصورة المهنية، وتوافقه مع القيم والثقافة المحلية.
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* القائمة الجانبية */}
+          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+              <nav>
+                <ul className="space-y-2">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="border-t pt-4">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="border-t pt-4 mt-6">
+              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
+              <ul className="space-y-3">
+                {relatedArticles.map((article, index) => (
+                  <li key={index}>
+                    <Link href={article.url} className="text-sm hover:text-blue-600 block">
+                      {article.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+
+          {/* محتوى المقال الرئيسي */}
+          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
+            <section id="intro" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
+              <p className="mb-4 leading-7 text-gray-700">
+                يعد اختيار الزي الطبي المناسب للعيادات الخاصة قراراً استراتيجياً يتجاوز البعد الجمالي ليؤثر في ثقة المرضى، أداء الكادر الطبي، وصورة العيادة كمؤسسة صحية احترافية. في ظل المنافسة المتزايدة بين العيادات الخاصة في المملكة، أصبح الزي الطبي أحد عناصر التميز والهوية المؤسسية.
           </p>
-          <p className="mb-4">
-            مع التطور المستمر في القطاع الصحي السعودي وتبني أفضل الممارسات العالمية ضمن مبادرات رؤية 2030، شهدت اللوائح التنظيمية للزي الطبي تطوراً ملحوظاً لتواكب المعايير الدولية مع مراعاة الخصوصية الثقافية للمملكة. وتهدف هذه اللوائح إلى توحيد الممارسات، ضمان الالتزام بمعايير السلامة، وتعزيز ثقة المرضى في المؤسسات الصحية.
-          </p>
-          <p className="mb-4">
-            في هذا المقال، نقدم دليلاً شاملاً للوائح التنظيمية المتعلقة بالزي الطبي في المنشآت الصحية السعودية، مستعرضين الأنظمة الصادرة عن وزارة الصحة والهيئات التنظيمية المختصة، ومتطلبات الزي للتخصصات المختلفة، والاعتبارات الخاصة بمكافحة العدوى، إضافة إلى آليات تطبيق هذه اللوائح ومتابعة الالتزام بها. كما نتناول التحديات التي تواجه تطبيق هذه السياسات والتطورات المستقبلية المتوقعة في هذا المجال.
+              <p className="mb-4 leading-7 text-gray-700">
+                في هذا الدليل الشامل، نستعرض المعايير الأساسية لاختيار الزي الطبي المناسب للعيادات الخاصة، مع التركيز على الجوانب العملية والمهنية والتسويقية. سواء كنت تخطط لافتتاح عيادة جديدة أو تسعى لتحديث صورة عيادة قائمة، ستجد هنا إرشادات مفيدة لاتخاذ القرار الأمثل.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الإطار التنظيمي للزي الطبي في السعودية</h2>
+            <section id="professional-image" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الصورة المهنية والهوية البصرية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الجهات المسؤولة عن تنظيم الزي الطبي</h3>
-          <p className="mb-4">
-            المؤسسات الرسمية المعنية بالتشريع والرقابة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">وزارة الصحة السعودية: الجهة الرئيسية المسؤولة عن وضع السياسات العامة للزي الطبي في المنشآت الحكومية</li>
-            <li className="mb-2">الهيئة السعودية للتخصصات الصحية: تضع معايير الممارسة المهنية بما فيها متطلبات المظهر المهني</li>
-            <li className="mb-2">المركز السعودي لاعتماد المنشآت الصحية (CBAHI): يضع معايير الاعتماد المتعلقة بالزي ضمن إجراءات مكافحة العدوى</li>
-            <li className="mb-2">الهيئة العامة للغذاء والدواء: تنظم متطلبات جودة وسلامة مستلزمات الزي الطبي كمنتجات طبية</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">عناصر الصورة المهنية في الزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">التوافق مع الهوية البصرية:</span> اختيار ألوان وتصاميم تنسجم مع شعار وألوان العيادة لتعزيز التعرف على العلامة التجارية.</li>
+                  <li><span className="font-medium">التمييز بين الأدوار:</span> زي متباين يسمح للمرضى بالتمييز بسهولة بين الأطباء والممرضين والإداريين.</li>
+                  <li><span className="font-medium">التعبير عن تخصص العيادة:</span> عناصر تصميمية تعكس طبيعة التخصص الطبي (طب أطفال، جلدية، أسنان).</li>
+                  <li><span className="font-medium">الأناقة المهنية:</span> تصاميم تعكس مستوى العيادة وتضمن مظهراً احترافياً يبعث على الثقة.</li>
           </ul>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">التطور التاريخي للوائح الزي الطبي في المملكة</h3>
-          <p className="mb-4">
-            مراحل تطور الأنظمة والمعايير:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">مرحلة ما قبل 2000: لوائح أساسية مع تركيز على الحشمة والتمييز بين التخصصات</li>
-            <li className="mb-2">2000-2010: بداية توحيد معايير الزي في المستشفيات الحكومية ومواكبة المعايير الدولية</li>
-            <li className="mb-2">2010-2020: تطوير لوائح أكثر تفصيلاً مع التركيز على مكافحة العدوى بعد جائحة H1N1 وكورونا (MERS)</li>
-            <li className="mb-2">2020 وما بعدها: تحديث شامل للوائح بعد جائحة كوفيد-19 مع تبني أعلى معايير السلامة والوقاية</li>
-          </ul>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="أزياء طبية تعزز الصورة المهنية للعيادات"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  كادر طبي في عيادة خاصة يرتدي زياً موحداً يعزز الصورة المهنية والهوية البصرية للمؤسسة
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الوثائق التنظيمية الرئيسية</h3>
-          <p className="mb-4">
-            المستندات المرجعية للسياسات الحالية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">دليل سياسات وإجراءات مكافحة العدوى في المنشآت الصحية الصادر عن وزارة الصحة</li>
-            <li className="mb-2">لائحة آداب المهن الصحية الصادرة عن الهيئة السعودية للتخصصات الصحية</li>
-            <li className="mb-2">معايير الاعتماد الوطني للمستشفيات (النسخة الرابعة) الصادرة عن المركز السعودي لاعتماد المنشآت الصحية</li>
-            <li className="mb-2">سياسات الزي الموحد ضمن معايير برنامج مستشفى صديق المريض</li>
-          </ol>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">الزي الموحد في عيادتنا أصبح جزءاً أساسياً من استراتيجية التسويق. المرضى يتذكرون اللون المميز والتصميم الأنيق، وأصبح أحد عناصر هويتنا البصرية في مواد التسويق والتواصل الاجتماعي. كما أنه يعزز شعور الانتماء لدى فريق العمل.</p>
+                  <footer className="text-sm text-gray-600">— د. نورة العتيبي، مديرة عيادات الرياض للأسنان</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">متطلبات الزي الطبي الأساسية حسب التخصصات</h2>
+            <section id="quality-standards" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">معايير الجودة والمتانة</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">الأطباء والأخصائيون</h3>
-          <p className="mb-4">
-            المواصفات الرسمية للزي الطبي:
+              <p className="mb-4 leading-7 text-gray-700">
+                تمثل جودة الزي الطبي استثماراً طويل المدى يؤثر في عدة جوانب من عمل العيادة:
           </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">المعطف الطبي الأبيض (White Coat) بطول متوسط إلى طويل مع شعار المؤسسة الصحية</li>
-            <li className="mb-2">بطاقة الهوية المهنية التي توضح الاسم والتخصص بخط واضح وحجم مناسب</li>
-            <li className="mb-2">ملابس رسمية محتشمة تحت المعطف الطبي (للرجال: بنطلون وقميص رسمي، للنساء: زي محتشم يتوافق مع لوائح المؤسسة)</li>
-            <li className="mb-2">أحذية مغلقة وغير صاخبة ويفضل أن تكون سهلة التنظيف ومقاومة للانزلاق</li>
-          </ul>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">طاقم التمريض</h3>
-          <p className="mb-4">
-            الزي الموحد لفئات التمريض المختلفة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تمريض عام: زي موحد بألوان محددة حسب سياسة المستشفى تميز مستويات التمريض المختلفة</li>
-            <li className="mb-2">كبار الممرضين والمشرفين: زي بلون مختلف يميزهم عن باقي الطاقم التمريضي</li>
-            <li className="mb-2">وحدات العناية المركزة وغرف العمليات: سكراب أخضر أو أزرق مخصص لا يستخدم خارج هذه المناطق</li>
-            <li className="mb-2">عناصر إلزامية: غطاء رأس للعاملات، بطاقة هوية واضحة، حذاء مخصص للعمل الطبي</li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">مواصفات الأقمشة عالية الجودة</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>نسبة قطن لا تقل عن 35% لضمان الراحة</li>
+                    <li>كثافة نسيج 180-240 جم/م² للمتانة</li>
+                    <li>معالجة ضد الانكماش والتجعد</li>
+                    <li>ثبات الألوان بعد غسيل متكرر</li>
           </ul>
+                </div>
+                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">مؤشرات الجودة في التصنيع</h3>
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li>خياطة مزدوجة في المناطق المعرضة للضغط</li>
+                    <li>أزرار مثبتة بإحكام أو بدائل كالسحابات</li>
+                    <li>تقوية الجيوب وأماكن تعليق الأدوات</li>
+                    <li>تشطيبات نظيفة للحواف الداخلية</li>
+          </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">الفنيون والمساعدون الصحيون</h3>
-          <p className="mb-4">
-            خصائص الزي للكوادر المساندة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">فنيو المختبرات: معاطف بيضاء أو ملونة (غالباً زرقاء) مع واقيات إضافية حسب طبيعة العمل</li>
-            <li className="mb-2">فنيو الأشعة: زي خاص مميز (غالباً رمادي) مع مستلزمات الوقاية من الإشعاع</li>
-            <li className="mb-2">فنيو الصيدلية: معاطف مميزة (غالباً بيضاء أو خضراء فاتحة) تميزهم عن الكوادر الأخرى</li>
-            <li className="mb-2">المساعدون الصحيون: زي موحد بلون محدد مع شارات توضح طبيعة العمل</li>
-          </ol>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="معايير جودة الزي الطبي للعيادات"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  فحص جودة الأقمشة والخياطة في الزي الطبي المخصص للعيادات الخاصة
+                </div>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">معايير مكافحة العدوى في الزي الطبي</h2>
+            <section id="comfort-functionality" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الراحة والوظائف العملية</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">المتطلبات الأساسية لمكافحة العدوى</h3>
-          <p className="mb-4">
-            معايير إلزامية للوقاية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">الأكمام القصيرة في المعاطف والأزياء التي تلامس المرضى مباشرة (للسماح بتنظيف اليدين والذراعين بشكل فعال)</li>
-            <li className="mb-2">حظر ارتداء الزي الطبي خارج مناطق العمل أو المرور به من وإلى المنزل</li>
-            <li className="mb-2">توفير غرف تبديل ملابس ودواليب مخصصة للملابس الشخصية والزي الطبي</li>
-            <li className="mb-2">إلزامية تغيير الزي الملوث فوراً واتباع بروتوكولات محددة للتخلص منه أو معالجته</li>
+              <div className="rounded-lg overflow-hidden mb-6">
+                <div className="bg-blue-800 text-white py-2 px-4">
+                  <h3 className="text-xl font-medium">عناصر الراحة والوظائف العملية</h3>
+                </div>
+                <div className="bg-white border border-blue-200 p-4">
+                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                    <li><span className="font-medium">قابلية التنفس والتحكم في الحرارة:</span> خاصة في المناطق ذات المناخ الحار، وفي العيادات ذات التكييف القوي.</li>
+                    <li><span className="font-medium">خاصية التمدد والمرونة:</span> أقمشة تحتوي على نسبة سباندكس أو مواد مرنة تسمح بحرية الحركة.</li>
+                    <li><span className="font-medium">وزن مناسب للارتداء لساعات طويلة:</span> تجنب الأقمشة الثقيلة التي تسبب الإرهاق أثناء يوم عمل طويل.</li>
+                    <li><span className="font-medium">تصميم وظيفي للجيوب والحوامل:</span> جيوب بأحجام مناسبة للأدوات الطبية المستخدمة بشكل متكرر.</li>
           </ul>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">متطلبات إضافية للمناطق عالية الخطورة</h3>
-          <p className="mb-4">
-            إجراءات مشددة للمناطق الحرجة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">غرف العمليات: الزي الكامل (سكراب، غطاء رأس، كمامة، واقي أحذية) مع بروتوكولات صارمة للدخول والخروج</li>
-            <li className="mb-2">وحدات العزل: استخدام معدات الوقاية الشخصية (PPE) المناسبة حسب نوع العدوى</li>
-            <li className="mb-2">وحدات الحروق: زي معقم خاص مع متطلبات النظافة الفائقة</li>
-            <li className="mb-2">وحدات حديثي الولادة (NICU): زي نظيف مخصص لا يستخدم في مناطق أخرى</li>
-          </ol>
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="ملابس طبية مريحة وعملية للعيادات"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي طبي عصري يجمع بين الراحة والوظائف العملية لاستخدام يومي طويل في العيادات الخاصة
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">القيود على الإكسسوارات والحلي</h3>
-          <p className="mb-4">
-            ضوابط للعناصر الشخصية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">حظر الساعات والأساور والخواتم (باستثناء خاتم زواج بسيط) أثناء التعامل المباشر مع المرضى</li>
-            <li className="mb-2">تقييد استخدام أجهزة الهواتف المحمولة وحملها خلال العمل المباشر مع المرضى</li>
-            <li className="mb-2">قيود على أطوال الأظافر (يجب أن تكون قصيرة ونظيفة) ومنع الأظافر الاصطناعية</li>
-            <li className="mb-2">ضوابط على الشعر (يجب أن يكون مربوطاً ومغطى في المناطق عالية الخطورة)</li>
-          </ul>
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">عندما استثمرنا في زي طبي مريح وعملي، لاحظنا تحسناً في معنويات الفريق وإنتاجيتهم. أكثر ما يقدره الكادر الطبي هو الأقمشة المريحة خفيفة الوزن والتصميم العملي للجيوب، خاصة مع نوبات العمل الطويلة في العيادة.</p>
+                  <footer className="text-sm text-gray-600">— منال الشمري، مديرة التمريض في مجمع عيادات المستقبل</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">الاعتبارات الثقافية والدينية في لوائح الزي الطبي</h2>
+            <section id="hygiene-safety" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">النظافة والسلامة</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تعد معايير النظافة والسلامة من أهم الاعتبارات في اختيار الزي الطبي للعيادات، خاصة في ظل متطلبات مكافحة العدوى:
+              </p>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">مواصفات النظافة والسلامة في الزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">معالجات مضادة للميكروبات:</span> خصائص تثبط نمو البكتيريا وتقلل الروائح، خاصة في بيئات العمل المكثف.</li>
+                  <li><span className="font-medium">قابلية الغسل بدرجات حرارة عالية:</span> أقمشة تتحمل التنظيف بمواد مطهرة ودرجات حرارة لا تقل عن 60 درجة مئوية.</li>
+                  <li><span className="font-medium">معالجات طاردة للسوائل:</span> حماية من تسرب السوائل والبقع، مع المحافظة على قابلية التنفس.</li>
+                  <li><span className="font-medium">خصائص مقاومة الاشتعال:</span> خاصة للعيادات التي تستخدم فيها معدات ذات درجات حرارة عالية.</li>
+                  <li><span className="font-medium">تصميمات سهلة التنظيف:</span> تجنب التفاصيل المعقدة والزخارف التي يصعب تنظيفها أو تتراكم فيها الأوساخ.</li>
+          </ul>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="ملابس طبية مقاومة للميكروبات والبقع"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي طبي بمعالجات متقدمة مضادة للميكروبات وطاردة للسوائل لبيئة عمل أكثر نظافة وأماناً
+                </div>
+              </div>
+        </section>
+
+            <section id="clinic-types" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اختيار الزي حسب نوع العيادة</h2>
+              
+              <p className="mb-4 leading-7 text-gray-700">
+                تختلف متطلبات الزي الطبي باختلاف التخصص والفئة المستهدفة للعيادة:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">عيادات الأسنان</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>معاطف قصيرة أو بدلات ذات أكمام قصيرة للحركة</li>
+                      <li>ألوان فاتحة لإظهار أي تلوث أو بقع</li>
+                      <li>أقمشة مقاومة للماء والرذاذ</li>
+                      <li>جيوب إضافية لأدوات الأسنان الصغيرة</li>
+          </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-3 text-blue-800">عيادات الأطفال</h3>
+                  <div className="border-r-2 border-blue-500 pr-3">
+                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                      <li>ألوان زاهية ورسومات مرحة لخلق بيئة ودية</li>
+                      <li>تصميمات تحتوي على شخصيات كرتونية</li>
+                      <li>أقمشة ناعمة غير معالجة بمواد كيميائية قاسية</li>
+                      <li>جيوب إضافية للألعاب والمكافآت الصغيرة</li>
+          </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="زي طبي لعيادات الأطفال"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  زي طبي مصمم خصيصاً لعيادات الأطفال بألوان مرحة ورسومات تخفف من رهبة الزيارة الطبية
+                </div>
+              </div>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">توافق الزي مع الهوية الإسلامية والثقافة السعودية</h3>
-          <p className="mb-4">
-            مراعاة القيم المجتمعية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">توفير خيارات زي تتوافق مع متطلبات الحجاب والحشمة للكوادر النسائية</li>
-            <li className="mb-2">مواصفات خاصة للحجاب الطبي بما يضمن عدم تعارضه مع متطلبات مكافحة العدوى</li>
-            <li className="mb-2">توفر أزياء فضفاضة وغير شفافة تراعي قيم الاحتشام مع الحفاظ على الوظائف العملية</li>
-            <li className="mb-2">مراعاة الفصل بين أزياء الرجال والنساء مع تمييز الرتب المهنية لكل منها</li>
+              <div className="bg-blue-50 p-5 rounded-lg mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">أنواع أخرى من العيادات</h3>
+                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
+                  <li><span className="font-medium">عيادات التجميل والجلدية:</span> زي أنيق بتصميم عصري يعكس الذوق الرفيع، غالباً بألوان هادئة وخامات فاخرة.</li>
+                  <li><span className="font-medium">العيادات النسائية:</span> زي يراعي الخصوصية الثقافية مع ألوان ناعمة وتصميمات محتشمة.</li>
+                  <li><span className="font-medium">العيادات الجراحية:</span> زي عملي بدرجة عالية من الحماية والتعقيم، مع إمكانية ارتداء طبقات إضافية.</li>
+                  <li><span className="font-medium">عيادات الطب البديل والتأهيل:</span> زي مريح يسمح بحرية الحركة، غالباً بألوان محايدة تبعث على الاسترخاء.</li>
           </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التوازن بين المعايير الدولية والخصوصية المحلية</h3>
-          <p className="mb-4">
-            تكييف الممارسات العالمية:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تطويع المعايير العالمية للزي الطبي لتناسب البيئة السعودية</li>
-            <li className="mb-2">تقديم خيارات متنوعة تناسب العاملين من مختلف الجنسيات والثقافات</li>
-            <li className="mb-2">الموازنة بين الاعتبارات الثقافية ومتطلبات السلامة ومكافحة العدوى</li>
-            <li className="mb-2">تطوير حلول مبتكرة للتحديات الخاصة مثل أغطية الرأس المتوافقة مع معايير السلامة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تنوع الكوادر الصحية وتأثيره على سياسات الزي</h3>
-          <p className="mb-4">
-            مراعاة التعددية الثقافية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحديات دمج الكوادر الصحية الوافدة من ثقافات مختلفة ضمن نظام موحد للزي</li>
-            <li className="mb-2">مرونة في التطبيق مع الحفاظ على المعايير الأساسية غير القابلة للتفاوض</li>
-            <li className="mb-2">التوعية الثقافية المتبادلة بين الكوادر المحلية والوافدة حول أهمية الالتزام بمعايير الزي</li>
-            <li className="mb-2">دور المستشفيات التخصصية والمرجعية في وضع نماذج يحتذى بها</li>
-          </ul>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">آليات تطبيق لوائح الزي الطبي ومتابعة الالتزام</h2>
+            <section id="supplier-selection" className="mb-10">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">معايير اختيار مورد الزي الطبي</h2>
           
-          <h3 className="text-xl font-medium mt-6 mb-3">نظام إدارة الزي الطبي في المنشآت الصحية</h3>
-          <p className="mb-4">
-            الإدارة اليومية للزي الموحد:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحديد مسؤوليات واضحة للإدارات المعنية بالزي الطبي (الموارد البشرية، مكافحة العدوى، الإدارة التمريضية)</li>
-            <li className="mb-2">نظام توريد وتوزيع الزي الطبي مع مراعاة التجديد الدوري حسب الحاجة</li>
-            <li className="mb-2">توثيق استلام الزي والتوقيع على الالتزام بسياسات استخدامه</li>
-            <li className="mb-2">نظام الغسيل والتعقيم المركزي ضمن المنشأة أو عبر جهات متخصصة معتمدة</li>
-          </ul>
+              <p className="mb-4 leading-7 text-gray-700">
+                يؤثر اختيار المورد المناسب بشكل كبير على جودة الزي الطبي وتجربة العيادة على المدى الطويل:
+              </p>
 
-          <h3 className="text-xl font-medium mt-6 mb-3">برامج التدريب والتوعية</h3>
-          <p className="mb-4">
-            بناء ثقافة الالتزام:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">برامج تعريفية للموظفين الجدد حول سياسات الزي الطبي وأهميتها</li>
-            <li className="mb-2">تدريب دوري على مستجدات اللوائح وتطبيقاتها العملية</li>
-            <li className="mb-2">حملات توعوية حول أهمية الزي في مكافحة العدوى وبناء الصورة المهنية</li>
-            <li className="mb-2">مواد إرشادية واضحة (ملصقات، كتيبات، محتوى رقمي) في مناطق تبديل الملابس والمرافق المشتركة</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">آليات الرقابة والمتابعة</h3>
-          <p className="mb-4">
-            ضمان الامتثال للوائح:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">جولات تفتيش دورية من قبل إدارة مكافحة العدوى والجودة</li>
-            <li className="mb-2">نظام تقييم الالتزام بالزي ضمن معايير التقييم الدوري للموظفين</li>
-            <li className="mb-2">إجراءات تصاعدية للتعامل مع عدم الالتزام (تنبيه شفهي، إنذار كتابي، إجراءات تأديبية)</li>
-            <li className="mb-2">قنوات للإبلاغ عن المخالفات مع ضمان السرية وعدم التعرض للانتقام</li>
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
+                <h3 className="text-xl font-medium mb-3 text-blue-800">معايير تقييم موردي الزي الطبي</h3>
+                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
+                  <li><span className="font-medium">الخبرة في قطاع الرعاية الصحية:</span> الاستعانة بموردين متخصصين في الزي الطبي وليس موردي يونيفورم عامين.</li>
+                  <li><span className="font-medium">القدرة على التخصيص:</span> إمكانية تعديل التصاميم والألوان حسب هوية العيادة الخاصة.</li>
+                  <li><span className="font-medium">خدمات ما بعد البيع:</span> توفير خدمات الصيانة والاستبدال وإضافة قطع جديدة بنفس التصميم لاحقاً.</li>
+                  <li><span className="font-medium">الشهادات والمعايير:</span> حيازة المورد على شهادات الجودة مثل ISO 9001 وشهادات سلامة المنسوجات.</li>
+                  <li><span className="font-medium">المرونة في التوريد:</span> القدرة على توفير قطع إضافية بسرعة عند الحاجة أو تغيير المقاسات.</li>
           </ul>
+              </div>
+
+              <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/clinic_wear/medical_wear.jpeg"
+                  alt="إدارة توريد الزي الطبي للعيادات"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 text-sm">
+                  عملية تصميم وتوريد الزي الطبي المخصص للعيادات الخاصة مع فريق متخصص
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
+                <blockquote className="italic border-r-4 border-blue-500 pr-4 py-2 mb-4">
+                  <p className="text-gray-700">التعامل مع مورد متخصص في الزي الطبي وفر علينا الكثير من الوقت والجهد. خبرتهم في فهم متطلبات العيادات المختلفة ساعدتنا في اختيار الزي الأنسب لتخصصنا، كما وفروا خدمة ممتازة في التطريز والتخصيص والتبديل، وهو ما لم نجده مع الموردين العامين.</p>
+                  <footer className="text-sm text-gray-600">— د. عبدالرحمن السلمي، مؤسس مركز الرعاية الطبية المتكاملة</footer>
+                </blockquote>
+              </div>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التحديات والحلول في تطبيق لوائح الزي الطبي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">التحديات العملية الشائعة</h3>
-          <p className="mb-4">
-            معوقات التطبيق الميداني:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">مقاومة التغيير عند تحديث سياسات الزي خاصة من قبل الممارسين ذوي الخبرة الطويلة</li>
-            <li className="mb-2">تفاوت تطبيق اللوائح بين المنشآت الصحية الحكومية والخاصة والعسكرية</li>
-            <li className="mb-2">صعوبات لوجستية في توفير الزي المناسب لجميع الموظفين بمختلف القياسات</li>
-            <li className="mb-2">تحديات تطبيق سياسة "الزي داخل المنشأة فقط" في المستشفيات التي لا تتوفر فيها مرافق كافية لتبديل الملابس</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">الحلول والممارسات الناجحة</h3>
-          <p className="mb-4">
-            استراتيجيات فعالة للتغلب على التحديات:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">إشراك الممثلين من مختلف التخصصات الصحية في تطوير سياسات الزي وتحديثها</li>
-            <li className="mb-2">عرض الأدلة العلمية حول أهمية الزي المناسب في مكافحة العدوى والسلامة</li>
-            <li className="mb-2">تقديم حوافز للأقسام الملتزمة كجزء من برامج التميز والجودة</li>
-            <li className="mb-2">الاستثمار في تطوير حلول مبتكرة لتحسين متانة الزي وملاءمته مع الحفاظ على الوظائف الوقائية</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">نماذج ناجحة من منشآت صحية سعودية</h3>
-          <p className="mb-4">
-            قصص نجاح محلية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تجربة مدينة الملك فهد الطبية في تطوير نظام متكامل للزي الطبي مع نظام تتبع ذكي</li>
-            <li className="mb-2">نموذج مستشفى الملك فيصل التخصصي ومركز الأبحاث في تطبيق معايير عالمية مع مراعاة الخصوصية الثقافية</li>
-            <li className="mb-2">برنامج التجمع الصحي بالمنطقة الشرقية لتوحيد الزي الطبي عبر مختلف المنشآت التابعة له</li>
-            <li className="mb-2">مبادرات مستشفيات القطاع الخاص الرائدة في تطوير أزياء عصرية تجمع بين الأناقة والالتزام بالمعايير</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">التطورات المستقبلية في لوائح وتصاميم الزي الطبي</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3">تأثير التقنيات الحديثة على الزي الطبي</h3>
-          <p className="mb-4">
-            الابتكارات التكنولوجية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة ذكية مضادة للميكروبات ومقاومة للسوائل تقلل من انتقال العدوى</li>
-            <li className="mb-2">تقنيات النانو في معالجة الأقمشة لتحسين خصائص مكافحة العدوى والتنظيف الذاتي</li>
-            <li className="mb-2">زي طبي مزود بمستشعرات لمراقبة البيئة المحيطة والتنبيه عند التعرض للمخاطر</li>
-            <li className="mb-2">تقنيات الهوية بموجات الراديو (RFID) لتتبع وإدارة دورة حياة الزي الطبي</li>
-          </ul>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">التوجهات البيئية والاستدامة</h3>
-          <p className="mb-4">
-            الاعتبارات البيئية المتزايدة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">التحول نحو أقمشة صديقة للبيئة مع الحفاظ على معايير السلامة</li>
-            <li className="mb-2">تقليل استخدام الزي ذي الاستخدام الواحد إلا حيث تكون ضرورة طبية</li>
-            <li className="mb-2">تقنيات غسيل وتعقيم موفرة للماء والطاقة للأزياء القابلة لإعادة الاستخدام</li>
-            <li className="mb-2">برامج إعادة تدوير الزي الطبي المستهلك ضمن نظام الاقتصاد الدائري</li>
-          </ol>
-
-          <h3 className="text-xl font-medium mt-6 mb-3">تطور اللوائح التنظيمية في ضوء الدروس المستفادة</h3>
-          <p className="mb-4">
-            التحسين المستمر للأنظمة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تحديث اللوائح لتشمل التقنيات الجديدة والممارسات المبتكرة</li>
-            <li className="mb-2">تنسيق أكبر بين الجهات التنظيمية المختلفة لضمان اتساق المتطلبات</li>
-            <li className="mb-2">توجه نحو معايير قائمة على الأدلة بدلاً من الإجراءات التقليدية غير المثبتة علمياً</li>
-            <li className="mb-2">تطوير أنظمة أكثر مرونة تستجيب بسرعة للأزمات الصحية والتهديدات المستجدة</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-          <p className="mb-4">
-            تمثل اللوائح التنظيمية للزي الطبي في المنشآت الصحية السعودية جانباً مهماً من منظومة الرعاية الصحية، حيث تجمع بين الاعتبارات العملية للسلامة ومكافحة العدوى، والجوانب المهنية لبناء صورة محترفة، والابعاد الثقافية التي تراعي خصوصية المجتمع السعودي. وقد شهدت هذه اللوائح تطوراً ملحوظاً على مدى السنوات، مستفيدة من التجارب العالمية والمحلية، ومستجيبة للتحديات الصحية المختلفة.
-          </p>
-          <p className="mb-4">
-            إن نجاح تطبيق هذه اللوائح يعتمد على التوازن الدقيق بين المعايير الصارمة والتطبيق العملي، وبين المتطلبات العالمية والخصوصية المحلية. كما يتطلب نظاماً متكاملاً للإدارة والمتابعة، وثقافة مؤسسية تدرك أهمية الزي الطبي كجزء من منظومة الجودة والسلامة. وتظل المشاركة الفعالة للكوادر الصحية في تطوير هذه اللوائح وتطبيقها عاملاً حاسماً في قبولها والالتزام بها.
-          </p>
-          <p className="mb-4">
-            مع التطور المستمر في القطاع الصحي السعودي ضمن رؤية 2030، والابتكارات المتسارعة في مجال تصنيع الملابس الطبية، تبرز الحاجة إلى مراجعة مستمرة وتحديث دوري للوائح الزي الطبي. ويظل التحدي الأكبر هو موازنة متطلبات الابتكار والمرونة مع الحفاظ على المعايير الأساسية للسلامة والجودة والالتزام بالقيم المهنية والثقافية.
-          </p>
-          <p className="mb-4">
-            إن مستقبل الزي الطبي في المملكة لا يتوقف عند مجرد توحيد المظهر، بل يتجه نحو أزياء ذكية متطورة تسهم في تعزيز سلامة المرضى والعاملين، وتحسين كفاءة العمل، وتقليل الأثر البيئي، مع الحفاظ على الهوية المهنية والثقافية المميزة للرعاية الصحية في المملكة العربية السعودية.
-          </p>
-        </section>
+            <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-10">
+              <h2 className="text-xl font-semibold mb-3">الكلمات المفتاحية</h2>
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-200 mt-10 pt-6">
+              <h2 className="text-xl font-semibold mb-4">مقالات ذات صلة</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {relatedArticles.map((article, index) => (
+                  <div key={index} className="border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold mb-2 text-blue-900 hover:text-blue-700">
+                        <Link href={article.url}>
+                          {article.title}
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-2">{article.date}</p>
+                      <p className="text-sm text-gray-700 line-clamp-2">{article.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
       </article>
+        </div>
+      </div>
     </main>
   );
 }

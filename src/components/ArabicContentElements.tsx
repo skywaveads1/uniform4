@@ -151,9 +151,11 @@ export function ArticleImage({ src, alt, caption, source }: ArticleImageProps) {
       <div className="relative h-80 rounded-xl overflow-hidden shadow-lg">
         <Image
           src={src}
-          alt={alt}
+          alt={alt || "صورة توضيحية متعلقة بالمحتوى"}
           fill
           className="object-cover"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
         />
         {source && (
           <div className="absolute bottom-0 right-0 bg-black/60 text-white text-sm p-2 rounded-tl-md">

@@ -9,6 +9,9 @@ export const metadata = {
   description: 'استكشاف عملية تصميم زي طاقم طيران يجمع بين الهوية السعودية الأصيلة ومتطلبات الطيران العصرية، مع دراسة العناصر الثقافية والرموز التراثية التي تميز هذه الأزياء',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
   const title = 'كيف يتم تصميم زي طاقم طيران يعكس الثقافة السعودية؟';

@@ -6,6 +6,9 @@ export const metadata = {
   description: 'رحلة تاريخية في تطور أزياء طاقم الطائرة منذ بدايات الطيران التجاري وحتى يومنا هذا، واستكشاف كيف عكست هذه الأزياء التغيرات الاجتماعية والثقافية والتكنولوجية.',
 };
 
+// صورة الهيدر للمقال
+const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+
 export default function ArticlePage() {
   const imageSrc = '/images/flight_crew/crew_uniform_evolution.jpeg';
   const title = 'تطور زي طاقم الطائرة عبر العصور';

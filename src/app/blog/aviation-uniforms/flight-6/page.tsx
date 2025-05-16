@@ -21,7 +21,7 @@ export default function Page() {
     {
       title: "تأثير الثقافة المحلية على تصميم أزياء شركات الطيران",
       description: "استكشاف كيفية تأثير الثقافة المحلية والهوية الوطنية على تصميم أزياء شركات الطيران في مختلف أنحاء العالم مع التركيز على المنطقة العربية",
-      image: "/images/flight_crew/cultural_influence_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-5",
       date: "٢٠ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -29,7 +29,7 @@ export default function Page() {
     {
       title: "أزياء الطيران النسائية: تطورها وخصائصها الحديثة",
       description: "استكشاف شامل لتاريخ تطور أزياء الطيران النسائية وأحدث خصائصها ومميزاتها في عصرنا الحالي",
-      image: "/images/flight_crew/women_aviation_uniforms.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/flight-3",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -37,7 +37,7 @@ export default function Page() {
     {
       title: "اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة",
       description: "دليل شامل لاختيار أفضل أنواع الأقمشة المستخدمة في صناعة أزياء طاقم الطائرة",
-      image: "/images/flight_crew/cabin_crew_fabrics.jpg",
+      image: "/images/aviation_uniforms/airline_uniform_design.jpeg",
       url: "/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection",
       date: "١٥ مايو ٢٠٢٤",
       category: "أزياء الطيران"
@@ -52,7 +52,7 @@ export default function Page() {
       description="استكشاف أهمية الأوشحة ولفحات الرقبة في زي مضيفات الطيران، تاريخها، تصاميمها، وكيفية اختيارها بشكل يعكس هوية شركة الطيران"
       category="أزياء الطيران"
       categoryUrl="/blog/aviation"
-      heroImage="/images/flight_crew/aviation_scarves.jpg"
+      heroImage="/images/aviation_uniforms/header_airline_uniform.jpeg"
       publishDate="٢٣ مايو ٢٠٢٤"
       readTime="١٠ دقائق للقراءة"
       authorName="فريق يونيفورم"
@@ -73,7 +73,7 @@ export default function Page() {
         </Paragraph>
         
         <ArticleImage 
-          src="/images/flight_crew/airline_scarves_collection.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مجموعة متنوعة من أوشحة شركات الطيران العالمية"
           caption="مجموعة من الأوشحة المميزة لمضيفات الطيران من مختلف شركات الطيران العالمية"
           source="معرض أزياء الطيران الدولي"
@@ -121,7 +121,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/scarf_evolution_timeline.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="تطور أوشحة مضيفات الطيران عبر العقود"
           caption="تطور تصاميم أوشحة مضيفات الطيران منذ ثلاثينيات القرن العشرين وحتى الوقت الحاضر"
           source="أرشيف متحف الطيران المدني العالمي"
@@ -179,7 +179,7 @@ export default function Page() {
         </BulletList>
 
         <ArticleImage 
-          src="/images/flight_crew/scarf_types_comparison.jpg"
+          src="/images/aviation_uniforms/airline_uniform_design.jpeg"
           alt="مقارنة بين أنواع مختلفة من أوشحة مضيفات الطيران"
           caption="الأنواع الرئيسية للأوشحة المستخدمة في زي مضيفات الطيران حول العالم"
           source="دليل تصميم أزياء الطيران العالمي"

@@ -18,7 +18,7 @@ export default function DesignUniformMaintenance() {
     {
       title: "ملابس العمل: أنواعها ومواصفاتها وأهميتها",
       description: "دليل شامل حول أنواع ملابس العمل المختلفة ومواصفاتها وفوائدها في تحسين بيئة العمل",
-      image: "/images/workwear/workwear_types.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/clothing",
       date: "٨ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -26,7 +26,7 @@ export default function DesignUniformMaintenance() {
     {
       title: "كيفية اختيار ملابس العمل المناسبة",
       description: "دليل شامل لاختيار ملابس العمل المناسبة للمهن المختلفة مع مراعاة عوامل السلامة والراحة",
-      image: "/images/workwear/choosing_workwear.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/how-to-choosing",
       date: "١٠ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -34,7 +34,7 @@ export default function DesignUniformMaintenance() {
     {
       title: "العناية بملابس العمل وأثرها على الصحة المهنية",
       description: "دليل شامل حول كيفية العناية بملابس العمل للحفاظ على جودتها وتأثير ذلك على صحة وسلامة الموظفين",
-      image: "/images/workwear/clothing_maintenance.jpeg",
+      image: "/images/workwear/workwear_maintenance.jpeg",
       url: "/blog/workwear/clothing-maintenance-work-health",
       date: "١ مايو ٢٠٢٤",
       category: "ملابس العمل"
@@ -49,11 +49,11 @@ export default function DesignUniformMaintenance() {
       description="دليل شامل حول كيفية تصميم الزي الموحد للشركات وطرق صيانته للحفاظ على مظهره الاحترافي وإطالة عمره الافتراضي"
       category="ملابس العمل"
       categoryUrl="/blog/workwear"
-      heroImage="/images/utility_services/utility_uniforms.jpeg"
+      heroImage="/images/workwear/workwear_maintenance.jpeg"
       publishDate="١٥ مايو ٢٠٢٤"
       readTime="٩ دقائق للقراءة"
       authorName="فريق يونيفورم"
-      authorImage="/images/author/uniform_team.png"
+      authorImage="/images/author/team.jpg"
       authorTitle="خبراء ملابس العمل"
       backUrl="/blog/workwear"
       tags={tags}
@@ -107,7 +107,7 @@ export default function DesignUniformMaintenance() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/design_process.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="عملية تصميم الزي الموحد"
         caption="تصميم الزي الموحد عملية متكاملة تبدأ من فهم هوية المؤسسة وتنتهي بتنفيذ يحقق أهدافها"
       />
@@ -193,7 +193,7 @@ export default function DesignUniformMaintenance() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/design_elements.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="عناصر تصميم الزي الموحد"
         caption="الألوان والشعارات والقصّات والمواد تشكل معًا هوية متكاملة للزي الموحد"
       />
@@ -278,7 +278,7 @@ export default function DesignUniformMaintenance() {
       </Section>
 
       <ArticleImage 
-        src="/images/workwear/care_guidelines.jpeg"
+        src="/images/workwear/workwear_maintenance.jpeg"
         alt="إرشادات العناية بالزي الموحد"
         caption="العناية المناسبة بالزي الموحد تضمن استمرار مظهره الاحترافي وتطيل عمره الافتراضي"
       />
