@@ -1,20 +1,52 @@
-# Uniform Blogs - موقع الأزياء الموحدة
+# Uniform Company Website
 
-موقع متخصص في الأزياء الموحدة ومدونة للمحتوى المتخصص في مجال اليونيفورم.
+A Next.js-based website for a uniform company, optimized for performance and SEO.
 
-## كيفية تشغيل الموقع محلياً
+## Features
 
-1. قم بتثبيت الاعتمادات:
+- Static site generation with Next.js
+- Image optimization with WebP format support
+- Lazy loading images
+- SEO optimizations with metadata and structured data
+- Performance optimizations with resource hints
+- PWA capabilities with web app manifest
+- Sitemap generation
+- Blog with multiple categories
+- Responsive design
+
+## Tech Stack
+
+- Next.js 13+
+- React
+- TypeScript
+- TailwindCSS
+
+## Development
+
+### Setup
 ```bash
 npm install
 ```
 
-2. قم بتشغيل الموقع في وضع التطوير:
+### Development Server
 ```bash
 npm run dev
 ```
 
-3. افتح المتصفح على العنوان: `http://localhost:3000`
+### Build
+```bash
+npm run build
+```
+
+### Generate Sitemap
+```bash
+npm run generate-sitemap
+```
+
+### Optimize Images
+```bash
+npm run optimize-images
+```
 
 ## بناء الموقع للإنتاج
 
