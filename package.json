@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,7 @@
     "optimize-images": "node optimize-images-advanced.js",
     "minify": "node minify-assets.js",
     "clean": "rimraf .next out",
-    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && next build",
+    "netlify-deploy": "next build",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
