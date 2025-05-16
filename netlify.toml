@@ -48,3 +48,168 @@
     "bing"
   ]
 
+# Redirects for blog posts that are returning 404 errors
+[[redirects]]
+  from = "/blog/flight-crew/flight-1"
+  to = "/blog/flight-crew/flight-1/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-2"
+  to = "/blog/flight-crew/flight-2/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-3"
+  to = "/blog/flight-crew/flight-3/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-4"
+  to = "/blog/flight-crew/flight-4/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-5"
+  to = "/blog/flight-crew/flight-5/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-6"
+  to = "/blog/flight-crew/flight-6/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-7"
+  to = "/blog/flight-crew/flight-7/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-8"
+  to = "/blog/flight-crew/flight-8/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-9"
+  to = "/blog/flight-crew/flight-9/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-10"
+  to = "/blog/flight-crew/flight-10/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-11"
+  to = "/blog/flight-crew/flight-11/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-12"
+  to = "/blog/flight-crew/flight-12/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-13"
+  to = "/blog/flight-crew/flight-13/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-14"
+  to = "/blog/flight-crew/flight-14/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-15"
+  to = "/blog/flight-crew/flight-15/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-16"
+  to = "/blog/flight-crew/flight-16/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-17"
+  to = "/blog/flight-crew/flight-17/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/flight-crew/flight-18"
+  to = "/blog/flight-crew/flight-18/"
+  status = 301
+  force = true
+
+# Redirects for other main pages
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/quote"
+  to = "/quote/"
+  status = 301
+  force = true
+
+# Catch-all redirect for blog category pages
+[[redirects]]
+  from = "/blog/flight-crew/*"
+  to = "/blog/flight-crew/index.html"
+  status = 200
+  force = false
+
+# Catch-all fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+

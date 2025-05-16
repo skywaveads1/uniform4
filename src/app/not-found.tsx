@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'الصفحة غير موجودة | يونيفورم - الأزياء الموحدة المتخصصة',
@@ -12,22 +13,67 @@ export const metadata = {
 export default function NotFound() {
   const popularLinks = [
     { href: '/', label: 'الصفحة الرئيسية' },
-    { href: '/services', label: 'خدماتنا' },
-    { href: '/blog', label: 'المدونة' },
-    { href: '/contact', label: 'اتصل بنا' },
-    { href: '/quote', label: 'طلب عرض سعر' },
+    { href: '/services/', label: 'خدماتنا' },
+    { href: '/blog/', label: 'المدونة' },
+    { href: '/contact/', label: 'اتصل بنا' },
+    { href: '/quote/', label: 'طلب عرض سعر' },
   ];
 
   const categories = [
-    { href: '/blog?category=flight_crew', label: 'أزياء الطيران' },
-    { href: '/blog?category=clinic_wear', label: 'الأزياء الطبية' },
-    { href: '/blog?category=culinary_apparel', label: 'أزياء الطهاة' },
-    { href: '/blog?category=academic_attire', label: 'الزي الأكاديمي' },
-    { href: '/blog?category=protective_services', label: 'خدمات الحماية' },
+    { href: '/blog/?category=flight_crew', label: 'أزياء الطيران' },
+    { href: '/blog/?category=clinic_wear', label: 'الأزياء الطبية' },
+    { href: '/blog/?category=culinary_apparel', label: 'أزياء الطهاة' },
+    { href: '/blog/?category=academic_attire', label: 'الزي الأكاديمي' },
+    { href: '/blog/?category=protective_services', label: 'خدمات الحماية' },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <Script id="404-redirect-script" strategy="beforeInteractive">
+        {`
+          // This script attempts to fix common URL patterns causing 404 errors
+          (function() {
+            try {
+              const currentPath = window.location.pathname;
+              let redirectTo = null;
+              
+              // Fix URLs without trailing slash
+              if (currentPath !== '/' && !currentPath.endsWith('/')) {
+                redirectTo = currentPath + '/';
+              }
+              
+              // Fix blog post URLs
+              const blogPostMatch = currentPath.match(/\\/blog\\/([^\\/]+)\\/([^\\/]+)$/);
+              if (blogPostMatch) {
+                redirectTo = \`/blog/\${blogPostMatch[1]}/\${blogPostMatch[2]}/\`;
+              }
+              
+              // Fix category URLs
+              const categoryMatch = currentPath.match(/\\/blog\\?category=([^&]+)$/);
+              if (categoryMatch) {
+                redirectTo = \`/blog/?category=\${categoryMatch[1]}\`;
+              }
+              
+              // Fix main section URLs
+              const mainSections = ['about', 'contact', 'faq', 'terms', 'privacy', 'quote', 'blog'];
+              for (const section of mainSections) {
+                if (currentPath === \`/\${section}\`) {
+                  redirectTo = \`/\${section}/\`;
+                  break;
+                }
+              }
+              
+              // Redirect if needed
+              if (redirectTo && redirectTo !== currentPath) {
+                console.log('Redirecting from', currentPath, 'to', redirectTo);
+                window.location.href = redirectTo;
+              }
+            } catch (error) {
+              console.error('Error in 404 redirect script:', error);
+            }
+          })();
+        `}
+      </Script>
       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="p-5 sm:p-10 text-center">
           <h1 className="text-6xl font-bold text-gray-800 mb-2">404</h1>

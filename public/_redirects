@@ -14,3 +14,45 @@ https://uniform-blogs.netlify.app/* https://uniform-blogs.com/:splat 301!
 
 # SPA fallback for client-side routing
 /* /index.html 200 
+
+# These rules will handle URL redirects to fix 404 errors
+
+# Always ensure URLs have trailing slashes (important for static sites)
+/blog             /blog/              301
+/about            /about/             301
+/contact          /contact/           301
+/faq              /faq/               301
+/terms            /terms/             301
+/privacy          /privacy/           301
+/quote            /quote/             301
+
+# Flight crew blog post redirects
+/blog/flight-crew/flight-1      /blog/flight-crew/flight-1/      301
+/blog/flight-crew/flight-2      /blog/flight-crew/flight-2/      301
+/blog/flight-crew/flight-3      /blog/flight-crew/flight-3/      301
+/blog/flight-crew/flight-4      /blog/flight-crew/flight-4/      301
+/blog/flight-crew/flight-5      /blog/flight-crew/flight-5/      301
+/blog/flight-crew/flight-6      /blog/flight-crew/flight-6/      301
+/blog/flight-crew/flight-7      /blog/flight-crew/flight-7/      301
+/blog/flight-crew/flight-8      /blog/flight-crew/flight-8/      301
+/blog/flight-crew/flight-9      /blog/flight-crew/flight-9/      301
+/blog/flight-crew/flight-10     /blog/flight-crew/flight-10/     301
+/blog/flight-crew/flight-11     /blog/flight-crew/flight-11/     301
+/blog/flight-crew/flight-12     /blog/flight-crew/flight-12/     301
+/blog/flight-crew/flight-13     /blog/flight-crew/flight-13/     301
+/blog/flight-crew/flight-14     /blog/flight-crew/flight-14/     301
+/blog/flight-crew/flight-15     /blog/flight-crew/flight-15/     301
+/blog/flight-crew/flight-16     /blog/flight-crew/flight-16/     301
+/blog/flight-crew/flight-17     /blog/flight-crew/flight-17/     301
+/blog/flight-crew/flight-18     /blog/flight-crew/flight-18/     301
+
+# Category page redirects
+/blog?category=flight_crew       /blog/?category=flight_crew       301
+/blog?category=clinic_wear       /blog/?category=clinic_wear       301
+/blog?category=culinary_apparel  /blog/?category=culinary_apparel  301
+
+# Handle all blog posts not covered above
+/blog/flight-crew/* /blog/flight-crew/:splat/ 301
+
+# Handle any other missing or non-existent paths
+/* /index.html 200! 

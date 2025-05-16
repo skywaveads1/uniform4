@@ -6,6 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
+  trailingSlash: true, // Add trailing slashes to URLs (important for static export)
   images: {
     domains: ['example.com', 'yourdomain.com'],
     formats: ['image/webp', 'image/avif'],
@@ -14,7 +15,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: true, // Required when using output: 'export'
   },
-  skipTrailingSlashRedirect: true,
+  skipTrailingSlashRedirect: false, // We want redirects to the trailingSlash version
   // i18n removed because it's not compatible with output: export
   poweredByHeader: false,
   compress: true,

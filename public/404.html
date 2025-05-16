@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة غير موجودة | يونيفورم - الأزياء الموحدة المتخصصة</title>
+  <meta name="description" content="عذراً، الصفحة التي تبحث عنها غير موجودة. يمكنك العودة للصفحة الرئيسية أو تصفح خدماتنا.">
+  <meta name="robots" content="noindex,follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 90%;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #1e40af;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    p {
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+    }
+    .back-home {
+      display: inline-block;
+      background-color: #1e40af;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.2s;
+    }
+    .back-home:hover {
+      background-color: #1e3a8a;
+    }
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+    @media (min-width: 640px) {
+      .links-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .links-section {
+      margin-bottom: 1rem;
+      text-align: right;
+    }
+    .links-section h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: #1e40af;
+    }
+    .links-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .links-section li {
+      margin-bottom: 0.5rem;
+    }
+    .links-section a {
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .links-section a:hover {
+      color: #1e40af;
+      text-decoration: underline;
+    }
+  </style>
+  
+  <!-- 404 Redirect Script -->
+  <script>
+    // This script attempts to fix common URL patterns causing 404 errors
+    (function() {
+      try {
+        const currentPath = window.location.pathname;
+        let redirectTo = null;
+        
+        // Fix URLs without trailing slash
+        if (currentPath !== '/' && !currentPath.endsWith('/')) {
+          redirectTo = currentPath + '/';
+        }
+        
+        // Fix blog post URLs
+        const blogPostMatch = currentPath.match(/\/blog\/([^\/]+)\/([^\/]+)$/);
+        if (blogPostMatch) {
+          redirectTo = `/blog/${blogPostMatch[1]}/${blogPostMatch[2]}/`;
+        }
+        
+        // Fix category URLs
+        const categoryMatch = currentPath.match(/\/blog\?category=([^&]+)$/);
+        if (categoryMatch) {
+          redirectTo = `/blog/?category=${categoryMatch[1]}`;
+        }
+        
+        // Fix main section URLs
+        const mainSections = ['about', 'contact', 'faq', 'terms', 'privacy', 'quote', 'blog'];
+        for (const section of mainSections) {
+          if (currentPath === `/${section}`) {
+            redirectTo = `/${section}/`;
+            break;
+          }
+        }
+        
+        // Redirect if needed
+        if (redirectTo && redirectTo !== currentPath) {
+          console.log('Redirecting from', currentPath, 'to', redirectTo);
+          window.location.href = redirectTo;
+        }
+      } catch (error) {
+        console.error('Error in 404 redirect script:', error);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>عذراً، الصفحة غير موجودة</h2>
+    <p>يبدو أن الصفحة التي تبحث عنها قد تم نقلها أو حذفها أو أنها غير موجودة.</p>
+    
+    <a href="/" class="back-home">العودة للصفحة الرئيسية</a>
+    
+    <div class="links-container">
+      <div class="links-section">
+        <h3>روابط مفيدة</h3>
+        <ul>
+          <li><a href="/">الصفحة الرئيسية</a></li>
+          <li><a href="/services/">خدماتنا</a></li>
+          <li><a href="/blog/">المدونة</a></li>
+          <li><a href="/contact/">اتصل بنا</a></li>
+          <li><a href="/quote/">طلب عرض سعر</a></li>
+        </ul>
+      </div>
+      
+      <div class="links-section">
+        <h3>تصفح حسب الفئة</h3>
+        <ul>
+          <li><a href="/blog/?category=flight_crew">أزياء الطيران</a></li>
+          <li><a href="/blog/?category=clinic_wear">الأزياء الطبية</a></li>
+          <li><a href="/blog/?category=culinary_apparel">أزياء الطهاة</a></li>
+          <li><a href="/blog/?category=academic_attire">الزي الأكاديمي</a></li>
+          <li><a href="/blog/?category=protective_services">خدمات الحماية</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 
