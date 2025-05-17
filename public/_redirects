@@ -56,3 +56,18 @@ https://uniform-blogs.netlify.app/* https://uniform-blogs.com/:splat 301!
 
 # Handle any other missing or non-existent paths
 /* /index.html 200! 
+
+# Static JS file redirects
+/_next/static/chunks/main-app-dfa93bc5675b0d37.js /_next/static/chunks/main-app-1e563a7a6ab2acb8.js 200
+/_next/static/chunks/app/layout-a1fb5b1f01d65fbe.js /_next/static/chunks/app/layout-bd446bacac5be2c1.js 200
+/_next/static/chunks/2474-89f820909e5088fe.js /_next/static/chunks/2474-89f820909e5088fe.js 200
+/_next/static/chunks/2527-64802b446c245079.js /_next/static/chunks/2527-64802b446c245079.js 200
+
+# Image redirects
+/images/flight_crew/modern_flight_attendant_fashion.jpeg /images/flight_crew/modern_flight_attendant_fashion.jpeg 200
+/images/flight_crew/cabin_crew_uniforms.jpeg /images/flight_crew/cabin_crew_uniforms.jpeg 200
+/images/flight_crew/pilot_attendant_uniforms.jpeg /images/flight_crew/pilot_attendant_uniforms.jpeg 200
+
+# Blog pages redirects
+/blog/flight-crew/flight-10/ /blog/flight-crew/flight-10/index.html 200
+/blog/flight-crew/flight-5/ /blog/flight-crew/flight-5/index.html 200 

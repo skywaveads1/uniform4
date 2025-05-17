@@ -158,6 +158,27 @@
   status = 200
   force = false
 
+# Static files redirects
+[[redirects]]
+  from = "/_next/static/chunks/main-app-dfa93bc5675b0d37.js"
+  to = "/_next/static/chunks/main-app-1e563a7a6ab2acb8.js"
+  status = 200
+
+[[redirects]]
+  from = "/_next/static/chunks/app/layout-a1fb5b1f01d65fbe.js"
+  to = "/_next/static/chunks/app/layout-bd446bacac5be2c1.js"
+  status = 200
+
+[[redirects]]
+  from = "/_next/static/chunks/2474-89f820909e5088fe.js"
+  to = "/_next/static/chunks/2474-89f820909e5088fe.js"
+  status = 200
+
+[[redirects]]
+  from = "/_next/static/chunks/2527-64802b446c245079.js"
+  to = "/_next/static/chunks/2527-64802b446c245079.js"
+  status = 200
+
 # Redirects for specific flight articles (1-25)
 [[redirects]]
   from = "/blog/flight-crew/flight-:number/"
