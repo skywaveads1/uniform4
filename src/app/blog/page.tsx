@@ -208,10 +208,19 @@ const SearchParamsWrapper = ({ onCategoryChange }: { onCategoryChange: (category
     const category = searchParams.get('category');
     
     if (category) {
-      // Convertir posibles guiones bajos en guiones
-      const formattedCategory = category.replace('_', '-');
-      console.log('URL category parameter detected:', formattedCategory);
-      onCategoryChange(formattedCategory);
+      // Map common category parameters
+      if (category === 'clinic_wear' || category === 'clinic-wear') {
+        onCategoryChange('medical-uniforms');
+      } else if (category === 'culinary_apparel' || category === 'culinary-apparel') {
+        onCategoryChange('chef-uniforms');
+      } else if (category === 'flight_crew' || category === 'flight-crew') {
+        onCategoryChange('aviation-uniforms');
+      } else {
+        // Convertir posibles guiones bajos en guiones
+        const formattedCategory = category.replace('_', '-');
+        console.log('URL category parameter detected:', formattedCategory);
+        onCategoryChange(formattedCategory);
+      }
     } else {
       onCategoryChange('all');
     }
@@ -233,7 +242,7 @@ export default function BlogPage() {
     } else {
       // Convertir guiones a guiones bajos para compatibilidad
       const categoryKey = selectedCategory.replace('-', '_');
-      
+        
       // Filtramos por la categoría o por la ruta que contiene la categoría
       const filtered = uniqueArticles.filter(article => {
         const articleCategory = article.category;
@@ -244,7 +253,7 @@ export default function BlogPage() {
           (articlePath && articlePath.includes(`/${selectedCategory.replace('_', '-')}/`))
         );
       });
-      
+    
       setFilteredArticles(filtered);
     }
   }, [selectedCategory]);
@@ -324,12 +333,12 @@ export default function BlogPage() {
           <div 
             className="text-center py-8 mb-8"
           >
-            <button 
-              onClick={loadMoreArticles}
-              className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
-            >
-              عرض المزيد
-            </button>
+              <button 
+                onClick={loadMoreArticles}
+                className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
+              >
+                عرض المزيد
+              </button>
           </div>
         )}
         

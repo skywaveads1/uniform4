@@ -1,3 +1,4 @@
+# Netlify configuration file
 [build]
   command = "npm run netlify-deploy"
   publish = "out"
@@ -40,13 +41,13 @@
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
 
-[plugins.inputs]
+  [plugins.inputs]
   baseUrl = "https://esaudi.info"
-  sitemapPath = "/sitemap.xml"
-  providers = [
-    "google",
-    "bing"
-  ]
+    sitemapPath = "/sitemap.xml"
+    providers = [
+      "google",
+      "bing"
+    ]
 
 # Redirecciones para URLs de blog con o sin barra final
 [[redirects]]
@@ -157,10 +158,49 @@
   status = 200
   force = false
 
+# Redirects for specific flight articles (1-25)
+[[redirects]]
+  from = "/blog/flight-crew/flight-:number/"
+  to = "/blog/flight-crew/flight-:number/index.html"
+  status = 200
+  force = false
+  conditions = {Exists = {file = false}}
+
+# Ensure category queries work
+[[redirects]]
+  from = "/blog/"
+  query = {category = "clinic_wear"}
+  to = "/blog/?category=clinic_wear"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/blog/"
+  query = {category = "culinary_apparel"}
+  to = "/blog/?category=culinary_apparel"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/blog/"
+  query = {category = "flight_crew"}
+  to = "/blog/?category=flight_crew"
+  status = 200
+  force = false
+
 # Manejo de error 404 principal (debe ser la última regla)
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
-  force = false
+
+# Set default headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 

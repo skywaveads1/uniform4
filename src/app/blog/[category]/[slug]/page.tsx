@@ -72,27 +72,35 @@ export async function generateStaticParams(): Promise<BlogStaticParams[]> {
     }
   });
   
-  // Add hardcoded parameters for known blog posts that might be missing
-  // Incluimos todas las páginas mencionadas en los URLs con errores 404
-  const additionalPosts = [
-    { category: 'flight-crew', slugs: Array.from({ length: 18 }, (_, i) => `flight-${i + 1}`) },
+  // Add hardcoded parameters for flight crew articles that might be missing - increased from 18 to 25
+  for (let i = 1; i <= 25; i++) {
+    const paramKey = `flight-crew:flight-${i}`;
+    if (!uniqueParams.has(paramKey)) {
+      uniqueParams.add(paramKey);
+      params.push({
+        category: 'flight-crew',
+        slug: `flight-${i}`,
+      });
+    }
+  }
+  
+  // Add other static pages that might be missing
+  const additionalPages = [
+    { category: 'flight-crew', slug: 'pilot-uniform' },
+    { category: 'clinic-wear', slug: 'medical-attire' },
+    { category: 'culinary-apparel', slug: 'chef-clothing' },
   ];
   
-  additionalPosts.forEach(({ category, slugs }) => {
-    slugs.forEach(slug => {
-      const paramKey = `${category}:${slug}`;
-      if (!uniqueParams.has(paramKey)) {
-        uniqueParams.add(paramKey);
-        params.push({
-          category,
-          slug,
-        });
-      }
-    });
+  additionalPages.forEach(({ category, slug }) => {
+    const paramKey = `${category}:${slug}`;
+    if (!uniqueParams.has(paramKey)) {
+      uniqueParams.add(paramKey);
+      params.push({
+        category,
+        slug,
+      });
+    }
   });
-  
-  // Removimos las páginas principales de la generación de parámetros estáticos de blog
-  // ya que esas páginas existen en sus propias carpetas en la raíz
   
   console.log(`Generated ${params.length} static blog post paths`);
   return params;
@@ -153,7 +161,7 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
     if (!article) {
       // Generate fallback content for different content types
       
-      // Flight crew articles (flight-1 through flight-18)
+      // Flight crew articles (flight-1 through flight-25)
       if (category === 'flight-crew' && slug.match(/^flight-\d+$/)) {
         const flightNumber = slug.replace('flight-', '');
         const flightNum = parseInt(flightNumber, 10);
@@ -194,19 +202,35 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
           title: 'أزياء طبية', 
           image: '/images/clinic_wear/clinic_doctor_uniforms.webp'
         },
+        'clinic-wear': { 
+          title: 'أزياء طبية', 
+          image: '/images/clinic_wear/clinic_doctor_uniforms.webp'
+        },
         'culinary_apparel': { 
+          title: 'أزياء الطهاة', 
+          image: '/images/culinary_apparel/chef_aprons.webp'
+        },
+        'culinary-apparel': { 
           title: 'أزياء الطهاة', 
           image: '/images/culinary_apparel/chef_aprons.webp'
         },
         'flight_crew': { 
           title: 'أزياء الطيران', 
           image: '/images/flight_crew/modern_airline_uniform_design.webp'
+        },
+        'flight-crew': { 
+          title: 'أزياء الطيران', 
+          image: '/images/flight_crew/modern_airline_uniform_design.webp'
         }
       };
       
-      // Handle category pages (when requested as /blog?category=xxx)
-      if (Object.keys(categoryMap).includes(category) && !slug) {
-        const categoryInfo = categoryMap[category];
+      // Handle category pages (when requested as /blog?category=xxx or /blog/category-name)
+      if ((Object.keys(categoryMap).includes(category) && !slug) || slug === '') {
+        const categoryInfo = categoryMap[category] || { 
+          title: 'أزياء موحدة', 
+          image: '/images/flight_crew/crew_uniform_visual_identity.jpeg'
+        };
+        
         return {
           content: `<p>هذه صفحة قسم ${categoryInfo.title}. يمكنك العثور على جميع المقالات المتعلقة بـ ${categoryInfo.title} هنا.</p>`,
           metadata: {

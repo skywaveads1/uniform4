@@ -12,12 +12,13 @@
     "start": "next start",
     "lint": "next lint",
     "generate-sitemap": "node src/scripts/generate-sitemap.js",
-    "prebuild": "npm run generate-sitemap",
+    "verify-blog-dirs": "node src/scripts/verify-blog-directories.js",
+    "prebuild": "npm run generate-sitemap && npm run verify-blog-dirs",
     "postbuild": "npm run optimize-images && npm run minify",
     "optimize-images": "node optimize-images-advanced.js",
     "minify": "node minify-assets.js",
     "clean": "rimraf .next out",
-    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && NODE_ENV=production NEXT_PUBLIC_SITE_URL=https://esaudi.info next build && node copy-static.js && cp -r out/_next out/blog/ && cp out/404.html out/blog/404.html",
+    "netlify-deploy": "npm ci && npm run clean && npm run generate-sitemap && npm run verify-blog-dirs && cross-env NODE_ENV=production NEXT_PUBLIC_SITE_URL=https://esaudi.info next build && node copy-static.js && cp -r out/_next out/blog/ && cp -r out/_next out/terms/ && cp -r out/_next out/privacy/ && cp -r out/_next out/about/ && cp -r out/_next out/contact/ && cp -r out/_next out/faq/ && cp -r out/_next out/quote/ && cp out/404.html out/blog/404.html",
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
