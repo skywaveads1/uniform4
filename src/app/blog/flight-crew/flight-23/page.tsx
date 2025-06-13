@@ -1,69 +1,99 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaUser, FaCalendar, FaCheckCircle, FaStar, FaShieldAlt } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'أزياء الطيران ودورها في بناء الهوية المؤسسية لشركات الطيران',
-  description: 'نصائح وإرشادات للمحافظة على الزي الرسمي لطاقم الطيران في مختلف الظروف الجوية والمناخية أثناء السفر، مع حلول عملية للتحديات الشائعة',
+  title: 'أنظمة مراقبة الجودة والتفتيش في أزياء الطيران: ضمان التميز والالتزام | يونيفورم',
+  description: 'تعرف على أنظمة مراقبة الجودة والتفتيش الحديثة في أزياء الطيران، وكيف تضمن هذه الأنظمة التميز والالتزام بأعلى معايير الجودة والسلامة.',
+  keywords: 'مراقبة جودة أزياء الطيران، أنظمة التفتيش، ضمان الجودة، معايير السلامة، السعودية',
+  openGraph: {
+    title: 'أنظمة مراقبة الجودة والتفتيش في أزياء الطيران: ضمان التميز والالتزام',
+    description: 'أنظمة متطورة لضمان أعلى معايير الجودة والسلامة في أزياء الطيران',
+    images: ['/images/flight_crew/crew_uniform_solutions.webp'],
+  },
 };
 
-// صورة الهيدر للمقال
-const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+export default function Article23Page() {
+  const heroImage = '/images/flight_crew/crew_uniform_solutions.webp';
+  const title = 'أنظمة مراقبة الجودة والتفتيش في أزياء الطيران: ضمان التميز والالتزام';
+  const readingTime = '12 دقيقة';
+  const publishDate = '٥ يناير ٢٠٢٥';
+  const author = 'خبراء مراقبة الجودة والتفتيش - يونيفورم';
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
-  const title = 'أزياء الطيران ودورها في بناء الهوية المؤسسية لشركات الطيران';
-  const readingTime = '9 دقائق';
-  const datePublished = '٢٣ مايو ٢٠٢٣';
-
-  // أقسام المقال للتنقل السريع
   const sections = [
     { id: 'intro', title: 'مقدمة' },
-    { id: 'climate-challenges', title: 'تحديات التنوع المناخي على الزي الرسمي' },
-    { id: 'material-strategies', title: 'استراتيجيات اختيار المواد المناسبة' },
-    { id: 'care-techniques', title: 'تقنيات العناية بالزي الرسمي أثناء السفر' },
-    { id: 'specific-solutions', title: 'حلول محددة لتحديات مناخية خاصة' },
-    { id: 'technology', title: 'التقنيات الحديثة في صناعة أزياء الطيران' },
-    { id: 'conclusion', title: 'الخلاصة' },
+    { id: 'quality-systems', title: 'أنظمة مراقبة الجودة' },
+    { id: 'inspection-procedures', title: 'إجراءات التفتيش' },
+    { id: 'testing-standards', title: 'معايير الاختبار' },
+    { id: 'compliance-monitoring', title: 'مراقبة الامتثال' },
+    { id: 'corrective-actions', title: 'الإجراءات التصحيحية' },
+    { id: 'digital-systems', title: 'الأنظمة الرقمية' },
+    { id: 'continuous-improvement', title: 'التحسين المستمر' },
   ];
 
   return (
     <main className="bg-gray-50 rtl">
-      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
-      <div className="relative w-full h-[60vh] mb-8">
+      {/* Hero Section */}
+      <div className="relative w-full h-[70vh] mb-8">
         <Image
-          src={imageSrc}
+          src={heroImage}
           alt={title}
           fill
           priority
           style={{ objectFit: 'cover' }}
+          className="brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
-              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
-              <span>{datePublished}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div className="container mx-auto px-4 h-full flex items-end pb-16">
+            <div className="text-white max-w-4xl">
+              <div className="mb-4">
+                <span className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-fit">
+                  <FaCheckCircle />
+                  مراقبة الجودة
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                أنظمة متطورة وإجراءات دقيقة لضمان أعلى معايير الجودة والسلامة في كل تفصيلة من أزياء الطيران
+              </p>
+              <div className="flex items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <FaUser className="w-4 h-4" />
+                  <span>{author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaClock className="w-4 h-4" />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCalendar className="w-4 h-4" />
+                  <span>{publishDate}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pb-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* القائمة الجانبية */}
-          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-green-600 pr-3">
+                محتويات المقال
+              </h3>
               <nav>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {sections.map(section => (
                     <li key={section.id}>
                       <a 
                         href={`#${section.id}`} 
-                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                        className="text-gray-700 hover:text-green-600 block transition-colors py-2 text-sm border-r-2 border-transparent hover:border-green-400 pr-3"
                       >
                         {section.title}
                       </a>
@@ -73,370 +103,525 @@ export default function ArticlePage() {
               </nav>
             </div>
             
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-green-600 pr-3">
+                مشاركة المقال
+              </h3>
               <ShareButtons url="" title={title} />
             </div>
 
-            <div className="border-t pt-4 mt-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
-                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-13" className="text-sm hover:text-blue-600 block">
-                    أهمية التصميم الموحد لزي طاقم الطائرة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-24" className="text-sm hover:text-blue-600 block">
-                    بروتوكول ارتداء الزي الرسمي خارج ساعات العمل
-                  </Link>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-green-50 to-teal-100 p-6 rounded-xl">
+              <h3 className="text-lg font-bold mb-3 text-green-900">
+                نظام جودة مخصص؟
+              </h3>
+              <p className="text-gray-700 text-sm mb-4">
+                احصل على نظام مراقبة جودة متخصص لأزياء الطيران في شركتك
+              </p>
+              <Link 
+                href="/quote" 
+                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors block text-center text-sm font-medium"
+              >
+                طلب نظام جودة
+              </Link>
             </div>
           </aside>
 
-          {/* محتوى المقال الرئيسي */}
-          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
-            <h1 className="text-3xl font-bold mb-6">{title}</h1>
+          {/* Main Content */}
+          <article className="lg:w-3/4 bg-white p-8 rounded-xl shadow-lg">
             
-            {imageSrc && (
-              <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
-                <Image
-                  src={imageSrc}
-                  alt={title}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
+            <section id="intro" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                مقدمة
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 font-medium text-gray-800">
+                  في صناعة الطيران حيث لا مجال للخطأ، تعتبر أنظمة مراقبة الجودة والتفتيش في أزياء الطيران عنصراً حيوياً لضمان السلامة والمظهر المهني. هذه الأنظمة تشمل إجراءات دقيقة ومعايير صارمة تطبق في كل مرحلة من مراحل الإنتاج والاستخدام والصيانة، مما يضمن الحفاظ على أعلى معايير الجودة والالتزام بالمتطلبات الدولية.
+                </p>
+                
+                <div className="bg-green-50 border-r-4 border-green-500 p-6 rounded-lg my-8">
+                  <h3 className="text-xl font-semibold text-green-900 mb-3 flex items-center gap-2">
+                    <FaStar className="text-green-600" />
+                    أهداف أنظمة مراقبة الجودة
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul className="space-y-2">
+                      <li>🎯 ضمان المطابقة للمواصفات</li>
+                      <li>🛡️ الحفاظ على معايير السلامة</li>
+                      <li>✨ تحسين الجودة المستمر</li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li>📊 تقليل المعيب والإهدار</li>
+                      <li>🔍 الكشف المبكر عن المشاكل</li>
+                      <li>⚡ تعزيز الكفاءة التشغيلية</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <p>
+                  تتنوع هذه الأنظمة من المراقبة اليدوية التقليدية إلى التقنيات المتطورة مثل الفحص بالذكاء الاصطناعي والاختبارات الآلية. كما تشمل عمليات التوثيق والتتبع الرقمي التي تضمن الشفافية والمساءلة في كل خطوة من خطوات ضمان الجودة.
+                </p>
               </div>
-            )}
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">مقدمة</h2>
-              <p className="mb-4">
-                يواجه طاقم الطيران تحدياً فريداً يتمثل في الحفاظ على مظهر أنيق ومهني رغم التنقل المستمر بين مناطق ذات ظروف مناخية متباينة. فخلال رحلة واحدة، قد ينتقل أفراد الطاقم من صقيع موسكو إلى حرارة دبي، أو من رطوبة سنغافورة إلى جفاف الرياض، مما يشكل تحدياً حقيقياً للحفاظ على الزي الرسمي في حالة مثالية.
-              </p>
-              <p className="mb-4">
-                إن الحفاظ على الزي الرسمي ليس مسألة مظهر فحسب، بل هو جزء أساسي من الصورة الاحترافية لشركات الطيران والانطباع الذي تتركه لدى المسافرين. كما أنه يؤثر بشكل مباشر على الراحة النفسية والجسدية لأفراد الطاقم أثناء تأدية مهامهم، مما ينعكس على جودة الخدمة المقدمة.
-              </p>
-              <p className="mb-4">
-                في هذا المقال، نستعرض التحديات التي تفرضها الظروف المناخية المختلفة على الزي الرسمي لطاقم الطيران، والاستراتيجيات العملية للتعامل معها، والتقنيات الحديثة في تصميم وصيانة الأزياء التي تساعد في مواجهة هذه التحديات، بهدف الحفاظ على المظهر المهني الأنيق في جميع الظروف.
-              </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">تحديات التنوع المناخي على الزي الرسمي</h2>
+            <section id="quality-systems" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                أنظمة مراقبة الجودة
+              </h2>
               
-              <h3 className="text-xl font-medium mt-6 mb-3">تأثير المناخات الحارة</h3>
-              <p className="mb-4">
-                التحديات في الوجهات ذات درجات الحرارة المرتفعة:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تعرق شديد يؤدي إلى بقع على الأقمشة، خاصة تحت الإبطين وحول الياقة</li>
-                <li className="mb-2">تلف سريع للألوان وبهتانها نتيجة التعرض المباشر لأشعة الشمس القوية</li>
-                <li className="mb-2">صعوبة الحفاظ على نضارة القطع الداكنة كالسترات والبناطيل في الحرارة الشديدة</li>
-                <li className="mb-2">تكسر وتلف الإكسسوارات البلاستيكية في درجات الحرارة العالية</li>
-              </ul>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/air_crew_innovative_uniforms.webp"
+                    alt="أنظمة إدارة الجودة في الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-emerald-800">
+                    المنهجيات الحديثة لضمان الجودة
+                  </h3>
+                  <p className="text-gray-700">
+                    تعتمد أنظمة مراقبة الجودة الحديثة على منهجيات علمية مثبتة وتقنيات متطورة تضمن فعالية الرقابة ودقة النتائج. هذه الأنظمة تتكامل مع العمليات الإنتاجية لتوفير رقابة مستمرة وشاملة.
+                  </p>
+                  <div className="bg-emerald-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-emerald-800">منهجيات الجودة:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>📋 ISO 9001 لإدارة الجودة</li>
+                      <li>🎯 Six Sigma للتحسين المستمر</li>
+                      <li>🔄 Lean Manufacturing للكفاءة</li>
+                      <li>✅ Total Quality Management</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">تأثير المناخات الباردة</h3>
-              <p className="mb-4">
-                مشكلات الزي في المناطق شديدة البرودة:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تحدي الموازنة بين طبقات الملابس الإضافية والحفاظ على المظهر الأنيق</li>
-                <li className="mb-2">تلف الأقمشة الرقيقة نتيجة التغير المفاجئ في درجات الحرارة (من الدفء إلى البرد)</li>
-                <li className="mb-2">تشقق الأحذية الجلدية وتضررها من الثلوج والملح المستخدم في إزالة الجليد</li>
-                <li className="mb-2">صعوبة الحفاظ على انسدال القطع بشكل أنيق عند ارتداء طبقات متعددة</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">تحديات الرطوبة العالية</h3>
-              <p className="mb-4">
-                تأثير المناخات الاستوائية والرطبة:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">تجعد الأقمشة وظهور الكرمشة بشكل سريع حتى بعد الكي المتقن</li>
-                <li className="mb-2">ظهور رائحة غير مرغوبة في الأقمشة نتيجة الرطوبة المستمرة</li>
-                <li className="mb-2">نمو الفطريات والعفن على الأحذية والحقائب الجلدية في التخزين طويل المدى</li>
-                <li className="mb-2">صعوبة تجفيف القطع بين الرحلات في الأجواء عالية الرطوبة</li>
-              </ol>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">مشكلات السفر المستمر والتنقل السريع</h3>
-              <p className="mb-4">
-                تحديات خاصة بتغير المناخ المفاجئ:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">الصدمة المناخية للأقمشة عند الانتقال السريع بين بيئات متباينة جداً</li>
-                <li className="mb-2">تحدي تكييف الزي للمناخات المختلفة خلال رحلة واحدة</li>
-                <li className="mb-2">صعوبة العناية بالزي في ظروف الإقامة القصيرة والجداول المزدحمة</li>
-                <li className="mb-2">التلف المتسارع للقطع نتيجة الاستخدام المكثف في ظروف متغيرة</li>
-              </ul>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-emerald-800">
+                  مكونات نظام مراقبة الجودة الشامل
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">🔍</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">التفتيش الوقائي</h4>
+                    <p className="text-gray-600 text-sm">فحص مسبق لكل المواد والمكونات</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">⚙️</span>
+                    </div>
+                    <h4 className="font-semibold text-green-800 mb-2">المراقبة الإنتاجية</h4>
+                    <p className="text-gray-600 text-sm">رقابة مستمرة أثناء العمليات</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">✅</span>
+                    </div>
+                    <h4 className="font-semibold text-purple-800 mb-2">الفحص النهائي</h4>
+                    <p className="text-gray-600 text-sm">تقييم شامل للمنتج المكتمل</p>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">استراتيجيات اختيار المواد المناسبة</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">خصائص الأقمشة المقاومة للظروف المناخية</h3>
-              <p className="mb-4">
-                ميزات المواد عالية الأداء:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">أقمشة مخلوطة (صوف مارينو/بوليستر) تجمع بين الأناقة ومقاومة التجعد</li>
-                <li className="mb-2">أقمشة ذات معالجة خاصة تقاوم البقع والماء والأشعة فوق البنفسجية</li>
-                <li className="mb-2">خامات تتميز بخاصية التهوية الطبيعية والتخلص من الرطوبة</li>
-                <li className="mb-2">استخدام تقنية الألياف المجوفة للعزل الحراري دون زيادة الوزن أو الحجم</li>
-              </ul>
+            <section id="inspection-procedures" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                إجراءات التفتيش
+              </h2>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">الملابس ذات الطبقات القابلة للتعديل</h3>
-              <p className="mb-4">
-                مزايا التصميم متعدد الطبقات:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">تصميم قطع يمكن إضافتها أو إزالتها حسب الظروف المناخية</li>
-                <li className="mb-2">سترات خفيفة قابلة للطي والحمل بسهولة عند عدم الحاجة إليها</li>
-                <li className="mb-2">بطانات قابلة للفصل في السترات والمعاطف للتكيف مع درجات الحرارة</li>
-                <li className="mb-2">قطع متعددة الاستخدامات تناسب أكثر من مناخ بتعديلات بسيطة</li>
-              </ol>
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-teal-50 to-cyan-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-teal-800 mb-4 flex items-center gap-2">
+                    <FaShieldAlt className="text-teal-600" />
+                    خطوات التفتيش المنهجي
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-teal-700">المرحلة الأولية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• فحص المواد الخام والأقمشة</li>
+                        <li>• التحقق من المواصفات الفنية</li>
+                        <li>• اختبار الألوان والثبات</li>
+                        <li>• فحص الإكسسوارات والمكونات</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-teal-700">المرحلة التنفيذية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• مراقبة عمليات القطع والخياطة</li>
+                        <li>• فحص جودة التشطيب</li>
+                        <li>• التحقق من المقاسات والأبعاد</li>
+                        <li>• اختبار الوظائف والمتانة</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">الملحقات والإكسسوارات المتكيفة</h3>
-              <p className="mb-4">
-                إضافات عملية للتكيف المناخي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">أوشحة وشالات خفيفة متعددة الاستخدامات للحماية من الشمس أو البرد</li>
-                <li className="mb-2">قفازات وقبعات أنيقة تتناسب مع الزي الرسمي في المناخات الباردة</li>
-                <li className="mb-2">نظارات شمسية عالية الجودة لحماية العينين مع الحفاظ على المظهر المهني</li>
-                <li className="mb-2">أحذية مصممة خصيصاً للتكيف مع مختلف الظروف المناخية</li>
-              </ul>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                    <thead>
+                      <tr className="bg-green-600 text-white">
+                        <th className="border border-gray-300 p-4 text-right">نوع التفتيش</th>
+                        <th className="border border-gray-300 p-4 text-right">التوقيت</th>
+                        <th className="border border-gray-300 p-4 text-right">النطاق</th>
+                        <th className="border border-gray-300 p-4 text-right">المعايير</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">فحص المواد</td>
+                        <td className="border border-gray-300 p-4">قبل الإنتاج</td>
+                        <td className="border border-gray-300 p-4">100% من الدفعة</td>
+                        <td className="border border-gray-300 p-4">ASTM, ISO</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">رقابة العمليات</td>
+                        <td className="border border-gray-300 p-4">أثناء الإنتاج</td>
+                        <td className="border border-gray-300 p-4">عينات ممثلة</td>
+                        <td className="border border-gray-300 p-4">مواصفات داخلية</td>
+                      </tr>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">الفحص النهائي</td>
+                        <td className="border border-gray-300 p-4">بعد الإنتاج</td>
+                        <td className="border border-gray-300 p-4">كل قطعة</td>
+                        <td className="border border-gray-300 p-4">معايير شاملة</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">المراجعة الدورية</td>
+                        <td className="border border-gray-300 p-4">أثناء الاستخدام</td>
+                        <td className="border border-gray-300 p-4">عينات عشوائية</td>
+                        <td className="border border-gray-300 p-4">تقييم الأداء</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">تقنيات العناية بالزي الرسمي أثناء السفر</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">طرق الوقاية من التجعد والكرمشة</h3>
-              <p className="mb-4">
-                أساليب الحفاظ على مظهر أنيق:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">تقنيات طي وتخزين خاصة لمنع التجعد في الحقائب أثناء السفر</li>
-                <li className="mb-2">استخدام حقائب ملابس مخصصة بتقنيات مدمجة لمنع الكرمشة</li>
-                <li className="mb-2">اعتماد تقنية التعليق الفوري للقطع بمجرد الوصول إلى الفندق</li>
-                <li className="mb-2">أدوات السفر المتخصصة كالبخاخات المضادة للتجعد والمكاوي المحمولة</li>
-              </ol>
+            <section id="testing-standards" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                معايير الاختبار
+              </h2>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">حلول للحفاظ على النظافة في الرحلات الطويلة</h3>
-              <p className="mb-4">
-                استراتيجيات النظافة والانتعاش:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تقنيات الحماية الاستباقية للمناطق المعرضة للتعرق والاتساخ</li>
-                <li className="mb-2">منتجات متخصصة لإزالة البقع الطارئة والروائح دون الحاجة للغسيل</li>
-                <li className="mb-2">طرق التهوية السريعة للتخلص من الروائح المتراكمة في النسيج</li>
-                <li className="mb-2">إعادة تنشيط الأقمشة باستخدام تقنيات التعليق في الحمام أثناء الاستحمام</li>
-              </ul>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/comfort_safety_airline_uniforms.webp"
+                    alt="معايير اختبار أزياء الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-indigo-800">
+                    اختبارات الجودة المتخصصة
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    تخضع أزياء الطيران لبطارة شاملة من الاختبارات التي تغطي كل جانب من جوانب الأداء والجودة. هذه الاختبارات تضمن مطابقة المنتج النهائي للمعايير الدولية ومتطلبات السلامة الصارمة.
+                  </p>
+                  <div className="bg-indigo-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-indigo-800 mb-2">أنواع الاختبارات:</h4>
+                    <ul className="text-sm space-y-1 text-indigo-700">
+                      <li>🔥 اختبارات مقاومة الحريق</li>
+                      <li>💧 اختبارات مقاومة السوائل</li>
+                      <li>🧪 اختبارات ثبات الألوان</li>
+                      <li>💪 اختبارات المتانة والتحمل</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">التنظيف والعناية السريعة بين الرحلات</h3>
-              <p className="mb-4">
-                حلول عملية للصيانة المؤقتة:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تقنيات الغسيل اليدوي السريع للقطع الأساسية في غرفة الفندق</li>
-                <li className="mb-2">استخدام أدوات التنظيف الجاف المحمولة للبقع الطارئة</li>
-                <li className="mb-2">استراتيجيات تجفيف الملابس بشكل سريع دون تعريضها للتلف</li>
-                <li className="mb-2">نصائح للتعامل مع الخدمات الفندقية (غسيل وكي) بفعالية وسرعة</li>
-              </ul>
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-indigo-800">
+                  المعايير الدولية والمحلية
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-indigo-700 mb-3">المعايير الدولية:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• FAA Federal Aviation Regulations</li>
+                      <li>• EASA European Aviation Standards</li>
+                      <li>• ICAO International Civil Aviation</li>
+                      <li>• ISO Quality Management Systems</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-indigo-700 mb-3">المعايير المحلية:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• GACA السعودية للطيران المدني</li>
+                      <li>• SASO المواصفات السعودية</li>
+                      <li>• معايير وزارة النقل السعودية</li>
+                      <li>• لوائح السلامة المهنية المحلية</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">حلول محددة لتحديات مناخية خاصة</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">المناطق الصحراوية والحارة</h3>
-              <p className="mb-4">
-                تقنيات خاصة للمناخ الحار والجاف:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">بطانات داخلية ماصة للعرق للحفاظ على جفاف الطبقة الخارجية</li>
-                <li className="mb-2">تقنيات تهوية خاصة في تصميم السترات والقمصان للمناطق الحارة</li>
-                <li className="mb-2">منتجات وقاية خاصة للأقمشة من أشعة الشمس القوية والأتربة</li>
-                <li className="mb-2">استراتيجيات ترطيب الأقمشة الطبيعية في البيئات شديدة الجفاف</li>
-              </ul>
+            <section id="compliance-monitoring" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                مراقبة الامتثال
+              </h2>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">المناطق الاستوائية عالية الرطوبة</h3>
-              <p className="mb-4">
-                حلول للتعامل مع الرطوبة العالية:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">أكياس سيليكا جل في حقائب الملابس لامتصاص الرطوبة الزائدة</li>
-                <li className="mb-2">استخدام بخاخات مضادة للفطريات للأحذية والأقمشة في المناخات الرطبة</li>
-                <li className="mb-2">تقنيات تهوية خاصة للخزائن المؤقتة في غرف الفنادق</li>
-                <li className="mb-2">أساليب تجفيف متطورة للقطع الرطبة دون تعريضها للتلف</li>
-              </ol>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-amber-800">
+                    آليات ضمان الامتثال
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-amber-500 pl-4">
+                        <h4 className="font-medium text-amber-800 mb-2">المراقبة المستمرة</h4>
+                        <p className="text-sm text-gray-700">
+                          نظام رقابة مستمر يراقب الالتزام بالمعايير في كل مرحلة
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-orange-500 pl-4">
+                        <h4 className="font-medium text-orange-800 mb-2">التدقيق الدوري</h4>
+                        <p className="text-sm text-gray-700">
+                          مراجعات منتظمة للعمليات والنتائج للتأكد من الالتزام
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-red-500 pl-4">
+                        <h4 className="font-medium text-red-800 mb-2">التقارير التفصيلية</h4>
+                        <p className="text-sm text-gray-700">
+                          توثيق شامل لجميع عمليات المراقبة والنتائج
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="relative h-64">
+                      <Image
+                        src="/images/flight_crew/arab_airlines_uniforms.webp"
+                        alt="الأنظمة الرقمية لإدارة الجودة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">المناطق شديدة البرودة والثلجية</h3>
-              <p className="mb-4">
-                استراتيجيات البيئات الباردة:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">طبقات حرارية رقيقة غير ظاهرة تحت الزي الرسمي</li>
-                <li className="mb-2">تقنيات حماية خاصة للأحذية من الثلوج والرطوبة الباردة</li>
-                <li className="mb-2">معالجات وقائية للأقمشة ضد التكهرب الناتج عن الجفاف الشتوي</li>
-                <li className="mb-2">حلول للعناية بالقفازات والإكسسوارات الشتوية أثناء التنقل</li>
-              </ul>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🎯</span>
+                    </div>
+                    <h4 className="font-semibold text-green-800 mb-2">دقة 99.8%</h4>
+                    <p className="text-gray-600 text-sm">معدل الامتثال للمعايير</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">⚡</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">24 ساعة</h4>
+                    <p className="text-gray-600 text-sm">زمن الاستجابة للمشاكل</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <h4 className="font-semibold text-purple-800 mb-2">100%</h4>
+                    <p className="text-gray-600 text-sm">تغطية عمليات التدقيق</p>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">التقنيات الحديثة في تصميم وصيانة أزياء الطيران</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">الأقمشة الذكية والتقنيات المتطورة</h3>
-              <p className="mb-4">
-                ابتكارات تكنولوجية في مجال الأزياء:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">أقمشة ذكية تتكيف مع درجة حرارة الجسم والبيئة المحيطة</li>
-                <li className="mb-2">تقنيات النانو في معالجة الأقمشة لمقاومة البقع والماء والروائح</li>
-                <li className="mb-2">ألياف مضادة للبكتيريا تمنع نمو الميكروبات والروائح غير المرغوبة</li>
-                <li className="mb-2">معالجات كيميائية متطورة تطيل عمر الأقمشة وتحافظ على شكلها</li>
-              </ul>
+            <section id="corrective-actions" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                الإجراءات التصحيحية
+              </h2>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">منتجات العناية المتخصصة للمسافرين</h3>
-              <p className="mb-4">
-                ابتكارات في مجال العناية بالأزياء:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">رذاذات وبخاخات متخصصة لتنظيف الأقمشة وإنعاشها بدون ماء</li>
-                <li className="mb-2">أجهزة تنظيف بالبخار صغيرة الحجم مناسبة للسفر</li>
-                <li className="mb-2">أدوات كي محمولة وفعالة مصممة خصيصاً للاستخدام الفندقي</li>
-                <li className="mb-2">أكياس ضغط وتخزين مبتكرة تقلل الحجم وتمنع التجعد في نفس الوقت</li>
-              </ol>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/air_crew_attire.webp"
+                    alt="الإجراءات التصحيحية الفعالة"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-red-800">
+                    منهجية الاستجابة السريعة
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    عند اكتشاف أي مشكلة في الجودة، يتم تفعيل بروتوكول الاستجابة السريعة الذي يضمن معالجة فورية وفعالة للمشكلة ومنع تكرارها. هذا البروتوكول يتضمن تحليل الأسباب الجذرية وتطبيق حلول مستدامة.
+                  </p>
+                  <div className="bg-red-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-red-800 mb-2">خطوات الاستجابة:</h4>
+                    <ul className="text-sm space-y-1 text-red-700">
+                      <li>🚨 إيقاف العملية فوراً</li>
+                      <li>🔍 تحديد نطاق المشكلة</li>
+                      <li>⚡ تطبيق الحل المؤقت</li>
+                      <li>🔧 وضع الحل الدائم</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">تصاميم موجهة للتكيف المناخي</h3>
-              <p className="mb-4">
-                ابتكارات في تصميم الزي الرسمي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">تصاميم ذات فتحات تهوية مخفية يمكن التحكم بها حسب المناخ</li>
-                <li className="mb-2">سترات بتقنية "الوزن الصفري" خفيفة جداً مع الحفاظ على الشكل الرسمي</li>
-                <li className="mb-2">أزرار وسحابات مغناطيسية للتعديل والتكيف السريع مع الظروف المتغيرة</li>
-                <li className="mb-2">تصاميم متحولة يمكن تعديلها من قطعة شتوية إلى صيفية بخطوات بسيطة</li>
-              </ul>
+              <div className="bg-gradient-to-br from-red-50 to-pink-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-red-800">
+                  تصنيف وأولوية الإجراءات التصحيحية
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-red-700 mb-3">الأولوية العليا:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• مشاكل السلامة الحرجة</li>
+                      <li>• عدم مطابقة المعايير الأساسية</li>
+                      <li>• عيوب تؤثر على الوظيفة</li>
+                      <li>• مشاكل تؤثر على سمعة العلامة</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-red-700 mb-3">الأولوية المتوسطة:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• مشاكل جمالية طفيفة</li>
+                      <li>• تحسينات في العمليات</li>
+                      <li>• تحديثات في الإجراءات</li>
+                      <li>• تدريب إضافي للفرق</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">تجارب وخبرات طواقم الطيران</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">دروس مستفادة من المسافرين المحترفين</h3>
-              <p className="mb-4">
-                خبرات عملية من الميدان:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">استراتيجيات مجربة للتكيف السريع مع التغيرات المناخية المفاجئة</li>
-                <li className="mb-2">تقنيات تنظيم حقيبة السفر بطريقة تحافظ على الزي في مختلف الظروف</li>
-                <li className="mb-2">روتينات يومية فعالة للعناية بالزي خلال الرحلات متعددة الوجهات</li>
-                <li className="mb-2">نصائح للتعامل مع المواقف الطارئة (كالبقع والتمزقات) أثناء الخدمة</li>
-              </ul>
+            <section id="digital-systems" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                الأنظمة الرقمية
+              </h2>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">حلول مبتكرة من تجارب شخصية</h3>
-              <p className="mb-4">
-                ابتكارات عملية من طواقم الطيران:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">استخدامات غير تقليدية لمنتجات متاحة في غرف الفنادق للعناية بالزي</li>
-                <li className="mb-2">أساليب تكييف وتعديل سريعة للزي حسب المناخ دون الإخلال بالقواعد</li>
-                <li className="mb-2">طرق حماية غير معروفة للأحذية والإكسسوارات في الظروف القاسية</li>
-                <li className="mb-2">ترتيب الحقائب بطريقة تضمن جاهزية الزي لمختلف الظروف المناخية المفاجئة</li>
-              </ol>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/digital_quality_systems.jpeg"
+                    alt="الأنظمة الرقمية لمراقبة الجودة"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-blue-800">
+                    التحول الرقمي في مراقبة الجودة
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    الأنظمة الرقمية الحديثة تسمح بمراقبة أكثر دقة وفعالية، مع إمكانيات التتبع في الوقت الفعلي والتحليل التنبؤي للمشاكل المحتملة. هذه التقنيات تعزز من قدرة الشركات على الحفاظ على أعلى معايير الجودة.
+                  </p>
+                  <div className="bg-blue-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-blue-800 mb-2">التقنيات المتطورة:</h4>
+                    <ul className="text-sm space-y-1 text-blue-700">
+                      <li>🤖 الذكاء الاصطناعي للفحص</li>
+                      <li>📊 تحليل البيانات الضخمة</li>
+                      <li>🔗 إنترنت الأشياء للمراقبة</li>
+                      <li>☁️ الحوسبة السحابية للتخزين</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-medium mt-6 mb-3">بروتوكولات مهنية للعناية بالزي</h3>
-              <p className="mb-4">
-                قواعد العناية المؤسسية:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">إرشادات وبروتوكولات رسمية من شركات الطيران للتكيف المناخي</li>
-                <li className="mb-2">الدعم اللوجستي المقدم للطواقم في الوجهات ذات الظروف الخاصة</li>
-                <li className="mb-2">برامج تدريبية حول العناية بالزي في مختلف الظروف المناخية</li>
-                <li className="mb-2">أنظمة الدعم والبدلات المالية المخصصة للعناية بالزي في الرحلات الصعبة</li>
-              </ul>
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-blue-800">
+                  مزايا الأنظمة الرقمية
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-blue-700 mb-3">الكفاءة والدقة:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• فحص أسرع وأكثر دقة</li>
+                      <li>• تقليل الأخطاء البشرية</li>
+                      <li>• توحيد معايير الفحص</li>
+                      <li>• رصد مستمر 24/7</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-blue-700 mb-3">التحليل والتقارير:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• تقارير تفصيلية فورية</li>
+                      <li>• تحليل الاتجاهات والأنماط</li>
+                      <li>• توقع المشاكل المحتملة</li>
+                      <li>• تحسين مستمر للعمليات</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">توصيات وإرشادات عملية</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">قائمة أساسية للعناية بالزي أثناء السفر</h3>
-              <p className="mb-4">
-                مستلزمات ضرورية لكل مسافر مهني:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">مجموعة أدوات طوارئ للعناية بالزي تشمل مزيلات البقع وأدوات الخياطة السريعة</li>
-                <li className="mb-2">منتجات محمولة ضرورية للتكيف مع مختلف الظروف المناخية</li>
-                <li className="mb-2">أكسسوارات متعددة الاستخدامات للتكيف مع تقلبات الطقس</li>
-                <li className="mb-2">قائمة تحقق قبل السفر للتأكد من جاهزية الزي لمختلف الظروف المحتملة</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">روتين العناية اليومية خلال الرحلات</h3>
-              <p className="mb-4">
-                ممارسات يومية للحفاظ على المظهر المثالي:
-              </p>
-              <ol className="list-decimal list-inside mb-4 mr-5">
-                <li className="mb-2">الفحص اليومي للزي واكتشاف المشكلات المحتملة قبل تفاقمها</li>
-                <li className="mb-2">روتين مسائي للعناية بالزي وتجهيزه لليوم التالي</li>
-                <li className="mb-2">استراتيجيات التهوية والتخزين المناسبة في غرف الفنادق</li>
-                <li className="mb-2">خطوات سريعة للتجديد الفوري للمظهر قبل الخدمة مباشرة</li>
-              </ol>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">تخطيط مسبق للرحلات متعددة المناخات</h3>
-              <p className="mb-4">
-                استراتيجيات التحضير الاستباقي:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">كيفية البحث والتحضير المناخي قبل الرحلات إلى وجهات جديدة</li>
-                <li className="mb-2">استراتيجيات تنظيم حقيبة السفر للوصول السريع للقطع المناسبة</li>
-                <li className="mb-2">أنظمة تدوير واستبدال قطع الزي للرحلات الطويلة متعددة الوجهات</li>
-                <li className="mb-2">خطط بديلة للتعامل مع التغيرات المناخية غير المتوقعة</li>
-              </ul>
+            {/* Related Articles */}
+            <section className="border-t pt-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">مقالات ذات صلة</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Link href="/blog/flight-crew/flight-17" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/cultural_aviation_uniforms.webp"
+                        alt="لوائح ومعايير أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-green-600 transition-colors">
+                        لوائح ومعايير أزياء الطيران: دليل شامل للامتثال والسلامة
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-15" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/buy_air_crew_uniforms.webp"
+                        alt="المواد المستدامة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-green-600 transition-colors">
+                        المواد المستدامة في أزياء الطيران: ثورة خضراء في السماء
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-22" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/air_hospitality_uniforms.webp"
+                        alt="برامج التدريب"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-green-600 transition-colors">
+                        برامج التدريب على معايير أزياء الطيران: إعداد الطاقم للتميز المهني
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">مستقبل أزياء الطيران المتكيفة مع المناخ</h2>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3">الاتجاهات الناشئة في تصميم الأزياء المتكيفة</h3>
-              <p className="mb-4">
-                مستقبل زي الطيران:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">أقمشة ذكية قادرة على تغيير خصائصها استجابة للظروف المناخية</li>
-                <li className="mb-2">تصاميم معيارية قابلة للتحويل لتناسب مختلف المناخات بدون تغيير المظهر</li>
-                <li className="mb-2">أنظمة تهوية وتدفئة مدمجة في تصميم الزي نفسه</li>
-                <li className="mb-2">تطبيقات ذكية تقترح تعديلات على الزي بناءً على توقعات الطقس</li>
-              </ul>
-
-              <h3 className="text-xl font-medium mt-6 mb-3">الاستدامة والتكيف المناخي</h3>
-              <p className="mb-4">
-                الموازنة بين البيئة والوظيفة:
-              </p>
-              <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">مواد مستدامة عالية الأداء تجمع بين المسؤولية البيئية والتكيف المناخي</li>
-                <li className="mb-2">تقنيات معالجة طبيعية للأقمشة تحل محل المواد الكيميائية التقليدية</li>
-                <li className="mb-2">تصاميم ذات دورة حياة أطول تقلل من الاستهلاك والهدر</li>
-                <li className="mb-2">ابتكارات في إعادة تدوير الأزياء الرسمية للطيران بشكل فعال</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mt-8 mb-4">خاتمة</h2>
-              <p className="mb-4">
-                تمثل المحافظة على الزي الرسمي في ظروف جوية متغيرة أثناء السفر تحدياً مستمراً لطواقم الطيران، يتطلب مزيجاً من المعرفة، والمهارة، والتخطيط الاستباقي. فالقدرة على الظهور بمظهر مهني أنيق رغم التنقل بين مناخات متباينة هي جزء أساسي من احترافية العمل في هذا المجال.
-              </p>
-              <p className="mb-4">
-                لم تعد التحديات المناخية عائقاً لا يمكن التغلب عليه، بفضل التطورات التكنولوجية في تصميم الأقمشة، وتوفر منتجات العناية المتخصصة، والخبرات المتراكمة لدى المهنيين في هذا المجال. ومع التطور المستمر في تقنيات الأزياء الذكية، يمكننا توقع حلول أكثر فعالية في المستقبل القريب.
-              </p>
-              <p className="mb-4">
-                في النهاية، يبقى الاهتمام بتفاصيل العناية بالزي الرسمي انعكاساً للالتزام المهني والاحترافية. فمظهر طاقم الطيران ليس مجرد واجهة جمالية، بل هو رسالة ثقة وأمان للمسافرين، وتعبير ملموس عن قيم وهوية شركات الطيران التي يمثلونها، مهما تغيرت الظروف المناخية والبيئية حول العالم.
-              </p>
-            </section>
           </article>
         </div>
       </div>

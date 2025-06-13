@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function WorkwearMaintenanceGuide() {
-  const imageSrc = '/images/workwear/workwear_maintenance_guide.jpeg';
+  const imageSrc = '/images/workwear/workwear_maintenance_guide.webp';
   const title = 'دليل العناية بملابس العمل: نصائح للحفاظ على مظهرها وإطالة عمرها';
   const readingTime = '١٠ دقائق للقراءة';
   const datePublished = '١٧ مايو ٢٠٢٤';
@@ -212,7 +212,7 @@ export default function WorkwearMaintenanceGuide() {
 
               <div className="relative w-full h-[300px] my-8 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/workwear/workwear_maintenance.jpeg"
+                  src="/images/workwear/workwear_maintenance.webp"
                   alt="غسيل ملابس العمل بشكل صحيح"
                   fill
                   style={{ objectFit: 'cover' }}

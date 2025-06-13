@@ -1,65 +1,99 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaUser, FaCalendar, FaHeartbeat, FaStar, FaCheckCircle } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'تأثير ألوان زي الطيران على انطباعات المسافرين',
-  description: 'دراسة تحليلية عن تأثير ألوان زي طاقم الطيران على انطباعات المسافرين وتجربة السفر، وكيفية توظيف الألوان في تعزيز الهوية البصرية لشركات الطيران',
+  title: 'التصميم الإرجونومي في أزياء الطيران: الصحة والراحة أولاً | يونيفورم',
+  description: 'اكتشف كيف يساهم التصميم الإرجونومي في أزياء طاقم الطيران في تحسين الصحة والراحة، وتقليل التعب والإجهاد أثناء ساعات العمل الطويلة.',
+  keywords: 'التصميم الإرجونومي، راحة طاقم الطيران، صحة العمل، أزياء مريحة، تصميم وظيفي، السعودية',
+  openGraph: {
+    title: 'التصميم الإرجونومي في أزياء الطيران: الصحة والراحة أولاً',
+    description: 'تحسين صحة وراحة طاقم الطيران من خلال التصميم الإرجونومي المتطور',
+    images: ['/images/flight_crew/crew_uniform_visual_identity.webp'],
+  },
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
-  const title = 'تأثير ألوان زي الطيران على انطباعات المسافرين';
-  const readingTime = '8 دقائق';
-  const datePublished = '١٥ مايو ٢٠٢٤';
+export default function Article16Page() {
+  const heroImage = '/images/flight_crew/crew_uniform_visual_identity.webp';
+  const title = 'التصميم الإرجونومي في أزياء الطيران: الصحة والراحة أولاً';
+  const readingTime = '10 دقائق';
+  const publishDate = '٢٥ ديسمبر ٢٠٢٤';
+  const author = 'خبراء الصحة المهنية والتصميم - يونيفورم';
 
-  // أقسام المقال للتنقل السريع
   const sections = [
     { id: 'intro', title: 'مقدمة' },
-    { id: 'environmental-impact', title: 'فهم تأثير يونيفورم الطيران على البيئة' },
-    { id: 'sustainable-materials', title: 'المواد المستدامة في تصميم أزياء الطيران' },
-    { id: 'global-initiatives', title: 'مبادرات رائدة من شركات الطيران العالمية' },
-    { id: 'circular-design', title: 'تصميم دائري للأزياء: ما بعد الاستدامة' },
-    { id: 'conclusion', title: 'الخلاصة' },
+    { id: 'principles', title: 'مبادئ التصميم الإرجونومي' },
+    { id: 'health-benefits', title: 'الفوائد الصحية' },
+    { id: 'design-features', title: 'ميزات التصميم المتطور' },
+    { id: 'material-technology', title: 'تقنيات المواد المتقدمة' },
+    { id: 'case-studies', title: 'دراسات حالة' },
+    { id: 'implementation', title: 'التطبيق العملي' },
+    { id: 'future-trends', title: 'الاتجاهات المستقبلية' },
   ];
 
   return (
     <main className="bg-gray-50 rtl">
-      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
-      <div className="relative w-full h-[60vh] mb-8">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
+      {/* Hero Section */}
+      <div className="relative w-full h-[70vh] mb-8">
+        <Image
+          src={heroImage}
+          alt={title}
+          fill
           priority
-              style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover' }}
+          className="brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
-              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
-              <span>{datePublished}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div className="container mx-auto px-4 h-full flex items-end pb-16">
+            <div className="text-white max-w-4xl">
+              <div className="mb-4">
+                <span className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-fit">
+                  <FaHeartbeat />
+                  الصحة والراحة
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                تطوير أزياء الطيران وفقاً لأسس علمية لضمان الصحة والراحة المثلى للطاقم
+              </p>
+              <div className="flex items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <FaUser className="w-4 h-4" />
+                  <span>{author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaClock className="w-4 h-4" />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCalendar className="w-4 h-4" />
+                  <span>{publishDate}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pb-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* القائمة الجانبية */}
-          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">
+                محتويات المقال
+              </h3>
               <nav>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {sections.map(section => (
                     <li key={section.id}>
                       <a 
                         href={`#${section.id}`} 
-                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-2 text-sm border-r-2 border-transparent hover:border-blue-400 pr-3"
                       >
                         {section.title}
                       </a>
@@ -69,215 +103,380 @@ export default function ArticlePage() {
               </nav>
             </div>
             
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">
+                مشاركة المقال
+              </h3>
               <ShareButtons url="" title={title} />
             </div>
 
-            <div className="border-t pt-4 mt-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
-                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-9" className="text-sm hover:text-blue-600 block">
-                    تطور أزياء طاقم الطيران عبر التاريخ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-15" className="text-sm hover:text-blue-600 block">
-                    الاتجاهات الحديثة في تصميم أزياء طاقم الطيران
-                  </Link>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-blue-50 to-teal-100 p-6 rounded-xl">
+              <h3 className="text-lg font-bold mb-3 text-blue-900">
+                استشارة إرجونومية
+              </h3>
+              <p className="text-gray-700 text-sm mb-4">
+                احصل على تقييم إرجونومي متخصص لأزياء طاقم الطيران في شركتك
+              </p>
+              <Link 
+                href="/quote" 
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors block text-center text-sm font-medium"
+              >
+                طلب تقييم مجاني
+              </Link>
             </div>
           </aside>
 
-          {/* محتوى المقال الرئيسي */}
-          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
-            <section id="intro" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
-              <p className="mb-4 leading-7 text-gray-700">
-            في عصر يتزايد فيه الوعي البيئي والمسؤولية المجتمعية، تواجه صناعة الطيران تحدياً كبيراً للموازنة بين متطلبات النمو الاقتصادي والالتزام بممارسات أكثر استدامة. وبينما تركز معظم الجهود على تقليل انبعاثات الكربون وتحسين كفاءة استهلاك الوقود، هناك جانب آخر من جوانب الاستدامة يكتسب اهتماماً متزايداً: يونيفورم طاقم الطيران.
-          </p>
-              <p className="mb-4 leading-7 text-gray-700">
-            لطالما كانت أزياء الطيران رمزاً للأناقة والاحترافية، وعنصراً أساسياً في هوية شركات الطيران. ومع ذلك، فإن التحديات البيئية الناجمة عن دورة حياة هذه الأزياء - من استخراج المواد الخام وتصنيعها، إلى استخدامها والتخلص منها - تدفع نحو إعادة التفكير في الممارسات التقليدية وتبني نهج أكثر استدامة.
-          </p>
-              <p className="mb-4 leading-7 text-gray-700">
-            في هذا المقال، نستكشف الاتجاهات المتنامية نحو يونيفورم طيران أكثر استدامة، ونسلط الضوء على المبادرات الرائدة التي تقودها شركات الطيران العالمية والمحلية. كما نتناول التحديات التي تواجه هذا التحول، والفرص التي يقدمها للصناعة وللبيئة على حد سواء. سنستعرض أيضاً كيف يمكن للمواد والتقنيات المبتكرة أن تسهم في تقليل البصمة البيئية للأزياء مع الحفاظ على معايير الجودة والأناقة المتوقعة في هذا القطاع.
-          </p>
-        </section>
-
-            <section id="environmental-impact" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">فهم تأثير يونيفورم الطيران على البيئة</h2>
-              
-              <div className="bg-blue-50 p-5 rounded-lg mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">دورة حياة يونيفورم الطيران والبصمة البيئية</h3>
-                <p className="mb-2 font-medium text-blue-700">تقييم التأثير البيئي للزي عبر مراحله المختلفة:</p>
-                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
-                  <li>استخراج المواد الخام: استهلاك الموارد الطبيعية والطاقة لإنتاج الألياف</li>
-                  <li>التصنيع: استخدام المواد الكيميائية والمياه في عمليات الصباغة والمعالجة</li>
-                  <li>النقل والتوزيع: انبعاثات الكربون المرتبطة بنقل المنتجات عبر سلاسل التوريد العالمية</li>
-                  <li>الاستخدام: استهلاك الطاقة والمياه والمنظفات في عمليات الغسيل والكي المتكررة</li>
-                  <li>نهاية الاستخدام: النفايات الناتجة عن التخلص من الأزياء المستهلكة</li>
-          </ul>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">إحصائيات وأرقام حول الأثر البيئي</h3>
-                  <p className="mb-2 text-gray-700">حقائق مقلقة عن الصناعة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>صناعة الأزياء ثاني أكبر ملوث للمياه على مستوى العالم</li>
-                    <li>استهلاك القطن التقليدي كميات هائلة من المياه والمبيدات</li>
-                    <li>مساهمة الألياف الاصطناعية في مشكلة الميكروبلاستيك</li>
-                    <li>إنتاج مئات الآلاف من قطع اليونيفورم سنوياً</li>
-                    <li>متوسط استخدام زي الطيران بين 18-24 شهراً قبل استبداله</li>
-          </ul>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الضغوط نحو الممارسات المستدامة</h3>
-                  <p className="mb-2 text-gray-700">العوامل الدافعة للتغيير:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تزايد الوعي البيئي بين المسافرين</li>
-                    <li>اللوائح والتشريعات البيئية المتطورة</li>
-                    <li>توجه المستثمرين نحو معايير ESG</li>
-                    <li>المبادرات الطوعية داخل صناعة الطيران</li>
-                    <li>ضغوط المنافسة مع إعلان مبادرات الاستدامة</li>
-          </ul>
-                </div>
-              </div>
-        </section>
-
-            <section id="sustainable-materials" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد المستدامة في تصميم أزياء الطيران</h2>
-              
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-800 text-white py-2 px-4">
-                  <h3 className="text-xl font-medium">الألياف الطبيعية المستدامة</h3>
-                </div>
-                <div className="bg-white border border-blue-200 p-4">
-                  <p className="mb-2 font-medium text-blue-700">بدائل صديقة للبيئة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>القطن العضوي: مزروع بدون مبيدات حشرية أو أسمدة كيميائية</li>
-                    <li>الكتان: يتطلب مياهاً وموارد أقل بكثير من القطن</li>
-                    <li>الحرير العضوي: إنتاج أكثر إنسانية مع تأثير بيئي أقل</li>
-                    <li>الصوف المسؤول: من مزارع تطبق معايير الرفق بالحيوان</li>
-                    <li>الخيزران: ينمو بسرعة ويتطلب القليل من المدخلات الزراعية</li>
-          </ul>
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الألياف المعاد تدويرها والمبتكرة</h3>
-              <div className="border-r-2 border-blue-500 pr-4 py-2 mb-6">
-                <p className="mb-2 font-medium text-gray-700">الابتكارات في إعادة استخدام الموارد:</p>
-                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
-                  <li>البوليستر المعاد تدويره (rPET): مصنوع من زجاجات البلاستيك</li>
-                  <li>النايلون المستصلح: مستخرج من شباك الصيد المهجورة</li>
-                  <li>مواد من ألياف القهوة: تستخدم بقايا القهوة لإنتاج أقمشة</li>
-                  <li>أقمشة من نفايات الأناناس (Piñatex): بديل نباتي للجلد</li>
-                  <li>السليلوز المعاد تجديده: مستخرج من لب الأشجار المستدامة</li>
-          </ol>
-              </div>
-
-              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">المواد التقنية المتطورة</h3>
-                <p className="mb-2 text-gray-700">ابتكارات تجمع بين الأداء والاستدامة:</p>
-                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                  <li>أقمشة قابلة للتحلل البيولوجي بعد انتهاء عمرها</li>
-                  <li>مواد ذكية تقلل الحاجة للغسيل المتكرر</li>
-                  <li>ألياف مركبة تجمع بين المتانة والتجددية</li>
-                  <li>أقمشة معالجة لتقليل استهلاك الطاقة</li>
-                  <li>مواد مصممة للفصل السهل لتسهيل إعادة التدوير</li>
-          </ul>
-              </div>
-        </section>
-
-            <section id="global-initiatives" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مبادرات رائدة من شركات الطيران العالمية</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">تجارب شركات طيران عالمية</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">نماذج ملهمة للاستدامة:</p>
-                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                      <li>الخطوط الجوية الاسكندنافية: زي من مواد معاد تدويرها 100%</li>
-                      <li>يونايتد إيرلاينز: شراكة مع TracyReese لتصميم يونيفورم مستدام</li>
-                      <li>طيران نيوزيلندا: استخدام خيوط من زجاجات بلاستيكية معاد تدويرها</li>
-                      <li>كانتاس الأسترالية: برنامج شامل لإعادة تدوير اليونيفورم القديم</li>
-                      <li>الخطوط الجوية الفنلندية: استخدام مواد من المحيط في الزي</li>
-          </ul>
+          {/* Main Content */}
+          <article className="lg:w-3/4 bg-white p-8 rounded-xl shadow-lg">
+            
+            <section id="intro" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                مقدمة
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 font-medium text-gray-800">
+                  يعمل طاقم الطيران في بيئة فريدة تتطلب ساعات عمل طويلة، وحركة مستمرة، والتعامل مع ضغوط جسدية ونفسية متنوعة. في هذا السياق، يلعب التصميم الإرجونومي لأزياء الطيران دوراً حاسماً في ضمان صحة وراحة الطاقم، وتحسين أدائهم وإنتاجيتهم.
+                </p>
+                
+                <div className="bg-blue-50 border-r-4 border-blue-500 p-6 rounded-lg my-8">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                    <FaStar className="text-blue-600" />
+                    أهمية التصميم الإرجونومي
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul className="space-y-2">
+                      <li>🏥 تقليل الإصابات المهنية</li>
+                      <li>💪 تحسين الأداء البدني</li>
+                      <li>😊 زيادة الرضا الوظيفي</li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li>⚡ تقليل التعب والإجهاد</li>
+                      <li>🎯 تحسين التركيز والدقة</li>
+                      <li>💰 توفير تكاليف الرعاية الصحية</li>
+                    </ul>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">خطوات نحو الاستدامة في شركات الطيران العربية</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">مبادرات محلية وإقليمية:</p>
-                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                      <li>طيران الإمارات: تجربة استخدام أقمشة من مصادر مستدامة</li>
-                      <li>الخطوط السعودية: خطط لتطوير زي يتضمن مواد معاد تدويرها</li>
-                      <li>الاتحاد للطيران: برنامج لإعادة استخدام عناصر من الزي القديم</li>
-                      <li>الخطوط الملكية الأردنية: التحول نحو مواد أكثر استدامة</li>
-                      <li>طيران الخليج: شراكات مع موردين ملتزمين بالإنتاج المستدام</li>
-          </ol>
+
+                <p>
+                  التصميم الإرجونومي لا يقتصر على الراحة الفورية، بل يمتد ليشمل الوقاية من الإصابات طويلة المدى، وتحسين جودة حياة العمل، وتعزيز الكفاءة المهنية. هذا النهج العلمي في التصميم يأخذ في الاعتبار علم التشريح والفسيولوجيا وعلم النفس لخلق أزياء تتناغم مع احتياجات الجسم البشري.
+                </p>
+              </div>
+            </section>
+
+            <section id="principles" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                مبادئ التصميم الإرجونومي
+              </h2>
+
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-4 flex items-center gap-2">
+                    <FaCheckCircle className="text-blue-600" />
+                    المبادئ الأساسية للتصميم الصحي
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium text-blue-800 mb-2">التوافق مع التشريح البشري</h4>
+                        <p className="text-sm text-gray-700">
+                          تصميم الأزياء وفقاً لشكل الجسم الطبيعي ونقاط الضغط والحركة
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-cyan-500 pl-4">
+                        <h4 className="font-medium text-cyan-800 mb-2">المرونة والحركة</h4>
+                        <p className="text-sm text-gray-700">
+                          ضمان حرية الحركة الكاملة في جميع الاتجاهات دون قيود
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-teal-500 pl-4">
+                        <h4 className="font-medium text-teal-800 mb-2">توزيع الوزن</h4>
+                        <p className="text-sm text-gray-700">
+                          توزيع متوازن للوزن لتجنب الضغط على نقاط محددة
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="relative h-64">
+                      <Image
+                        src="/images/flight_crew/ergonomic_design_principles.jpeg"
+                        alt="مبادئ التصميم الإرجونومي"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                    <thead>
+                      <tr className="bg-blue-600 text-white">
+                        <th className="border border-gray-300 p-4 text-right">المبدأ</th>
+                        <th className="border border-gray-300 p-4 text-right">التطبيق</th>
+                        <th className="border border-gray-300 p-4 text-right">الفائدة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">القصة التشريحية</td>
+                        <td className="border border-gray-300 p-4">خياطة تتبع منحنيات الجسم</td>
+                        <td className="border border-gray-300 p-4">راحة وحرية حركة</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">النسيج المتمدد</td>
+                        <td className="border border-gray-300 p-4">مواد مرنة في النقاط الحرجة</td>
+                        <td className="border border-gray-300 p-4">تحسين الأداء الحركي</td>
+                      </tr>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">التهوية الذكية</td>
+                        <td className="border border-gray-300 p-4">فتحات تهوية استراتيجية</td>
+                        <td className="border border-gray-300 p-4">تنظيم حرارة الجسم</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">التبطين المدروس</td>
+                        <td className="border border-gray-300 p-4">حشو في نقاط الضغط</td>
+                        <td className="border border-gray-300 p-4">تقليل التعب والألم</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="health-benefits" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                الفوائد الصحية
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/health_benefits_ergonomic.jpeg"
+                    alt="الفوائد الصحية للتصميم الإرجونومي"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-green-800">
+                    تحسينات صحية ملموسة
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    الأزياء المصممة إرجونومياً تحقق فوائد صحية مثبتة علمياً، من تحسين الدورة الدموية إلى تقليل آلام العضلات والمفاصل، مما يؤدي إلى تحسين جودة الحياة المهنية للطاقم.
+                  </p>
+                  <div className="bg-green-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-green-800 mb-2">النتائج المثبتة:</h4>
+                    <ul className="text-sm space-y-1 text-green-700">
+                      <li>📉 تقليل آلام الظهر بنسبة 60%</li>
+                      <li>💨 تحسين التنفس بنسبة 25%</li>
+                      <li>🩸 تحسين الدورة الدموية</li>
+                      <li>😴 جودة نوم أفضل بعد العمل</li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-blue-50 p-5 rounded-lg mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">دراسات حالة: نتائج وتأثير المبادرات</h3>
-                <p className="mb-2 font-medium text-blue-700">قياس نجاح مشاريع الاستدامة:</p>
-                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
-                  <li>الخطوط الاسكندنافية: تقليل البصمة الكربونية للزي بنسبة 45%</li>
-                  <li>كانتاس: تحويل أكثر من 10,000 قطعة زي من مكب النفايات</li>
-                  <li>يونايتد: توفير 231,000 لتر من المياه سنوياً من خلال تقنيات صباغة متطورة</li>
-                  <li>الخطوط الفنلندية: تحويل 13 طن من البلاستيك إلى إكسسوارات للزي</li>
-                  <li>طيران نيوزيلندا: تحسن في رضا الموظفين بنسبة 32% بعد اعتماد زي أكثر استدامة</li>
-          </ul>
-              </div>
-        </section>
-
-            <section id="circular-design" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تصميم دائري للأزياء: ما بعد الاستدامة</h2>
-              
-              <div className="relative w-full h-[400px] mb-6 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/flight_crew/air_crew_attire.jpeg"
-                  alt="تصميم دائري لأزياء الطيران"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-                <div className="absolute bottom-0 w-full bg-black/50 text-white p-2 text-sm text-center">
-                  نموذج للتصميم الدائري في صناعة أزياء الطيران | المصدر: مؤتمر الاستدامة في صناعة الطيران 2023
+              <div className="bg-green-50 border-r-4 border-green-500 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-green-800 mb-3">
+                  📊 التأثيرات الإيجابية على صحة الطاقم
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div>
+                    <h4 className="font-medium text-green-700 mb-2">الصحة الجسدية:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• تقليل التعب العضلي</li>
+                      <li>• تحسين وضعية الجسم</li>
+                      <li>• منع إصابات الحركة المتكررة</li>
+                      <li>• تقليل ضغط المفاصل</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-green-700 mb-2">الصحة النفسية:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• زيادة الثقة بالنفس</li>
+                      <li>• تقليل التوتر المهني</li>
+                      <li>• تحسين المزاج العام</li>
+                      <li>• زيادة الرضا الوظيفي</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-green-700 mb-2">الأداء المهني:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• تحسين الكفاءة</li>
+                      <li>• زيادة التركيز</li>
+                      <li>• تقليل الأخطاء</li>
+                      <li>• سرعة الاستجابة</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              
-              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مفهوم الاقتصاد الدائري في الأزياء</h3>
-              <p className="mb-4 leading-7 text-gray-700">
-                يتجاوز التصميم الدائري مفهوم الاستدامة التقليدي ليعيد تعريف دورة حياة المنتج بالكامل. في هذا النموذج، تُصمم الأزياء منذ البداية بحيث يمكن إعادة استخدامها وتدويرها وتجديدها بسهولة، مما يلغي مفهوم "النفايات" تماماً. يعتمد هذا النهج على الحفاظ على المواد في الاستخدام لأطول فترة ممكنة، وتجديد النظم الطبيعية، والانتقال من نموذج "الاستخدام والتخلص" إلى "الاستخدام وإعادة الاستخدام".
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                في سياق أزياء الطيران، يمكن تطبيق هذا المفهوم من خلال تصميم قطع قابلة للتفكيك بسهولة، واستخدام مواد أحادية يمكن إعادة تدويرها دون فقدان جودتها، وإنشاء أنظمة لاستعادة الأزياء المستعملة وإعادة تدويرها أو تحويلها إلى منتجات جديدة. هذا النهج لا يقلل فقط من الأثر البيئي، بل يمكن أن يخلق أيضاً فرصاً اقتصادية جديدة وقيمة مضافة للشركات.
-              </p>
-        </section>
+            </section>
 
-            <section id="conclusion" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
-              <p className="mb-4 leading-7 text-gray-700">
-                يمثل التحول نحو أزياء طيران أكثر استدامة فرصة مهمة لشركات الطيران لتقليل بصمتها البيئية وتعزيز صورتها كمؤسسات مسؤولة بيئياً واجتماعياً. من خلال اعتماد المواد المستدامة، وتبني تقنيات التصنيع الصديقة للبيئة، وتطبيق مبادئ التصميم الدائري، يمكن لشركات الطيران أن تحقق توازناً بين الأناقة والوظيفية والاستدامة في أزياء طاقم الطيران.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                مع استمرار تطور التقنيات والمواد المستدامة، وتزايد الوعي البيئي بين المستهلكين والمستثمرين، سيصبح هذا التحول ليس فقط خياراً أخلاقياً، بل ضرورة تنافسية أيضاً. الشركات التي تبادر بتبني هذه الممارسات ستكون في موقع أفضل للاستفادة من الفرص الناشئة في اقتصاد أكثر استدامة، وستساهم في تشكيل مستقبل أكثر خضرة لصناعة الطيران.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                في النهاية، يتطلب تحقيق الاستدامة الحقيقية في أزياء الطيران تعاوناً وثيقاً بين شركات الطيران، ومصممي الأزياء، ومصنعي المنسوجات، والباحثين، والهيئات التنظيمية. من خلال هذا الجهد المشترك، يمكن تحويل تحدي الاستدامة إلى فرصة للابتكار والتميز في صناعة تسعى باستمرار للتطور والتحسين.
-          </p>
-        </section>
-      </article>
+            <section id="daily-care" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-green-600 pr-4">
+                العناية اليومية
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/comfort_safety_airline_uniforms.webp"
+                    alt="التصميم الإرجونومي في أزياء الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-teal-800">
+                    مبادئ التصميم الإرجونومي
+                  </h3>
+                  <p className="text-gray-700">
+                    يركز التصميم الإرجونومي على توافق الزي مع التشريح البشري وطبيعة الحركة في بيئة الطيران. هذا النهج العلمي يضمن الراحة القصوى والأداء الأمثل للطاقم.
+                  </p>
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-teal-800">العناصر الأساسية:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>🧍 دعم المفاصل والعضلات</li>
+                      <li>🤲 حرية الحركة الكاملة</li>
+                      <li>🌡️ تنظيم حرارة الجسم</li>
+                      <li>⚖️ توزيع متوازن للوزن</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* إضافة صورة إضافية للمحتوى */}
+              <div className="my-8">
+                <div className="relative h-96 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/flight_crew/best_flight_crew_attire.webp"
+                    alt="أفضل تصاميم أزياء الطيران الإرجونومية"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                    <p className="text-white text-sm font-medium">
+                      تصاميم متطورة تجمع بين الأناقة والوظيفية لراحة مثلى لطاقم الطيران
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* قسم إضافي للتقنيات المتطورة */}
+              <div className="bg-blue-50 p-8 rounded-xl my-8">
+                <h3 className="text-2xl font-bold text-blue-900 mb-6">التقنيات المتطورة في التصميم</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/flight_crew_uniform_fabrics.webp"
+                        alt="أقمشة متطورة لأزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">أقمشة ذكية</h4>
+                    <p className="text-sm text-gray-600">أقمشة تتكيف مع درجة الحرارة وتوفر تهوية مثلى</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/air_crew_innovative_uniforms.webp"
+                        alt="تصاميم مبتكرة لأزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">تصميم مبتكر</h4>
+                    <p className="text-sm text-gray-600">قطع معاد تصميمها علمياً لتوفير راحة استثنائية</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/accessories_overview.webp"
+                        alt="إكسسوارات مساعدة للراحة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">إكسسوارات داعمة</h4>
+                    <p className="text-sm text-gray-600">عناصر مساعدة تعزز الراحة والأداء</p>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+
+            {/* Related Articles */}
+            <section className="border-t pt-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">مقالات ذات صلة</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Link href="/blog/flight-crew/flight-6" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/modern_comfort_technology.jpeg"
+                        alt="تقنيات الراحة الحديثة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        تقنيات الراحة والأمان في أزياء الطيران الحديثة
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-13" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/uniform_maintenance_care.jpeg"
+                        alt="صيانة أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        دليل الصيانة والعناية بأزياء طاقم الطيران
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-15" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/sustainable_airline_uniforms.jpeg"
+                        alt="المواد المستدامة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        المواد المستدامة في أزياء الطيران
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </section>
+
+          </article>
         </div>
       </div>
     </main>

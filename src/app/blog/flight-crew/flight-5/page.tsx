@@ -1,70 +1,98 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaUser, FaCalendar, FaGlobe, FaStar, FaPalette } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران',
-  description: 'استكشف كيف تؤثر الثقافة المحلية والهوية الوطنية على تصميم أزياء شركات الطيران، وكيف تعكس الرموز والألوان والعناصر التقليدية تراث البلدان المختلفة.',
+  title: 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران: رحلة عبر الحضارات | يونيفورم',
+  description: 'استكشف كيف تؤثر الثقافة المحلية والهوية الوطنية على تصميم أزياء شركات الطيران حول العالم، وكيف تعكس الرموز والألوان والعناصر التقليدية تراث الحضارات.',
+  keywords: 'الثقافة المحلية في أزياء الطيران، تصميم أزياء طيران ثقافية، التراث في ملابس الطيران، الهوية الوطنية، أزياء طيران عربية، السعودية',
+  openGraph: {
+    title: 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران: رحلة عبر الحضارات',
+    description: 'كيف تعكس أزياء شركات الطيران الثقافة المحلية والهوية الوطنية للدول',
+    images: ['/images/flight_crew/uniforms_saudi_arabia.jpeg'],
+  },
 };
 
-// صورة الهيدر للمقال
-const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+export default function Article5Page() {
+  const heroImage = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
+  const title = 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران: رحلة عبر الحضارات';
+  const readingTime = '12 دقيقة';
+  const publishDate = '٥ ديسمبر ٢٠٢٤';
+  const author = 'خبراء التراث والتصميم الثقافي - يونيفورم';
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/uniforms_saudi_arabia.jpeg';
-  const title = 'تأثير الثقافة المحلية على تصميم أزياء شركات الطيران';
-  const readingTime = '9 دقائق';
-  const datePublished = '٣٠ مايو ٢٠٢٣';
-
-  // أقسام المقال للتنقل السريع
   const sections = [
     { id: 'intro', title: 'مقدمة' },
-    { id: 'cultural-elements', title: 'العناصر الثقافية المؤثرة في تصميم أزياء الطيران' },
-    { id: 'geographical-identity', title: 'الهوية الثقافية في تصميم الأزياء حسب المناطق الجغرافية' },
-    { id: 'integration-strategies', title: 'استراتيجيات دمج الثقافة المحلية في التصميم' },
-    { id: 'challenges', title: 'تحديات دمج الثقافة المحلية في أزياء الطيران' },
-    { id: 'case-studies', title: 'دراسات حالة: نماذج ناجحة لدمج الثقافة في أزياء الطيران' },
-    { id: 'future-trends', title: 'اتجاهات مستقبلية: بين الجذور الثقافية والابتكار العالمي' },
-    { id: 'conclusion', title: 'الخلاصة' },
+    { id: 'cultural-elements', title: 'العناصر الثقافية في التصميم' },
+    { id: 'regional-examples', title: 'نماذج إقليمية مميزة' },
+    { id: 'integration-strategies', title: 'استراتيجيات دمج التراث' },
+    { id: 'challenges-solutions', title: 'التحديات والحلول' },
+    { id: 'case-studies', title: 'دراسات حالة عالمية' },
+    { id: 'future-trends', title: 'مستقبل التصميم الثقافي' },
   ];
 
   return (
     <main className="bg-gray-50 rtl">
-      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
-      <div className="relative w-full h-[60vh] mb-8">
+      {/* Hero Section */}
+      <div className="relative w-full h-[70vh] mb-8">
         <Image
-          src={imageSrc}
+          src={heroImage}
           alt={title}
           fill
           priority
           style={{ objectFit: 'cover' }}
+          className="brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
-              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
-              <span>{datePublished}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div className="container mx-auto px-4 h-full flex items-end pb-16">
+            <div className="text-white max-w-4xl">
+              <div className="mb-4">
+                <span className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-fit">
+                  <FaGlobe />
+                  تراث عالمي متنوع
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                كيف تحكي أزياء الطيران قصص الحضارات وتعكس هوية الشعوب
+              </p>
+              <div className="flex items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <FaUser className="w-4 h-4" />
+                  <span>{author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaClock className="w-4 h-4" />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCalendar className="w-4 h-4" />
+                  <span>{publishDate}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pb-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* القائمة الجانبية */}
-          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-amber-600 pr-3">
+                محتويات المقال
+              </h3>
               <nav>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {sections.map(section => (
                     <li key={section.id}>
                       <a 
                         href={`#${section.id}`} 
-                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                        className="text-gray-700 hover:text-amber-600 block transition-colors py-2 text-sm border-r-2 border-transparent hover:border-amber-400 pr-3"
                       >
                         {section.title}
                       </a>
@@ -74,368 +102,520 @@ export default function ArticlePage() {
               </nav>
             </div>
             
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-amber-600 pr-3">
+                مشاركة المقال
+              </h3>
               <ShareButtons url="" title={title} />
             </div>
 
-            <div className="border-t pt-4 mt-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog/flight-crew/flight-1" className="text-sm hover:text-blue-600 block">
-                    اعتبارات تصميم زي شركات الطيران
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
-                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-4" className="text-sm hover:text-blue-600 block">
-                    الزي الرسمي لطياري وقائدي الطائرات: المواصفات والرموز
-                  </Link>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-amber-50 to-orange-100 p-6 rounded-xl">
+              <h3 className="text-lg font-bold mb-3 text-amber-900">
+                تصميم يعكس هويتك الثقافية؟
+              </h3>
+              <p className="text-gray-700 text-sm mb-4">
+                احصل على استشارة متخصصة لدمج التراث والثقافة المحلية في تصاميم أزياء الطيران
+              </p>
+              <Link 
+                href="/quote" 
+                className="bg-amber-600 text-white px-6 py-3 rounded-lg hover:bg-amber-700 transition-colors block text-center text-sm font-medium"
+              >
+                استشارة ثقافية
+              </Link>
             </div>
           </aside>
 
-          {/* محتوى المقال الرئيسي */}
-          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
-            <section id="intro" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
-              <p className="mb-4 leading-7 text-gray-700">
-                تمثل أزياء شركات الطيران واجهة حضارية ليست فقط للشركة نفسها، بل أيضًا للدولة والثقافة التي تنتمي إليها. فمنذ ظهور خطوط الطيران الوطنية في منتصف القرن العشرين، أصبحت أزياء الطيران أداة مهمة للتعبير عن الهوية الثقافية والتراث المحلي، وسفيراً غير رسمي ينقل انطباعات عن البلد ومكانته وقيمه إلى المسافرين من جميع أنحاء العالم.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                يجد مصممو أزياء شركات الطيران أنفسهم أمام تحدٍ فريد: كيفية تحقيق التوازن بين المعايير العالمية للأناقة والوظيفية، وبين إبراز الخصوصية الثقافية والهوية المحلية. وتختلف استراتيجيات شركات الطيران في هذا المجال بشكل كبير، من تبني العناصر التقليدية الصريحة، إلى الاكتفاء بإيحاءات دقيقة وتلميحات رمزية للثقافة المحلية.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                في هذا المقال، نستكشف كيف تؤثر الثقافة المحلية على تصميم أزياء شركات الطيران حول العالم، والعناصر الثقافية والتقليدية التي يتم دمجها في هذه الأزياء، والتحديات التي تواجه المصممين في هذا المجال. كما نقدم نماذج مميزة من شركات طيران مختلفة استطاعت تحقيق توازن فريد بين عالمية صناعة الطيران وخصوصية ثقافتها المحلية.
-              </p>
-            </section>
-
-            <section id="cultural-elements" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">العناصر الثقافية المؤثرة في تصميم أزياء الطيران</h2>
-              
-              <div className="bg-blue-50 p-5 rounded-lg mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">الملابس التقليدية كمصدر إلهام</h3>
-                <p className="mb-2 font-medium text-blue-700">الاستلهام من التراث الملبسي:</p>
-                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
-                  <li>ساروڠ كباي في الخطوط السنغافورية: تحويل الزي التقليدي الملايو إلى زي حديث للمضيفات</li>
-                  <li>الهانبوك الكوري في خطوط كوريا الجوية: تبسيط وتطوير الزي التقليدي ليلائم بيئة العمل</li>
-                  <li>عناصر من الثوب والغترة في تصاميم خطوط الخليج العربي</li>
-                  <li>تأثير الكيمونو الياباني في قصات وطريقة لف الأوشحة في الخطوط اليابانية</li>
-                </ul>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الألوان والرموز الوطنية</h3>
-                  <p className="mb-2 text-gray-700">عناصر الهوية البصرية للدولة:</p>
-                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                    <li>استخدام ألوان العلم الوطني في تصميم الزي</li>
-                    <li>دمج شعارات وطنية في التصميم (شجرة الأرز اللبنانية، الكنغر الأسترالي)</li>
-                    <li>استخدام الرموز القومية في شارات وإكسسوارات الزي</li>
-                    <li>اعتماد اللون الرسمي للدولة كلون رئيسي في البدلة أو الإكسسوارات</li>
-                  </ol>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الحرف والفنون اليدوية التقليدية</h3>
-                  <p className="mb-2 text-gray-700">توظيف التقنيات التراثية:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>نقوش الباتيك في أوشحة الخطوط الإندونيسية والماليزية</li>
-                    <li>التطريز التقليدي في أزياء الخطوط المكسيكية والبيروفية</li>
-                    <li>الزخارف الهندسية العربية في إكسسوارات الطيران العربي</li>
-                    <li>تقنيات التارتان الاسكتلندي في تصاميم الخطوط البريطانية</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section id="geographical-identity" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الهوية الثقافية في تصميم الأزياء حسب المناطق الجغرافية</h2>
-              
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-800 text-white py-2 px-4">
-                  <h3 className="text-xl font-medium">العالم العربي والشرق الأوسط</h3>
-                </div>
-                <div className="bg-white border border-blue-200 p-4">
-                  <p className="mb-2 font-medium text-blue-700">توازن بين التقاليد والحداثة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>الخطوط السعودية: ألوان مستوحاة من العلم السعودي وزخارف هندسية تعكس الفن الإسلامي</li>
-                    <li>طيران الإمارات: القبعة والوشاح المميزان المستوحيان من غطاء الرأس التقليدي</li>
-                    <li>الخطوط القطرية: دمج اللون العنابي المميز مع عناصر من الثقافة العربية الأصيلة</li>
-                    <li>العربية للطيران: بساطة مستمدة من الصحراء العربية وألوان دافئة تعكس البيئة المحلية</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">شرق وجنوب شرق آسيا</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">تراث غني بتفاصيل دقيقة:</p>
-                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                      <li>الخطوط الصينية: استخدام اللون الأحمر التقليدي والياقات المستوحاة من الملابس الصينية التقليدية</li>
-                      <li>الخطوط التايلاندية: أوشحة حرير بألوان زاهية وأنماط تايلاندية تقليدية</li>
-                      <li>خطوط غارودا الإندونيسية: نقوش الباتيك المميزة والألوان المستوحاة من الجزر الاستوائية</li>
-                      <li>الخطوط الفيتنامية: عناصر من اللباس الوطني "الآو زاي" مع تعديلات عصرية</li>
-                    </ol>
+          {/* Main Content */}
+          <article className="lg:w-3/4 bg-white p-8 rounded-xl shadow-lg">
+            
+            <section id="intro" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                مقدمة
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 font-medium text-gray-800">
+                  في عالم يزداد ترابطاً يوماً بعد يوم، تبرز أزياء شركات الطيران كسفراء ثقافيين يحملون قصص الحضارات ويعبرون الحدود حاملين معهم عبق التراث وألوان الهوية الوطنية. فهذه الأزياء ليست مجرد ملابس عمل، بل هي بيانات بصرية تحكي عن تاريخ الشعوب وثقافاتها المتنوعة.
+                </p>
+                
+                <div className="bg-amber-50 border-r-4 border-amber-500 p-6 rounded-lg my-8">
+                  <h3 className="text-xl font-semibold text-amber-900 mb-3 flex items-center gap-2">
+                    <FaStar className="text-amber-600" />
+                    أهمية الثقافة في تصميم أزياء الطيران
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul className="space-y-2">
+                      <li>• تعزيز الهوية الوطنية والفخر المحلي</li>
+                      <li>• جذب السياحة الثقافية والتراثية</li>
+                      <li>• تميز العلامة التجارية في السوق العالمي</li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li>• تقدير التنوع الثقافي والاحتفاء به</li>
+                      <li>• خلق تجربة سفر أصيلة ومميزة</li>
+                      <li>• بناء جسور التواصل بين الثقافات</li>
+                    </ul>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">أوروبا وأمريكا الشمالية</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">الأناقة الكلاسيكية مع لمسات محلية:</p>
-                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                      <li>الخطوط الفرنسية: أناقة باريسية متأثرة بعالم الموضة الفرنسي والتصميم المميز</li>
-                      <li>الخطوط البريطانية: الأزرق الملكي ولمسات من الأناقة البريطانية التقليدية</li>
-                      <li>سكانديناڤيان: بساطة وأناقة الشمال الأوروبي بخطوط نظيفة وألوان هادئة</li>
-                      <li>الخطوط الإيطالية: تأثر واضح بعالم الأزياء الإيطالي والقصات العالية الجودة</li>
+
+                <p>
+                  تتنوع استراتيجيات شركات الطيران في دمج الثقافة المحلية، من التلميحات الدقيقة في الألوان والنقوش، إلى التبني الكامل للعناصر التقليدية في التصميم. وتعكس هذه الاختيارات فلسفة كل شركة وفهمها لهويتها ومكانتها في السوق العالمي.
+                </p>
+              </div>
+            </section>
+
+            <section id="cultural-elements" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                العناصر الثقافية في التصميم
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/cultural_design_elements.jpeg"
+                    alt="العناصر الثقافية في تصميم أزياء الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-orange-800">
+                    رموز الهوية الثقافية
+                  </h3>
+                  <p className="text-gray-700">
+                    تستمد أزياء الطيران العناصر الثقافية من مصادر متنوعة تشمل الفنون التقليدية والحرف اليدوية والرموز الوطنية والطبيعة المحلية.
+                  </p>
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-orange-800">مصادر الإلهام:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>🎨 الفنون والحرف التقليدية</li>
+                      <li>🏛️ العمارة والتراث المعماري</li>
+                      <li>🌺 النباتات والمناظر الطبيعية المحلية</li>
+                      <li>👘 الأزياء والملابس التقليدية</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">أفريقيا وأمريكا اللاتينية</h3>
-                <p className="mb-2 text-gray-700">تنوع ثقافي نابض بالحياة:</p>
-                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                  <li>الخطوط الإثيوبية: أنماط أفريقية تقليدية وألوان مستوحاة من التراث الثقافي الإثيوبي العريق</li>
-                  <li>الخطوط الكينية: عناصر من ثقافة الماساي وألوان الأحمر والأخضر المميزة</li>
-                  <li>الخطوط البرازيلية: ألوان نابضة بالحياة تعكس روح الكرنفال والبهجة البرازيلية</li>
-                  <li>الخطوط المكسيكية: تطريزات مستوحاة من الحرف اليدوية المكسيكية التقليدية</li>
-                </ul>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-orange-800">
+                  لغة الألوان والرموز
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <FaPalette className="text-red-600 text-2xl" />
+                    </div>
+                    <h4 className="font-semibold text-red-800 mb-2">الألوان الوطنية</h4>
+                    <p className="text-gray-600 text-sm">استخدام ألوان العلم أو الألوان التقليدية المميزة للثقافة المحلية</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">⚜️</span>
+                    </div>
+                    <h4 className="font-semibold text-green-800 mb-2">الرموز التراثية</h4>
+                    <p className="text-gray-600 text-sm">دمج الرموز التقليدية والشعارات الثقافية في التصميم</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">🌟</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">الأنماط الزخرفية</h4>
+                    <p className="text-gray-600 text-sm">استخدام النقوش والزخارف التقليدية في الأقمشة والإكسسوارات</p>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <section id="integration-strategies" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">استراتيجيات دمج الثقافة المحلية في التصميم</h2>
-              
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">التوازن بين الهوية المحلية والمعايير العالمية</h3>
-                <p className="mb-2 text-gray-700">استراتيجيات المواءمة:</p>
-                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                  <li>الاستلهام غير المباشر: استخدام تفاصيل من الثقافة المحلية بطريقة معاصرة</li>
-                  <li>التصميم بطبقات: قاعدة عالمية موحدة مع عناصر ثقافية قابلة للتبديل</li>
-                  <li>الرمزية اللونية: الحفاظ على التصميم العالمي مع استخدام ألوان ذات دلالات ثقافية</li>
-                  <li>التنوع داخل الوحدة: تصاميم مختلفة للجنسين تراعي الثقافة المحلية مع الحفاظ على هوية موحدة</li>
-                </ol>
-              </div>
+            <section id="regional-examples" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                نماذج إقليمية مميزة
+              </h2>
 
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-700 text-white p-3">
-                  <h3 className="text-xl font-medium">التعاون مع المصممين المحليين</h3>
+              <div className="space-y-8">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-green-800 mb-4 flex items-center gap-2">
+                    🕌 العالم العربي والإسلامي
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-green-700">الخطوط السعودية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• الأخضر والأبيض من ألوان العلم السعودي</li>
+                        <li>• زخارف مستوحاة من الفن الإسلامي</li>
+                        <li>• تصاميم محتشمة تحترم القيم المحلية</li>
+                        <li>• شعار النخلة والسيفين في التفاصيل</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-green-700">طيران الإمارات:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• القبعة الحمراء المميزة والوشاح الأبيض</li>
+                        <li>• ألوان دافئة تعكس صحراء الإمارات</li>
+                        <li>• تصميم أنيق يجمع التراث والحداثة</li>
+                        <li>• إكسسوارات ذهبية تعكس الثراء والرقي</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4 border border-blue-300 bg-white">
-                  <p className="mb-2 text-gray-700">إشراك الخبرات المحلية:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تكليف مصممين محليين بارزين لإضفاء لمسة أصيلة: تعاون كريستيان لاكروا مع الخطوط الفرنسية</li>
-                    <li>إشراك حرفيين تقليديين في إنتاج عناصر من الزي: نسيج يدوي، إكسسوارات، تطريز</li>
-                    <li>التعاون مع مؤسسات ثقافية محلية للتأكد من صحة استخدام الرموز التقليدية</li>
-                    <li>ورش عمل مشتركة تجمع خبراء الطيران مع خبراء الثقافة والتراث المحلي</li>
-                  </ul>
-                </div>
-              </div>
 
-              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">مراحل تطوير التصميم الثقافي</h3>
-                <p className="mb-2 text-gray-700">منهجية العمل:</p>
-                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                  <li>البحث الأنثروبولوجي: دراسة عميقة للثقافة المحلية وعناصرها الأصيلة</li>
-                  <li>تحديد العناصر الثقافية القابلة للتوظيف والمناسبة لبيئة الطيران</li>
-                  <li>التجريب مع النماذج الأولية واختبارها من الناحية العملية والثقافية</li>
-                  <li>جمع تعقيبات من المجتمع المحلي والعاملين في مجال الطيران</li>
-                  <li>التعديل والتطوير المستمر للحفاظ على التوازن بين الأصالة والوظيفية</li>
-                </ol>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                    <thead>
+                      <tr className="bg-amber-600 text-white">
+                        <th className="border border-gray-300 p-4 text-right">المنطقة</th>
+                        <th className="border border-gray-300 p-4 text-right">الخطوط الجوية</th>
+                        <th className="border border-gray-300 p-4 text-right">العناصر الثقافية</th>
+                        <th className="border border-gray-300 p-4 text-right">التأثير</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">شرق آسيا</td>
+                        <td className="border border-gray-300 p-4">الخطوط اليابانية</td>
+                        <td className="border border-gray-300 p-4">البساطة اليابانية، ألوان الكيمونو</td>
+                        <td className="border border-gray-300 p-4">أناقة هادئة ومتطورة</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">جنوب شرق آسيا</td>
+                        <td className="border border-gray-300 p-4">الخطوط التايلاندية</td>
+                        <td className="border border-gray-300 p-4">البنفسجي الملكي، حرير تايلاندي</td>
+                        <td className="border border-gray-300 p-4">فخامة ملكية تقليدية</td>
+                      </tr>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">أوروبا</td>
+                        <td className="border border-gray-300 p-4">الخطوط الإيطالية</td>
+                        <td className="border border-gray-300 p-4">تصميم عصري، ألوان العلم الإيطالي</td>
+                        <td className="border border-gray-300 p-4">موضة راقية وأناقة</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">أفريقيا</td>
+                        <td className="border border-gray-300 p-4">الخطوط الإثيوبية</td>
+                        <td className="border border-gray-300 p-4">ألوان العلم، أنماط أفريقية تقليدية</td>
+                        <td className="border border-gray-300 p-4">فخر بالهوية الأفريقية</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
 
-            <section id="challenges" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تحديات دمج الثقافة المحلية في أزياء الطيران</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">التحديات الوظيفية والعملية</h3>
-                  <p className="mb-2 text-gray-700">مواءمة التراث مع متطلبات العمل:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>الموازنة بين الخصائص الثقافية ومتطلبات السلامة الصارمة</li>
-                    <li>تكييف الملابس التقليدية للراحة خلال ساعات العمل الطويلة</li>
-                    <li>تحقيق سهولة الحركة في عناصر الزي المستوحاة من التصاميم التقليدية</li>
-                    <li>إمكانية صيانة وتنظيف الأزياء بسهولة بالرغم من العناصر الثقافية المعقدة</li>
-                  </ul>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الحساسيات الثقافية والدينية</h3>
-                  <p className="mb-2 text-gray-700">احترام التنوع والخصوصية:</p>
-                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تجنب التبسيط المخل أو التنميط الثقافي في استخدام الرموز التراثية</li>
-                    <li>مراعاة التنوع الثقافي داخل البلد الواحد وتمثيله بشكل متوازن</li>
-                    <li>احترام المعتقدات الدينية المختلفة في تصميم الزي، خاصة للنساء</li>
-                    <li>تجنب الزخارف أو الرموز التي قد تحمل دلالات مختلفة في ثقافات أخرى</li>
-                  </ol>
-                </div>
-              </div>
+            <section id="integration-strategies" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                استراتيجيات دمج التراث
+              </h2>
 
-              <div className="bg-blue-50 p-5 rounded-lg mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">تحديات التوازن بين التقليد والحداثة</h3>
-                <p className="mb-2 font-medium text-blue-700">مواكبة العصر دون فقدان الهوية:</p>
-                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
-                  <li>خطر تقديم صورة نمطية أو متحفية عن الثقافة المحلية</li>
-                  <li>الحاجة لتجديد التصاميم دورياً مع الحفاظ على عناصر الهوية الثقافية</li>
-                  <li>التوازن بين جاذبية التصميم للجمهور المحلي والدولي</li>
-                  <li>ارتفاع تكلفة إنتاج الأزياء المستوحاة من الحرف اليدوية التقليدية</li>
-                </ul>
-              </div>
-            </section>
-
-            <section id="case-studies" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">دراسات حالة: نماذج ناجحة لدمج الثقافة في أزياء الطيران</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الخطوط السنغافورية: "ساروڠ كباي" العصري</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">إعادة اختراع التقليد:</p>
-                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                      <li>تطوير الزي التقليدي الملايو ليتناسب مع احتياجات الطيران الحديث</li>
-                      <li>الحفاظ على النقوش الباتيك الأصلية مع تصميم يسمح بسهولة الحركة</li>
-                      <li>تحديث مستمر للتصميم منذ الستينيات مع الحفاظ على الهوية الأصلية</li>
-                      <li>أصبح الزي رمزاً معترفاً به عالمياً للشركة والثقافة السنغافورية</li>
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/heritage_integration.jpeg"
+                    alt="استراتيجيات دمج التراث"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-purple-800">
+                    مناهج التطبيق المختلفة
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    تتبع شركات الطيران استراتيجيات متنوعة في دمج العناصر الثقافية، من التطبيق الكامل إلى اللمسات الدقيقة.
+                  </p>
+                  <div className="bg-purple-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-purple-800 mb-2">المناهج الرئيسية:</h4>
+                    <ul className="text-sm space-y-1 text-purple-700">
+                      <li>📐 التطبيق الكامل للزي التقليدي</li>
+                      <li>🎨 التفسير المعاصر للعناصر التراثية</li>
+                      <li>✨ اللمسات الثقافية الدقيقة</li>
+                      <li>🔄 الدمج المتوازن بين التقليد والحداثة</li>
                     </ul>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الخطوط الإماراتية: القبعة والوشاح المميزان</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">رمزية في التفاصيل:</p>
-                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                      <li>قبعة مستوحاة من شكل الكوفية التقليدية مع وشاح ينسدل على الجانب</li>
-                      <li>اللون العنابي المستوحى من صحراء الإمارات ورمالها</li>
-                      <li>استخدام تفاصيل ذهبية ترمز للتراث البدوي والضيافة العربية</li>
-                      <li>تصميم عالمي مع تفاصيل ثقافية محددة أصبحت علامة تجارية مميزة</li>
-                    </ol>
+              </div>
+
+              <div className="bg-yellow-50 border-r-4 border-yellow-500 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-yellow-800 mb-3">
+                  💡 أفضل الممارسات في الدمج الثقافي
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-yellow-700 mb-2">البحث والتطوير:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• دراسة عميقة للتراث الثقافي المحلي</li>
+                      <li>• التعاون مع خبراء التراث والمؤرخين</li>
+                      <li>• اختبار التصاميم مع المجتمعات المحلية</li>
+                      <li>• ضمان الأصالة وتجنب التجاري المبتذل</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-yellow-700 mb-2">التطبيق العملي:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• التدرج في التطبيق بدءاً من التفاصيل الصغيرة</li>
+                      <li>• الحفاظ على الوظيفية والراحة</li>
+                      <li>• مراعاة المعايير الدولية للطيران</li>
+                      <li>• التقييم المستمر وجمع ردود الفعل</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="challenges-solutions" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                التحديات والحلول
+              </h2>
+
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-gray-50 to-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                    التحديات في الدمج الثقافي
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                      <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl">⚖️</span>
+                      </div>
+                      <h4 className="font-semibold text-red-800 mb-2">التوازن الحساس</h4>
+                      <p className="text-gray-600 text-sm">الموازنة بين الأصالة والحداثة دون الإفراط أو التفريط</p>
+                    </div>
+                    
+                    <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                      <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl">🌍</span>
+                      </div>
+                      <h4 className="font-semibold text-orange-800 mb-2">القبول العالمي</h4>
+                      <p className="text-gray-600 text-sm">ضمان قبول التصاميم في جميع الأسواق الدولية</p>
+                    </div>
+                    
+                    <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                      <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl">💰</span>
+                      </div>
+                      <h4 className="font-semibold text-blue-800 mb-2">التكلفة والجدوى</h4>
+                      <p className="text-gray-600 text-sm">إدارة التكاليف الإضافية للتصاميم المخصصة</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-4">
+                    الحلول المبتكرة والناجحة
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-blue-700">التقنيات الحديثة:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• استخدام التصميم الرقمي للمحاكاة</li>
+                        <li>• تقنيات الطباعة المتقدمة للأنماط</li>
+                        <li>• النمذجة ثلاثية الأبعاد للتطوير</li>
+                        <li>• قواعد بيانات تراثية رقمية</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-blue-700">الشراكات الاستراتيجية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• التعاون مع المؤسسات الثقافية</li>
+                        <li>• شراكة مع مصممين محليين مشهورين</li>
+                        <li>• العمل مع الحرفيين التقليديين</li>
+                        <li>• دعم من وزارات الثقافة والسياحة</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="case-studies" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                دراسات حالة عالمية
+              </h2>
+
+              <div className="space-y-8">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-purple-800">
+                    نجاحات ملهمة من حول العالم
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                      <h4 className="font-semibold text-purple-700 mb-3">الخطوط الجوية السنغافورية</h4>
+                      <p className="text-sm text-gray-700 mb-3">
+                        تبنت تصميماً مستوحى من الساروڠ الماليزي التقليدي مع لمسة عصرية أنيقة.
+                      </p>
+                      <div className="bg-purple-50 p-3 rounded">
+                        <h5 className="font-medium text-purple-600 mb-1">النتائج:</h5>
+                        <ul className="text-xs space-y-1 text-gray-600">
+                          <li>• تعزيز الهوية الآسيوية</li>
+                          <li>• تقدير عالمي للتصميم</li>
+                          <li>• زيادة الجاذبية السياحية</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                      <h4 className="font-semibold text-purple-700 mb-3">الخطوط الجوية الهندية</h4>
+                      <p className="text-sm text-gray-700 mb-3">
+                        دمجت ألوان الزعفران والطاووس والزخارف الهندية التقليدية في تصميم مميز.
+                      </p>
+                      <div className="bg-purple-50 p-3 rounded">
+                        <h5 className="font-medium text-purple-600 mb-1">النتائج:</h5>
+                        <ul className="text-xs space-y-1 text-gray-600">
+                          <li>• إحياء التراث الهندي العريق</li>
+                          <li>• تميز في السوق الآسيوي</li>
+                          <li>• فخر وطني متجدد</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-green-800 mb-4">
+                    دروس مستفادة من التجارب العالمية
+                  </h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-green-700 mb-2">الأصالة مهمة</h4>
+                      <p className="text-sm text-gray-700">التصاميم الأصيلة والمدروسة تحقق تأثيراً أكبر من التقليد السطحي</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-700 mb-2">التدرج في التطبيق</h4>
+                      <p className="text-sm text-gray-700">البدء بتغييرات تدريجية يسمح بالتقييم والتحسين المستمر</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-700 mb-2">المشاركة المجتمعية</h4>
+                      <p className="text-sm text-gray-700">إشراك المجتمع المحلي يضمن القبول والنجاح</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="future-trends" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-amber-600 pr-4">
+                مستقبل التصميم الثقافي
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/future_cultural_design.jpeg"
+                    alt="مستقبل التصميم الثقافي"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-indigo-800">
+                    رؤية للمستقبل
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    مع تزايد الوعي بأهمية التنوع الثقافي والهوية المحلية، نتوقع تطورات مثيرة في مجال تصميم أزياء الطيران الثقافية.
+                  </p>
+                  <div className="bg-indigo-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-indigo-800 mb-2">اتجاهات المستقبل:</h4>
+                    <ul className="text-sm space-y-1 text-indigo-700">
+                      <li>🚀 التخصيص الرقمي والذكي</li>
+                      <li>🚀 الاستدامة الثقافية والبيئية</li>
+                      <li>🚀 التفاعل الافتراضي مع التراث</li>
+                      <li>🚀 الشراكات العالمية للتبادل الثقافي</li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-800 text-white py-2 px-4">
-                  <h3 className="text-xl font-medium">الخطوط الأفريقية: إثيوبيان إيرلاينز</h3>
-                </div>
-                <div className="bg-white border border-blue-200 p-4">
-                  <p className="mb-2 font-medium text-blue-700">الفن الأفريقي في أبهى حلله:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>أوشحة مطبوعة بأنماط مستوحاة من الفن الإثيوبي التقليدي</li>
-                    <li>استخدام الألوان الوطنية (الأخضر والأصفر والأحمر) في عناصر الزي</li>
-                    <li>قصات تقليدية معدلة للأكمام والياقات تعكس الملابس التقليدية</li>
-                    <li>تصميم فريد للإكسسوارات مستوحى من الحلي الإثيوبية التقليدية</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section id="future-trends" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">اتجاهات مستقبلية: بين الجذور الثقافية والابتكار العالمي</h2>
-              
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">التكنولوجيا في خدمة التراث</h3>
-                <p className="mb-2 text-gray-700">ابتكارات تقنية بروح ثقافية:</p>
-                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                  <li>أقمشة ذكية تحمل نقوشاً ثقافية مع خصائص تقنية متقدمة</li>
-                  <li>طباعة ثلاثية الأبعاد للإكسسوارات المستوحاة من الحرف التقليدية</li>
-                  <li>تقنيات النسيج المتقدمة لإعادة إنتاج التصاميم التقليدية بمواد خفيفة ومريحة</li>
-                  <li>ألياف مستدامة بيئياً تستخدم في إنتاج تصاميم مستلهمة من التراث المحلي</li>
-                </ul>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">الثقافة كميزة تنافسية</h3>
-                  <p className="mb-2 text-gray-700">التفرد في عالم معولم:</p>
-                  <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                    <li>اعتماد متزايد على الهوية الثقافية كعنصر تمييز في سوق تنافسية</li>
-                    <li>توثيق وسرد قصص التراث خلف تصميم الزي كجزء من التسويق</li>
-                    <li>برامج تفاعلية للمسافرين للتعرف على المعاني الثقافية للزي</li>
-                    <li>إصدارات محدودة من الأزياء تحتفي بمناسبات ثقافية خاصة</li>
-                  </ol>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">التنوع والشمولية</h3>
-                  <p className="mb-2 text-gray-700">اتجاهات المستقبل:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تصاميم أكثر مرونة تراعي التنوع الديني والثقافي لطاقم الطائرة</li>
-                    <li>خيارات متعددة ضمن الزي الرسمي تسمح بالتعبير عن الهويات المتنوعة</li>
-                    <li>تصاميم محايدة جنسياً مستوحاة من عناصر ثقافية غير تقليدية</li>
-                    <li>تعاون عبر الثقافات لإنتاج تصاميم تجمع بين تأثيرات متنوعة</li>
-                  </ul>
+              <div className="bg-gradient-to-br from-indigo-50 to-purple-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-indigo-800">
+                  التقنيات الناشئة والفرص الجديدة
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-indigo-700 mb-3">الذكاء الاصطناعي والتراث:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• تحليل الأنماط التراثية بذكاء اصطناعي</li>
+                      <li>• إنشاء تصاميم جديدة مستوحاة من التراث</li>
+                      <li>• حفظ وأرشفة رقمية للتراث الثقافي</li>
+                      <li>• تخصيص التصاميم حسب المسارات الجوية</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-indigo-700 mb-3">الواقع المعزز والتفاعل:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• قصص تفاعلية حول تاريخ التصميم</li>
+                      <li>• تجارب افتراضية للتراث المحلي</li>
+                      <li>• تطبيقات تعليمية عن الثقافات</li>
+                      <li>• معارض رقمية على متن الطائرة</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
 
-            <section id="conclusion" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
-              <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-5 rounded-lg border border-gray-200">
-                <p className="mb-4 leading-7 text-gray-700">
-                  يمثل دمج الثقافة المحلية في تصميم أزياء شركات الطيران توازناً دقيقاً بين الحفاظ على الهوية الوطنية والالتزام بالمعايير العالمية لصناعة الطيران. فعندما تنجح شركة طيران في تحقيق هذا التوازن، تصبح أزياؤها ليست مجرد ملابس عمل وظيفية، بل سفيراً ثقافياً متنقلاً يعرّف العالم بتراث وهوية البلد الذي تنتمي إليه.
-                </p>
-                <p className="mb-4 leading-7 text-gray-700">
-                  تظهر التجارب الناجحة أن أفضل التصاميم هي تلك التي لا تكتفي بنقل العناصر الثقافية حرفياً، بل تعيد تفسيرها وتكييفها بطريقة تحترم أصالتها مع تلبية متطلبات العمل في بيئة الطيران الحديثة. كما أن التعاون بين المصممين العالميين والخبراء المحليين في الثقافة والتراث يثمر عن حلول إبداعية تجمع بين الأصالة والعملية.
-                </p>
-                <p className="mb-0 leading-7 text-gray-700">
-                  وفي المستقبل، من المتوقع أن يستمر الاهتمام بالهوية الثقافية في تصميم أزياء الطيران، مع تطور أكبر في دمج التقنيات الحديثة والمواد المبتكرة في خدمة هذا الهدف. وستبقى أزياء شركات الطيران نافذة مهمة يطل منها المسافرون على ثقافات متنوعة، وجسراً للتواصل الحضاري في عالم يزداد ترابطاً وتقديراً للتنوع الثقافي.
-                </p>
+            {/* Related Articles */}
+            <section className="border-t pt-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">مقالات ذات صلة</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Link href="/blog/flight-crew/flight-1" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/airline_uniform_design.jpeg"
+                        alt="اعتبارات تصميم زي شركات الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-amber-600 transition-colors">
+                        اعتبارات تصميم زي شركات الطيران: دليل شامل للتميز
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-2" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/flight_crew_uniform_fabrics.jpeg"
+                        alt="اختيار أقمشة زي طاقم الطائرة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-amber-600 transition-colors">
+                        اختيار أقمشة زي طاقم الطائرة: دليل الجودة والمتانة
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-3" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/female_male_air_crew_wear.jpeg"
+                        alt="أزياء الطيران النسائية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-amber-600 transition-colors">
+                        أزياء الطيران النسائية: رحلة التطور والابتكار عبر العصور
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
               </div>
             </section>
 
-            {/* قسم التعليقات */}
-            <div className="mt-12 pt-6 border-t border-gray-200">
-              <h3 className="text-xl font-bold mb-6">التعليقات</h3>
-              <p className="text-gray-600 mb-4">شاركنا رأيك حول هذا المقال</p>
-              
-              <form className="mb-8">
-                <div className="mb-4">
-                  <textarea 
-                    placeholder="أضف تعليقك هنا..." 
-                    className="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 p-3"
-                    rows={4}
-                  ></textarea>
-                </div>
-                <div className="flex gap-4 mb-4">
-                  <input 
-                    type="text" 
-                    placeholder="الاسم" 
-                    className="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 p-2"
-                  />
-                  <input 
-                    type="email" 
-                    placeholder="البريد الإلكتروني" 
-                    className="flex-1 rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 p-2"
-                  />
-                </div>
-                <button 
-                  type="submit"
-                  className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
-                >
-                  إرسال التعليق
-                </button>
-              </form>
-            </div>
-
-            {/* زر العودة للأعلى */}
-            <div className="fixed bottom-8 left-8">
-              <a 
-                href="#top" 
-                className="bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors"
-                aria-label="العودة للأعلى"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                </svg>
-              </a>
-            </div>
           </article>
         </div>
       </div>

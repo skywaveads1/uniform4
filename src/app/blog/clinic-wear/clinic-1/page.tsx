@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function ClinicWear1() {
-  const imageSrc = '/images/clinic_wear/clinic_uniforms.jpeg';
+  const imageSrc = '/images/clinic_wear/clinic_uniforms.webp';
   const title = 'الزي الطبي الحديث: مزايا وتطورات ملابس العيادات';
   const readingTime = '٧ دقائق للقراءة';
   const datePublished = '١٨ يونيو ٢٠٢٤';
@@ -19,7 +19,7 @@ export default function ClinicWear1() {
     {
       title: "معايير اختيار الزي الطبي للعيادات الخاصة",
       description: "دليل شامل لمعايير اختيار الزي الطبي المناسب للعيادات الخاصة بما يتوافق مع المتطلبات العملية والمهنية",
-      image: "/images/clinic_wear/medical_wear.jpeg",
+      image: "/images/clinic_wear/clinic_uniforms.webp",
       url: "/blog/clinic-wear/clinic-2",
       date: "١٢ يونيو ٢٠٢٤",
       category: "الزي الطبي"
@@ -27,7 +27,7 @@ export default function ClinicWear1() {
     {
       title: "الزي الموحد في قطاع خدمات التموين والضيافة السعودي",
       description: "استعراض شامل لتطور الزي الموحد في قطاع خدمات التموين والضيافة في المملكة العربية السعودية",
-      image: "/images/clinic_wear/medical_wear.jpeg",
+      image: "/images/clinic_wear/clinic_uniforms.webp",
       url: "/blog/chef-uniforms/uniform-in-services-catering-Saudi",
       date: "٢٠ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
@@ -35,7 +35,7 @@ export default function ClinicWear1() {
     {
       title: "اتجاهات تصميم ملابس الطهاة لعام 2025",
       description: "استعراض لأحدث اتجاهات تصميم ملابس الطهاة المتوقعة في عام 2025",
-      image: "/images/clinic_wear/medical_wear.jpeg",
+      image: "/images/clinic_wear/clinic_uniforms.webp",
       url: "/blog/chef-uniforms/in-design-clothing-chef-2025",
       date: "١٠ يونيو ٢٠٢٤",
       category: "أزياء الطهاة"
@@ -145,7 +145,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="تطور الزي الطبي عبر العصور"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -193,7 +193,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="تصميم الزي الطبي الحديث"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -223,7 +223,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="الزي الطبي وتمييز الأدوار المختلفة"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -261,7 +261,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="أقمشة متطورة للزي الطبي"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -306,7 +306,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="زي التمريض في العيادات الحديثة"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -347,7 +347,7 @@ export default function ClinicWear1() {
 
               <div className="relative w-full h-[300px] mb-6 rounded-lg overflow-hidden">
                 <Image
-                  src="/images/clinic_wear/medical_wear.jpeg"
+                  src="/images/clinic_wear/clinic_uniforms.webp"
                   alt="اتجاهات مستقبلية في تصميم الزي الطبي"
                   fill
                   style={{ objectFit: 'cover' }}

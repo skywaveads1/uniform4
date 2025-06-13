@@ -7,10 +7,10 @@ export const metadata = {
 };
 
 // صورة الهيدر للمقال
-const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+const heroImage = '/images/flight_crew/cabin_crew_uniforms.webp';
 
 export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/crew_uniform_evolution.jpeg';
+  const imageSrc = '/images/flight_crew/cabin_crew_uniforms.webp';
   const title = 'تطور زي طاقم الطائرة عبر العصور';
 
   return (

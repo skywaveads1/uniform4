@@ -1,337 +1,1009 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaUser, FaCalendar, FaChartBar, FaStar, FaDatabase } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
-import { ArticleImage } from '@/components/ArabicContentElements';
 
 export const metadata = {
-  title: 'مستقبل تصميم زي طواقم الطيران: اتجاهات وابتكارات قادمة',
-  description: 'نظرة استشرافية حول مستقبل تصميم أزياء الطيران والاتجاهات والتقنيات التي ستشكل الجيل القادم من الأزياء الموحدة لطواقم الطائرات',
+  title: 'إدارة البيانات والتحليلات في أزياء الطيران: نظم ذكية لاتخاذ القرارات | يونيفورم',
+  description: 'اكتشف أنظمة إدارة البيانات والتحليلات المتطورة في أزياء الطيران وكيف تساهم في تحسين الأداء واتخاذ قرارات استراتيجية مدروسة.',
+  keywords: 'إدارة بيانات أزياء الطيران، تحليلات الأداء، الذكاء الاصطناعي، اتخاذ القرارات، السعودية',
+  openGraph: {
+    title: 'تحليل البيانات والذكاء الاصطناعي في أزياء الطيران',
+    description: 'كيف تستخدم تقنيات تحليل البيانات والذكاء الاصطناعي لتطوير أزياء الطيران',
+    images: ['/images/flight_crew/crew_uniform_visual_identity.webp'],
+  },
 };
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/air_crew_attire.jpeg';
-  const title = 'مستقبل تصميم زي طواقم الطيران: اتجاهات وابتكارات قادمة';
-  const readingTime = '12 دقيقة';
-  const datePublished = '٥ يونيو ٢٠٢٣';
+export default function Article25Page() {
+  const heroImage = '/images/flight_crew/air_crew_innovative_uniforms.webp';
+  const title = 'إدارة البيانات والتحليلات في أزياء الطيران: نظم ذكية لاتخاذ القرارات';
+  const readingTime = '15 دقيقة';
+  const publishDate = '١١ يناير ٢٠٢٥';
+  const author = 'خبراء البيانات والتحليلات الذكية - يونيفورم';
 
   const sections = [
     { id: 'intro', title: 'مقدمة' },
-    { id: 'smart-materials', title: 'المواد الذكية والأقمشة المتطورة' },
-    { id: 'wearable-tech', title: 'التكنولوجيا الملبوسة والأنظمة المدمجة' },
-    { id: 'sustainability', title: 'الاستدامة والمسؤولية البيئية' },
-    { id: 'human-centered', title: 'التصميم المتمحور حول الإنسان' },
-    { id: 'future-adaptation', title: 'التكيف مع متغيرات الطيران المستقبلية' },
-    { id: 'challenges', title: 'التحديات والفرص المستقبلية' },
-    { id: 'conclusion', title: 'خاتمة' },
+    { id: 'data-importance', title: 'أهمية البيانات في الطيران' },
+    { id: 'analytics-systems', title: 'أنظمة التحليلات المتقدمة' },
+    { id: 'predictive-analytics', title: 'التحليلات التنبؤية' },
+    { id: 'performance-metrics', title: 'مؤشرات الأداء الرئيسية' },
+    { id: 'ai-machine-learning', title: 'الذكاء الاصطناعي والتعلم الآلي' },
+    { id: 'decision-support', title: 'أنظمة دعم القرار' },
+    { id: 'future-trends', title: 'اتجاهات المستقبل' },
   ];
 
   return (
-    <main className="bg-gray-50 min-h-screen" dir="rtl">
-      <div className="relative w-full h-[60vh] mb-8">
+    <main className="bg-gray-50 rtl">
+      {/* Hero Section */}
+      <div className="relative w-full h-[70vh] mb-8">
         <Image
-          src={imageSrc}
+          src={heroImage}
           alt={title}
           fill
           priority
           style={{ objectFit: 'cover' }}
+          className="brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div className="absolute bottom-0 w-full p-8 text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-          <div className="flex items-center text-sm md:text-base">
-            <span>{datePublished}</span>
-            <span className="mx-2">•</span>
-            <span>{readingTime}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div className="container mx-auto px-4 h-full flex items-end pb-16">
+            <div className="text-white max-w-4xl">
+              <div className="mb-4">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-fit">
+                  <FaChartBar />
+                  البيانات والتحليلات
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                ثورة رقمية في عالم أزياء الطيران تقودها البيانات الذكية والتحليلات المتطورة لاتخاذ قرارات استراتيجية دقيقة
+              </p>
+              <div className="flex items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <FaUser className="w-4 h-4" />
+                  <span>{author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaClock className="w-4 h-4" />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCalendar className="w-4 h-4" />
+                  <span>{publishDate}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="flex flex-col md:flex-row gap-8">
-          <aside className="md:w-1/4 h-fit sticky top-8 self-start bg-white rounded-lg p-4 shadow-sm">
-            <h2 className="text-lg font-semibold mb-4 border-r-4 border-blue-600 pr-3">محتويات المقال</h2>
-            <nav>
-              <ul className="space-y-2">
-                {sections.map(section => (
-                  <li key={section.id}>
-                    <a 
-                      href={`#${section.id}`} 
-                      className="text-blue-700 hover:text-blue-900 transition-colors block py-1"
-                    >
-                      {section.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+      <div className="container mx-auto px-4 pb-16">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">
+                محتويات المقال
+              </h3>
+              <nav>
+                <ul className="space-y-3">
+                  {sections.map(section => (
+                    <li key={section.id}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className="text-gray-700 hover:text-blue-600 block transition-colors py-2 text-sm border-r-2 border-transparent hover:border-blue-400 pr-3"
+                      >
+                        {section.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">
+                مشاركة المقال
+              </h3>
+              <ShareButtons url="" title={title} />
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-purple-100 p-6 rounded-xl">
+              <h3 className="text-lg font-bold mb-3 text-blue-900">
+                نظام تحليلات مخصص؟
+              </h3>
+              <p className="text-gray-700 text-sm mb-4">
+                احصل على نظام إدارة بيانات وتحليلات متطور لشركة الطيران
+              </p>
+              <Link 
+                href="/quote" 
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors block text-center text-sm font-medium"
+              >
+                طلب نظام تحليلات
+              </Link>
+            </div>
           </aside>
 
-          <article className="md:w-3/4 bg-white rounded-lg p-6 shadow-sm">
-            <section id="intro">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
-          <p className="mb-4 leading-7 text-gray-700">
-            يقف تصميم زي طواقم الطيران اليوم على أعتاب تحول جذري، مدفوعاً بالتطور التكنولوجي والمتطلبات المتغيرة لصناعة الطيران. على مدى العقود القادمة، ستشهد أزياء طواقم الطيران تغييرات ثورية تتجاوز مجرد التحسينات الجمالية لتشمل إدماج التكنولوجيا المتقدمة، والمواد الذكية، ومبادئ الاستدامة، والتصميم المتمحور حول الإنسان.
-          </p>
-          <p className="mb-4 leading-7 text-gray-700">
-            يستعرض هذا المقال أبرز الاتجاهات المستقبلية في تصميم زي طواقم الطيران، والابتكارات التي ستعيد تشكيل مفهوم الزي الموحد، والتحديات التي ستواجه شركات الطيران والمصممين في تحقيق التوازن بين التقليد والابتكار، بين الوظيفة والجمالية، وبين الهوية المؤسسية واحتياجات الطاقم المتنوعة.
-          </p>
-        </section>
+          {/* Main Content */}
+          <article className="lg:w-3/4 bg-white p-8 rounded-xl shadow-lg">
+            
+            <section id="intro" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                مقدمة
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 font-medium text-gray-800">
+                  في عصر البيانات الضخمة والذكاء الاصطناعي، تشهد صناعة أزياء الطيران تحولاً جذرياً نحو الاعتماد على البيانات والتحليلات المتطورة في اتخاذ القرارات الاستراتيجية. هذه الأنظمة الذكية تساعد الشركات على فهم أعمق لاحتياجات الطاقم، وتحسين كفاءة العمليات، وتوقع الاتجاهات المستقبلية بدقة عالية.
+                </p>
+                
+                <div className="bg-blue-50 border-r-4 border-blue-500 p-6 rounded-lg my-8">
+                  <h3 className="text-xl font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                    <FaStar className="text-blue-600" />
+                    مزايا أنظمة إدارة البيانات في أزياء الطيران
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul className="space-y-2">
+                      <li>📊 اتخاذ قرارات مدروسة</li>
+                      <li>🔮 التنبؤ بالاتجاهات</li>
+                      <li>⚡ تحسين الكفاءة التشغيلية</li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li>💰 تقليل التكاليف</li>
+                      <li>📈 تعزيز الأداء</li>
+                      <li>🎯 تخصيص الخدمات</li>
+                    </ul>
+                  </div>
+                </div>
 
-            <section id="smart-materials">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">المواد الذكية والأقمشة المتطورة</h2>
-          
-          <ArticleImage 
-            src="/images/flight_crew/air_crew_attire.jpeg"
-            alt="المواد الذكية والأقمشة المتطورة في زي طواقم الطيران"
-            caption="التقنيات الحديثة في صناعة الأقمشة الذكية تحدث ثورة في تصميم زي طواقم الطيران"
-          />
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أقمشة متكيفة مع درجات الحرارة والرطوبة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تقنيات ذكية للراحة المثلى:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة تنظم درجة حرارة الجسم تلقائياً للتكيف مع بيئات الطائرة المتغيرة</li>
-            <li className="mb-2">مواد تمتص الرطوبة وتتبخرها بكفاءة عالية للحفاظ على جفاف الزي أثناء الرحلات الطويلة</li>
-            <li className="mb-2">طلاءات نانوية تمنع نمو البكتيريا والروائح حتى بعد ساعات طويلة من الارتداء</li>
-            <li className="mb-2">أقمشة قابلة للتنفس تتكيف مع مستويات نشاط الطاقم المختلفة</li>
-          </ul>
+                <p>
+                  تتراوح هذه الأنظمة من تتبع دورة حياة الأزياء وتحليل أنماط الاستخدام، إلى توقع احتياجات الصيانة والاستبدال. كما تشمل تحليل رضا الطاقم والعملاء، ومراقبة الجودة، وتحسين سلاسل التوريد، مما يوفر رؤى شاملة لتطوير استراتيجيات أكثر فعالية.
+                </p>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مواد خفيفة الوزن عالية الأداء</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            الجيل القادم من الأقمشة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">ألياف متطورة تقلل وزن الزي بنسبة تصل إلى 30% مع الحفاظ على المتانة والشكل</li>
-            <li className="mb-2">أقمشة مركبة مستوحاة من تقنيات الفضاء تجمع بين المرونة والثبات</li>
-            <li className="mb-2">تقنيات نسيج ثلاثية الأبعاد تخلق هياكل مريحة تدعم الجسم خلال الرحلات الطويلة</li>
-            <li className="mb-2">أقمشة بمقاومة فائقة للتجاعيد تحافظ على المظهر الأنيق طوال فترة الرحلة</li>
-          </ol>
+            <section id="data-importance" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                أهمية البيانات في الطيران
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/cabin_crew_uniforms.webp"
+                    alt="أهمية البيانات في صناعة الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-indigo-800">
+                    التحول الرقمي في صناعة الطيران
+                  </h3>
+                  <p className="text-gray-700">
+                    البيانات أصبحت العنصر الأساسي في تحديد اتجاهات الصناعة وتطوير الاستراتيجيات. في مجال أزياء الطيران، تساعد البيانات في فهم السلوكيات والتفضيلات، وتحسين التصاميم، وتطوير منتجات تلبي الاحتياجات الفعلية.
+                  </p>
+                  <div className="bg-indigo-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-indigo-800">مصادر البيانات:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>👥 تفاعل الطاقم مع الأزياء</li>
+                      <li>📱 تطبيقات الهاتف الذكي</li>
+                      <li>🔧 أجهزة الاستشعار المدمجة</li>
+                      <li>📋 استطلاعات الرأي والتقييمات</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">مواد وظيفية متعددة الاستخدامات</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            أقمشة تتجاوز الوظيفة التقليدية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة مقاومة للحريق والحرارة بتقنيات متقدمة تفوق المعايير الحالية</li>
-            <li className="mb-2">مواد مقاومة للسوائل والبقع مع الحفاظ على الملمس الفاخر والراحة</li>
-            <li className="mb-2">أقمشة معالجة بجزيئات نشطة لتنقية الهواء المحيط من الملوثات</li>
-            <li className="mb-2">مواد ذات خصائص كهروستاتيكية متحكم بها لمنع تراكم الكهرباء الساكنة</li>
-          </ul>
-        </section>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-indigo-800">
+                  تطبيقات البيانات في أزياء الطيران
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">📈</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">تحليل الأداء</h4>
+                    <p className="text-gray-600 text-sm">مراقبة أداء الأزياء وتحديد نقاط التحسين</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">🔮</span>
+                    </div>
+                    <h4 className="font-semibold text-green-800 mb-2">التنبؤ</h4>
+                    <p className="text-gray-600 text-sm">توقع الاحتياجات والاتجاهات المستقبلية</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl">⚙️</span>
+                    </div>
+                    <h4 className="font-semibold text-purple-800 mb-2">التحسين</h4>
+                    <p className="text-gray-600 text-sm">تطوير العمليات وتحسين الكفاءة</p>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <section id="wearable-tech">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التكنولوجيا الملبوسة والأنظمة المدمجة</h2>
-          
-          <ArticleImage 
-            src="/images/flight_crew/air_crew_attire.jpeg"
-            alt="التكنولوجيا الملبوسة في زي طواقم الطيران"
-            caption="أنظمة تكنولوجية متطورة مدمجة في زي طواقم الطيران لتحسين الأداء والسلامة"
-          />
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أنظمة اتصال متكاملة ومدمجة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تكنولوجيا غير مرئية لاتصال فعال:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أزرار تحكم مدمجة في الأكمام للتواصل السريع مع فريق الطاقم</li>
-            <li className="mb-2">أساور وأربطة مدمجة لتتبع الإشارات الحيوية للطاقم أثناء الرحلات الطويلة</li>
-            <li className="mb-2">تقنية نسيج موصل خفي تحول الزي بأكمله إلى شبكة اتصال متكاملة</li>
-            <li className="mb-2">أنظمة تحديد المواقع مدمجة للمساعدة في حالات الطوارئ والإخلاء</li>
-          </ul>
+            <section id="analytics-systems" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                أنظمة التحليلات المتقدمة
+              </h2>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">أنظمة مراقبة الصحة والسلامة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            حماية مدمجة في التصميم:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">أجهزة استشعار مدمجة لقياس مستويات التعب والإجهاد لدى الطاقم</li>
-            <li className="mb-2">أنظمة تتبع لمستويات التعرض للإشعاع والضوضاء على المدى الطويل</li>
-            <li className="mb-2">حساسات جودة الهواء المحيط تنبه الطاقم للملوثات المحتملة</li>
-            <li className="mb-2">ميزات سلامة متكاملة تضيء أو تصدر إشارات في حالات الطوارئ</li>
-          </ol>
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-4 flex items-center gap-2">
+                    <FaDatabase className="text-purple-600" />
+                    مكونات النظام التحليلي الشامل
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-purple-700">طبقة جمع البيانات:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• أجهزة استشعار IoT مدمجة</li>
+                        <li>• تطبيقات جوال تفاعلية</li>
+                        <li>• أنظمة إدارة المخزون</li>
+                        <li>• منصات التقييم والتغذية الراجعة</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-purple-700">طبقة المعالجة والتحليل:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• محركات التحليل الآني</li>
+                        <li>• نماذج التعلم الآلي</li>
+                        <li>• أدوات التصور التفاعلي</li>
+                        <li>• منصات إعداد التقارير</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">تقنيات الشحن وإدارة الطاقة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            الاستقلالية التكنولوجية:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة توليد الطاقة من الحركة لشحن الأجهزة المحمولة أثناء العمل</li>
-            <li className="mb-2">جيوب وحوامل مدمجة للشحن اللاسلكي للأجهزة الضرورية</li>
-            <li className="mb-2">خلايا شمسية دقيقة مدمجة في الإكسسوارات لتوفير طاقة إضافية</li>
-            <li className="mb-2">أنظمة تخزين طاقة خفيفة الوزن مدمجة في بنية الزي نفسه</li>
-          </ul>
-        </section>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                    <thead>
+                      <tr className="bg-blue-600 text-white">
+                        <th className="border border-gray-300 p-4 text-right">نوع التحليل</th>
+                        <th className="border border-gray-300 p-4 text-right">الهدف</th>
+                        <th className="border border-gray-300 p-4 text-right">التقنيات المستخدمة</th>
+                        <th className="border border-gray-300 p-4 text-right">النتائج المتوقعة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">التحليل الوصفي</td>
+                        <td className="border border-gray-300 p-4">فهم الوضع الحالي</td>
+                        <td className="border border-gray-300 p-4">إحصائيات وصفية</td>
+                        <td className="border border-gray-300 p-4">تقارير الأداء</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">التحليل التشخيصي</td>
+                        <td className="border border-gray-300 p-4">اكتشاف الأسباب</td>
+                        <td className="border border-gray-300 p-4">تحليل الارتباط</td>
+                        <td className="border border-gray-300 p-4">تحديد نقاط الضعف</td>
+                      </tr>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">التحليل التنبؤي</td>
+                        <td className="border border-gray-300 p-4">توقع المستقبل</td>
+                        <td className="border border-gray-300 p-4">نماذج تعلم آلي</td>
+                        <td className="border border-gray-300 p-4">توقعات دقيقة</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">التحليل التوجيهي</td>
+                        <td className="border border-gray-300 p-4">التوصية بإجراءات</td>
+                        <td className="border border-gray-300 p-4">خوارزميات التحسين</td>
+                        <td className="border border-gray-300 p-4">استراتيجيات محسنة</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
 
-            <section id="sustainability">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الاستدامة والمسؤولية البيئية</h2>
-          
-          <ArticleImage 
-            src="/images/flight_crew/air_crew_attire.jpeg"
-            alt="الاستدامة في تصميم زي طواقم الطيران"
-            caption="مبادرات الاستدامة تحول صناعة أزياء الطيران إلى نموذج أكثر صداقة للبيئة"
-          />
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">المواد المستدامة والصديقة للبيئة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            ثورة خضراء في أزياء الطيران:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">أقمشة معاد تدويرها من زجاجات البلاستيك وشباك الصيد المهملة</li>
-            <li className="mb-2">ألياف طبيعية متطورة مثل خيوط الليوسيل والتنسل المستخرجة من مصادر مستدامة</li>
-            <li className="mb-2">أصباغ طبيعية ومعالجات غير سامة تقلل من التأثير البيئي</li>
-            <li className="mb-2">مواد قابلة للتحلل البيولوجي يمكن إعادة تدويرها بالكامل عند انتهاء عمرها</li>
-          </ul>
+            <section id="predictive-analytics" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                التحليلات التنبؤية
+              </h2>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">تقنيات التصنيع منخفضة التأثير</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            ثورة في أساليب الإنتاج:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تقنيات الطباعة الرقمية ثلاثية الأبعاد لتقليل هدر الأقمشة بنسبة تصل إلى 40%</li>
-            <li className="mb-2">أنظمة إنتاج بالطلب تقلل من المخزون الزائد والهدر</li>
-            <li className="mb-2">عمليات تصنيع خالية من المياه تقلل من استهلاك الموارد</li>
-            <li className="mb-2">سلاسل توريد شفافة ومتتبعة تضمن الالتزام بالمعايير الأخلاقية والبيئية</li>
-          </ol>
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🔮</span>
+                    قوة التنبؤ في أزياء الطيران
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    التحليلات التنبؤية تمكن شركات الطيران من توقع الاحتياجات المستقبلية، من دورات الاستبدال إلى التصاميم الجديدة، مما يوفر تخطيطاً أفضل وكفاءة أعلى في إدارة الموارد.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-purple-700">تطبيقات التحليلات التنبؤية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>📅 توقع مواعيد الاستبدال والصيانة</li>
+                        <li>📊 تحليل أنماط الاستخدام المستقبلية</li>
+                        <li>🎯 التنبؤ بالاتجاهات والتفضيلات</li>
+                        <li>💰 توقع التكاليف والميزانيات</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-purple-700">نماذج التنبؤ المتقدمة:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>🤖 شبكات عصبية اصطناعية</li>
+                        <li>📈 نماذج السلاسل الزمنية</li>
+                        <li>🔍 خوارزميات التعلم الآلي</li>
+                        <li>📊 نماذج الانحدار المتقدمة</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">اقتصاد التدوير وإطالة دورة الحياة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            نهج شامل للاستدامة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم قابلة للتعديل والتكيف لمواكبة المتغيرات دون الحاجة لاستبدال كامل</li>
-            <li className="mb-2">أنظمة استعادة وإعادة تأهيل للأزياء المستعملة</li>
-            <li className="mb-2">خدمات صيانة وإصلاح متطورة تطيل من عمر الزي الرسمي</li>
-            <li className="mb-2">مبادرات "من الزي إلى الزي" لتحويل الأزياء القديمة إلى موديلات جديدة</li>
-          </ul>
-        </section>
+                <div className="bg-white border border-purple-200 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-4">
+                    نماذج التنبؤ الرئيسية
+                  </h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-purple-700">92%</span>
+                      </div>
+                      <h4 className="font-semibold text-purple-800 mb-1">دقة التنبؤ</h4>
+                      <p className="text-gray-600 text-xs">في توقع احتياجات الاستبدال</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-blue-700">30%</span>
+                      </div>
+                      <h4 className="font-semibold text-blue-800 mb-1">توفير التكاليف</h4>
+                      <p className="text-gray-600 text-xs">من خلال التخطيط المسبق</p>
+                    </div>
+                    
+                    <div className="text-center">
+                      <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-green-700">85%</span>
+                      </div>
+                      <h4 className="font-semibold text-green-800 mb-1">كفاءة المخزون</h4>
+                      <p className="text-gray-600 text-xs">تحسين في إدارة المخزون</p>
+                    </div>
+                  </div>
+                </div>
 
-            <section id="human-centered">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التصميم المتمحور حول الإنسان</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الراحة الفائقة والأرجونوميكس</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تصميم يضع تجربة المستخدم في المقدمة:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">دراسات حركة متقدمة لفهم متطلبات طاقم الطيران خلال مختلف المهام</li>
-            <li className="mb-2">تصاميم أرجونوميكية تقلل من إجهاد العضلات والمفاصل أثناء الرحلات الطويلة</li>
-            <li className="mb-2">توزيع استراتيجي للوزن والضغط عبر الزي لتحسين الراحة وتقليل التعب</li>
-            <li className="mb-2">قصات وخياطات مبتكرة تسمح بحرية حركة قصوى مع الحفاظ على الشكل الأنيق</li>
-          </ul>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-purple-800">
+                    حالات الاستخدام العملية
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="border-r-4 border-purple-500 pr-4">
+                      <h4 className="font-semibold text-purple-800 mb-2">
+                        تنبؤ دورة حياة الأزياء
+                      </h4>
+                      <p className="text-gray-700 text-sm mb-2">
+                        تحليل أنماط الاستخدام وظروف التشغيل للتنبؤ بموعد انتهاء صلاحية الأزياء
+                      </p>
+                      <div className="text-xs text-gray-600">
+                        النتائج: تحسين 40% في تخطيط الاستبدال، تقليل 25% في النفايات
+                      </div>
+                    </div>
+                    
+                    <div className="border-r-4 border-blue-500 pr-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">
+                        توقع طلبات التخصيص
+                      </h4>
+                      <p className="text-gray-700 text-sm mb-2">
+                        تحليل تفضيلات الطاقم والاتجاهات للتنبؤ بطلبات التعديل والتخصيص
+                      </p>
+                      <div className="text-xs text-gray-600">
+                        النتائج: تحسين 50% في رضا الطاقم، تقليل 35% في وقت التسليم
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التخصيص والتكيف مع احتياجات الفرد</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تجاوز مفهوم المقاس الموحد:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تقنيات مسح ثلاثي الأبعاد للجسم لإنتاج زي مخصص تماماً لكل فرد</li>
-            <li className="mb-2">أنظمة تعديل ذكية تتيح ضبط الزي حسب تفضيلات كل عضو في الطاقم</li>
-            <li className="mb-2">خيارات متعددة ضمن الهوية الموحدة تناسب مختلف أنماط الجسم والتفضيلات</li>
-            <li className="mb-2">منصات رقمية للمشاركة في تصميم الزي وتقديم الملاحظات من قبل المستخدمين</li>
-          </ol>
+            <section id="performance-metrics" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                مؤشرات الأداء الرئيسية
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/air_hospitality_uniforms.webp"
+                    alt="مؤشرات الأداء والتحليلات"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-indigo-800">
+                    قياس الأداء الشامل
+                  </h3>
+                  <p className="text-gray-700">
+                    مؤشرات الأداء الرئيسية (KPIs) توفر رؤية شاملة حول كفاءة أزياء الطيران، من الجودة والمتانة إلى رضا الطاقم والتكلفة الإجمالية، مما يساعد في اتخاذ قرارات مدروسة.
+                  </p>
+                  <div className="bg-indigo-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-indigo-800">فئات المؤشرات:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>⭐ مؤشرات الجودة والمتانة</li>
+                      <li>😊 مؤشرات رضا الطاقم</li>
+                      <li>💰 مؤشرات التكلفة والكفاءة</li>
+                      <li>🌱 مؤشرات الاستدامة البيئية</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الشمولية والتنوع في التصميم</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            زي يحتفي بالتنوع البشري:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم تراعي الاختلافات الثقافية والدينية مع الحفاظ على الهوية الموحدة</li>
-            <li className="mb-2">خيارات تناسب جميع أشكال الجسم وتحتفي بالتنوع بدلاً من إخفائه</li>
-            <li className="mb-2">مراعاة احتياجات أصحاب الهمم والاحتياجات الخاصة في تصميم الزي</li>
-            <li className="mb-2">تمثيل متوازن للنوع الاجتماعي يتجاوز الصور النمطية التقليدية</li>
-          </ul>
-        </section>
+              <div className="overflow-x-auto mb-8">
+                <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                  <thead>
+                    <tr className="bg-blue-600 text-white">
+                      <th className="border border-gray-300 p-4 text-right">المؤشر</th>
+                      <th className="border border-gray-300 p-4 text-right">الوصف</th>
+                      <th className="border border-gray-300 p-4 text-right">طريقة القياس</th>
+                      <th className="border border-gray-300 p-4 text-right">الهدف</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 p-4 font-medium">معدل رضا الطاقم</td>
+                      <td className="border border-gray-300 p-4">مستوى رضا الطاقم عن الأزياء</td>
+                      <td className="border border-gray-300 p-4">استطلاعات دورية</td>
+                      <td className="border border-gray-300 p-4">≥ 90%</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 p-4 font-medium">متوسط عمر الزي</td>
+                      <td className="border border-gray-300 p-4">فترة الاستخدام قبل الاستبدال</td>
+                      <td className="border border-gray-300 p-4">تتبع دورة الحياة</td>
+                      <td className="border border-gray-300 p-4">≥ 24 شهر</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 p-4 font-medium">معدل العيوب</td>
+                      <td className="border border-gray-300 p-4">نسبة الأزياء المعيبة</td>
+                      <td className="border border-gray-300 p-4">فحص الجودة</td>
+                      <td className="border border-gray-300 p-4">≤ 2%</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 p-4 font-medium">التكلفة لكل زي</td>
+                      <td className="border border-gray-300 p-4">التكلفة الإجمالية شاملة الصيانة</td>
+                      <td className="border border-gray-300 p-4">تحليل التكلفة</td>
+                      <td className="border border-gray-300 p-4">تحسين مستمر</td>
+                    </tr>
+                    <tr className="bg-gray-50">
+                      <td className="border border-gray-300 p-4 font-medium">معدل إعادة التدوير</td>
+                      <td className="border border-gray-300 p-4">نسبة المواد المعاد تدويرها</td>
+                      <td className="border border-gray-300 p-4">تتبع النفايات</td>
+                      <td className="border border-gray-300 p-4">≥ 80%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <section id="future-adaptation">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التكيف مع متغيرات الطيران المستقبلية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">الطيران التجاري عالي السرعة وطويل المدى</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تصاميم للمستقبل القريب:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">زي مصمم خصيصاً للرحلات فائقة الطول (فوق 16 ساعة) ورحلات نصف القطر المباشرة</li>
-            <li className="mb-2">خصائص تدعم التكيف مع اختلاف المناطق الزمنية وتقليل آثار اضطراب الرحلات الجوية</li>
-            <li className="mb-2">تقنيات دعم التوازن والدورة الدموية خلال الرحلات عالية السرعة والارتفاع</li>
-            <li className="mb-2">ميزات تناسب خدمة الركاب في بيئات الطيران المستقبلية (كالكبائن المقسمة)</li>
-          </ul>
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-800 mb-4">
+                  لوحة معلومات الأداء التفاعلية
+                </h3>
+                <div className="grid md:grid-cols-4 gap-6">
+                  <div className="bg-white p-4 rounded-lg border border-blue-200 text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-2">94.5%</div>
+                    <h4 className="font-semibold text-gray-700 text-sm">رضا الطاقم</h4>
+                    <div className="text-xs text-gray-500 mt-1">↑ 2.3% من الشهر الماضي</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-blue-200 text-center">
+                    <div className="text-3xl font-bold text-blue-600 mb-2">26.8</div>
+                    <h4 className="font-semibold text-gray-700 text-sm">متوسط عمر الزي (شهر)</h4>
+                    <div className="text-xs text-gray-500 mt-1">↑ 1.2 من المتوقع</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-blue-200 text-center">
+                    <div className="text-3xl font-bold text-red-600 mb-2">1.4%</div>
+                    <h4 className="font-semibold text-gray-700 text-sm">معدل العيوب</h4>
+                    <div className="text-xs text-gray-500 mt-1">↓ 0.3% تحسن</div>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-blue-200 text-center">
+                    <div className="text-3xl font-bold text-purple-600 mb-2">87%</div>
+                    <h4 className="font-semibold text-gray-700 text-sm">معدل إعادة التدوير</h4>
+                    <div className="text-xs text-gray-500 mt-1">↑ 5% عن العام الماضي</div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">السياحة الفضائية والطيران شبه المداري</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            زي للحدود الجديدة:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">تصاميم مستوحاة من تكنولوجيا الفضاء مع الحفاظ على الأناقة المميزة</li>
-            <li className="mb-2">أقمشة مقاومة للضغط والتغيرات المفاجئة تناسب الطيران شبه المداري</li>
-            <li className="mb-2">دمج عناصر وظيفية تدعم انتقال الطاقم بين جاذبية الأرض وانعدام الوزن</li>
-            <li className="mb-2">رموز بصرية تعكس العصر الجديد من السفر مع احترام تقاليد الطيران</li>
-          </ol>
+            <section id="ai-machine-learning" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                الذكاء الاصطناعي والتعلم الآلي
+              </h2>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التحولات في تجربة الطيران ونماذج الخدمة</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            تصاميم مرنة لعالم متغير:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">زي يتكيف مع نماذج الخدمة الجديدة ذات التفاعل المحدود والتباعد الاجتماعي</li>
-            <li className="mb-2">عناصر تدعم التعرف العاطفي والتواصل الإنساني مع إخفاء جزئي للوجه</li>
-            <li className="mb-2">تكامل مع التقنيات المساعدة والروبوتات في بيئة خدمة الطيران المستقبلية</li>
-            <li className="mb-2">مرونة التحول بين المهام المختلفة مع تنوع أدوار الطاقم المستقبلية</li>
-          </ul>
-        </section>
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-indigo-800 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">🤖</span>
+                    ثورة الذكاء الاصطناعي في أزياء الطيران
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    تقنيات الذكاء الاصطناعي والتعلم الآلي تعيد تشكيل صناعة أزياء الطيران، من تحسين التصاميم إلى توقع الأعطال، مما يوفر حلولاً ذكية ومبتكرة لتحديات الصناعة.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-indigo-700">تطبيقات الذكاء الاصطناعي:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>🎨 تصميم أزياء مخصصة تلقائياً</li>
+                        <li>🔍 فحص الجودة بالرؤية الحاسوبية</li>
+                        <li>📊 تحليل أنماط الاستخدام المعقدة</li>
+                        <li>🛠️ الصيانة التنبؤية الذكية</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-indigo-700">خوارزميات التعلم الآلي:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>🧠 الشبكات العصبية العميقة</li>
+                        <li>🌳 أشجار القرار المتقدمة</li>
+                        <li>📈 التجميع والتصنيف الذكي</li>
+                        <li>🔄 التعلم المعزز للتحسين</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-            <section id="challenges">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">التحديات والفرص المستقبلية</h2>
-          
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التوازن بين التقليد والابتكار</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            الحفاظ على الهوية مع التطوير:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-            <li className="mb-2">استراتيجيات للحفاظ على الرموز التقليدية مع دمج العناصر المستقبلية</li>
-            <li className="mb-2">تطوير لغة تصميم تجمع بين التراث الغني لأزياء الطيران والاحتياجات الجديدة</li>
-            <li className="mb-2">دمج الرموز الثقافية المحلية في التصاميم التكنولوجية المتقدمة</li>
-            <li className="mb-2">نقاط التوازن بين الوظائف التقليدية (التمييز، الهوية) والمتطلبات الجديدة</li>
-          </ul>
+                <div className="bg-white border border-indigo-200 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-indigo-800 mb-4">
+                    نماذج الذكاء الاصطناعي المتخصصة
+                  </h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-indigo-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+                        <span className="text-lg">👁️</span>
+                        الرؤية الحاسوبية
+                      </h4>
+                      <ul className="text-gray-700 text-sm space-y-2">
+                        <li>• فحص العيوب التلقائي</li>
+                        <li>• تحليل أنماط التآكل</li>
+                        <li>• مراقبة الجودة المستمرة</li>
+                        <li>• التعرف على المقاسات</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+                        <span className="text-lg">🧠</span>
+                        معالجة اللغة الطبيعية
+                      </h4>
+                      <ul className="text-gray-700 text-sm space-y-2">
+                        <li>• تحليل تقييمات الطاقم</li>
+                        <li>• استخراج الاحتياجات من النصوص</li>
+                        <li>• ترجمة المعايير الدولية</li>
+                        <li>• إنشاء تقارير تلقائية</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
+                        <span className="text-lg">🤖</span>
+                        الأنظمة الخبيرة
+                      </h4>
+                      <ul className="text-gray-700 text-sm space-y-2">
+                        <li>• نصائح الصيانة الذكية</li>
+                        <li>• توصيات التصميم</li>
+                        <li>• حل المشاكل التقنية</li>
+                        <li>• تحسين المواد والأقمشة</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-          <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">التحديات الاقتصادية والإنتاجية</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-            جعل الابتكار مستداماً اقتصادياً:
-          </p>
-          <ol className="list-decimal list-inside mb-4 mr-5">
-            <li className="mb-2">استراتيجيات خفض تكلفة الإنتاج للتقنيات المتقدمة لتناسب ميزانيات شركات الطيران</li>
-            <li className="mb-2">نماذج تمويل مبتكرة للاستثمار في أزياء متطورة ذات مردود على المدى الطويل</li>
-            <li className="mb-2">تقييم القيمة المضافة من حيث تحسين تجربة الطاقم والمسافرين وليس التكلفة فقط</li>
-            <li className="mb-2">شراكات بين شركات الطيران وشركات التكنولوجيا والأزياء لتقاسم تكاليف التطوير</li>
-          </ol>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-indigo-800">
+                    قصص نجاح الذكاء الاصطناعي
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="border-r-4 border-green-500 pr-4">
+                      <h4 className="font-semibold text-green-800 mb-2">
+                        نظام التصميم الذكي التلقائي
+                      </h4>
+                      <p className="text-gray-700 text-sm mb-2">
+                        نظام ذكي يصمم أزياء مخصصة بناءً على متطلبات المناخ وطبيعة الرحلات
+                      </p>
+                      <div className="text-xs text-gray-600">
+                        النتائج: تقليل 60% في وقت التصميم، تحسين 45% في الراحة والوظائف
+                      </div>
+                    </div>
+                    
+                    <div className="border-r-4 border-blue-500 pr-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">
+                        منصة فحص الجودة بالذكاء الاصطناعي
+                      </h4>
+                      <p className="text-gray-700 text-sm mb-2">
+                        استخدام الرؤية الحاسوبية لفحص جودة الأزياء وكشف العيوب التلقائي
+                      </p>
+                      <div className="text-xs text-gray-600">
+                        النتائج: زيادة 90% في دقة الفحص، تقليل 70% في العيوب المرفوضة
+                      </div>
+                    </div>
+                    
+                    <div className="border-r-4 border-purple-500 pr-4">
+                      <h4 className="font-semibold text-purple-800 mb-2">
+                        محرك التنبؤ بالصيانة الذكي
+                      </h4>
+                      <p className="text-gray-700 text-sm mb-2">
+                        تحليل بيانات الاستخدام للتنبؤ بمواعيد الصيانة والاستبدال المثلى
+                      </p>
+                      <div className="text-xs text-gray-600">
+                        النتائج: تحسين 50% في كفاءة الصيانة، تقليل 35% في التكاليف
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">القبول والتبني من قبل الطواقم</h3>
-          <p className="mb-4 leading-7 text-gray-700">
-                التوازن بين الابتكار والقبول:
-          </p>
-          <ul className="list-disc list-inside mb-4 mr-5">
-                <li className="mb-2">استراتيجيات إشراك الطواقم في عملية التصميم والتطوير لضمان التبني السلس</li>
-                <li className="mb-2">دراسة العوامل النفسية والثقافية المؤثرة في قبول الابتكارات التكنولوجية</li>
-                <li className="mb-2">برامج تدريب وتوعية حول فوائد وطرق استخدام الميزات المتقدمة</li>
-                <li className="mb-2">استراتيجيات تدريجية لإدخال التقنيات الجديدة مع مراعاة منحنى التعلم</li>
-          </ul>
-        </section>
+            <section id="decision-support" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                أنظمة دعم القرار
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/cultural_aviation_uniforms.webp"
+                    alt="أنظمة دعم القرار"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-cyan-800">
+                    اتخاذ قرارات مدروسة ومدعومة بالبيانات
+                  </h3>
+                  <p className="text-gray-700">
+                    أنظمة دعم القرار تجمع بين البيانات والذكاء الاصطناعي لتوفر توصيات دقيقة وشاملة للإدارة، مما يساعد في اتخاذ قرارات استراتيجية مدروسة في كافة جوانب أزياء الطيران.
+                  </p>
+                  <div className="bg-cyan-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-cyan-800">مكونات النظام:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>📊 واجهات تفاعلية للبيانات</li>
+                      <li>🎯 محركات التوصيات الذكية</li>
+                      <li>📈 نماذج المحاكاة والسيناريوهات</li>
+                      <li>⚡ تحديثات فورية ومعلومات آنية</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-            <section id="conclusion">
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">خاتمة</h2>
-          <p className="mb-4 leading-7 text-gray-700">
-                يقف مستقبل تصميم زي طواقم الطيران على مفترق طرق بين الإرث العريق لصناعة الطيران وآفاق الابتكار اللامحدودة. فالتوازن الدقيق بين الوظيفة والهوية، والتقليد والتجديد، والتكنولوجيا والإنسانية، سيشكل ملامح الجيل القادم من أزياء الطيران التي ستكون أكثر ذكاءً، وأكثر استدامة، وأكثر تكيفاً مع الاحتياجات المتنوعة.
-          </p>
-          <p className="mb-4 leading-7 text-gray-700">
-                إن المواد الذكية والتكنولوجيا الملبوسة والنهج المستدام ليست مجرد اتجاهات عابرة، بل تمثل تحولاً جوهرياً في كيفية تصميم وإنتاج واستخدام أزياء الطاقم. وبينما تتطور صناعة الطيران نحو آفاق جديدة من الرحلات فائقة الطول والسياحة الفضائية، سيتطور معها زي الطاقم ليكون شريكاً في النجاح وليس مجرد عنصر مظهري.
-          </p>
-          <p className="mb-4 leading-7 text-gray-700">
-                في نهاية المطاف، يبقى الإنسان - سواء كان عضو طاقم الطيران أو المسافر - هو محور الاهتمام الرئيسي. وأفضل الابتكارات ستكون تلك التي تعزز التجربة الإنسانية، وتدعم الاحتياجات المتنوعة، وتحافظ على البيئة، وتعبر عن هوية وقيم شركات الطيران التي تمثلها. وبهذه الطريقة، سيستمر زي طاقم الطيران في كونه أحد أهم رموز هذه الصناعة العريقة، ولكن بصورة متجددة تواكب تطلعات المستقبل.
-          </p>
-        </section>
-      </article>
+              <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg mb-8">
+                <h3 className="text-xl font-semibold text-cyan-800 mb-4">
+                  أنواع القرارات المدعومة
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-white p-4 rounded-lg border border-cyan-200">
+                    <h4 className="font-semibold text-cyan-800 mb-3 flex items-center gap-2">
+                      <span className="text-lg">💰</span>
+                      القرارات المالية
+                    </h4>
+                    <ul className="text-gray-700 text-sm space-y-2">
+                      <li>• تحديد الميزانيات المثلى</li>
+                      <li>• تحليل التكلفة والعائد</li>
+                      <li>• استراتيجيات الشراء</li>
+                      <li>• تخطيط الاستثمارات</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-blue-200">
+                    <h4 className="font-semibold text-blue-800 mb-3 flex items-center gap-2">
+                      <span className="text-lg">🎨</span>
+                      القرارات التصميمية
+                    </h4>
+                    <ul className="text-gray-700 text-sm space-y-2">
+                      <li>• اختيار المواد والأقمشة</li>
+                      <li>• تحديد الألوان والتصاميم</li>
+                      <li>• ميزات الوظائف المتقدمة</li>
+                      <li>• مقاسات وأحجام مثلى</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white p-4 rounded-lg border border-purple-200">
+                    <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
+                      <span className="text-lg">⚙️</span>
+                      القرارات التشغيلية
+                    </h4>
+                    <ul className="text-gray-700 text-sm space-y-2">
+                      <li>• جدولة الصيانة والاستبدال</li>
+                      <li>• إدارة المخزون والتوريد</li>
+                      <li>• تخصيص الموارد</li>
+                      <li>• تحسين العمليات</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-cyan-200 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-cyan-800 mb-4">
+                  عملية اتخاذ القرار المدعومة بالبيانات
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-cyan-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                      1
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-cyan-800 mb-1">جمع البيانات</h4>
+                      <p className="text-gray-700 text-sm">
+                        تجميع البيانات من مصادر متعددة: أنظمة المراقبة، تقييمات الطاقم، بيانات الأداء
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                      2
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-800 mb-1">تحليل البيانات</h4>
+                      <p className="text-gray-700 text-sm">
+                        معالجة البيانات باستخدام خوارزميات متقدمة لاستخراج الأنماط والاتجاهات
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                      3
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-purple-800 mb-1">توليد التوصيات</h4>
+                      <p className="text-gray-700 text-sm">
+                        إنتاج توصيات ذكية مع تقييم المخاطر والفوائد لكل خيار متاح
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                      4
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-1">اتخاذ القرار</h4>
+                      <p className="text-gray-700 text-sm">
+                        دعم صناع القرار بمعلومات شاملة وواضحة لاتخاذ أفضل الخيارات
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                      5
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-orange-800 mb-1">متابعة النتائج</h4>
+                      <p className="text-gray-700 text-sm">
+                        مراقبة تنفيذ القرارات وتقييم النتائج لتحسين عمليات اتخاذ القرار المستقبلية
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="future-trends" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-blue-600 pr-4">
+                اتجاهات المستقبل
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/buy_air_crew_uniforms.webp"
+                    alt="اتجاهات المستقبل في تحليل البيانات"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-violet-800">
+                    مستقبل البيانات والتحليلات في أزياء الطيران
+                  </h3>
+                  <p className="text-gray-700">
+                    المستقبل يحمل تطورات مثيرة في مجال تحليل البيانات، من الحوسبة الكمية إلى الذكاء الاصطناعي المتطور، مما سيعيد تعريف كيفية فهمنا وإدارتنا لأزياء الطيران.
+                  </p>
+                  <div className="bg-violet-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-violet-800">التقنيات الناشئة:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>⚛️ الحوسبة الكمية للتحليلات المعقدة</li>
+                      <li>🧠 الذكاء الاصطناعي العام (AGI)</li>
+                      <li>🌐 إنترنت الأشياء المتقدم</li>
+                      <li>🔗 تقنية البلوك تشين للشفافية</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-violet-50 to-purple-50 p-6 rounded-lg mb-8">
+                <h3 className="text-xl font-semibold mb-4 text-violet-800">
+                  الاتجاهات التكنولوجية المستقبلية
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium mb-3 text-violet-700">تقنيات التحليل المتقدمة:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>🔮 التحليلات التنبؤية فائقة الدقة</li>
+                      <li>🌊 معالجة البيانات في الوقت الفعلي</li>
+                      <li>🤖 الأتمتة الذكية الشاملة</li>
+                      <li>📊 الذكاء التحليلي التفاعلي</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-3 text-violet-700">واجهات المستخدم المتطورة:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>🥽 الواقع المعزز للبيانات</li>
+                      <li>🗣️ التفاعل الصوتي الذكي</li>
+                      <li>🤲 واجهات اللمس ثلاثية الأبعاد</li>
+                      <li>🧠 التحكم بالأفكار (BCI)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-violet-200 p-6 rounded-lg mb-8">
+                <h3 className="text-xl font-semibold text-violet-800 mb-4">
+                  رؤية 2035: النظام التحليلي الشامل
+                </h3>
+                <div className="space-y-4">
+                  <div className="border-r-4 border-violet-500 pr-4">
+                    <h4 className="font-semibold text-violet-800 mb-2">
+                      المنصة الموحدة للبيانات
+                    </h4>
+                    <p className="text-gray-700 text-sm mb-2">
+                      نظام شامل يجمع كافة بيانات أزياء الطيران في منصة واحدة مع تحليلات فورية وذكية
+                    </p>
+                    <div className="text-xs text-gray-600">
+                      المتوقع: تحسين 95% في سرعة اتخاذ القرارات، توفير 60% في التكاليف التشغيلية
+                    </div>
+                  </div>
+                  
+                  <div className="border-r-4 border-blue-500 pr-4">
+                    <h4 className="font-semibold text-blue-800 mb-2">
+                      الذكاء الاصطناعي التفاعلي
+                    </h4>
+                    <p className="text-gray-700 text-sm mb-2">
+                      مساعد ذكي تفاعلي يوفر استشارات وتوصيات شخصية لكل جانب من جوانب أزياء الطيران
+                    </p>
+                    <div className="text-xs text-gray-600">
+                      المتوقع: دقة توصيات 98%، تحسين 80% في كفاءة العمليات
+                    </div>
+                  </div>
+                  
+                  <div className="border-r-4 border-green-500 pr-4">
+                    <h4 className="font-semibold text-green-800 mb-2">
+                      نظام التنبؤ المتطور
+                    </h4>
+                    <p className="text-gray-700 text-sm mb-2">
+                      قدرات تنبؤ متقدمة تمتد لسنوات مقبلة مع دقة عالية في توقع الاتجاهات والاحتياجات
+                    </p>
+                    <div className="text-xs text-gray-600">
+                      المتوقع: دقة تنبؤ 96%، تقليل 70% في المخاطر التشغيلية
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-indigo-800 mb-4 text-center">
+                  خارطة طريق التطوير التقني 2025-2040
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">
+                      2025
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-blue-800">التحليلات المتطورة</h4>
+                      <p className="text-gray-700 text-sm">تطبيق التحليلات التنبؤية والذكاء الاصطناعي على نطاق واسع</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">
+                      2030
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-purple-800">الأتمتة الذكية</h4>
+                      <p className="text-gray-700 text-sm">أتمتة شاملة لعمليات التحليل واتخاذ القرارات الروتينية</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">
+                      2035
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-800">الذكاء التفاعلي</h4>
+                      <p className="text-gray-700 text-sm">أنظمة ذكية تتفاعل طبيعياً مع المستخدمين وتتعلم من التفاعل</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">
+                      2040
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-orange-800">الحوسبة الكمية</h4>
+                      <p className="text-gray-700 text-sm">تطبيق الحوسبة الكمية لحل أعقد مشاكل التحليل والتحسين</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Related Articles */}
+            <section className="border-t pt-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">مقالات ذات صلة</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Link href="/blog/flight-crew/flight-18" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/air_crew_innovative_uniforms.webp"
+                        alt="تقنيات المستقبل"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        تقنيات وابتكارات أزياء الطيران المستقبلية
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-23" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/crew_uniform_solutions.webp"
+                        alt="أنظمة الجودة"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        أنظمة مراقبة الجودة والتفتيش في أزياء الطيران
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-20" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/crew_uniform_visual_identity.webp"
+                        alt="مستقبل أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-blue-600 transition-colors">
+                        مستقبل أزياء الطيران: رؤية 2030 وما بعدها
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </section>
+
+          </article>
         </div>
       </div>
     </main>

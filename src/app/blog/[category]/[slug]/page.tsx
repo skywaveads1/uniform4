@@ -167,7 +167,7 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
         const flightNum = parseInt(flightNumber, 10);
         
         // Use different image based on the article number
-        let image = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+        let image = '/images/flight_crew/crew_uniform_visual_identity.webp';
         if (flightNum % 3 === 0) {
           image = '/images/flight_crew/modern_airline_uniform_design.webp';
         } else if (flightNum % 3 === 1) {
@@ -228,7 +228,7 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
       if ((Object.keys(categoryMap).includes(category) && !slug) || slug === '') {
         const categoryInfo = categoryMap[category] || { 
           title: 'أزياء موحدة', 
-          image: '/images/flight_crew/crew_uniform_visual_identity.jpeg'
+          image: '/images/flight_crew/crew_uniform_visual_identity.webp'
         };
         
         return {
@@ -288,7 +288,7 @@ async function getPostData(category: string, slug: string): Promise<PostContent 
             author: 'فريق يونيفورم',
             category: category,
             tags: ['يونيفورم', 'أزياء موحدة'],
-            image: '/images/flight_crew/crew_uniform_visual_identity.jpeg',
+            image: '/images/flight_crew/crew_uniform_visual_identity.webp',
             slug: '',
             readTime: '١ دقيقة للقراءة',
             authorImage: '/images/author/team.jpg',
@@ -345,7 +345,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 1",
         description: "وصف المقال الأول ذو الصلة",
-        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.webp",
         url: "/blog/category/article-1",
         date: "١٠ مايو ٢٠٢٤",
         category: "الفئة"
@@ -353,7 +353,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 2",
         description: "وصف المقال الثاني ذو الصلة",
-        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.webp",
         url: "/blog/category/article-2",
         date: "١٢ مايو ٢٠٢٤",
         category: "الفئة"
@@ -361,7 +361,7 @@ export default async function PostPage({ params }: { params: { category: string;
       {
         title: "مقال ذو صلة 3",
         description: "وصف المقال الثالث ذو الصلة",
-        image: "/images/flight_crew/crew_uniform_visual_identity.jpeg",
+        image: "/images/flight_crew/crew_uniform_visual_identity.webp",
         url: "/blog/category/article-3",
         date: "١٤ مايو ٢٠٢٤",
         category: "الفئة"

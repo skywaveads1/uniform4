@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function ArticlePage() {
-  const imageSrc = '/images/workwear/professional_workwear_selection.jpeg';
+  const imageSrc = '/images/workwear/corporate_uniform.webp';
   const title = 'اختيار الملابس المهنية المناسبة: دليل شامل للشركات';
 
   return (

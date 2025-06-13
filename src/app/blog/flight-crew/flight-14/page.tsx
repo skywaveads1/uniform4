@@ -1,69 +1,99 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaUser, FaCalendar, FaPalette, FaStar, FaEye } from 'react-icons/fa';
 import { ShareButtons } from '@/components/ShareButtons';
 
 export const metadata = {
-  title: 'كيفية اختيار الأحذية المناسبة لطاقم الطيران',
-  description: 'دليل شامل حول كيفية اختيار الأحذية المثالية لطاقم الطيران، مع مراعاة عوامل الراحة والسلامة والمظهر المهني',
+  title: 'علم نفس الألوان في أزياء الطيران: كيف تؤثر الألوان على تجربة المسافرين | يونيفورم',
+  description: 'اكتشف كيف تؤثر الألوان في أزياء طاقم الطيران على نفسية المسافرين ومدى تأثيرها على الثقة والراحة والشعور بالأمان، وأسرار اختيار الألوان المناسبة لكل شركة طيران.',
+  keywords: 'علم نفس الألوان، أزياء الطيران، تأثير الألوان، نفسية المسافرين، شركات الطيران، التصميم النفسي، السعودية',
+  openGraph: {
+    title: 'سيكولوجية الألوان في تصميم أزياء الطيران: التأثير النفسي على الركاب والطاقم',
+    description: 'استكشف قوة الألوان في أزياء الطيران وتأثيرها على المشاعر والثقة',
+    images: ['/images/flight_crew/cultural_aviation_uniforms.webp'],
+  },
 };
 
-// صورة الهيدر للمقال
-const heroImage = '/images/flight_crew/header_flight_crew_uniform.jpeg';
+export default function Article14Page() {
+  const heroImage = '/images/flight_crew/cultural_aviation_uniforms.webp';
+  const title = 'علم نفس الألوان في أزياء الطيران: كيف تؤثر الألوان على تجربة المسافرين';
+  const readingTime = '11 دقيقة';
+  const publishDate = '١٥ ديسمبر ٢٠٢٤';
+  const author = 'خبراء علم النفس والتصميم - يونيفورم';
 
-export default function ArticlePage() {
-  const imageSrc = '/images/flight_crew/flight_crew_uniform_accessories.jpeg';
-  const title = 'كيفية اختيار الأحذية المناسبة لطاقم الطيران';
-  const readingTime = '8 دقائق';
-  const datePublished = '١٢ مايو ٢٠٢٣';
-
-  // أقسام المقال للتنقل السريع
   const sections = [
     { id: 'intro', title: 'مقدمة' },
-    { id: 'history', title: 'تطور الأحذية في مجال الطيران' },
-    { id: 'types', title: 'أنواع الأحذية حسب الوظائف' },
-    { id: 'features', title: 'خصائص تصميم الأحذية المناسبة' },
-    { id: 'comparison', title: 'مقارنة بين أحذية شركات الطيران' },
-    { id: 'strategic', title: 'الأبعاد الاستراتيجية للاختيار' },
-    { id: 'conclusion', title: 'الخلاصة' },
+    { id: 'color-psychology', title: 'أساسيات علم نفس الألوان' },
+    { id: 'airline-colors', title: 'الألوان الشائعة في أزياء الطيران' },
+    { id: 'passenger-impact', title: 'تأثير الألوان على المسافرين' },
+    { id: 'cultural-differences', title: 'الاختلافات الثقافية في إدراك الألوان' },
+    { id: 'brand-identity', title: 'الألوان والهوية التجارية' },
+    { id: 'color-combinations', title: 'تنسيق الألوان والتوليفات' },
+    { id: 'future-trends', title: 'اتجاهات المستقبل' },
   ];
 
   return (
     <main className="bg-gray-50 rtl">
-      {/* صورة الغلاف الكاملة مع تأثير التدرج */}
-      <div className="relative w-full h-[60vh] mb-8">
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
+      {/* Hero Section */}
+      <div className="relative w-full h-[70vh] mb-8">
+        <Image
+          src={heroImage}
+          alt={title}
+          fill
           priority
-              style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover' }}
+          className="brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-          <div className="container mx-auto px-4 py-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-            <div className="flex items-center text-gray-200 text-sm md:text-base mb-6">
-              <span className="flex items-center mr-4"><FaClock className="ml-1" />{readingTime}</span>
-              <span>{datePublished}</span>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div className="container mx-auto px-4 h-full flex items-end pb-16">
+            <div className="text-white max-w-4xl">
+              <div className="mb-4">
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 w-fit">
+                  <FaPalette />
+                  علم نفس الألوان
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-6 leading-relaxed">
+                رحلة علمية في عالم الألوان ودورها الخفي في تشكيل تجربة الطيران ومشاعر المسافرين
+              </p>
+              <div className="flex items-center gap-6 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <FaUser className="w-4 h-4" />
+                  <span>{author}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaClock className="w-4 h-4" />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaCalendar className="w-4 h-4" />
+                  <span>{publishDate}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 pb-16">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* القائمة الجانبية */}
-          <aside className="md:w-1/4 md:sticky md:top-24 h-fit bg-white p-5 rounded-lg shadow-sm">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">محتويات المقال</h3>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-purple-600 pr-3">
+                محتويات المقال
+              </h3>
               <nav>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {sections.map(section => (
                     <li key={section.id}>
                       <a 
                         href={`#${section.id}`} 
-                        className="text-gray-700 hover:text-blue-600 block transition-colors py-1 text-sm"
+                        className="text-gray-700 hover:text-purple-600 block transition-colors py-2 text-sm border-r-2 border-transparent hover:border-purple-400 pr-3"
                       >
                         {section.title}
                       </a>
@@ -73,264 +103,628 @@ export default function ArticlePage() {
               </nav>
             </div>
             
-            <div className="border-t pt-4">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مشاركة المقال</h3>
+            <div className="bg-white p-6 rounded-xl shadow-lg mb-6">
+              <h3 className="text-lg font-bold mb-4 text-blue-900 border-r-4 border-purple-600 pr-3">
+                مشاركة المقال
+              </h3>
               <ShareButtons url="" title={title} />
             </div>
 
-            <div className="border-t pt-4 mt-6">
-              <h3 className="text-lg font-bold mb-3 border-r-4 border-blue-600 pr-3">مقالات ذات صلة</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/blog/flight-crew/flight-2" className="text-sm hover:text-blue-600 block">
-                    اختيار أقمشة زي طاقم الطائرة: الجودة والمتانة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-7" className="text-sm hover:text-blue-600 block">
-                    متطلبات السلامة والأمان في تصميم ملابس طاقم الطائرة
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog/flight-crew/flight-15" className="text-sm hover:text-blue-600 block">
-                    الإكسسوارات المكملة لزي طاقم الطيران
-                  </Link>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl">
+              <h3 className="text-lg font-bold mb-3 text-purple-900">
+                تحتاج استشارة ألوان؟
+              </h3>
+              <p className="text-gray-700 text-sm mb-4">
+                احصل على استشارة متخصصة في اختيار الألوان المناسبة لأزياء طاقم الطيران
+              </p>
+              <Link 
+                href="/quote" 
+                className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors block text-center text-sm font-medium"
+              >
+                استشارة نفسية للألوان
+              </Link>
             </div>
           </aside>
 
-          {/* محتوى المقال الرئيسي */}
-          <article className="md:w-3/4 bg-white p-6 md:p-8 rounded-lg shadow-sm prose prose-lg max-w-none">
-            <section id="intro" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">مقدمة</h2>
-              <p className="mb-4 leading-7 text-gray-700">
-            تعتبر المطارات في المملكة العربية السعودية واجهة حضارية ونقاط اتصال أولى للزوار والمسافرين من جميع أنحاء العالم. وضمن هذه المنظومة المتكاملة، يشكل طاقم الخدمات الأرضية حلقة أساسية لا غنى عنها في تقديم تجربة سفر سلسة وممتازة. ولأن الانطباع الأول يدوم، فإن الزي الرسمي لهؤلاء الموظفين يلعب دوراً محورياً في تشكيل هذا الانطباع وتعزيز الهوية المؤسسية للمطارات السعودية وشركات الطيران العاملة فيها.
-          </p>
-              <p className="mb-4 leading-7 text-gray-700">
-            على عكس طاقم الطائرة الذي يتفاعل مع المسافرين خلال الرحلة فقط، يتعامل أفراد الخدمات الأرضية مع المسافرين في مراحل متعددة من رحلتهم، بدءاً من تسجيل الوصول وحتى استلام الأمتعة، مروراً بالعديد من نقاط الخدمة الأخرى. هذا التفاعل المتنوع يجعل زيهم الرسمي عنصراً حيوياً في تسهيل التعرف عليهم ونقل صورة احترافية عن المطارات السعودية وشركات الطيران الوطنية.
-          </p>
-              <p className="mb-4 leading-7 text-gray-700">
-            في هذا المقال، نستعرض بالتفصيل الزي الرسمي لطاقم الخدمات الأرضية في المطارات السعودية، بدءاً من تاريخه وتطوره، مروراً بخصائصه التصميمية والوظيفية، وصولاً إلى الفروقات بين أزياء الشركات المختلفة والتحديات المستقبلية. كما نسلط الضوء على الدور الاستراتيجي لهذا الزي في تعزيز الهوية الوطنية وتحسين تجربة المسافر في المطارات السعودية التي تشهد تطوراً متسارعاً ضمن رؤية المملكة 2030.
-          </p>
-        </section>
-
-            <section id="history" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">تطور الزي الرسمي للخدمات الأرضية في المطارات السعودية</h2>
-              
-              <div className="bg-blue-50 p-5 rounded-lg mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">نظرة تاريخية على تطور الزي</h3>
-                <p className="mb-2 font-medium text-blue-700">مراحل التطور عبر العقود:</p>
-                <ul className="list-disc list-inside space-y-2 mr-5 text-gray-700">
-                  <li>البدايات (1950-1970): زي بسيط يعكس بدايات الطيران المدني السعودي</li>
-                  <li>مرحلة التأسيس (1970-1990): تبني تصاميم أكثر رسمية مع توسع المطارات</li>
-                  <li>مرحلة الهوية (1990-2010): إدخال عناصر من التراث السعودي وألوان العلم</li>
-                  <li>المرحلة الحديثة (2010-2020): تصاميم تجمع بين الأصالة والحداثة والوظيفية</li>
-                  <li>رؤية 2030 وما بعدها: تطوير شامل يتماشى مع تحديث منظومة المطارات والسياحة</li>
-          </ul>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير المتغيرات الثقافية</h3>
-                  <p className="mb-2 text-gray-700">كيف أثرت التغيرات المجتمعية على التصميم:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>زيادة مشاركة المرأة السعودية في قطاع الطيران</li>
-                    <li>التوازن بين الهوية الإسلامية والمعايير العالمية</li>
-                    <li>تأثير الانفتاح الثقافي والسياحي على الزي</li>
-                    <li>دمج عناصر التراث السعودي بطريقة معاصرة</li>
-          </ul>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">العلامات الفارقة في التطور</h3>
-                  <p className="mb-2 text-gray-700">محطات بارزة في تغيير نمط الزي:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تدشين مطار الملك عبد العزيز الدولي الجديد</li>
-                    <li>إعادة هيكلة الخطوط السعودية وتحديث الزي</li>
-                    <li>تأسيس شركة مطارات الرياض وتصميم زي موحد</li>
-                    <li>إطلاق زي خاص بموسم الحج والعمرة</li>
-          </ul>
-                </div>
-              </div>
-        </section>
-
-            <section id="types" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">أنواع الزي الرسمي للخدمات الأرضية حسب الوظائف</h2>
-              
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-800 text-white py-2 px-4">
-                  <h3 className="text-xl font-medium">زي موظفي الاستقبال وتسجيل الوصول</h3>
-                </div>
-                <div className="bg-white border border-blue-200 p-4">
-                  <p className="mb-2 font-medium text-blue-700">خصائص وعناصر الزي:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>بدلات رسمية بألوان هادئة تعكس الاحترافية والترحيب</li>
-                    <li>سترات مميزة بشعار الشركة أو المطار على الصدر والأكمام</li>
-                    <li>للنساء: خيارات متنوعة تتضمن الفساتين المحتشمة أو البدلات مع وشاح مميز</li>
-                    <li>للرجال: قميص بلون موحد مع ربطة عنق تعكس هوية الشركة</li>
-                    <li>إكسسوارات محددة كالدبابيس والشارات التعريفية المميزة</li>
-          </ul>
-                </div>
-              </div>
-
-              <h3 className="text-xl font-medium mt-6 mb-3 text-blue-800">زي طاقم المناولة الأرضية ومشرفي التحميل</h3>
-              <div className="border-r-4 border-blue-200 pr-4 py-2 mb-6">
-                <p className="mb-2 font-medium text-gray-700">المواصفات الوظيفية والعملية:</p>
-                <ol className="list-decimal list-inside space-y-2 mr-5 text-gray-700">
-                  <li>بدلات عمل (أوفرول) معززة بعناصر عاكسة للضوء لضمان الرؤية</li>
-                  <li>سترات أمان فسفورية مميزة بألوان مختلفة حسب المهام</li>
-                  <li>قمصان وبناطيل مصنوعة من مواد متينة مقاومة للتمزق والاتساخ</li>
-                  <li>أحذية سلامة خاصة بمواصفات تتناسب مع العمل في بيئة المطار</li>
-                  <li>قبعات واقية وسماعات أذن للحماية من ضجيج الطائرات</li>
-          </ol>
-              </div>
-
-              <div className="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">زي موظفي خدمة العملاء وصالات الانتظار</h3>
-                <p className="mb-2 text-gray-700">عناصر الزي التي تسهل التعرف عليهم:</p>
-                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                  <li>بدلات أنيقة بألوان مميزة تجعلهم ظاهرين بسهولة للمسافرين</li>
-                  <li>وشاحات وربطات عنق بألوان زاهية تعكس الترحيب والود</li>
-                  <li>شارات تعريفية كبيرة توضح الدور الوظيفي واللغات التي يتحدثها الموظف</li>
-                  <li>سترات خفيفة يمكن ارتداؤها في صالات الانتظار المكيفة</li>
-                  <li>إكسسوارات موحدة مثل الحقائب المحمولة للأجهزة والمستندات</li>
-          </ul>
-              </div>
-        </section>
-
-            <section id="features" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">خصائص تصميم الزي للخدمات الأرضية</h2>
-              
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">الألوان ودلالاتها</h3>
-                <p className="mb-2 text-gray-700">استخدام الألوان في تمييز الوظائف والشركات:</p>
-                <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                  <li>الأخضر: لون أساسي يرتبط بالهوية الوطنية السعودية ويستخدم في العناصر الرئيسية</li>
-                  <li>الأزرق الداكن: يستخدم غالباً لزي مديري المحطات والمشرفين الإداريين</li>
-                  <li>البيج والذهبي: للخدمات المميزة وصالات كبار الشخصيات</li>
-                  <li>الألوان الفسفورية: لفرق المناولة الأرضية لأسباب تتعلق بالسلامة والرؤية</li>
-                  <li>تنوع الألوان بين المطارات المختلفة مع الحفاظ على عناصر موحدة</li>
-          </ul>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">المواد والأقمشة المستخدمة</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">خصائص النسيج حسب طبيعة العمل:</p>
-                    <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                      <li>أقمشة مقاومة للتجعد للوظائف الإدارية وخدمة العملاء</li>
-                      <li>مواد متينة ومقاومة للتمزق لطاقم المناولة الأرضية</li>
-                      <li>أقمشة تقنية تتميز بخصائص التهوية للعمل في المناطق الخارجية الحارة</li>
-                      <li>مواد مقاومة للماء واللطخات للعمل في ظروف الصيانة والتنظيف</li>
-                      <li>أقمشة مريحة قابلة للتمدد للوظائف التي تتطلب حركة كثيرة</li>
-          </ol>
+          {/* Main Content */}
+          <article className="lg:w-3/4 bg-white p-8 rounded-xl shadow-lg">
+            
+            <section id="intro" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                مقدمة
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 font-medium text-gray-800">
+                  تلعب الألوان دوراً خفياً ولكنه مؤثر جداً في تشكيل تجربة السفر وانطباعات المسافرين عن شركات الطيران. فعندما يصعد المسافر إلى الطائرة، فإن أول ما يلفت انتباهه هو أزياء طاقم الطائرة وألوانها، والتي تحمل في طياتها رسائل نفسية عميقة تؤثر على مزاجه ومشاعره ومستوى ثقته بالخدمة المقدمة.
+                </p>
+                
+                <div className="bg-purple-50 border-r-4 border-purple-500 p-6 rounded-lg my-8">
+                  <h3 className="text-xl font-semibold text-purple-900 mb-3 flex items-center gap-2">
+                    <FaStar className="text-purple-600" />
+                    تأثيرات الألوان النفسية
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <ul className="space-y-2">
+                      <li>• تعزيز الشعور بالثقة والأمان</li>
+                      <li>• تحسين تجربة السفر والراحة</li>
+                      <li>• تقوية الهوية التجارية للشركة</li>
+                    </ul>
+                    <ul className="space-y-2">
+                      <li>• تحفيز المشاعر الإيجابية</li>
+                      <li>• تقليل القلق والتوتر</li>
+                      <li>• تعزيز الذاكرة والتذكر</li>
+                    </ul>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">العناصر الرمزية والشعارات</h3>
-                  <div className="border-r-2 border-blue-500 pr-3">
-                    <p className="mb-2 text-gray-700">الرموز والهوية البصرية:</p>
-                    <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                      <li>شعار المملكة (النخلة والسيفان) كعنصر أساسي في المطارات الحكومية</li>
-                      <li>شعارات شركات الطيران المختلفة على الصدر وأحياناً على الأكمام</li>
-                      <li>شارات تحمل أسماء المطارات على زي الموظفين التابعين للمطار</li>
-                      <li>رموز خاصة توضح الرتبة الوظيفية والأقدمية</li>
-                      <li>عناصر تراثية سعودية كزخارف على الأوشحة والأطراف</li>
-          </ul>
+
+                <p>
+                  لا تقتصر أهمية الألوان في أزياء الطيران على الجانب الجمالي فحسب، بل تمتد لتشمل جوانب نفسية معقدة تؤثر على سلوك المسافرين وردود أفعالهم. فالألوان لها قدرة عجيبة على إثارة مشاعر معينة، وتحفيز ذكريات، وحتى التأثير على القرارات الشرائية للمسافرين.
+                </p>
+              </div>
+            </section>
+
+            <section id="color-psychology" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                أساسيات علم نفس الألوان
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/flight_crew/comfort_safety_airline_uniforms.webp"
+                    alt="تأثير الألوان على الركاب"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-indigo-800">
+                    كيف تؤثر الألوان على النفس البشرية
+                  </h3>
+                  <p className="text-gray-700">
+                    يستند علم نفس الألوان إلى حقيقة علمية مؤكدة وهي أن الألوان تثير استجابات عاطفية وفيسيولوجية في الدماغ البشري. هذه الاستجابات ليست مجرد تفضيلات شخصية، بل هي ردود أفعال بيولوجية عميقة تؤثر على مزاجنا وسلوكنا.
+                  </p>
+                  <div className="bg-indigo-50 p-4 rounded-lg">
+                    <h4 className="font-medium mb-2 text-indigo-800">الآليات النفسية:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>🧠 التأثير على الهرمونات والناقلات العصبية</li>
+                      <li>❤️ تغيير معدل ضربات القلب وضغط الدم</li>
+                      <li>👁️ التأثير على النظام البصري والإدراك</li>
+                      <li>🧘 تحفيز مناطق معينة في الدماغ</li>
+                    </ul>
                   </div>
                 </div>
               </div>
-        </section>
 
-            <section id="comparison" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">دراسة مقارنة بين أزياء الخدمات الأرضية في المطارات السعودية</h2>
-              
-              <div className="overflow-hidden rounded-lg mb-6">
-                <div className="bg-blue-700 text-white p-3">
-                  <h3 className="text-xl font-medium">مطار الملك خالد الدولي (الرياض)</h3>
-                </div>
-                <div className="p-4 border border-blue-300 bg-white">
-                  <p className="mb-2 text-gray-700">الخصائص المميزة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>يتميز بدرجات اللون الأزرق الملكي مع لمسات خضراء</li>
-                    <li>تصميم أنيق يعكس مكانة العاصمة مع لمسات من الثقافة النجدية</li>
-                    <li>شارات خاصة تشير إلى الرياض كبوابة دبلوماسية للمملكة</li>
-                    <li>زي الاستقبال يتميز بتفاصيل ذهبية تعكس الفخامة والرسمية</li>
-                    <li>تصميم عصري يتماشى مع التطورات المعمارية الحديثة في المطار</li>
-          </ul>
+              <div className="my-10">
+                <h3 className="text-2xl font-bold text-purple-900 mb-6">الألوان الشائعة في أزياء الطيران ودلالاتها</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+                    <div className="relative h-24 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/cabin_crew_uniforms.webp"
+                        alt="الألوان الزرقاء في أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-bold text-blue-800 mb-2">الأزرق</h4>
+                    <p className="text-sm text-gray-600">الثقة والأمان والاحترافية</p>
+                  </div>
+                  
+                  <div className="bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
+                    <div className="relative h-24 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/air_crew_attire.webp"
+                        alt="الألوان الحمراء في أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-bold text-red-800 mb-2">الأحمر</h4>
+                    <p className="text-sm text-gray-600">الطاقة والحيوية والجذب</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-600">
+                    <div className="relative h-24 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/captain_copilot_wear.webp"
+                        alt="الألوان الرمادية والسوداء"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-bold text-gray-800 mb-2">الرمادي والأسود</h4>
+                    <p className="text-sm text-gray-600">الأناقة والرسمية والقوة</p>
+                  </div>
+                  
+                  <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+                    <div className="relative h-24 mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/air_hospitality_uniforms.webp"
+                        alt="الألوان الخضراء والطبيعية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-bold text-green-800 mb-2">الأخضر</h4>
+                    <p className="text-sm text-gray-600">الاستقرار والطبيعة والنمو</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">مطار الملك عبد العزيز الدولي (جدة)</h3>
-                  <p className="mb-2 text-gray-700">السمات الخاصة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>مزيج من الألوان البحرية والرملية</li>
-                    <li>عناصر تعكس دور المطار كبوابة للحرمين</li>
-                    <li>زي خاص بموسم الحج والعمرة</li>
-                    <li>تفاصيل تعكس التنوع الثقافي للمدينة</li>
-          </ul>
-                </div>
-                <div className="bg-white shadow-md rounded-lg p-5 border border-gray-200">
-                  <h3 className="text-xl font-medium mb-3 text-blue-800">مطار الملك فهد الدولي (الدمام)</h3>
-                  <p className="mb-2 text-gray-700">العناصر المميزة:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>تصميم يجمع بين البساطة والعملية</li>
-                    <li>استخدام درجات الرمادي والأزرق الفاتح</li>
-                    <li>زي مصمم لمقاومة الرطوبة العالية</li>
-                    <li>عناصر تعكس الطابع الخليجي المشترك</li>
-          </ul>
-                </div>
-              </div>
-        </section>
-
-            <section id="strategic" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الأبعاد الاستراتيجية والتسويقية للزي الرسمي</h2>
-              
-              <div className="rounded-lg overflow-hidden mb-6">
-                <div className="bg-blue-800 text-white py-2 px-4">
-                  <h3 className="text-xl font-medium">دور الزي في تعزيز هوية المطار والعلامة التجارية</h3>
-                </div>
-                <div className="bg-white border border-blue-200 p-4">
-                  <p className="mb-2 font-medium text-blue-700">البعد التسويقي للزي الرسمي:</p>
-                  <ul className="list-disc list-inside space-y-2 mr-3 text-gray-700">
-                    <li>الزي كأداة تسويقية تعزز الصورة الذهنية للمطارات السعودية</li>
-                    <li>دور الزي في جعل المطارات السعودية قابلة للتمييز عالمياً</li>
-                    <li>تناسق الزي مع عناصر الهوية البصرية الأخرى للمطار</li>
-                    <li>انعكاس شخصية العلامة التجارية للمطار من خلال تفاصيل الزي</li>
-                    <li>أهمية الزي في التصوير الإعلامي والترويجي للمطارات السعودية</li>
-          </ul>
+              <div className="my-10">
+                <div className="relative h-96 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/flight_crew/air_crew_innovative_uniforms.webp"
+                    alt="تأثير الألوان النفسي في تصميم أزياء الطيران"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/80 to-pink-600/60 flex items-center">
+                    <div className="p-8 text-white">
+                      <h3 className="text-3xl font-bold mb-4">علم نفس الألوان في العمل</h3>
+                      <p className="text-lg mb-4">كيف تؤثر الألوان على مشاعر المسافرين وثقتهم في الخدمة</p>
+                      <div className="flex items-center gap-4 text-sm">
+                        <span className="bg-white/20 px-3 py-1 rounded-full">🧠 علم النفس</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full">🎨 التصميم</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full">✈️ الطيران</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200 mb-6">
-                <h3 className="text-xl font-medium mb-3 text-blue-800">تأثير الزي على تجربة المسافر</h3>
-                <p className="mb-2 text-gray-700">كيف يؤثر الزي على رحلة العميل:</p>
-                <ol className="list-decimal list-inside space-y-2 mr-3 text-gray-700">
-                  <li>تسهيل التعرف على موظفي الخدمة في المساحات المزدحمة</li>
-                  <li>بناء الثقة والاطمئنان من خلال المظهر المهني والمنظم</li>
-                  <li>تعزيز الانطباع الثقافي الأصيل عن المملكة العربية السعودية</li>
-                  <li>توحيد تجربة المسافر من خلال توحيد هوية مقدمي الخدمة</li>
-                  <li>تسهيل الاستدلال البصري على مستوى الخدمة المقدمة</li>
-          </ol>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl my-8">
+                <h3 className="text-2xl font-bold text-purple-900 mb-6">تنسيقات الألوان الناجحة</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <div className="relative h-48 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/best_flight_crew_attire.webp"
+                        alt="تنسيقات ألوان احترافية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <h4 className="font-semibold text-purple-800">التنسيقات الكلاسيكية</h4>
+                    <p className="text-sm text-gray-600">
+                      الألوان الثابتة التي تعكس الثقة والاحترافية مثل الأزرق الكحلي مع الأبيض والذهبي
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="relative h-48 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/flight_crew/air_crew_attire.webp"
+                        alt="تصميم أزياء الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <h4 className="font-semibold text-purple-800">التنسيقات المبتكرة</h4>
+                    <p className="text-sm text-gray-600">
+                      الألوان العصرية التي تعكس الحداثة والابتكار مع الحفاظ على الهوية المؤسسية
+                    </p>
+                  </div>
+                </div>
               </div>
-        </section>
+            </section>
 
-            <section id="conclusion" className="mb-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-900 border-r-4 border-blue-600 pr-3">الخلاصة</h2>
-              <p className="mb-4 leading-7 text-gray-700">
-                يمثل الزي الرسمي لموظفي الخدمات الأرضية في المطارات السعودية واجهة حيوية تعكس هوية المملكة العربية السعودية وثقافتها ورؤيتها المستقبلية. مع تطور قطاع الطيران والسياحة في المملكة، بات التطوير المستمر لهذا الزي ضرورة استراتيجية وليس مجرد خيار جمالي، حيث يساهم في بناء صورة موحدة ومتكاملة للمطارات السعودية.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                من خلال الجمع بين الأصالة التراثية والمعاصرة العالمية، ومراعاة الأبعاد الوظيفية والتسويقية، استطاعت المطارات السعودية تطوير زي موحد يحقق التوازن بين الهوية الإسلامية والعربية وبين متطلبات العمل في بيئة عالمية. ومع استمرار تنفيذ مشاريع تطوير وتوسعة المطارات ضمن رؤية 2030، من المتوقع أن يشهد الزي الرسمي للخدمات الأرضية مزيداً من التطوير والتحديث ليواكب المكانة المتنامية للمملكة كوجهة سياحية واقتصادية عالمية.
-              </p>
-              <p className="mb-4 leading-7 text-gray-700">
-                يبقى الزي الرسمي للخدمات الأرضية، بتنوعه وتفاصيله، لغة بصرية تنقل للعالم قصة المملكة العربية السعودية وتطورها، وتعكس العناية والاهتمام الذي توليه للمسافرين من جميع أنحاء العالم. فمن خلال الألوان والتصاميم والرموز، يتحول الزي الرسمي من مجرد ملابس عمل إلى رسالة ترحيب وانفتاح تتجاوز حدود اللغة والثقافة، لتعزز مكانة المطارات السعودية كبوابات عصرية رحبة للعالم.
-          </p>
-        </section>
-      </article>
+            <section id="airline-colors" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                الألوان الشائعة في أزياء الطيران
+              </h2>
+
+              <div className="space-y-8">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-4 flex items-center gap-2">
+                    <FaEye className="text-blue-600" />
+                    تحليل ألوان شركات الطيران الكبرى
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium mb-3 text-blue-700">الألوان المهيمنة:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• الأزرق البحري: 60% من شركات الطيران</li>
+                        <li>• الأحمر والبرتقالي: 25% من الشركات</li>
+                        <li>• الأخضر والألوان الطبيعية: 10%</li>
+                        <li>• الألوان الفاخرة (ذهبي، فضي): 5%</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium mb-3 text-blue-700">أسباب الشيوع:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• الأزرق: يرمز للسماء والثقة</li>
+                        <li>• الأحمر: يحفز النشاط والحيوية</li>
+                        <li>• الأخضر: يشعر بالطبيعة والاستدامة</li>
+                        <li>• الذهبي: يعكس الفخامة والتميز</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+                    <thead>
+                      <tr className="bg-purple-600 text-white">
+                        <th className="border border-gray-300 p-4 text-right">اللون</th>
+                        <th className="border border-gray-300 p-4 text-right">التأثير النفسي</th>
+                        <th className="border border-gray-300 p-4 text-right">المشاعر المحفزة</th>
+                        <th className="border border-gray-300 p-4 text-right">أمثلة شركات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">الأزرق الداكن</td>
+                        <td className="border border-gray-300 p-4">الثقة والاستقرار</td>
+                        <td className="border border-gray-300 p-4">الأمان والمصداقية</td>
+                        <td className="border border-gray-300 p-4">KLM، United، Delta</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">الأحمر الجريء</td>
+                        <td className="border border-gray-300 p-4">الطاقة والقوة</td>
+                        <td className="border border-gray-300 p-4">الحماس والإثارة</td>
+                        <td className="border border-gray-300 p-4">Virgin، Air Asia</td>
+                      </tr>
+                      <tr className="bg-gray-50">
+                        <td className="border border-gray-300 p-4 font-medium">الأخضر الزمردي</td>
+                        <td className="border border-gray-300 p-4">النمو والتجديد</td>
+                        <td className="border border-gray-300 p-4">الطبيعة والانتعاش</td>
+                        <td className="border border-gray-300 p-4">Aer Lingus، Alitalia</td>
+                      </tr>
+                      <tr>
+                        <td className="border border-gray-300 p-4 font-medium">الذهبي الفاخر</td>
+                        <td className="border border-gray-300 p-4">الفخامة والتميز</td>
+                        <td className="border border-gray-300 p-4">الرفاهية والجودة</td>
+                        <td className="border border-gray-300 p-4">Emirates، Singapore</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="passenger-impact" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                تأثير الألوان على المسافرين
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/passenger_color_impact.jpeg"
+                    alt="تأثير الألوان على المسافرين"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-green-800">
+                    الاستجابات النفسية للمسافرين
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    تشير الدراسات النفسية إلى أن المسافرين يكونون أكثر حساسية للألوان أثناء السفر بسبب التوتر الطبيعي المصاحب للطيران. لذلك، فإن اختيار الألوان المناسبة لأزياء الطاقم يمكن أن يساعد في تهدئة هذا التوتر وتحسين التجربة الإجمالية.
+                  </p>
+                  <div className="bg-green-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-green-800 mb-2">تأثيرات إيجابية:</h4>
+                    <ul className="text-sm space-y-1 text-green-700">
+                      <li>😌 تقليل القلق والتوتر</li>
+                      <li>💙 زيادة الشعور بالثقة</li>
+                      <li>🛡️ تعزيز الإحساس بالأمان</li>
+                      <li>🎯 تحسين التركيز والانتباه</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-yellow-50 border-r-4 border-yellow-500 p-6 rounded-lg">
+                <h3 className="text-lg font-semibold text-yellow-800 mb-3">
+                  📊 دراسات ميدانية حول تأثير الألوان
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-yellow-700 mb-2">النتائج الإيجابية:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• 78% من المسافرين يشعرون بالراحة مع الأزرق</li>
+                      <li>• 65% يرتبط الأخضر بالهدوء لديهم</li>
+                      <li>• 82% يثقون أكثر في الألوان الداكنة</li>
+                      <li>• 71% يفضلون الألوان المتدرجة الهادئة</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-yellow-700 mb-2">التحديات:</h4>
+                    <ul className="text-sm space-y-1 text-gray-700">
+                      <li>• الألوان الصارخة تزيد التوتر بنسبة 45%</li>
+                      <li>• الألوان المتضاربة تشتت الانتباه</li>
+                      <li>• الإضاءة تؤثر على إدراك الألوان</li>
+                      <li>• اختلاف التفسيرات حسب العمر والجنس</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="cultural-differences" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                الاختلافات الثقافية في إدراك الألوان
+              </h2>
+
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-orange-800">
+                    تنوع المعاني الثقافية للألوان
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-medium text-blue-800 mb-2">في الثقافة العربية</h4>
+                        <p className="text-sm text-gray-700">
+                          الأبيض يرمز للنقاء والطهارة، والأخضر للإسلام والطبيعة، والذهبي للكرم والضيافة
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-green-500 pl-4">
+                        <h4 className="font-medium text-green-800 mb-2">في الثقافة الآسيوية</h4>
+                        <p className="text-sm text-gray-700">
+                          الأحمر يجلب الحظ والازدهار، والأصفر يرمز للملوكية والقوة
+                        </p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-500 pl-4">
+                        <h4 className="font-medium text-purple-800 mb-2">في الثقافة الغربية</h4>
+                        <p className="text-sm text-gray-700">
+                          الأزرق يدل على الثقة والاحترافية، والأسود يعبر عن الأناقة والرسمية
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="relative h-64">
+                      <Image
+                        src="/images/flight_crew/cultural_aviation_uniforms.webp"
+                        alt="أزياء الطيران العربية الثقافية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="rounded-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🌍</span>
+                    </div>
+                    <h4 className="font-semibold text-red-800 mb-2">التنوع الجغرافي</h4>
+                    <p className="text-gray-600 text-sm">اختلاف دلالات الألوان بين القارات والمناطق</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">🕌</span>
+                    </div>
+                    <h4 className="font-semibold text-blue-800 mb-2">التأثير الديني</h4>
+                    <p className="text-gray-600 text-sm">دور المعتقدات الدينية في تفسير الألوان</p>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg text-center">
+                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">📚</span>
+                    </div>
+                    <h4 className="font-semibold text-green-800 mb-2">التراث التاريخي</h4>
+                    <p className="text-gray-600 text-sm">تأثير التاريخ والتراث على فهم الألوان</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="brand-identity" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                الألوان والهوية التجارية
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="relative h-48">
+                  <Image
+                    src="/images/flight_crew/crew_uniform_visual_identity.webp"
+                    alt="هوية العلامة التجارية بالألوان"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-teal-800">
+                    بناء الهوية من خلال الألوان
+                  </h3>
+                  <p className="text-gray-700 text-sm">
+                    تعتبر الألوان أحد أقوى عناصر الهوية التجارية لشركات الطيران، حيث تساعد في خلق صورة ذهنية قوية ومميزة في أذهان المسافرين. هذه الصورة تترجم إلى ولاء العملاء وتمييز الشركة عن منافسيها.
+                  </p>
+                  <div className="bg-teal-100 p-4 rounded-lg">
+                    <h4 className="font-medium text-teal-800 mb-2">عناصر الهوية اللونية:</h4>
+                    <ul className="text-sm space-y-1 text-teal-700">
+                      <li>🎨 اللون الأساسي للعلامة التجارية</li>
+                      <li>🌈 الألوان الثانوية المكملة</li>
+                      <li>⚖️ التوازن والتناغم اللوني</li>
+                      <li>🔄 الثبات عبر جميع نقاط التلامس</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-100 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-teal-800">
+                  استراتيجيات اختيار الألوان التجارية
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium text-teal-700 mb-3">المبادئ الأساسية:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• التميز عن المنافسين في السوق</li>
+                      <li>• التوافق مع قيم ورسالة الشركة</li>
+                      <li>• مراعاة الجمهور المستهدف</li>
+                      <li>• القابلية للتطبيق عبر وسائل مختلفة</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-teal-700 mb-3">معايير النجاح:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>• سهولة التذكر والتمييز</li>
+                      <li>• إثارة المشاعر المرغوبة</li>
+                      <li>• المرونة في التطبيقات المختلفة</li>
+                      <li>• الاستدامة الزمنية والعالمية</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="color-combinations" className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-blue-900 border-r-4 border-purple-600 pr-4">
+                تنسيق الألوان والتوليفات
+              </h2>
+
+              <div className="space-y-8">
+                <div className="bg-gradient-to-r from-pink-50 to-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-pink-800 mb-4">
+                    فن التنسيق اللوني في أزياء الطيران
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-white p-4 rounded-lg border border-pink-200">
+                      <h4 className="font-semibold text-blue-800 mb-2">التنسيق الأحادي</h4>
+                      <p className="text-sm text-gray-700 mb-2">
+                        استخدام درجات مختلفة من نفس اللون
+                      </p>
+                      <ul className="text-xs space-y-1 text-gray-600">
+                        <li>• يخلق مظهراً أنيقاً ومتناسقاً</li>
+                        <li>• سهل التطبيق والتنسيق</li>
+                        <li>• يعطي انطباعاً بالوحدة والتماسك</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-pink-200">
+                      <h4 className="font-semibold text-green-800 mb-2">التنسيق المتكامل</h4>
+                      <p className="text-sm text-gray-700 mb-2">
+                        ألوان متقاربة في عجلة الألوان
+                      </p>
+                      <ul className="text-xs space-y-1 text-gray-600">
+                        <li>• يبدو طبيعياً ومتناغماً</li>
+                        <li>• يخلق جواً مريحاً للعين</li>
+                        <li>• مناسب للاستخدام اليومي</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white p-4 rounded-lg border border-pink-200">
+                      <h4 className="font-semibold text-purple-800 mb-2">التنسيق المتضاد</h4>
+                      <p className="text-sm text-gray-700 mb-2">
+                        ألوان متقابلة في عجلة الألوان
+                      </p>
+                      <ul className="text-xs space-y-1 text-gray-600">
+                        <li>• يخلق تبايناً قوياً وجذاباً</li>
+                        <li>• مناسب للفت الانتباه</li>
+                        <li>• يحتاج مهارة في التطبيق</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-amber-50 to-orange-100 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-amber-800">
+                    أمثلة ناجحة لتنسيق الألوان
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-medium text-amber-700 mb-3">التوليفات الكلاسيكية:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• أزرق بحري + أبيض + ذهبي</li>
+                        <li>• أحمر كرزي + رمادي + فضي</li>
+                        <li>• أخضر زمردي + كريمي + بني</li>
+                        <li>• بنفسجي + لؤلؤي + وردي فاتح</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-amber-700 mb-3">التوليفات الحديثة:</h4>
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li>• فيروزي + أبيض + برتقالي</li>
+                        <li>• نيلي + فضي + أصفر</li>
+                        <li>• بنفسجي + ذهبي + أبيض كريمي</li>
+                        <li>• أخضر نعناعي + رمادي + زهري</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Related Articles */}
+            <section className="border-t pt-8">
+              <h3 className="text-2xl font-bold mb-6 text-blue-900">مقالات ذات صلة</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <Link href="/blog/flight-crew/flight-1" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/airline_uniform_design.jpeg"
+                        alt="اعتبارات تصميم زي شركات الطيران"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-purple-600 transition-colors">
+                        اعتبارات تصميم زي شركات الطيران: دليل شامل للتميز
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-8" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/arab_airline_cultural_uniforms.jpeg"
+                        alt="أزياء الطيران العربية الثقافية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-purple-600 transition-colors">
+                        أزياء الطيران العربية الثقافية
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/blog/flight-crew/flight-7" className="group">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-40">
+                      <Image
+                        src="/images/flight_crew/air_crew_innovative_uniforms.webp"
+                        alt="أزياء الطيران المستقبلية"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-semibold group-hover:text-purple-600 transition-colors">
+                        أزياء الطيران المستقبلية: الذكاء الاصطناعي والتصميم التفاعلي
+                      </h4>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </section>
+
+          </article>
         </div>
       </div>
     </main>

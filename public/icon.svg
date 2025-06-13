@@ -1,0 +1,22 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="180" height="180" fill="#1e40af" rx="20"/>
+  
+  <!-- Main uniform shape -->
+  <rect x="45" y="40" width="90" height="100" fill="white" rx="8"/>
+  
+  <!-- Uniform details -->
+  <rect x="55" y="50" width="70" height="80" fill="#f8fafc" stroke="#1e40af" stroke-width="2" rx="4"/>
+  
+  <!-- Buttons -->
+  <circle cx="90" cy="70" r="3" fill="#1e40af"/>
+  <circle cx="90" cy="85" r="3" fill="#1e40af"/>
+  <circle cx="90" cy="100" r="3" fill="#1e40af"/>
+  
+  <!-- Collar -->
+  <path d="M65 50 L90 50 L90 60 L80 60 L70 50" fill="#1e40af"/>
+  <path d="M115 50 L90 50 L90 60 L100 60 L110 50" fill="#1e40af"/>
+  
+  <!-- Company initial -->
+  <text x="90" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">يو</text>
+</svg> 
