@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,13 +8,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
-import ImageWithPath, { NextImageWithPath } from './components/ImageWithPath';
 import { OrganizationSchema, WebsiteSchema } from './components/JsonLdSchema';
 
-// استيراد بيانات المقالات ذات الصلة من ملف المدونة
-import { articles as blogPosts } from './blog/data';
-
-// بيانات المقالات من site_articles.txt (100 مقالة كاملة)
+// بيانات المقالات من site_articles.txt (أول 12 مقالة فقط)
 const siteArticles = [
   { title: 'اعتبارات تصميم زي شركات الطيران', path: '/blog/flight-crew/flight-1', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
   { title: 'أقمشة أزياء طاقم الطائرة', path: '/blog/flight-crew/flight-2', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
@@ -28,103 +23,8 @@ const siteArticles = [
   { title: 'مصنعو أزياء طاقم الطيران', path: '/blog/flight-crew/flight-9', image: '/images/flight_crew/crew_uniform_solutions.webp' },
   { title: 'أزياء الطيران في السعودية', path: '/blog/flight-crew/flight-10', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
   { title: 'أهمية التصميم الموحد لزي طاقم الطائرة', path: '/blog/flight-crew/flight-13', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'أحذية وحقائب طاقم الطائرة', path: '/blog/flight-crew/flight-12', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'إكسسوارات أزياء طاقم الطائرة', path: '/blog/flight-crew/flight-11', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'نظرة عامة على أزياء طاقم الطائرة', path: '/blog/flight-crew/flight-1', image: '/images/flight_crew/cabin_crew_uniforms.webp' },
-  { title: 'مواد أزياء طاقم الطائرة', path: '/blog/flight-crew/cabin-crew-uniform-fabric-selection', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'أزياء الطيران الذكية', path: '/blog/flight-crew/air-crew-attire', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'أزياء طاقم الأرض', path: '/blog/flight-crew/ground-crew-attire', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'تاريخ تطور زي الخطوط الجوية السعودية', path: '/blog/flight-crew/flight-20', image: '/images/flight_crew/cultural_aviation_uniforms.webp' },
-  { title: 'أزياء الطيران المستقبلية', path: '/blog/flight-crew/flight-19', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'الابتكار في أزياء شركات الطيران', path: '/blog/aviation-uniforms/innovative-airline-uniforms', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'ملابس طاقم الطيران للرجال والنساء', path: '/blog/aviation-uniforms/female-male-air-crew-wear', image: '/images/flight_crew/cabin_crew_uniforms.webp' },
-  { title: 'مستقبل موضة طاقم الطائرة', path: '/blog/aviation-uniforms/aviation-uniform-standards-2025', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'اعتبارات تصميم الزي الموحد للطيران', path: '/blog/aviation-uniforms/airline-uniform-design-considerations', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'تطوير تصميم أزياء شركات الطيران', path: '/blog/aviation-uniforms/airline-uniform-design-evolution', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'معايير أزياء الطيران', path: '/blog/aviation-uniforms/aviation-uniform-standards', image: '/images/flight_crew/crew_uniform_solutions.webp' },
-  { title: 'زي الطيران في الطيران', path: '/blog/aviation-uniforms/crew-aviation-on-uniform', image: '/images/flight_crew/cabin_crew_uniforms.webp' },
-  { title: 'تصميم الزي في الطيران', path: '/blog/aviation-uniforms/in-design-uniform-aviation', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'زي الطيران في المملكة', path: '/blog/aviation-uniforms/uniform-aviation-in-kingdom', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'زي طاقم الطائرة', path: '/blog/aviation-uniforms/uniform-crew', image: '/images/flight_crew/cabin_crew_uniforms.webp' },
-  { title: 'الطيران في تصميم الأزياء', path: '/blog/aviation-uniforms/aviation-in', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'أفضل الممارسات في زي الطيران', path: '/blog/aviation-uniforms/best-on-uniform-aviation', image: '/images/flight_crew/best_flight_crew_attire.webp' },
-  { title: 'تصميم ملابس طاقم الطائرة', path: '/blog/aviation-uniforms/in-design-clothing-crew-aircraft', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'تصميم زي طاقم الطيران', path: '/blog/aviation-uniforms/design-uniform-crew-aviation', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'أزياء شركات الطيران كعنصر في الهوية المؤسسية', path: '/blog/aviation-uniforms/airline-corporate-identity-uniforms', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'اختيار أقمشة زي طاقم المقصورة', path: '/blog/aviation-uniforms/cabin-crew-uniform-fabric-selection', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'مبادئ تصميم زي الطيران', path: '/blog/aviation-uniforms/design-uniform', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'تصميم زي الطيران في المملكة العربية السعودية', path: '/blog/aviation-uniforms/in-design-uniform-aviation-Saudi', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'أزياء الطيران في المملكة السعودية: التطور والتميز', path: '/blog/flight-crew/uniforms-saudi-arabia', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'تصميم زي طاقم الطيران', path: '/blog/flight-crew/flight-crew-uniform-design', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'ملابس طاقم الطيران', path: '/blog/flight-crew/air-crew-attire', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'أزياء المضيفات الحديثة', path: '/blog/flight-crew/modern-flight-attendant-fashion', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'الراحة والسلامة في أزياء شركات الطيران', path: '/blog/flight-crew/comfort-safety-airline-uniforms', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'تصميم الزي الموحد', path: '/blog/flight-crew/design-uniform', image: '/images/flight_crew/uniform_safety_standards.webp' },
-  { title: 'تصميم أزياء الطيران في المملكة العربية السعودية', path: '/blog/flight-crew/in-design-uniform-aviation-saudi', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'تصميم زي شركات الطيران', path: '/blog/flight-crew/airline-uniform-design', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'ملابس طاقم الخدمات الأرضية', path: '/blog/flight-crew/ground-crew-attire', image: '/images/flight_crew/air_crew_attire.webp' },
-  { title: 'زي الطيار', path: '/blog/flight-crew/pilot-uniform', image: '/images/flight_crew/modern_airline_uniform_design.webp' },
-  { title: 'زي المضيفات', path: '/blog/flight-crew/stewardess-uniform', image: '/images/flight_crew/comfort_safety_airline_uniforms.webp' },
-  { title: 'أساسيات تصميم أزياء الطيران', path: '/blog/aviation-uniforms/aviation', image: '/images/flight_crew/crew_uniform_visual_identity.webp' },
-  { title: 'الابتكار في تصميم أزياء الطيران', path: '/blog/aviation/page', image: '/images/flight_crew/air_crew_innovative_uniforms.webp' },
-  { title: 'زي الطيران وهوية الشركة المؤسسية', path: '/blog/aviation-uniforms/airline-corporate-identity', image: '/images/flight_crew/arab_airlines_uniforms.webp' },
-  { title: 'معايير تصميم زي الطهاة العالمية', path: '/blog/culinary-apparel/culinary-1', image: '/images/culinary_apparel/header_chef_uniform.webp' },
-  { title: 'متطلبات زي طاقم المطبخ حسب الوظيفة والتخصص', path: '/blog/culinary-apparel/culinary-2', image: '/images/culinary_apparel/culinary_arts_uniforms.webp' },
-  { title: 'تصميم أزياء الطهاة في السعودية', path: '/blog/chef-uniforms/design-in-Saudi', image: '/images/culinary_apparel/chef_jackets.webp' },
-  { title: 'ملابس الطهاة الحديثة', path: '/blog/chef-uniforms/culinary_apparel-culinary-17', image: '/images/culinary_apparel/chef_coats.webp' },
-  { title: 'تصميم ملابس الطهاة لعام 2025', path: '/blog/chef-uniforms/in-design-clothing-chef-2025', image: '/images/culinary_apparel/modern_traditional_chef_wear.webp' },
-  { title: 'الزي الموحد في خدمات التموين السعودية', path: '/blog/chef-uniforms/uniform-in-services-catering-Saudi', image: '/images/culinary_apparel/catering_kitchen_uniforms.webp' },
-  { title: 'أفضل أنواع السكراب الطبي للممرضين والأطباء', path: '/blog/clinic-wear/clinic-1', image: '/images/clinic_wear/medical_wear.webp' },
-  { title: 'معايير اختيار الملابس الطبية حسب متطلبات وزارة الصحة', path: '/blog/clinic-wear/clinic-2', image: '/images/clinic_wear/header_medical_uniform.webp' },
-  { title: 'اللوائح التنظيمية للزي الطبي في المنشآت الصحية السعودية', path: '/blog/clinic-wear/clinic-2', image: '/images/clinic_wear/clinic_staff_uniforms.webp' },
-  { title: 'مواصفات زي الحرس الأمني المثالي', path: '/blog/protective-services/protective-1', image: '/images/protective_services/header_security_uniform.webp' },
-  { title: 'معايير اختيار زي الخدمات الوقائية', path: '/blog/protective-services/protective-2', image: '/images/protective_services/security_guard_uniforms.webp' },
-  { title: 'اختيار أفضل ملابس عمل (أفرولات) لقطاع الصيانة والمرافق بالسعودية', path: '/blog/utility-services/utility-1', image: '/images/utility_services/utility_uniforms.webp' },
-  { title: 'أهمية وخصائص الأقمشة المقاومة في زي عمال المرافق', path: '/blog/utility-services/utility-2', image: '/images/utility_services/maintenance_technician_clothing.webp' },
-  { title: 'المواد المستخدمة في تصنيع أزياء الأمن: دليل شامل', path: '/blog/security-uniforms/uniform-security-materials', image: '/images/security_uniforms/security_uniform_design.webp' },
-  { title: 'أهمية الزي الموحد في تعزيز مستوى الأمن والأمان', path: '/blog/security-uniforms/importance-uniform-on-security', image: '/images/protective_services/professional_security_uniforms.webp' },
-  { title: 'مواصفات زي الأمن المثالي', path: '/blog/security-uniforms/security-uniform-specifications', image: '/images/security_uniforms/header_security_uniform.webp' },
-  { title: 'تأثير الزي الموحد على مستوى الأمن والحماية', path: '/blog/security_uniforms/importance-uniform-on-security', image: '/images/protective_services/facility_protection_uniforms.webp' },
-  { title: 'الزي الموحد للحراسة الأمنية: المواصفات والمعايير', path: '/blog/security_uniforms/security-uniform-standards', image: '/images/protective_services/security_services_attire.webp' },
-  { title: 'أهمية شارات الرتب في أزياء شركات الأمن', path: '/blog/security_uniforms/importance-rank-badges', image: '/images/security_uniforms/rank_badges.webp' },
-  { title: 'الألوان وتأثيرها النفسي في أزياء الأمن والحراسة', path: '/blog/security_uniforms/security-uniform-colors-psychology', image: '/images/protective_services/high_visibility_protection_uniforms.webp' },
-  { title: 'العناية بملابس العمل وأثرها على الصحة المهنية', path: '/blog/workwear/clothing-maintenance-work-health', image: '/images/workwear/work_clothes_care.webp' },
-  { title: 'معايير الزي الموحد لشركات الخدمات والمرافق', path: '/blog/workwear/utility-services-uniform-standards', image: '/images/workwear/utility_services_uniform_standards.webp' },
-  { title: 'ملابس فنيي الخدمة الميدانية: المتطلبات والمواصفات', path: '/blog/workwear/field-service-technician-workwear', image: '/images/workwear/field_technician_workwear.webp' },
-  { title: 'الزي الموحد: أهميته وتأثيره على بيئة العمل', path: '/blog/workwear/uniform', image: '/images/workwear/uniform_importance.webp' },
-  { title: 'متطلبات الزي الموحد لعمال الصيانة والتشغيل', path: '/blog/workwear/maintenance-worker-uniform-requirements', image: '/images/workwear/maintenance_uniform_requirements.webp' },
-  { title: 'أسس اختيار ملابس العمل الوظيفية', path: '/blog/workwear/workwear-2', image: '/images/workwear/workwear_2.webp' },
-  { title: 'العناية بملابس العمل', path: '/blog/workwear/in-clothing-maintenance', image: '/images/workwear/maintenance.webp' },
-  { title: 'أهمية الزي الموحد', path: '/blog/workwear/importance-from-uniform', image: '/images/workwear/header_workwear_uniform.webp' },
-  { title: 'الزي الموحد في السعودية', path: '/blog/workwear/uniform-in-Saudi', image: '/images/flight_crew/smart_materials.webp' },
-  { title: 'ملابس العمل في المملكة', path: '/blog/workwear/clothing-in-kingdom', image: '/images/workwear/workwear_maintenance.webp' },
-  { title: 'الزي الموحد', path: '/blog/workwear/uniform-in', image: '/images/workwear/uniform_sectors.webp' },
-  { title: 'صيانة الملابس', path: '/blog/workwear/maintenance', image: '/images/flight_crew/crew_pins_badges.webp' },
-  { title: 'مرافق ملابس العمل في الدمام', path: '/blog/workwear/clothing-facilities-in-Dammam', image: '/images/flight_crew/accessories_overview.webp' },
-  { title: 'تصميم زي الصيانة الموحد', path: '/blog/workwear/design-uniform-maintenance', image: '/images/workwear/corporate_uniform.webp' },
-  { title: 'كيفية اختيار ملابس العمل المناسبة', path: '/blog/workwear/how-to-choosing', image: '/images/flight_crew/flight_crew_uniforms.webp' },
-  { title: 'معلومات عن ملابس العمل', path: '/blog/workwear/on-clothing', image: '/images/workwear/workwear_maintenance_guide.webp' },
-  { title: 'أحذية السلامة من موردي ملابس عمال المرافق', path: '/blog/workwear/safety-shoes-from-uniform-workers-facilities', image: '/images/flight_crew/cabin_crew_uniforms.webp' },
-  { title: 'ملابس العمل: أنواعها ومواصفاتها وأهميتها في بيئة العمل', path: '/blog/workwear/clothing', image: '/images/flight_crew/flight_crew_uniforms_riyadh.webp' },
-  { title: 'أفضل موردي الزي المدرسي الموحد في الرياض', path: '/blog/academic-attire/academic-1', image: '/images/academic_attire/school_uniforms_riyadh.jpeg' },
-  { title: 'كيفية اختيار أقمشة الزي المدرسي المناسبة لمناخ السعودية', path: '/blog/academic-attire/academic-2', image: '/images/academic_attire/school_uniform_fabrics.jpeg' },
-  { title: 'كيف يعكس الزي الرسمي الموحد هوية وقيم شركتك في السعودية؟', path: '/blog/corporate-uniforms/corporate-1', image: '/images/corporate_uniforms/corporate_identity_uniforms.webp' },
-  { title: 'تصميم أزياء العاملين في الفنادق السعودية: بين الضيافة والهوية المحلية', path: '/blog/hospitality/hospitality-1', image: '/images/hospitality/hotel_staff_uniforms.webp' },
-  { title: 'أفضل الممارسات للعناية بالزي الموحد وإطالة عمره الافتراضي', path: '/blog/uniform-care/uniform-care-1', image: '/images/uniform_care/uniform_maintenance.webp' },
-  { title: 'الزي الموحد في القطاعات المختلفة: خصائصه ومميزاته ومتطلباته', path: '/blog/workwear/uniform-sectors', image: '/images/flight_crew/flight_crew_uniforms_riyadh.webp' },
-  { title: 'الزي الموحد للشركات: استثمار استراتيجي للمؤسسات الناجحة', path: '/blog/workwear/corporate-uniform', image: '/images/flight_crew/flight_crew_uniform_design.webp' },
-  { title: 'أساسيات العناية بملابس العمل: دليل شامل للحفاظ على جودتها', path: '/blog/workwear/workwear-maintenance-guide', image: '/images/workwear/workwear_maintenance_guide.webp' }
+  { title: 'أحذية وحقائب طاقم الطائرة', path: '/blog/flight-crew/flight-12', image: '/images/flight_crew/air_crew_attire.webp' }
 ];
-
-// تعريف نوع المقال
-interface Post {
-  id: string;
-  title: string;
-  category: string;
-  imageUrl: string;
-  url: string;
-  englishSlug?: string;
-}
 
 const slides = [
   {
@@ -181,129 +81,7 @@ const stats = [
   { number: '100%', label: 'رضا العملاء' }
 ];
 
-// وظيفة لتحويل العناوين العربية إلى الإنجليزية للروابط
-const getEnglishSlug = (id: string, category: string) => {
-  // قائمة المقالات والعناوين الإنجليزية المقابلة
-  const slugMap: {[key: string]: string} = {
-    // أزياء طبية
-    'clinic-1': 'best-medical-scrubs-for-nurses-doctors',
-    'clinic-2': 'medical-uniform-standards-saudi-health-ministry',
-    'clinic-3': 'comfortable-antibacterial-medical-scrub-fabrics',
-    'flight-1': 'airline-uniform-design-considerations',
-    'flight-2': 'cabin-crew-uniform-fabric-selection',
-    'flight-3': 'airline-corporate-identity-uniforms',
-    'academic-1': 'top-school-uniform-suppliers-riyadh',
-    'academic-2': 'choosing-school-uniform-fabrics-saudi-climate',
-    'culinary-1': 'chef-uniform-design-standards',
-    'culinary-2': 'kitchen-staff-uniform-requirements',
-    'protective-1': 'security-guard-uniform-specifications',
-    'utility-1': 'maintenance-worker-uniform-requirements',
-  };
-  
-  // إذا كان المعرف موجوداً في القائمة، استخدمه
-  if (slugMap[id]) {
-    return slugMap[id];
-  }
-  
-  // وإلا استخدم المعرف الأصلي مع الفئة
-  return `${category}-${id}`;
-};
-
-// وظيفة الحصول على صورة من الفئة
-const getCategoryImage = (category: string, index: number) => {
-  const images: { [key: string]: string[] } = {
-    academic_attire: ['school_uniforms.webp', 'academic_attire.webp'],
-    clinic_wear: ['clinic_scrubs.webp', 'clinic_staff_uniforms.webp'],
-    culinary_apparel: ['kitchen_staff_clothing.webp', 'chef_uniforms.webp'],
-    flight_crew: ['flight_crew_uniforms_riyadh.webp', 'cabin_crew_uniforms.webp'],
-    protective_services: ['protective_services_uniforms.webp', 'security_guard_uniforms.webp'],
-    workwear: ['uniform_workwear.webp', 'workwear_clothing.webp'],
-    utility_services: ['utility_services_uniforms.webp', 'utility_work_clothing.webp'],
-    culinary: ['chef_kitchen_clothing.webp', 'culinary_clothing.webp'],
-  };
-  
-  const categoryImages = images[category];
-  if (categoryImages && categoryImages.length > 0) {
-    return `/images/${category}/${categoryImages[index % categoryImages.length]}`;
-  }
-
-  return '/images/culinary_apparel/kitchen_staff_clothing.jpeg';
-};
-
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState('الكل');
-  const [visibleCount, setVisibleCount] = useState(6);
-  // Add these new states for lazy loading
-  const [displayedArticles, setDisplayedArticles] = useState(12); // Initial number of displayed articles
-  const [isLoading, setIsLoading] = useState(false);
-  const loaderRef = useRef<HTMLDivElement>(null); // Reference to loader element
-
-  // تحديث الفئات تلقائياً من بيانات المقالات
-  const allCategories = Array.from(new Set(blogPosts.map(post => post.category)));
-  const categoryLabels: { [key: string]: string } = {
-    'aviation-uniforms': 'أزياء الطيران',
-    'medical-uniforms': 'أزياء طبية',
-    'chef-uniforms': 'أزياء الطهاة',
-    'academic-uniforms': 'الزي الأكاديمي',
-    'protective-uniforms': 'أزياء الخدمات الوقائية',
-    'certifications': 'الشهادات',
-    'support-uniforms': 'أزياء الخدمات المساندة'
-  };
-  const categories = ['الكل', ...allCategories.map(cat => categoryLabels[cat] || cat)];
-  const categoryMap = Object.fromEntries(Object.entries(categoryLabels).map(([k, v]) => [v, k]));
-
-  // تجهيز المقالات مع روابطها
-  const processedPosts = blogPosts.map(post => ({
-    ...post,
-    englishSlug: post.id,
-  }));
-
-  const filteredPosts = activeCategory === 'الكل'
-    ? processedPosts
-    : processedPosts.filter(post => post.category === categoryMap[activeCategory]);
-
-  // عرض المزيد
-  const visiblePosts = filteredPosts.slice(0, visibleCount);
-  const canShowMore = visibleCount < filteredPosts.length;
-  
-  // Lazy loading setup
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '200px',
-      threshold: 0.05
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting && !isLoading && displayedArticles < siteArticles.length) {
-        loadMoreArticles();
-      }
-    }, options);
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-  }, [isLoading, displayedArticles]);
-
-  // Function to load more articles
-  const loadMoreArticles = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setDisplayedArticles(prevCount => Math.min(prevCount + 12, siteArticles.length));
-      setIsLoading(false);
-    }, 300);
-  };
-
-  // Get displayed articles
-  const visibleArticles = siteArticles.slice(0, displayedArticles);
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* JSON-LD Schema */}
@@ -403,12 +181,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* All Posts Section - 100 Articles from site_articles.txt */}
+      {/* Featured Articles Section - First 12 Articles Only */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">جميع المقالات</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">مقالات مختارة</h2>
+          <p className="text-xl text-center text-gray-600 mb-12">اكتشف أحدث المقالات في عالم الأزياء الموحدة</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {visibleArticles.map((article, idx) => (
+            {siteArticles.map((article, idx) => (
               <Link key={idx} href={article.path} className="group">
                 <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
                   <div className="relative h-48 w-full bg-gray-200">
@@ -417,7 +196,6 @@ export default function HomePage() {
                       alt={article.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
@@ -429,33 +207,14 @@ export default function HomePage() {
             ))}
           </div>
           
-          {/* Loader */}
-          {displayedArticles < siteArticles.length && (
-            <div 
-              ref={loaderRef} 
-              className="text-center py-8 mt-8"
+          {/* Link to Blog Page */}
+          <div className="text-center mt-12">
+            <Link 
+              href="/blog"
+              className="inline-block bg-blue-700 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors duration-300 font-semibold"
             >
-              {isLoading ? (
-                <div className="flex justify-center items-center">
-                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-700"></div>
-                  <span className="mr-2">جاري تحميل المزيد من المقالات...</span>
-                </div>
-              ) : (
-                <button 
-                  onClick={loadMoreArticles}
-                  className="px-6 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
-                >
-                  عرض المزيد
-                </button>
-              )}
-            </div>
-          )}
-          
-          {/* Display count */}
-          <div className="text-center mb-4">
-            <p className="text-gray-700">
-              {displayedArticles > siteArticles.length ? siteArticles.length : displayedArticles} مقالة من أصل {siteArticles.length} مقالة
-            </p>
+              عرض جميع المقالات
+            </Link>
           </div>
         </div>
       </section>
