@@ -444,7 +444,7 @@ export default function Article3Page() {
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="relative h-48">
                   <Image
-                    src="/images/flight_crew/testing_certification.webp"
+                    src="/images/flight_crew/air_crew_innovative_uniforms.webp"
                     alt="اختبارات ومصادقة أزياء الطيران"
                     fill
                     style={{ objectFit: 'cover' }}
@@ -505,7 +505,7 @@ export default function Article3Page() {
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="relative h-48">
                   <Image
-                    src="/images/flight_crew/future_safety_innovations.webp"
+                    src="/images/flight_crew/comfort_safety_airline_uniforms.webp"
                     alt="ابتكارات المستقبل في سلامة الطيران"
                     fill
                     style={{ objectFit: 'cover' }}
@@ -602,7 +602,7 @@ export default function Article3Page() {
                   <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative h-40">
                       <Image
-                        src="/images/flight_crew/female_male_air_crew_wear.webp"
+                        src="/images/flight_crew/female_male_air_crew_wear.original.webp"
                         alt="أزياء الطيران النسائية"
                         fill
                         style={{ objectFit: 'cover' }}
